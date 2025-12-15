@@ -1,0 +1,37 @@
+@font-face {
+    font-family:'K2D' ;
+    src: url('/fonts/K2D/K2D-ExtraBold.ttf') format('woff2');
+}
+
+@font-face {
+    font-family:'K2D' ;
+    src: url('/fonts/K2D/K2D-SemiBold.ttf') format('woff2');
+}
+
+@font-face {
+    font-family:'Inter' ;
+    src: url('/fonts/Inter/static/Inter_18pt-Medium.ttf') format('woff2');
+}
+
+@font-face {
+    font-family:'Inter' ;
+    src: url('/fonts/Inter/static/Inter_18pt-Bold.ttf') format('woff2');
+}
+
+@font-face {
+    font-family:'Inter' ;
+    src: url('/fonts/Inter/static/Inter_18pt-Regular.ttf') format('woff2');
+}
+
+@font-face {
+    font-family:'Roboto' ;
+    src: url('/fonts/Roboto/Roboto-Light.ttf') format('woff2');
+}
+
+body{
+    background-color: var(--color-brand);
+    font-family: 'Inter','K2D','Roboto', sans-serif;
+    overflow-x: hidden; 
+    
+}
+

@@ -1,0 +1,148 @@
+/*Contact form*/
+
+.section-contacts{
+    position: relative;
+}
+
+.container-top-contacts{
+    display: flex;
+    margin-left: 500px;
+    gap: 50px;
+}
+
+.contacts-title{
+    color: #FFF; 
+    font-family: K2D;
+    font-size: 118.087px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 84.469px; /* 71.531% */
+    letter-spacing: 5.904px;   
+    padding-top: 50px;
+}
+
+.contacts-big-arrow1{
+    transform: rotate(90deg);
+    display: block;
+    margin: 0 auto;
+}
+
+.form-title{
+    width: 600px;
+    color: var(--color-brand-light);
+    font-family: K2D;
+    border: 2px solid var(--color-primary-dark); /* Толщина рамки 2px, сплошная линия, черный цвет */
+    padding: 20px; /* Внутренние отступы для пространства внутри рамки */
+    border-radius: 100px; /* Скругление углов */
+    text-align: center; /* Центрирование текста */
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.form-label{
+    color: var(--color-primary-light);
+    font-family: K2D;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 30px;
+    margin-bottom: 10px ;
+}
+
+.container-form-items{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.input1, .input2, .input3{
+    background: rgba(73, 33, 33, 0.38);
+}
+
+.input1, .input2 {
+    width: 517px;
+    height: 74px;
+    border-radius: 35px;
+    border: none;
+}
+
+.input3{
+    width: 517px;
+    height: 240px;
+    border-radius: 35px;
+    border: none;
+    resize: vertical;
+    color: var(--color-primary-light);
+    padding: 30px;
+}
+
+.input1, .input2, .input3::placeholder{
+    color: rgba(217, 217, 217, 0.85);
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 84.469px;
+    padding-left: 20px;
+}
+
+.form-button{
+    border-radius: 50px;
+    border-color: transparent;
+    background:var(--color-brand-light);
+    backdrop-filter: blur(33px);
+    width: 280px;
+    height: 56px;
+    color: var(--color-primary-light);
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 30px;
+}
+
+.form-button:hover{
+    background:var(--color-brand);
+    transition: 0.3s ease, color 0.3s ease;
+    color: var(--color-primary-light);
+    border-color: var(--color-primary-light);
+}
+
+.info-form{
+    font-size: 13px;
+    color:#747272;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.contact-semicircle{
+    position: absolute;
+    top: 0;
+    padding: 0;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.semicircle1, .semicircle2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.semicircle1 {
+    z-index: 1; /* Обеспечивает, что semicircle1 будет выше, чем semicircle2 */
+}
+
+.semicircle2 {
+    z-index: 0; 
+    padding: 200px 0 0 250px;
+}

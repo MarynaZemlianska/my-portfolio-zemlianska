@@ -1,0 +1,36 @@
+/* Стили для формы */
+  #consultationForm {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #consultationForm label {
+    margin-top: 10px;
+  }
+  
+  #consultationForm input,
+  #consultationForm textarea {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  #consultationForm button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: var(--color-brand-light);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #consultationForm button:hover {
+    background-color: var(--color-brand-dark);
+  }
+
+
+

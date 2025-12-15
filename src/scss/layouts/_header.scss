@@ -1,0 +1,317 @@
+.nav-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    border: 2px rgba(194, 19, 255, 0.76);
+    margin: 40px auto;
+    padding: 0;
+    width: 1350px;
+    height: 95px;
+}
+
+.logo{
+    text-align: center;
+    font-family: K2D;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--color-brand-light);
+    
+}
+
+.logo:hover{
+    color: var(--color-pr-light);
+    transition: 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.nav{    
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+
+ul{
+    display: flex;
+    padding-right: 300px;
+    padding-left: 40px;
+    gap: 53px;
+    text-decoration: none;
+    list-style-type: none;
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.nav-link {
+    text-decoration: none;
+    padding-bottom: 15px;
+    position: relative;
+    color: var(--color-primary-light);
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-brand-light);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Располагаем под меню "Services" */
+    left: 0;
+    background-color: var(--color-brand);
+    list-style-type: none;
+    padding: 10px 0;
+    border: 1px solid rgba(194, 19, 255, 0.76);
+    border-radius: 5px;
+    min-width: max-content; /* Устанавливает минимальную ширину в зависимости от контента */
+    white-space: nowrap;
+    z-index: 2;
+}
+
+.dropdown-menu li {
+    padding: 10px 20px;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: var(--color-primary-light);
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    color: var(--color-brand-light);
+}
+
+/* Показываем выпадающее меню при наведении на элемент */
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+
+.button-contact{
+    background: #242121;
+    color: var(--color-primary-light);
+    border-radius: 50px;
+    border-color: transparent;
+    width: 220px;
+    height: 56px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    pointer-events: auto;
+    z-index: 3;
+}
+
+.button-contact:hover{
+    background:var(--color-brand-light);
+    transition: 0.3s ease, color 0.3s ease;
+}
+
+
+/*Header*/
+
+.header{
+    position: relative;
+    z-index: 1;
+}
+
+.header-gradient{
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    padding: 0;
+    z-index: -1; 
+    width: 100vw; /* Растягиваем на всю ширину страницы */
+    height: 100vh; /* Растягиваем на всю высоту окна */
+    pointer-events: none; 
+}
+
+.header-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.header-text-items{
+    display: flex;  
+}
+
+.top-container{
+    display: flex;
+    justify-content:center;
+    align-items:start;
+    gap: 20px;
+    margin: 145px 54px 0 230px;
+    color: var(--color-primary-light); 
+}
+
+.header-text{
+    gap: 60px;
+}
+
+h1{
+    font-family: K2D;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 128.571%;
+    letter-spacing: 1.377px;
+    margin-top: 0;
+}
+
+.header-text-items{
+    display: flex;
+    align-items: center;
+    color:var(--color-primary-light);
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.2px;
+}
+
+.line{
+    background-color: var(--color-primary-light);
+    width: 1px;
+    height: 120px;
+}
+
+.items-text{
+    padding-left: 20px;
+}
+
+.circle-container {
+    position: relative;
+}
+
+.big-circle{
+    
+    position: relative;
+    z-index: 2; 
+    max-width: 100%; 
+    max-height: 100%;
+    
+}
+.circle-lines {
+    position: absolute;
+    z-index: 0; 
+    padding: 0 0 5px 15px;
+    max-width: 100%; 
+    max-height: 100%;  
+}
+
+.mini-circle {
+    position: absolute;
+    top: 0%; 
+    right: 20%; 
+    transform: translateY(20px); /* Дополнительный отступ вниз */
+    z-index: 3; 
+    max-width: 100%; /* изображение не выходит за пределы контейнера */
+    max-height: 100%;
+}
+
+.ellipses-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    z-index: 3; 
+}
+
+.ellipse1-bottom,
+.ellipse2-bottom,
+.ellipse3-bottom {
+    position: absolute;
+    display: block; /* Обеспечивает, что изображения будут располагаться друг на друге */
+    padding-left: 0;
+    
+}
+
+.ellipse1-bottom {
+    /* Центрируется относительно .ellipse2-bottom */
+    z-index: 1; /* На переднем плане относительно .ellipse2-bottom */
+}
+
+.ellipse2-bottom {
+    /* Центрируется относительно .ellipse3-bottom */
+    padding-left: 17px;
+    z-index: 2; /* На переднем плане относительно .ellipse3-bottom */
+}
+
+.ellipse3-bottom {
+    padding-left: 30px;
+    z-index: 3; 
+}
+
+.ellipse-icon{
+    position: absolute;
+    display: inline-block;
+    z-index: 4;
+    left: 5%;
+    bottom:44%;
+    fill: black;
+}
+
+.ellipse1-bottom, .ellipse2-bottom, .ellipse3-bottom, .ellipse-icon {
+    animation: growEllipses 2s infinite ease-in-out;
+}
+
+@keyframes growEllipses {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.07);
+    }
+}
+
+
+.icons-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    align-items: end;
+    position: absolute;
+    top: 3%;
+    left: 90%;
+    z-index: 3;
+}
+
+.icon:hover{
+    fill:var(--color-brand-light);
+    transition: 0.3s ease, color 0.3s ease;
+}

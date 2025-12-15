@@ -1,0 +1,104 @@
+/*Footer*/
+
+footer {
+    display: flex;
+    justify-content: center;
+    height: 276px;
+    padding: 56px 0;
+    border-top: 0.5px solid #cccccc13; 
+    color: var(--color-primary-light);
+} 
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    font-size: 16px;
+    height: 100%;
+    width: 100%;
+}
+
+.footer-logo h3:hover {
+    color: var(--color-brand-light);
+}
+
+.footer-menu, .contacts-ul {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+.footer-menu, .contacts-ul, .footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: var(--color-primary-light);
+    text-align: start;
+}
+
+.footer-link a {
+    color: var(--color-primary-light);
+}
+
+.footer-link a:hover {
+    color: var(--color-brand-light);
+}
+
+.footer-contacts a {
+    color: var(--color-primary-light);
+}
+
+.footer-contacts a:hover {
+    color: var(--color-brand-light);
+}
+
+.icon-footer-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--color-primary-light);
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.icon-footer-link:hover {
+    color: var(--color-brand-light);
+}
+
+.icon-footer {
+    width: 24px; /* Фиксированная ширина */
+    height: 24px; /* Фиксированная высота */
+    fill: var(--color-brand-light);
+    transition: fill 0.3s;
+    flex-shrink: 0; /* Предотвращение сжатия */
+}
+
+.icon-footer:hover {
+    fill: var(--color-brand-light);
+}
+
+.info-item {
+    font-size: 16px;
+    text-decoration: none; 
+    color: var(--color-primary-light);
+    transition-duration: 0.2s;
+}
+
+.info-item:hover {
+    color: var(--color-brand-light);
+}
+
+.info-safety {
+    font-size: 13px;
+    color: #747272;
+}
+
+.info-design{
+    font-size: 13px;
+    color: #747272;
+}
+
+.info-design:hover{
+    color: var(--color-brand-light);
+}
