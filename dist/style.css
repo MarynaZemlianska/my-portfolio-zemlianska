@@ -21,7 +21,6 @@
   font-display: swap;
 }
 body {
-  position: relative;
   background-color: var(--color-brand);
   font-family: "Inter", system-ui, sans-serif;
   overflow-x: hidden;
@@ -81,19 +80,18 @@ a {
 .header-gradient {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  right: 0;
+  width: 40%; /* охват до середины */
+  height: 100%; /* JS задаёт высоту под top-container */
+  background: radial-gradient(circle at top right, rgba(235, 3, 255, 0.6) 0%, rgba(129, 3, 255, 0.4) 50%, rgba(3, 44, 255, 0.2) 80%, rgba(3, 44, 255, 0.8) 100%);
+  filter: blur(100px);
   pointer-events: none;
-  z-index: 0;
-  /* Мягкий полупрозрачный радиальный градиент */
-  background: radial-gradient(circle at top right, rgba(235, 3, 255, 0.2) 0%, rgba(129, 3, 255, 0.15) 30%, rgba(3, 44, 255, 0.1) 60%, rgba(129, 3, 255, 0) 90%);
+  z-index: 1;
 }
 
-/* header и top-container поверх градиента */
 header, .top-container {
   position: relative;
-  z-index: 1;
+  z-index: 2; /* поверх градиента */
 }
 
 .nav-container {
@@ -105,7 +103,7 @@ header, .top-container {
   border: 2px rgba(194, 19, 255, 0.76);
   margin: 40px auto;
   padding: 0;
-  width: 1350px;
+  max-width: 1200px; /* ограничиваем ширину всей секции */
   height: 95px;
 }
 
@@ -162,9 +160,9 @@ header, .top-container {
 
 ul {
   display: flex;
-  padding-right: 300px;
+  padding-right: 270px;
   padding-left: 40px;
-  gap: 53px;
+  gap: 40px;
   text-decoration: none;
   list-style-type: none;
   text-align: center;
@@ -214,7 +212,7 @@ ul {
   border-radius: 5px;
   min-width: max-content; /* Устанавливает минимальную ширину в зависимости от контента */
   white-space: nowrap;
-  z-index: 2;
+  z-index: 5;
 }
 
 .dropdown-menu li {
@@ -251,6 +249,7 @@ ul {
   line-height: normal;
   pointer-events: auto;
   z-index: 3;
+  cursor: pointer;
 }
 
 .button-contact:hover {
@@ -398,44 +397,38 @@ footer {
   cursor: pointer;
 }
 
-.top-text {
-  display: flex;
-  flex-direction: column;
-}
-
 .top-container {
   display: flex;
-  justify-content: center;
-  align-items: start;
-  gap: 20px;
-  margin: 145px 54px 0 230px;
+  align-items: center;
+  justify-content: center; /* центрирует весь контейнер по горизонтали */
+  gap: 30px;
+  margin: 0 auto;
   color: var(--color-primary-light);
+  max-width: 1150px; /* ограничиваем ширину всей секции */
+  padding: 0 20px; /* немного отступов от краев экрана */
 }
 
-.top-text {
-  gap: 60px;
+.top-left {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex: 1 1 400px; /* колонка может расширяться, но не меньше 400px */
+  min-width: 350px;
 }
 
-h1 {
-  font-family: K2D;
-  font-size: 100px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 128.571%;
-  letter-spacing: 1.377px;
-  margin-top: 0;
+.top-left h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700; /* чуть жирнее */
+  font-size: 85px;
+  line-height: 1.2;
+  margin: 0;
+  word-break: break-word; /* предотвращаем наложение на изображение */
 }
 
 .top-text-items {
   display: flex;
   align-items: center;
-  color: var(--color-primary-light);
-  font-family: Inter;
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: 1.2px;
+  gap: 20px;
 }
 
 .line {
@@ -445,22 +438,39 @@ h1 {
 }
 
 .items-text {
-  padding-left: 20px;
+  font-family: Inter;
+  font-size: 20px;
+  line-height: 1.4;
 }
 
-.icons-container {
+.top-center {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
-  align-items: end;
-  position: absolute;
-  z-index: 3;
+  justify-content: center;
+  flex: 0 0 auto; /* колонка под изображение */
 }
 
-.icon:hover {
-  fill: var(--color-brand-light);
-  transition: 0.3s ease, color 0.3s ease;
+.top-image {
+  max-width: 420px;
+  min-width: 220px; /* минимум при сжатии */
+  width: 100%;
+  height: auto;
+}
+
+.top-right {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  align-items: center;
+  flex: 0 0 auto; /* колонка под соцсети */
+}
+
+.top-right a svg {
+  transition: fill 0.3s ease; /* плавное изменение цвета */
+}
+
+.top-right a:hover svg {
+  fill: #EB03FF; /* яркий цвет при наведении, можно заменить на любой */
 }
 
 /*section-steps*/

@@ -1,31 +1,27 @@
 .header-gradient {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
+    right: 0;
+    width: 40%; /* охват до середины */
+    height: 100%; /* JS задаёт высоту под top-container */
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(235, 3, 255, 0.6) 0%,    /* яркий верхний угол */
+            rgba(129, 3, 255, 0.4) 50%,   /* середина */
+            rgba(3, 44, 255, 0.2) 80%,    /* мягкий переход */
+            rgba(3, 44, 255, 0.8) 100%    /* яркая полоса внизу */
+        );
+    filter: blur(100px);
     pointer-events: none;
-    z-index: 0;
-
-    /* Мягкий полупрозрачный радиальный градиент */
-    background: radial-gradient(
-        circle at top right,
-        rgba(235, 3, 255, 0.2) 0%,   /* яркий правый верхний угол */
-        rgba(129, 3, 255, 0.15) 30%,
-        rgba(3, 44, 255, 0.1) 60%,   /* середина градиента */
-        rgba(129, 3, 255, 0) 90%     /* прозрачность к центру/левой части */
-    );
-}
-
-
-
-/* header и top-container поверх градиента */
-header, .top-container {
-    position: relative;
     z-index: 1;
 }
 
 
+header, .top-container {
+    position: relative;
+    z-index: 2; /* поверх градиента */
+}
 
 .nav-container{
     display: flex;
@@ -36,7 +32,7 @@ header, .top-container {
     border: 2px rgba(194, 19, 255, 0.76);
     margin: 40px auto;
     padding: 0;
-    width: 1350px;
+    max-width: 1200px; /* ограничиваем ширину всей секции */
     height: 95px;
 
 }
@@ -56,7 +52,7 @@ header, .top-container {
   background: linear-gradient(90deg, #ff00cc, #3b4cff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-   font-weight: 400;
+  font-weight: 400;
 }
 
 
@@ -88,8 +84,6 @@ header, .top-container {
   font-weight: 400;
 }
 
-
-
 .nav{    
     display: flex;
     align-items: center;
@@ -99,9 +93,9 @@ header, .top-container {
 
 ul{
     display: flex;
-    padding-right: 300px;
+    padding-right: 270px;
     padding-left: 40px;
-    gap: 53px;
+    gap: 40px;
     text-decoration: none;
     list-style-type: none;
     text-align: center;
@@ -151,7 +145,7 @@ ul{
     border-radius: 5px;
     min-width: max-content; /* Устанавливает минимальную ширину в зависимости от контента */
     white-space: nowrap;
-    z-index: 2;
+    z-index: 5;
 }
 
 .dropdown-menu li {
@@ -189,6 +183,7 @@ ul{
     line-height: normal;
     pointer-events: auto;
     z-index: 3;
+    cursor: pointer;
 }
 
 .button-contact:hover{

@@ -18,17 +18,14 @@
 
 
 
-
-body {
-  position: relative;
-background-color: var(--color-brand);
+body {  
+  background-color: var(--color-brand);
   font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
 }
 
 
 h1, h2, h3,
-
 .logo {
   font-family: 'Montserrat', sans-serif;
 }
