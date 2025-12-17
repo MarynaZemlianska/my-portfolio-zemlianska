@@ -81,15 +81,16 @@ a {
 .header-gradient {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 1000px; /* чуть больше, чтобы перекрывало */
-  height: 1000px;
-  background: radial-gradient(circle at top right, rgba(255, 0, 204, 0.4), rgba(59, 76, 255, 0.2) 60%, transparent 100%);
-  z-index: 0; /* ниже контента */
+  left: 0;
+  width: 100%;
+  height: 100vh;
   pointer-events: none;
+  z-index: 0;
+  /* Мягкий полупрозрачный радиальный градиент */
+  background: radial-gradient(circle at top right, rgba(235, 3, 255, 0.2) 0%, rgba(129, 3, 255, 0.15) 30%, rgba(3, 44, 255, 0.1) 60%, rgba(129, 3, 255, 0) 90%);
 }
 
-/* Контент поверх градиента */
+/* header и top-container поверх градиента */
 header, .top-container {
   position: relative;
   z-index: 1;
