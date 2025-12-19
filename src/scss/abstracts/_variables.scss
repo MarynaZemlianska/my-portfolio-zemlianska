@@ -1,0 +1,18 @@
+:root{
+    --color-brand: #120720;
+    --color-brand-light: #FA00FF;
+    --color-primary-dark:#1C25FF40;
+    --color-primary-light:#FFFFFF;
+}
+
+.body{
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* чтобы не прилипало на мобилке */
+}

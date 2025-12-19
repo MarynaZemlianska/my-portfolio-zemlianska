@@ -1,5 +1,6 @@
 
 .top-container {
+  position: relative;
     display: flex;
     align-items: center;
     justify-content: center; /* центрирует весь контейнер по горизонтали */
@@ -8,6 +9,7 @@
     color: var(--color-primary-light); 
     max-width: 1150px; /* ограничиваем ширину всей секции */
     padding: 0 20px; /* немного отступов от краев экрана */
+    z-index: 10;
 }
 
 .top-left {

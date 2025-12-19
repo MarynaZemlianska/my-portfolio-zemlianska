@@ -12,29 +12,21 @@
             rgba(3, 44, 255, 0.2) 80%,    /* мягкий переход */
             rgba(3, 44, 255, 0.8) 100%    /* яркая полоса внизу */
         );
-    filter: blur(100px);
+    filter: blur(80px);
     pointer-events: none;
     z-index: 1;
 }
 
+.header-top-container {
+    height: 100vh;
+    margin: 0 auto;
+    /* убедиться, что overflow visible */
 
-header, .top-container {
-    position: relative;
-    z-index: 2; /* поверх градиента */
 }
 
-.nav-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 50px;
-    border: 2px rgba(194, 19, 255, 0.76);
-    margin: 40px auto;
-    padding: 0;
-    max-width: 1200px; /* ограничиваем ширину всей секции */
-    height: 95px;
-
+header {
+    position: relative;
+    z-index: 3000; /* поверх всего контента */
 }
 
 .logo {
@@ -52,7 +44,7 @@ header, .top-container {
   background: linear-gradient(90deg, #ff00cc, #3b4cff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 
@@ -84,33 +76,48 @@ header, .top-container {
   font-weight: 400;
 }
 
-.nav{    
+.nav-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center; 
+    max-width: 1150px;
+    margin: 50px auto 30px auto; /* auto слева и справа центрирует */
+    padding: 0 25px;
+    height: 95px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 50px;
+    border: 2px rgba(194,19,255,0.76);
+    font-family: Inter;
+    font-weight: 500;
 }
 
 
-ul{
+/* Группируем логотип и меню вместе */
+.nav-left {
     display: flex;
-    padding-right: 270px;
-    padding-left: 40px;
-    gap: 40px;
-    text-decoration: none;
-    list-style-type: none;
-    text-align: center;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    align-items: center;
+    gap: 50px; /* расстояние между логотипом и меню */
+}
+
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-link {
     text-decoration: none;
-    padding-bottom: 15px;
     position: relative;
     color: var(--color-primary-light);
+    padding-bottom: 5px;
 }
 
 .nav-link::after {
@@ -129,24 +136,29 @@ ul{
     width: 100%;
 }
 
+
 .nav-item {
-    position: relative;
+    position: relative; /* важно для абсолютного позиционирования dropdown относительно этого элемента */
 }
 
-.dropdown-menu {
-    display: none;
+.nav-item .dropdown-menu {
     position: absolute;
-    top: 100%; /* Располагаем под меню "Services" */
-    left: 0;
+    top: calc(100% + 5px);
+    left: 0;       /* по левому краю ссылки */
+    z-index: 20; /* выше всего */
+    display: none;
     background-color: var(--color-brand);
-    list-style-type: none;
-    padding: 10px 0;
     border: 1px solid rgba(194, 19, 255, 0.76);
     border-radius: 5px;
-    min-width: max-content; /* Устанавливает минимальную ширину в зависимости от контента */
+    min-width: max-content; /* подстраивается под содержимое */
     white-space: nowrap;
-    z-index: 5;
 }
+
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+
 
 .dropdown-menu li {
     padding: 10px 20px;
@@ -162,33 +174,25 @@ ul{
     color: var(--color-brand-light);
 }
 
-/* Показываем выпадающее меню при наведении на элемент */
-.nav-item:hover .dropdown-menu {
-    display: block;
-}
-
-
-.button-contact{
+/* Кнопка */
+.button-contact {
     background: #242121;
     color: var(--color-primary-light);
     border-radius: 50px;
-    border-color: transparent;
+    border: none;
     width: 220px;
     height: 56px;
-    text-align: center;
+    cursor: pointer;
     font-family: Inter;
     font-size: 23px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    pointer-events: auto;
-    z-index: 3;
-    cursor: pointer;
+    text-align: center;
+    line-height: 56px; /* вертикальное выравнивание */
 }
 
-.button-contact:hover{
-    background:var(--color-brand-light);
-    transition: 0.3s ease, color 0.3s ease;
+.button-contact:hover {
+    background: var(--color-brand-light);
+    transition: 0.3s ease;
+    color: #fff;
 }
 
 
