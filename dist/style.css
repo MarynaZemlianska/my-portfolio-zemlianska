@@ -282,6 +282,22 @@ ul {
   color: #fff;
 }
 
+/* ===== HEADER ===== */
+/* ===== HEADER ===== */
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  z-index: 3000;
+  opacity: 0; /* изначально скрыт */
+  transform: translateY(-50px); /* сдвиг сверху */
+  transition: all 0.7s ease-out;
+}
+
+header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 footer {
   display: flex;
   justify-content: center;

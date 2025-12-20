@@ -9,12 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, observerOptions);
 
-    // Заголовок
+    // Header (логотип + меню)
+    observer.observe(document.querySelector('header'));
+
+    // Top container
     observer.observe(document.querySelector('.top-container-h1'));
-    // Текст
     observer.observe(document.querySelector('.items-text'));
-    // Фото
     observer.observe(document.querySelector('.top-image'));
-    // Соцсети
     document.querySelectorAll('.top-right a').forEach(icon => observer.observe(icon));
 });
