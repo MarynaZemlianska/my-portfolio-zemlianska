@@ -25,11 +25,11 @@
 
 /* Круглое фото */
 .ellipse-photo{
-    width: 250px;
-    height: 250px;
+    width: 400px;
+    height: 400px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid var(--color-brand-light);
+    object-fit:contain;
+
 }
 
 /* Заголовок */

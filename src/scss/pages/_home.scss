@@ -146,6 +146,36 @@
     align-items: center;
 }
 
+/* Начальное состояние для анимации */
+.top-right a {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+    transition: all 0.7s ease-out;
+}
+
+.top-right a.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Анимация SVG внутри */
+.top-right a svg {
+    width: 50px;
+    height: 50px;
+    transition: fill 0.3s ease, transform 0.7s ease;
+}
+
+.top-right a:hover svg {
+    fill: #EB03FF;
+    transform: scale(1.1);
+}
+
+/* Задержки для последовательного появления */
+.top-right a:nth-child(1).visible { transition-delay: 0.5s; }
+.top-right a:nth-child(2).visible { transition-delay: 0.6s; }
+.top-right a:nth-child(3).visible { transition-delay: 0.7s; }
+
+
 /* Анимация при скролле */
 .top-container-h1,
 .items-text,
