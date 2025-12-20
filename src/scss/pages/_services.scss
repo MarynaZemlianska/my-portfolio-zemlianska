@@ -17,6 +17,20 @@
     justify-content: flex-end;
 }
 
+/* Скрываем элементы изначально */
+.title-services,
+.service-card {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease-out;
+}
+
+/* Когда элемент виден */
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .title-services {
     margin: 30px 0;
     font-family: 'Montserrat', sans-serif;
@@ -40,6 +54,7 @@
 .container-services-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 }
 
 /* ===== CARD ===== */
@@ -92,20 +107,14 @@
 /* ===== TEXT ===== */
 .services-card-items h3 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 26px;
-    font-weight: 600;
+    font-size:30px;
+    font-weight: 700;
     color: #fff;
 }
 
 .services-card-text {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    color: #fff;
-}
-
-.card-item-border p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 10px;
     color: #fff;
 }
 
@@ -117,7 +126,8 @@
 
     border-radius: 50px;
     border: none;
-    background: var(--color-brand-light);
+    background: #242121;
+    color:#fff;
 
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
@@ -125,7 +135,7 @@
 }
 
 .services-card-button:hover {
-    background: #242121;
+    background: var(--color-brand-light);
     transition: 0.3s ease;
     color: #fff;
 }
@@ -134,6 +144,17 @@
 .service-card:hover .services-photo img {
     transform: scale(1.08);
 }
+
+/* Дополнительно: чуть масштабируем карточки при появлении */
+.service-card.visible .services-photo img {
+    transform: scale(1.08);
+}
+
+/* При наведении на карточку */
+.service-card:hover .services-photo img {
+    transform: scale(1.12);
+}
+
 
 /* ===== GRADIENT ===== */
 .top-gradient {

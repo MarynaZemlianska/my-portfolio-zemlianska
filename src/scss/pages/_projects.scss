@@ -57,7 +57,7 @@
 .card {
     position: relative;
     overflow: hidden;
-    aspect-ratio: 1/1;
+    aspect-ratio: 5/4;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -227,7 +227,7 @@
 /* Точки справа от заголовка */
 .container-dots-projects {
     position: absolute;
-    top:10%;
+    top:12%;
     right: 70%; 
     transform: translateY(-50%) rotate(180deg);
     z-index: 10; 

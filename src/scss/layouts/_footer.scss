@@ -1,30 +1,20 @@
-/*Footer*/
-
 footer {
     display: flex;
     justify-content: center;
+    align-items: center; /* Центрируем вертикально */
     height: 276px;
     padding: 56px 0;
-    border-top: 0.5px solid #cccccc13; 
+    border-top: 0.5px solid #cccccc13;
     color: var(--color-primary-light);
-} 
+}
 
 .footer-container {
     display: flex;
-    justify-content: center;
-    gap: 200px;
-    font-size: 16px;
-    height: 100%;
+    justify-content: space-between; /* Чтобы колонки были равномерно распределены */
+    align-items: center; /* Центрируем все колонки по вертикали */
+    gap: 50px; /* Расстояние между колонками */
     width: 100%;
-}
-
-.footer-logo h3:hover {
-    color: var(--color-brand-light);
-}
-
-.footer-menu, .contacts-ul {
-    padding: 0;
-    margin: 0;
+    max-width: 1200px;
     font-size: 16px;
 }
 
@@ -33,30 +23,115 @@ footer {
     flex-direction: column;
     gap: 15px;
     color: var(--color-primary-light);
-    text-align: start;
+    text-align: center; /* Чтобы текст меню был по центру */
 }
 
 .footer-link a {
     color: var(--color-primary-light);
+    transition: color 0.3s;
 }
 
 .footer-link a:hover {
     color: var(--color-brand-light);
 }
 
-.footer-contacts a {
+.footer-contacts a, .icon-footer-link {
     color: var(--color-primary-light);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
 }
 
-.footer-contacts a:hover {
+.footer-contacts a:hover, .icon-footer-link:hover {
     color: var(--color-brand-light);
 }
 
+.icon-footer {
+    width: 24px;
+    height: 24px;
+    fill: var(--color-brand-light);
+    flex-shrink: 0;
+    transition: fill 0.3s;
+}
+
+.info-item, .info-design, .info-safety {
+    font-size: 16px;
+    color: var(--color-primary-light);
+    text-align: center; /* По центру */
+    transition: color 0.3s;
+}
+
+.info-item:hover, .info-design:hover {
+    color: var(--color-brand-light);
+}
+
+/* Анимация появления */
+.footer-container > * {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    transition: all 0.6s ease-out;
+}
+
+.footer-container > *.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Логотип */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-primary-light);
+    text-decoration: none;
+}
+
+.logo-title {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.logo-subtitle {
+    font-size: 11px;
+    font-weight: 200;
+}
+
+/* Меню и контакты */
+.footer-menu,
+.contacts-ul,
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-link a,
+.footer-contacts a,
+.info-item,
+.info-safety {
+    color: var(--color-primary-light);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    transition: 0.3s;
+}
+
+
+
+.footer-link a:hover,
+.footer-contacts a:hover,
+.info-item:hover,
+.info-design:hover {
+    color: var(--color-brand-light);
+}
+
+/* Иконки */
 .icon-footer-link {
     display: flex;
     align-items: center;
     gap: 8px;
-    text-decoration: none;
     color: var(--color-primary-light);
     font-size: 16px;
     transition: color 0.3s;
@@ -67,38 +142,47 @@ footer {
 }
 
 .icon-footer {
-    width: 24px; /* Фиксированная ширина */
-    height: 24px; /* Фиксированная высота */
+    width: 24px;
+    height: 24px;
     fill: var(--color-brand-light);
+    flex-shrink: 0;
     transition: fill 0.3s;
-    flex-shrink: 0; /* Предотвращение сжатия */
 }
 
-.icon-footer:hover {
-    fill: var(--color-brand-light);
+/* Инфо текст */
+.info-item{
+    font-size: 14px;
 }
 
-.info-item {
-    font-size: 16px;
-    text-decoration: none; 
-    color: var(--color-primary-light);
-    transition-duration: 0.2s;
-}
-
-.info-item:hover {
-    color: var(--color-brand-light);
-}
-
+.info-design,
 .info-safety {
-    font-size: 13px;
+    font-size: 12px;
     color: #747272;
+    font-family: 'Inter', sans-serif;
 }
 
-.info-design{
-    font-size: 13px;
-    color: #747272;
+/* ===== Адаптив ===== */
+@media (max-width: 1024px) {
+    .footer-container {
+        gap: 20px;
+    }
 }
 
-.info-design:hover{
-    color: var(--color-brand-light);
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .footer-container > * {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    .footer-menu,
+    .contacts-ul,
+    .footer-info {
+        align-items: center;
+    }
 }

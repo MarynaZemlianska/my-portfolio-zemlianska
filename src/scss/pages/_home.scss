@@ -1,34 +1,118 @@
 
-.top-container {
-  position: relative;
+/* Контейнер */
+.header-top-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Градиент фона */
+.header-gradient {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(235,3,255,0.6), rgba(129,3,255,0.4) 50%, rgba(3,44,255,0.2) 80%, rgba(3,44,255,0.8) 100%);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Навигация */
+.nav-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center; /* центрирует весь контейнер по горизонтали */
-    gap: 30px;
-    margin: 0 auto;
-    color: var(--color-primary-light); 
-    max-width: 1150px; /* ограничиваем ширину всей секции */
-    padding: 0 20px; /* немного отступов от краев экрана */
+    max-width: 1150px;
+    margin: 50px auto 30px;
+    padding: 0 25px;
+    height: 95px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 50px;
+    border: 2px rgba(194,19,255,0.76);
+    font-family: Inter, sans-serif;
+    font-weight: 500;
     z-index: 10;
 }
 
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-primary-light);
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background: var(--color-brand-light);
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after { width: 100%; }
+
+.button-contact {
+    background: #242121;
+    color: var(--color-primary-light);
+    border-radius: 50px;
+    width: 220px;
+    height: 56px;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.button-contact:hover {
+    background: var(--color-brand-light);
+    color: #fff;
+}
+
+/* Top container */
+.top-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1150px;
+    margin: 0 auto;
+    color: var(--color-primary-light);
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Левая колонка */
 .top-left {
+    flex: 1 1 400px;
+    min-width: 350px;
     display: flex;
     flex-direction: column;
     gap: 30px;
-    flex: 1 1 400px; /* колонка может расширяться, но не меньше 400px */
-    min-width: 350px;
 }
 
-.top-left h1 {
+.top-container-h1 {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700; /* чуть жирнее */
     font-size: 85px;
+    font-weight: 700;
     line-height: 1.2;
-    margin: 0;
-    word-break: break-word; /* предотвращаем наложение на изображение */
 }
 
+/* Линия + текст */
 .top-text-items {
     display: flex;
     align-items: center;
@@ -36,48 +120,53 @@
 }
 
 .line {
-    background-color: var(--color-primary-light);
     width: 1px;
     height: 120px;
+    background: var(--color-primary-light);
 }
 
 .items-text {
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 20px;
     line-height: 1.4;
 }
 
-.top-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto; /* колонка под изображение */
+/* Фото */
+.top-center img {
+    border-radius: 50%;
+    width: 420px;
+    max-width: 100%;
 }
 
-.top-image {
-    max-width: 420px;
-    min-width: 220px; /* минимум при сжатии */
-    width: 100%;
-    height: auto;
-}
-
-
+/* Соцсети */
 .top-right {
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 10px;
     align-items: center;
-    flex: 0 0 auto; /* колонка под соцсети */
 }
 
-.top-right a svg {
-    transition: fill 0.3s ease; /* плавное изменение цвета */
+/* Анимация при скролле */
+.top-container-h1,
+.items-text,
+.top-image,
+.top-right a {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    transition: all 0.7s ease-out;
 }
 
-.top-right a:hover svg {
-    fill: #EB03FF; /* яркий цвет при наведении, можно заменить на любой */
-}
+.top-container-h1.visible { transition-delay: 0s; }
+.items-text.visible { transition-delay: 0.2s; }
+.top-image.visible { transition-delay: 0.4s; }
+.top-right a:nth-child(1).visible { transition-delay: 0.5s; }
+.top-right a:nth-child(2).visible { transition-delay: 0.6s; }
+.top-right a:nth-child(3).visible { transition-delay: 0.7s; }
 
+.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
 
 
 /* ===== SECTION STEPS ===== */
