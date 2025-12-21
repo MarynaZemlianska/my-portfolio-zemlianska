@@ -6,18 +6,60 @@
     overflow: hidden;
 }
 
-/* Градиент фона */
 .header-gradient {
     position: absolute;
     top: 0;
     right: 0;
     width: 50%;
     height: 100%;
-    background: radial-gradient(circle at top right, rgba(235,3,255,0.6), rgba(129,3,255,0.4) 50%, rgba(3,44,255,0.2) 80%, rgba(3,44,255,0.8) 100%);
+
+    background: radial-gradient(
+        circle at top right,
+        rgba(235,3,255,0.6),
+        rgba(129,3,255,0.4) 50%,
+        rgba(3,44,255,0.2) 80%,
+        rgba(3,44,255,0.8) 100%
+    );
+
     filter: blur(80px);
     pointer-events: none;
     z-index: 1;
+
+    /* 🔥 МАСКА: снизу + слева */
+    mask-image:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,1) 0%,
+            rgba(0,0,0,1) 70%,
+            rgba(0,0,0,0) 100%
+        ),
+        linear-gradient(
+            to left,
+            rgba(0,0,0,1) 0%,
+            rgba(0,0,0,1) 70%,
+            rgba(0,0,0,0) 100%
+        );
+
+    mask-composite: intersect;
+
+    -webkit-mask-image:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,1) 0%,
+            rgba(0,0,0,1) 70%,
+            rgba(0,0,0,0) 100%
+        ),
+        linear-gradient(
+            to left,
+            rgba(0,0,0,1) 0%,
+            rgba(0,0,0,1) 70%,
+            rgba(0,0,0,0) 100%
+        );
+
+    -webkit-mask-composite: destination-in;
 }
+
+
 
 /* Навигация */
 .nav-container {
@@ -201,12 +243,48 @@
 
 /* ===== SECTION STEPS ===== */
 .section-steps {
+        position: relative;
+    overflow: hidden; /* важно, чтобы градиент не вылезал */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
     padding: 80px 20px;
 }
+
+
+/* ===== GRADIENT BACKGROUND ===== */
+.steps-gradient {
+    position: absolute;
+    inset: 20%; /* расширяем, чтобы не было резких краёв */
+    z-index: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(235, 3, 255, 0.45) 0%,
+            rgba(129, 3, 255, 0.35) 30%,
+            rgba(3, 44, 255, 0.25) 55%,
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(3, 44, 255, 0.35) 0%,
+            rgba(129, 3, 255, 0.25) 35%,
+            rgba(235, 3, 255, 0.2) 55%,
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at center,
+            rgba(250, 0, 255, 0.25) 0%,
+            rgba(3, 44, 255, 0.2) 40%,
+            transparent 40%
+        );
+
+    filter: blur(120px);
+}
+
 
 /* CONTAINER */
 .container-steps {

@@ -55,8 +55,33 @@
 .text-items {
     display: flex;
     flex-direction: column;
-    gap: 25px;                     /* расстояние между параграфами */
+    gap: 24px;
+    color: var(--color-primary-light);
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
 }
+
+/* Имя */
+.accent-name {
+    color: var(--color-brand-light);
+    font-weight: 700;
+}
+
+/* Вопрос */
+.accent-title {
+    color: var(--color-brand-light);
+    font-weight: 700;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+/* Акцент внутри текста */
+.accent {
+    color: var(--color-brand-light);
+    font-weight: 600;
+}
+
 
 .text-items p {
     font-family: 'Inter', sans-serif;

@@ -524,7 +524,6 @@ footer {
   overflow: hidden;
 }
 
-/* Градиент фона */
 .header-gradient {
   position: absolute;
   top: 0;
@@ -535,6 +534,11 @@ footer {
   filter: blur(80px);
   pointer-events: none;
   z-index: 1;
+  /* 🔥 МАСКА: снизу + слева */
+  mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%), linear-gradient(to left, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%);
+  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%), linear-gradient(to left, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-composite: destination-in;
 }
 
 /* Навигация */
@@ -744,11 +748,23 @@ footer {
 
 /* ===== SECTION STEPS ===== */
 .section-steps {
+  position: relative;
+  overflow: hidden; /* важно, чтобы градиент не вылезал */
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
   padding: 80px 20px;
+}
+
+/* ===== GRADIENT BACKGROUND ===== */
+.steps-gradient {
+  position: absolute;
+  inset: 20%; /* расширяем, чтобы не было резких краёв */
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at top left, rgba(235, 3, 255, 0.45) 0%, rgba(129, 3, 255, 0.35) 30%, rgba(3, 44, 255, 0.25) 55%, transparent 40%), radial-gradient(circle at bottom right, rgba(3, 44, 255, 0.35) 0%, rgba(129, 3, 255, 0.25) 35%, rgba(235, 3, 255, 0.2) 55%, transparent 40%), radial-gradient(circle at center, rgba(250, 0, 255, 0.25) 0%, rgba(3, 44, 255, 0.2) 40%, transparent 40%);
+  filter: blur(120px);
 }
 
 /* CONTAINER */
@@ -1082,7 +1098,31 @@ ul.floating-boxes li:nth-child(10) {
 .text-items {
   display: flex;
   flex-direction: column;
-  gap: 25px; /* расстояние между параграфами */
+  gap: 24px;
+  color: var(--color-primary-light);
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* Имя */
+.accent-name {
+  color: var(--color-brand-light);
+  font-weight: 700;
+}
+
+/* Вопрос */
+.accent-title {
+  color: var(--color-brand-light);
+  font-weight: 700;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* Акцент внутри текста */
+.accent {
+  color: var(--color-brand-light);
+  font-weight: 600;
 }
 
 .text-items p {
@@ -1342,9 +1382,25 @@ ul.floating-boxes li:nth-child(10) {
   background-color: rgba(28, 37, 255, 0.25);
 }
 
+/* ===== SECTION PROJECTS ===== */
 .section-projects {
   position: relative;
   overflow: hidden;
+  margin-top: 100px;
+}
+
+/* Градиент слева сверху, размыт и ярче */
+.section-projects::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at top left, rgba(235, 3, 255, 0.6) 0%, rgba(129, 3, 255, 0.4) 50%, rgba(3, 44, 255, 0.2) 80%, rgba(3, 44, 255, 0.8) 100%);
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .container-projects {
@@ -1355,6 +1411,7 @@ ul.floating-boxes li:nth-child(10) {
   gap: 40px;
   margin: 0 auto;
   max-width: 1500px;
+  z-index: 1;
 }
 
 .title-projects {
@@ -1365,6 +1422,15 @@ ul.floating-boxes li:nth-child(10) {
   letter-spacing: 5px;
   text-align: center;
   position: relative;
+  /* начальное состояние для анимации */
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.title-projects.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .title-projects::after {
@@ -1396,6 +1462,21 @@ ul.floating-boxes li:nth-child(10) {
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
   margin-top: 20px;
+}
+
+.cards-column1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* начальное состояние для анимации */
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.cards-column1.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card {
@@ -1524,7 +1605,7 @@ ul.floating-boxes li:nth-child(10) {
 
 /* Последняя карточка — центрированный заголовок */
 .single-title {
-  justify-content: center; /* заголовок по центру */
+  justify-content: center;
   align-items: center;
   flex-direction: column;
 }
@@ -1545,36 +1626,34 @@ ul.floating-boxes li:nth-child(10) {
   cursor: pointer;
 }
 
-/* Наконечник стрелки */
 .center-arrow::after {
   content: "";
   position: absolute;
-  right: 0; /* конец пунктирной линии */
-  top: -1px; /* по центру линии вертикально */
+  right: 0;
+  top: -1px;
   width: 10px;
   height: 10px;
   border-top: 3px solid var(--color-brand-light);
   border-right: 3px solid var(--color-brand-light);
-  transform: translateY(-50%) rotate(45deg); /* стрелка вправо */
+  transform: translateY(-50%) rotate(45deg);
 }
 
-/* Увеличение стрелки при наведении */
 .center-arrow:hover {
   transform: scale(1.3);
 }
 
 /* Контейнер заголовка */
 .container-projects {
-  position: relative; /* важно для абсолютного позиционирования точек */
+  position: relative;
 }
 
 /* Точки справа от заголовка */
 .container-dots-projects {
   position: absolute;
-  top: 12%;
+  top: 20%;
   right: 70%;
   transform: translateY(-50%) rotate(180deg);
-  z-index: 10;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(4, 1fr);
@@ -1589,7 +1668,7 @@ ul.floating-boxes li:nth-child(10) {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: rgba(28, 37, 255, 0.2509803922); /* 40 в hex = 25% прозрачность */
+  background-color: rgba(28, 37, 255, 0.2509803922);
 }
 
 /* ===== SECTION ===== */
