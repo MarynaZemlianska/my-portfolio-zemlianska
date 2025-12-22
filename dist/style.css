@@ -146,7 +146,7 @@ header {
   margin-top: -24px;
   margin-bottom: -2px;
   font-size: 18px;
-  letter-spacing: 7px;
+  letter-spacing: 2px;
   background: linear-gradient(90deg, #ff00cc, #3b4cff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -161,10 +161,24 @@ header {
   overflow: hidden;
   margin-top: -2px;
   line-height: 1;
-  padding-left: 6px;
   font-size: 7px;
-  letter-spacing: 1px;
+  letter-spacing: 7px;
   color: #ff00cc;
+  font-weight: 400;
+}
+
+.logo-subtitle2 {
+  display: block;
+  max-width: 100%;
+  width: fit-content;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 5px;
+  line-height: 1;
+  margin: 0 auto;
+  font-size: 7px;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.3); /* 60% прозрачности */
   font-weight: 400;
 }
 
@@ -298,88 +312,27 @@ header.visible {
   transform: translateY(0);
 }
 
-footer {
+/* ===== FOOTER ===== */
+.footer {
   display: flex;
   justify-content: center;
-  align-items: center; /* Центрируем вертикально */
-  height: 276px;
-  padding: 56px 0;
+  align-items: center;
+  padding: 56px 20px;
   border-top: 0.5px solid rgba(204, 204, 204, 0.0745098039);
   color: var(--color-primary-light);
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-between; /* Чтобы колонки были равномерно распределены */
-  align-items: center; /* Центрируем все колонки по вертикали */
-  gap: 50px; /* Расстояние между колонками */
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
   width: 100%;
   max-width: 1200px;
   font-size: 16px;
 }
 
-.footer-menu, .contacts-ul, .footer-info {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  color: var(--color-primary-light);
-  text-align: center; /* Чтобы текст меню был по центру */
-}
-
-.footer-link a {
-  color: var(--color-primary-light);
-  transition: color 0.3s;
-}
-
-.footer-link a:hover {
-  color: var(--color-brand-light);
-}
-
-.footer-contacts a, .icon-footer-link {
-  color: var(--color-primary-light);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: color 0.3s;
-}
-
-.footer-contacts a:hover, .icon-footer-link:hover {
-  color: var(--color-brand-light);
-}
-
-.icon-footer {
-  width: 24px;
-  height: 24px;
-  fill: var(--color-brand-light);
-  flex-shrink: 0;
-  transition: fill 0.3s;
-}
-
-.info-item, .info-design, .info-safety {
-  font-size: 16px;
-  color: var(--color-primary-light);
-  text-align: center; /* По центру */
-  transition: color 0.3s;
-}
-
-.info-item:hover, .info-design:hover {
-  color: var(--color-brand-light);
-}
-
-/* Анимация появления */
-.footer-container > * {
-  opacity: 0;
-  transform: translateY(50px) scale(0.95);
-  transition: all 0.6s ease-out;
-}
-
-.footer-container > *.visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* Логотип */
+/* ===== LOGO ===== */
 .logo {
   display: flex;
   align-items: center;
@@ -399,13 +352,14 @@ footer {
   font-weight: 200;
 }
 
-/* Меню и контакты */
+/* ===== MENU & CONTACTS & INFO ===== */
 .footer-menu,
 .contacts-ul,
 .footer-info {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  color: var(--color-primary-light);
 }
 
 .footer-link a,
@@ -415,7 +369,7 @@ footer {
   color: var(--color-primary-light);
   text-decoration: none;
   font-family: "Inter", sans-serif;
-  transition: 0.3s;
+  transition: color 0.3s;
 }
 
 .footer-link a:hover,
@@ -425,7 +379,7 @@ footer {
   color: var(--color-brand-light);
 }
 
-/* Иконки */
+/* ===== ICONS FIXED ===== */
 .icon-footer-link {
   display: flex;
   align-items: center;
@@ -439,15 +393,20 @@ footer {
   color: var(--color-brand-light);
 }
 
+/* Единый размер и выравнивание иконок */
 .icon-footer {
   width: 24px;
   height: 24px;
-  fill: var(--color-brand-light);
+  min-width: 24px;
+  min-height: 24px;
   flex-shrink: 0;
-  transition: fill 0.3s;
+  fill: var(--color-brand-light);
+  vertical-align: middle;
+  display: block; /* убирает лишние отступы */
+  object-fit: contain; /* масштабируем пропорционально */
 }
 
-/* Инфо текст */
+/* ===== INFO TEXT ===== */
 .info-item {
   font-size: 14px;
 }
@@ -459,7 +418,19 @@ footer {
   font-family: "Inter", sans-serif;
 }
 
-/* ===== Адаптив ===== */
+/* ===== APPEARANCE ANIMATION ===== */
+.footer-container > * {
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  transition: all 0.6s ease-out;
+}
+
+.footer-container > *.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .footer-container {
     gap: 20px;
@@ -1046,83 +1017,118 @@ ul.floating-boxes li:nth-child(10) {
   position: relative;
   display: flex;
   justify-content: center;
-  gap: 50px;
-  margin-top: 200px;
-  padding-bottom: 100px;
+  gap: 80px;
+  margin-top: 250px;
+  padding-bottom: 120px;
+  min-height: 500px;
+  /* Ограничиваем секцию контейнером 1200px */
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.section-about-gradient-right {
+/* Градиент сверху-слева */
+.section-about::before {
+  content: "";
   position: absolute;
-  bottom: 0;
-  width: 100vw;
-  height: 100%;
-  z-index: -1;
+  top: -50px; /* чуть выше секции */
+  left: -50px; /* чуть левее контейнера */
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle at top left, rgba(235, 3, 255, 0.6), rgba(129, 3, 255, 0.4) 50%, rgba(3, 44, 255, 0.2) 80%, rgba(3, 44, 255, 0) 100%); /* плавное исчезновение к краю */
+  filter: blur(80px);
   pointer-events: none;
+  z-index: 0;
 }
 
+/* ===== LEFT BLOCK ===== */
 .about-photo-container {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-shrink: 0;
 }
 
-/* Круглое фото */
+/* Фото */
 .ellipse-photo {
+  margin-top: 20px;
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  object-fit: contain;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
 }
 
-/* Заголовок */
+/* ===== TITLE ===== */
 .about-title {
-  margin-top: 30px;
+  position: absolute;
+  left: 250px; /* Первые буквы заходят на фото */
+  top: -110px; /* Заголовок выше фото */
+  max-width: 800px;
+  white-space: normal;
   color: var(--color-primary-light);
   font-family: "Montserrat", sans-serif;
-  font-size: 80px;
+  font-size: 90px;
   font-weight: 700;
-  line-height: 1.1;
-  text-align: center;
+  line-height: 1.05;
+  text-align: left;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
 }
 
-.about-text {
-  max-width: 500px; /* ограничиваем ширину блока текста */
+/* ===== Простая стрелка справа от заголовка ===== */
+.about-title-arrow {
+  position: absolute;
+  top: 0; /* по вертикали на середине заголовка */
+  left: 850px; /* левый отступ: left заголовка + часть ширины заголовка */
+  transform: translateY(-50%);
+  width: 100px; /* длина линии */
+  height: 8px; /* толщина линии */
+  background-color: var(--color-brand-light); /* цвет линии */
+  z-index: 2;
+}
+
+/* Наконечник стрелки */
+.about-title-arrow::after {
+  content: "";
+  position: absolute;
+  right: -5%; /* конец линии */
+  top: 50%; /* центр вертикально */
+  width: 30px;
+  height: 30px;
+  border-top: 8px solid var(--color-brand-light);
+  border-right: 8px solid var(--color-brand-light);
+  transform: translateY(-50%) rotate(45deg); /* поворот вправо */
+}
+
+/* Hover эффект */
+.about-title-arrow:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+
+/* ===== RIGHT BLOCK ===== */
+.about-content {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* вертикальное центрирование текста относительно блока */
-  gap: 25px; /* расстояние между абзацами */
-  padding-top: 20px;
+  justify-content: flex-end; /* текст опускается вниз */
+  flex: 1;
 }
 
+/* текстовый контейнер */
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* текст */
 .text-items {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  color: var(--color-primary-light);
-  font-family: "Inter", sans-serif;
-  font-size: 18px;
-  line-height: 1.7;
-}
-
-/* Имя */
-.accent-name {
-  color: var(--color-brand-light);
-  font-weight: 700;
-}
-
-/* Вопрос */
-.accent-title {
-  color: var(--color-brand-light);
-  font-weight: 700;
-  display: inline-block;
-  margin-right: 6px;
-}
-
-/* Акцент внутри текста */
-.accent {
-  color: var(--color-brand-light);
-  font-weight: 600;
 }
 
 .text-items p {
@@ -1132,13 +1138,42 @@ ul.floating-boxes li:nth-child(10) {
   line-height: 35px;
   letter-spacing: 1px;
   color: var(--color-primary-light);
-  margin: 0; /* убираем лишние отступы */
+  margin: 0;
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.6s ease-out;
 }
 
-/* Анимация при прокрутке */
+/* ===== ACCENTS ===== */
+.accent-name {
+  color: var(--color-brand-light);
+  font-weight: 700;
+}
+
+.accent-title {
+  color: var(--color-brand-light);
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.accent {
+  color: var(--color-brand-light);
+  font-weight: 600;
+}
+
+/* ===== SCROLL ANIMATION ===== */
+.about-title.visible,
+.ellipse-photo.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-items.visible p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger */
 .text-items.visible p:nth-child(1) {
   transition-delay: 0.2s;
 }
@@ -1149,48 +1184,6 @@ ul.floating-boxes li:nth-child(10) {
 
 .text-items.visible p:nth-child(3) {
   transition-delay: 0.5s;
-}
-
-.text-items.visible p:nth-child(4) {
-  transition-delay: 0.65s;
-}
-
-.text-items.visible p {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Точки */
-.container-dots {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 20px;
-  width: 250px;
-  height: 113px;
-  position: relative;
-  margin-top: 30px;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  background-color: rgba(28, 37, 255, 0.25);
-  border-radius: 50%;
-}
-
-/* ===== ANIMATION ===== */
-.about-title,
-.text-items p,
-.ellipse-photo {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.6s ease-out;
-}
-
-.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* ===== SECTION CONTACTS ===== */
@@ -1288,7 +1281,6 @@ ul.floating-boxes li:nth-child(10) {
   font-weight: 500;
   color: var(--color-primary-light);
   margin-top: 20px;
-  margin-bottom: 10px;
 }
 
 /* INPUTS */
@@ -1328,6 +1320,18 @@ ul.floating-boxes li:nth-child(10) {
 .input2::placeholder,
 .input3::placeholder {
   color: rgba(217, 217, 217, 0.85);
+}
+
+/* ===== INPUT & TEXTAREA PLACEHOLDER ===== */
+.input1:focus::placeholder,
+.input2:focus::placeholder,
+.input3:focus::placeholder {
+  color: transparent; /* текст плейсхолдера исчезает при фокусе */
+}
+
+/* ===== TEXTAREA ===== */
+.input3 {
+  resize: none; /* убираем возможность растягивания */
 }
 
 /* BUTTON */
@@ -1382,25 +1386,21 @@ ul.floating-boxes li:nth-child(10) {
   background-color: rgba(28, 37, 255, 0.25);
 }
 
-/* ===== SECTION PROJECTS ===== */
 .section-projects {
   position: relative;
-  overflow: hidden;
   margin-top: 100px;
 }
 
-/* Градиент слева сверху, размыт и ярче */
-.section-projects::before {
-  content: "";
+.section-projects-gradient {
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at top left, rgba(235, 3, 255, 0.6) 0%, rgba(129, 3, 255, 0.4) 50%, rgba(3, 44, 255, 0.2) 80%, rgba(3, 44, 255, 0.8) 100%);
-  filter: blur(120px);
+  top: -90px;
+  left: -90px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle at top left, rgba(235, 3, 255, 0.6) 0%, rgba(129, 3, 255, 0.4) 40%, rgba(3, 44, 255, 0.2) 65%, rgba(3, 44, 255, 0) 100%);
+  filter: blur(110px);
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
 }
 
 .container-projects {
@@ -1410,7 +1410,6 @@ ul.floating-boxes li:nth-child(10) {
   align-items: center;
   gap: 40px;
   margin: 0 auto;
-  max-width: 1500px;
   z-index: 1;
 }
 
@@ -1462,6 +1461,7 @@ ul.floating-boxes li:nth-child(10) {
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
   margin-top: 20px;
+  gap: 20px;
 }
 
 .cards-column1 {
@@ -1486,6 +1486,7 @@ ul.floating-boxes li:nth-child(10) {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 35px;
 }
 
 .card img {
@@ -1653,7 +1654,7 @@ ul.floating-boxes li:nth-child(10) {
   top: 20%;
   right: 70%;
   transform: translateY(-50%) rotate(180deg);
-  z-index: 1;
+  z-index: 0;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(4, 1fr);
@@ -1735,6 +1736,7 @@ ul.floating-boxes li:nth-child(10) {
   position: relative;
   aspect-ratio: 3/2;
   overflow: hidden;
+  border-radius: 35px;
 }
 
 /* ===== IMAGE BACKGROUND ===== */

@@ -1,27 +1,29 @@
-/* ===== SECTION PROJECTS ===== */
 .section-projects {
     position: relative;
-    overflow: hidden;
     margin-top: 100px;
 }
 
-/* Градиент слева сверху, размыт и ярче */
-.section-projects::before {
-    content: '';
+
+.section-projects-gradient {
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at top left,
+    top: -90px;
+    left: -90px;
+    width: 420px;
+    height: 420px;
+
+    background: radial-gradient(
+        circle at top left,
         rgba(235,3,255,0.6) 0%,
-        rgba(129,3,255,0.4) 50%,
-        rgba(3,44,255,0.2) 80%,
-        rgba(3,44,255,0.8) 100%);
-    filter: blur(120px);
+        rgba(129,3,255,0.4) 40%,
+        rgba(3,44,255,0.2) 65%,
+        rgba(3,44,255,0) 100%
+    );
+
+    filter: blur(110px);
     pointer-events: none;
-    z-index: 0;
+    z-index: -1;
 }
+
 
 .container-projects {
     position: relative;
@@ -30,7 +32,6 @@
     align-items: center;
     gap: 40px;
     margin: 0 auto;
-    max-width: 1500px;
     z-index: 1;
 }
 
@@ -83,6 +84,7 @@
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
     margin-top: 20px;
+    gap: 20px;
 }
 
 .cards-column1 {
@@ -108,6 +110,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 35px;
 }
 
 .card img {
@@ -275,7 +278,7 @@
     top:20%;
     right: 70%; 
     transform: translateY(-50%) rotate(180deg);
-    z-index: 1; 
+    z-index: 0; 
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(4, 1fr);

@@ -53,7 +53,7 @@ header {
   margin-top: -24px;
   margin-bottom: -2px;
   font-size: 18px;
-  letter-spacing: 7px;       
+  letter-spacing: 2px;       
   background: linear-gradient(90deg, #ff00cc, #3b4cff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -69,12 +69,29 @@ header {
   overflow: hidden;
   margin-top: -2px;
   line-height: 1;
-  padding-left: 6px;
+
   font-size: 7px;
-  letter-spacing: 1px;
+  letter-spacing: 7px;
   color: #ff00cc;
   font-weight: 400;
 }
+
+.logo-subtitle2 {
+  display: block;
+  max-width: 100%;
+  width: fit-content;      
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 5px;
+  line-height: 1;
+  margin: 0 auto;
+
+  font-size: 7px;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.3); /* 60% прозрачности */
+  font-weight: 400;
+}
+
 
 .nav-container {
     display: flex;
@@ -211,3 +228,4 @@ header.visible {
     opacity: 1;
     transform: translateY(0);
 }
+

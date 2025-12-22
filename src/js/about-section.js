@@ -1,8 +1,6 @@
-// section-about.js
+// section-about.js — анимация при скролле
 document.addEventListener("DOMContentLoaded", () => {
-    const title = document.querySelector('.about-title');
-    const photo = document.querySelector('.ellipse-photo');
-    const textItems = document.querySelector('.text-items');
+    const elements = document.querySelectorAll('.about-title, .ellipse-photo, .text-items');
 
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -13,7 +11,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, { threshold: 0.2 });
 
-    observer.observe(title);
-    observer.observe(photo);
-    observer.observe(textItems);
+    elements.forEach(el => observer.observe(el));
 });

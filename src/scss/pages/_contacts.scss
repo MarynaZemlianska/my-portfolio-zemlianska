@@ -96,7 +96,6 @@
     font-weight: 500;
     color: var(--color-primary-light);
     margin-top: 20px;
-    margin-bottom: 10px;
 }
 
 /* INPUTS */
@@ -136,6 +135,18 @@
 .input2::placeholder,
 .input3::placeholder {
     color: rgba(217, 217, 217, 0.85);
+}
+
+/* ===== INPUT & TEXTAREA PLACEHOLDER ===== */
+.input1:focus::placeholder,
+.input2:focus::placeholder,
+.input3:focus::placeholder {
+    color: transparent; /* текст плейсхолдера исчезает при фокусе */
+}
+
+/* ===== TEXTAREA ===== */
+.input3 {
+    resize: none; /* убираем возможность растягивания */
 }
 
 /* BUTTON */
