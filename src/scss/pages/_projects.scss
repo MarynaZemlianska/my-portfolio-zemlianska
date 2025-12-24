@@ -1,6 +1,6 @@
 .section-projects {
     position: relative;
-    margin-top: 100px;
+    margin-top: 150px;
 }
 
 
@@ -36,19 +36,24 @@
 }
 
 .title-projects {
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 85px;
+    font-size: 100px;
     font-weight: 700;
-    letter-spacing: 5px;
-    text-align: center;
-    position: relative;
-
-    /* начальное состояние для анимации */
-    opacity: 0;
-    transform: translateY(60px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    line-height: 1;
+    color: #fff;
 }
+
+.projects-subtitle {
+    display: block;      /* под заголовком */
+    margin-top: 8px;
+
+    font-size: 18px;     /* меньше заголовка */
+    font-weight: 400;
+    line-height: 1.2;
+
+    color: #fff;
+    opacity: 0.7;
+}
+
 
 .title-projects.visible {
     opacity: 1;

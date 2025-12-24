@@ -1,0 +1,98 @@
+.policy-container {
+    color: #fff; /* текст белый */
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(28, 37, 255, 0.25);
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.7;
+}
+
+
+/* Начальное состояние элементов */
+.policy-container .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    background: linear-gradient(90deg, rgba(250,0,255,0.2), rgba(18,7,32,0));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, color 0.8s ease-out;
+}
+
+/* Когда элемент виден */
+.policy-container .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+    color: #ffffff; /* текст становится видимым */
+    background: none;
+}
+
+/* Задержки через переменные для последовательного появления */
+.policy-container .animate-on-scroll:nth-child(1) { transition-delay: 0.1s; }
+.policy-container .animate-on-scroll:nth-child(2) { transition-delay: 0.2s; }
+.policy-container .animate-on-scroll:nth-child(3) { transition-delay: 0.3s; }
+.policy-container .animate-on-scroll:nth-child(4) { transition-delay: 0.4s; }
+.policy-container .animate-on-scroll:nth-child(5) { transition-delay: 0.5s; }
+.policy-container .animate-on-scroll:nth-child(6) { transition-delay: 0.6s; }
+.policy-container .animate-on-scroll:nth-child(7) { transition-delay: 0.7s; }
+
+/* Можно добавить градиентное свечение при наведении на текст */
+.policy-container .animate-on-scroll:hover {
+    background: linear-gradient(90deg, #FA00FF, #1C25FF);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+
+
+/* Заголовки */
+.policy-title {
+    color: #FA00FF;
+    font-size: 2.5rem;
+    margin-bottom: 24px;
+}
+
+.policy-subtitle {
+    color: #FA00FF;
+    font-size: 1.8rem;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+/* Параграфы */
+.policy-paragraph {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-bottom: 16px;
+}
+
+/* Списки */
+.policy-list {
+    padding-left: 20px;
+    margin-bottom: 16px;
+}
+
+.policy-list li {
+    margin-bottom: 8px;
+}
+
+/* Ссылки */
+.policy-link {
+    color: #FA00FF;
+    text-decoration: underline;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .policy-container {
+        padding: 20px 15px;
+    }
+    .policy-title {
+        font-size: 2rem;
+    }
+    .policy-subtitle {
+        font-size: 1.5rem;
+    }
+}

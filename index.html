@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Maryna Zemlianska: Websites development</title>
-    <link rel="icon" href="./images/favicon-32x32.png" type="image/png">
+    <link rel="icon" href="./src/images/favicon.svg" type="image/png">
     <link rel="stylesheet" href="./../dist/style.css">
 </head>
 
@@ -21,15 +21,16 @@
                             <span class="logo-text">
                                 <span class="logo-title">MARYNA</span>
                                 <span class="logo-subtitle">ZEMLIANSKA</span>
-
                             </span>
                         </a>
-
                         <nav class="nav">
                             <ul>
                                 <li><a class="nav-link" href="index.html">HOME</a></li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="services.html">SERVICES</a>
+                                    <a class="nav-link nav-link--dropdown" href="services.html">
+                                        <span class="nav-text">SERVICES & PRICES</span>
+                                        <span class="nav-arrow"></span>
+                                    </a>
                                     <ul class="dropdown-menu">
                                         <li><a href="landing-site.html">Landing website</a></li>
                                         <li><a href="business-site.html">Business card website</a></li>
@@ -44,11 +45,9 @@
                             </ul>
                         </nav>
                     </div>
-
                     <button class="button-contact">Free consultation</button>
                 </div>
             </header>
-
             <div class="top-container">
                 <div class="top-left">
                     <h1 class="top-container-h1">Websites <br>development</h1>
@@ -61,32 +60,56 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="top-center">
                     <img src="src/images/ellipse-photo.png" alt="Illustration" class="top-image">
                 </div>
-
                 <div class="top-right icons-container">
-                    <a href="#"><svg class="icon" width="50px" height="65px">
-                            <use href="src/images/sprite-svg.svg#linkedin"></use>
+                    <a href="#"><svg class="icon">
+                            <use href="/src/images/sprite.svg#icon-instagram"></use>
                         </svg></a>
                     <a href="#"><svg class="icon" width="45px" height="65px">
-                            <use href="src/images/sprite-svg.svg#instagram"></use>
+                            <use href="/src/images/sprite.svg#icon-telegram"></use>
                         </svg></a>
                     <a href="#"><svg class="icon" width="50px" height="65px">
-                            <use href="src/images/sprite-svg.svg#facebook"></use>
+                            <use href="/src/images/sprite.svg#icon-viber"></use>
+                        </svg></a>
+                        <a href="#"><svg class="icon" width="50px" height="65px">
+                            <use href="/src/images/sprite.svg#icon-mail"></use>
                         </svg></a>
                 </div>
             </div>
     </div>
+    <section class="section-stats">
+    <div class="container">
+        <div class="stats-cards">
 
+            <div class="stat-card">
+                <h2 class="stat-number" data-target="30">0</h2>
+                <p class="stat-text">Sites Completed</p>
+            </div>
+
+            <div class="stat-card">
+                <h2 class="stat-number" data-target="5">0</h2>
+                <p class="stat-text">Years in IT</p>
+            </div>
+
+            <div class="stat-card">
+                <h2 class="stat-number" data-target="50">0</h2>
+                <p class="stat-text">Clients Served</p>
+            </div>
+
+        </div>
+    </div>
     <section class="section-projects">
         <div class="section-projects-gradient"></div>
-
         <div class="container-projects">
-            <h1 class="title-projects">Projects</h1>
+            <div class="container-projects-title">
+        <h1 class="title-projects">
+            Projects
+            <span class="projects-subtitle">Click to view the project</span>
+        </h1>
+    </div>
             <div class="container-cards">
-
                 <div class="cards-column1">
                     <div class="card">
                         <a href="">
@@ -271,7 +294,8 @@
         <div class="container">
 
             <div class="container-services-title">
-                <h1 class="title-services">Services</h1>
+                <h1 class="title-services">Services<span class="services-subtitle">Choose a site type</span></h1>
+                
             </div>
 
         </div>
@@ -281,14 +305,14 @@
             <div class="service-card">
                 <div class="service-card-inner">
                     <div class="services-photo">
-                        <img src="src/images/services-photo1.jpg" alt="">
+                        <img src="src/images/service-photo.jpg" alt="">
                     </div>
                     <div class="services-card-items">
                         <h3>Website Landing page</h3>
                         <p class="services-card-text">
                             A one-page website created to market a service or a select number of products.
                         </p>
-                        <button class="services-card-button">To order</button>
+                        <button class="services-card-button">See more</button>
                     </div>
                 </div>
             </div>
@@ -296,14 +320,14 @@
             <div class="service-card">
                 <div class="service-card-inner">
                     <div class="services-photo">
-                        <img src="src/images/services-photo2.jpg" alt="">
+                        <img src="src/images/services-photo2.png" alt="">
                     </div>
                     <div class="services-card-items">
                         <h3>Business card website</h3>
                         <p class="services-card-text">
                             A digital business card website featuring a concise overview of your services.
                         </p>
-                        <button class="services-card-button">To order</button>
+                        <button class="services-card-button">See more</button>
                     </div>
                 </div>
             </div>
@@ -318,21 +342,21 @@
                         <p class="services-card-text">
                             A website providing information about a firm, company, or agency.
                         </p>
-                        <button class="services-card-button">To order</button>
+                        <button class="services-card-button">See more</button>
                     </div>
                 </div>
             </div>
             <div class="service-card">
                 <div class="service-card-inner">
                     <div class="services-photo">
-                        <img src="src/images/services-photo1.jpg" alt="">
+                        <img src="src/images/services-photo7.png" alt="">
                     </div>
                     <div class="services-card-items">
                         <h3>E-commerce website</h3>
                         <p class="services-card-text">
                             Platforms for selling goods and services with online payments.
                         </p>
-                        <button class="services-card-button">To order</button>
+                        <button class="services-card-button">See more</button>
                     </div>
                 </div>
             </div>
@@ -340,14 +364,14 @@
             <div class="service-card">
                 <div class="service-card-inner">
                     <div class="services-photo">
-                        <img src="src/images/services-photo2.jpg" alt="">
+                        <img src="src/images/services-photo6.jpg" alt="">
                     </div>
                     <div class="services-card-items">
                         <h3>Personal website</h3>
                         <p class="services-card-text">
                             For your portfolio or personal page.
                         </p>
-                        <button class="services-card-button">To order</button>
+                        <button class="services-card-button">See more</button>
                     </div>
                 </div>
             </div>
@@ -418,13 +442,13 @@
 
                     <p>
                         <span class="accent-title">What can I offer you?</span>
-                        My services include creating modern and <span class="accent">functional websites</span> that
+                        My services include creating <span class="accent">modern and functional websites</span> that
                         are available at an affordable price.
                     </p>
 
                     <p>
-                        By ordering a website from me, you will receive a fully finished resource that will
-                        contribute to the growth of your capital and the expansion of your client base.
+                        By ordering a <span class="accent">website</span> from me, you will receive a fully finished resource that will
+                        contribute to the growth of your <span class="accent">capital</span> and the expansion of your <span class="accent">client base.</span>
                     </p>
                 </div>
             </div>
@@ -432,12 +456,16 @@
     </section>
 
     <section class="section-contacts">
+        <div class="contacts-arcs">
+        <div class="arc-container"><span class="arc arc-top"></span></div>
+        <div class="arc-container"><span class="arc arc-bottom"></span></div>
+    </div>
         <div class="container-top-contacts">
             <h1 class="contacts-title">Contact me</h1>
         </div>
 
         <form class="form" autocomplete="off">
-            <h2 class="form-title">Request a Free consultation</h2>
+            <p class="form-title">Request a Free consultation</p>
             <div class="container-form-items">
                 <label class="form-label" for="user-name">Name :</label>
                 <input class="input1" type="text" id="user-name" name="user-name" placeholder="Enter your name here..."
@@ -490,14 +518,16 @@
     </main>
     <footer class="footer">
         <div class="footer-container">
-            <a href="index.html" class="logo">
-                <span class="logo-icon">W</span>
-                <span class="logo-text">
-                    <span class="logo-title">MARYNA</span>
-                    <span class="logo-subtitle">ZEMLIANSKA</span>
-                </span>
-            </a>
-
+            <div class="footer-logo">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">W</span>
+                    <span class="logo-text">
+                        <span class="logo-title">MARYNA</span>
+                        <span class="logo-subtitle">ZEMLIANSKA</span>
+                    </span>
+                </a>
+                <p class="subtitle-footer">Websites development</p>
+            </div>
             <nav class="footer-nav">
                 <ul class="footer-menu">
                     <li class="footer-link"><a href="index.html">Home</a></li>
@@ -510,17 +540,9 @@
             <div class="footer-contacts">
                 <ul class="contacts-ul">
                     <li>
-                        <a href="tel:+380637657506" target="_blank" class="icon-footer-link">
-                            <svg class="icon-footer" viewBox="0 0 24 24">
-                                <use href="./src/images/sprite-svg.svg#phone"></use>
-                            </svg>
-                            +38 (063) 765 75 06
-                        </a>
-                    </li>
-                    <li>
                         <a href="mailto:maryna.zemlianska@gmail.com" target="_blank" class="icon-footer-link">
                             <svg class="icon-footer" viewBox="0 0 24 24">
-                                <use href="./src/images/sprite-svg.svg#mail"></use>
+                                <use href="/src/images/sprite.svg#icon-mail"></use>
                             </svg>
                             maryna.zemlianska@gmail.com
                         </a>
@@ -528,7 +550,7 @@
                     <li>
                         <a href="#" target="_blank" class="icon-footer-link">
                             <svg class="icon-footer" viewBox="0 0 24 24">
-                                <use href="./src/images/sprite-svg.svg#telegram"></use>
+                                <use href="/src/images/sprite.svg#icon-telegram"></use>
                             </svg>
                             Telegram
                         </a>
@@ -536,7 +558,7 @@
                     <li>
                         <a href="#" target="_blank" class="icon-footer-link">
                             <svg class="icon-footer" viewBox="0 0 24 24">
-                                <use href="./src/images/sprite-svg.svg#viber"></use>
+                                <use href="/src/images/sprite.svg#icon-viber"></use>
                             </svg>
                             Viber
                         </a>
@@ -544,7 +566,7 @@
                     <li>
                         <a class="icon-footer-link">
                             <svg class="icon-footer" viewBox="0 0 24 24">
-                                <use href="./src/images/sprite-svg.svg#clock"></use>
+                                <use href="/src/images/sprite.svg#icon-clock"></use>
                             </svg>
                             Working schedule: Mn-Fr 9:00-18:00
                         </a>
@@ -558,7 +580,7 @@
                     target="_blank">
                     <p class="info-design">Design by Rohan Patil</p>
                 </a>
-                <p class="info-safety">Copyright © 2025 WAVE. All rights reserved.</p>
+                <p class="info-safety">Copyright © Maryna Zemlianska 2025 All rights reserved.</p>
             </div>
         </div>
     </footer>

@@ -45,6 +45,7 @@
     height: 400px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: top center; /* ⬅️ смещаем фото вверх, чтобы была видна голова */
     z-index: 1;
 
     opacity: 0;
@@ -52,17 +53,18 @@
     transition: all 0.6s ease-out;
 }
 
+
 /* ===== TITLE ===== */
 .about-title {
     position: absolute;
     left: 250px;      /* Первые буквы заходят на фото */
-    top: -110px;       /* Заголовок выше фото */
+    top: -130px;       /* Заголовок выше фото */
     max-width: 800px;
     white-space: normal;
 
     color: var(--color-primary-light);
     font-family: 'Montserrat', sans-serif;
-    font-size: 90px;
+    font-size: 100px;
     font-weight: 700;
     line-height: 1.05;
     text-align: left;

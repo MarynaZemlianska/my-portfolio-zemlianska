@@ -48,3 +48,36 @@ document.addEventListener("DOMContentLoaded", () => {
     const icons = document.querySelectorAll('.top-right a');
     icons.forEach(icon => observer.observe(icon));
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".stat-number");
+    
+    const options = {
+        threshold: 0.5
+    };
+
+    const callback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = +counter.getAttribute("data-target");
+                let count = 0;
+                const step = Math.ceil(target / 100);
+
+                const increment = () => {
+                    count += step;
+                    if(count > target) count = target;
+                    counter.textContent = count;
+                    if(count < target) {
+                        requestAnimationFrame(increment);
+                    }
+                };
+                increment();
+                observer.unobserve(counter);
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(callback, options);
+    counters.forEach(counter => observer.observe(counter));
+});
