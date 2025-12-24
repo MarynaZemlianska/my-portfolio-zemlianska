@@ -81,3 +81,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver(callback, options);
     counters.forEach(counter => observer.observe(counter));
 });
+
+
+
+/* accordion */
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        item.classList.toggle('active');
+    });
+});
+
+/* scroll reveal */
+const faqSection = document.querySelector('.section-faq');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            faqSection.classList.add('visible');
+        }
+    });
+}, { threshold: 0.2 });
+
+observer.observe(faqSection);
+
