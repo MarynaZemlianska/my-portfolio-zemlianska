@@ -1066,12 +1066,12 @@ header.visible {
 }
 
 .faq-answer p {
+  white-space: normal; /* ⬅️ ОБЯЗАТЕЛЬНО */
+  word-break: break-word;
   margin: 0 0 16px;
   font-size: 18px;
   line-height: 1.6;
   opacity: 0.85;
-  white-space: normal; /* ⬅️ ОБЯЗАТЕЛЬНО */
-  word-break: break-word;
 }
 
 .faq-item.active .faq-arrow {
@@ -1106,6 +1106,83 @@ header.visible {
   transition-delay: 0.65s;
 }
 
+.section-testimonials {
+  padding: 80px 20px;
+  background-color: #0e0e0e;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #ff00cc;
+}
+
+.testimonials-slider {
+  display: flex;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  gap: 20px;
+}
+
+.testimonial-card {
+  min-width: 300px; /* ширина карточки для iPhone */
+  max-width: 90%;
+  background-color: #1a1a1a;
+  padding: 30px;
+  border-radius: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 20px rgba(255, 0, 204, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-text {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.testimonial-author {
+  font-weight: 700;
+  font-size: 14px;
+  color: #ff00cc;
+}
+
+.slider-prev,
+.slider-next {
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 0, 204, 0.2);
+  border: none;
+  color: #ff00cc;
+  font-size: 28px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.slider-prev {
+  left: 10px;
+}
+
+.slider-next {
+  right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .testimonials-slider {
+    gap: 15px;
+  }
+  .testimonial-card {
+    min-width: 250px;
+  }
+  .section-title {
+    font-size: 28px;
+  }
+}
 /* The Boxes */
 ul.floating-boxes {
   position: fixed;

@@ -105,3 +105,25 @@ const observer = new IntersectionObserver(entries => {
 
 observer.observe(faqSection);
 
+
+const slider = document.querySelector('.testimonials-slider');
+const nextBtn = document.querySelector('.slider-next');
+const prevBtn = document.querySelector('.slider-prev');
+
+let scrollAmount = 0;
+const cardWidth = 320; // ширина карточки + gap
+
+nextBtn.addEventListener('click', () => {
+    if(scrollAmount < slider.scrollWidth - slider.clientWidth){
+        scrollAmount += cardWidth;
+        slider.style.transform = `translateX(-${scrollAmount}px)`;
+    }
+});
+
+prevBtn.addEventListener('click', () => {
+    if(scrollAmount > 0){
+        scrollAmount -= cardWidth;
+        slider.style.transform = `translateX(-${scrollAmount}px)`;
+    }
+});
+
