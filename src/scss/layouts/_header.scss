@@ -1,122 +1,137 @@
+/* ================= BASE ================= */
+body {
+    padding-top: 140px;
+}
+
+/* ================= HEADER GRADIENT ================= */
 .header-gradient {
     position: absolute;
     top: 0;
     right: 0;
-    width: 40%; /* охват до середины */
-    height: 100%; /* JS задаёт высоту под top-container */
-    background:
-        radial-gradient(
-            circle at top right,
-            rgba(235, 3, 255, 0.6) 0%,    /* яркий верхний угол */
-            rgba(129, 3, 255, 0.4) 50%,   /* середина */
-            rgba(3, 44, 255, 0.2) 80%,    /* мягкий переход */
-            rgba(3, 44, 255, 0.8) 100%    /* яркая полоса внизу */
-        );
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(
+        circle at top right,
+        rgba(235,3,255,0.6),
+        rgba(129,3,255,0.4) 50%,
+        rgba(3,44,255,0.2) 80%,
+        rgba(3,44,255,0.8) 100%
+    );
     filter: blur(80px);
     pointer-events: none;
     z-index: 1;
+
+    mask-image:
+        linear-gradient(to bottom, #000 0%, #000 70%, transparent 100%),
+        linear-gradient(to left, #000 0%, #000 70%, transparent 100%);
+    mask-composite: intersect;
+
+    -webkit-mask-image:
+        linear-gradient(to bottom, #000 0%, #000 70%, transparent 100%),
+        linear-gradient(to left, #000 0%, #000 70%, transparent 100%);
+    -webkit-mask-composite: destination-in;
 }
 
-.header-top-container {
-    height: 100vh;
-    margin: 0 auto;
-    /* убедиться, что overflow visible */
-
-}
-
+/* ================= HEADER ================= */
 header {
-    position: relative;
-    z-index: 3000; /* поверх всего контента */
+    position: fixed;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.35s ease;
 }
 
-.logo {
-  display: flex;
-  align-items: center; /* ← ВАЖНО */
-  gap: 10px;
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
+header.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* Большая W */
-.logo-icon {
-  font-size: 70px;
-  line-height: 1;
-  background: linear-gradient(90deg, #ff00cc, #3b4cff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 700;
+header.scrolled {
+    top: 0;
 }
 
-
-.logo-title {
-  display: inline-block;      /* ← ВАЖНО */
-  margin-top: -24px;
-  margin-bottom: -2px;
-  font-size: 18px;
-  letter-spacing: 2px;       
-  background: linear-gradient(90deg, #ff00cc, #3b4cff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 400;
+header.scrolled .nav-container {
+    margin-top: 0;
+    background-color: rgba(0,0,0,0.85);
+    backdrop-filter: blur(14px);
+    border-radius: 0 0 30px 30px;
 }
 
-
-.logo-subtitle {
-  display: block;
-  max-width: 100%;
-  width: fit-content;      
-  white-space: nowrap;
-  overflow: hidden;
-  margin-top: -2px;
-  line-height: 1;
-
-  font-size: 7px;
-  letter-spacing: 7px;
-  color: #ff00cc;
-  font-weight: 400;
-}
-
-.logo-subtitle2 {
-  display: block;
-  max-width: 100%;
-  width: fit-content;      
-  white-space: nowrap;
-  overflow: hidden;
-  margin-top: 5px;
-  line-height: 1;
-  margin: 0 auto;
-
-  font-size: 7px;
-  letter-spacing: 3px;
-  color: rgba(255, 255, 255, 0.3); /* 60% прозрачности */
-  font-weight: 400;
-}
-
-
+/* ================= NAV CONTAINER ================= */
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1150px;
-    margin: 50px auto 30px auto; /* auto слева и справа центрирует */
+    margin: 50px auto 30px;
     padding: 0 25px;
     height: 95px;
     background-color: rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
     border-radius: 50px;
     border: 2px rgba(194,19,255,0.76);
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-weight: 500;
+    transition: all 0.35s ease;
 }
 
-
-/* Группируем логотип и меню вместе */
+/* ================= NAV LEFT ================= */
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 50px; /* расстояние между логотипом и меню */
+    gap: 50px;
 }
 
+/* ================= LOGO ================= */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
 
+.logo-icon {
+    font-size: 70px;
+    line-height: 1;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ff00cc, #3b4cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo-title {
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-top: -24px;
+    background: linear-gradient(90deg, #ff00cc, #3b4cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo-subtitle,
+.logo-subtitle2 {
+    font-size: 7px;
+    display: block;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.logo-subtitle {
+    letter-spacing: 7px;
+    color: #ff00cc;
+}
+
+.logo-subtitle2 {
+    margin-top: 5px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.3);
+}
+
+/* ================= NAV ================= */
 .nav {
     display: flex;
     align-items: center;
@@ -129,142 +144,101 @@ ul {
     margin: 0;
     padding: 0;
 }
-/* ===== NAV LINK ===== */
+
+/* ================= NAV LINK ================= */
 .nav-link {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-
-    height: 26px !important;
-    line-height: 26px !important;
-
-    text-decoration: none !important;
-    color: var(--color-primary-light) !important;
-
-    white-space: nowrap !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: var(--color-primary-light);
+    white-space: nowrap;
 }
 
-/* ===== TEXT ===== */
+/* TEXT */
 .nav-text {
-    position: relative !important;
-    display: inline-block !important;
-
+    position: relative;
 }
 
-/* underline */
 .nav-text::after {
-    content: '' !important;
-    position: absolute !important;
-    left: 0 !important;
-    bottom: 0 !important;
-
-    width: 0 !important;
-    height: 2px !important;
-    background-color: var(--color-brand-light) !important;
-
-    transition: width 0.3s ease !important;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-brand-light);
+    transition: width 0.3s ease;
 }
 
-/* underline hover */
 .nav-item:hover .nav-text::after {
-    width: 100% !important;
+    width: 100%;
 }
 
-/* ===== ARROW ===== */
+/* ARROW */
 .nav-arrow {
-    width: 7px !important;
-    height: 7px !important;
-
-    border-right: 2px solid var(--color-primary-light) !important;
-    border-bottom: 2px solid var(--color-primary-light) !important;
-
-    transform: rotate(45deg) !important;
-
-    margin-top: -1px !important;
-    flex-shrink: 0 !important;
-
-    transition: transform 0.25s ease, border-color 0.25s ease !important;
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid var(--color-primary-light);
+    border-bottom: 2px solid var(--color-primary-light);
+    transform: rotate(45deg);
+    transition: 0.25s ease;
 }
 
-/* arrow hover */
 .nav-item:hover .nav-arrow {
-    transform: rotate(-135deg) !important;
-    border-color: var(--color-brand-light) !important;
+    transform: rotate(-135deg);
+    border-color: var(--color-brand-light);
 }
 
-/* ===== DROPDOWN ===== */
+/* ================= DROPDOWN ================= */
 .nav-item {
-    position: relative !important;
+    position: relative;
 }
 
 .dropdown-menu {
-    position: absolute !important;
-    left: 0 !important;
-
-    display: none !important;
-    background-color: var(--color-brand) !important;
-
-    border: 1px solid rgba(194, 19, 255, 0.76) !important;
-    border-radius: 6px !important;
-
-    min-width: max-content !important;
-    white-space: nowrap !important;
-
-    z-index: 50 !important;
+    position: absolute;
+    left: 0;
+    display: none;
+    background-color: var(--color-brand);
+    border: 1px solid rgba(194,19,255,0.76);
+    border-radius: 6px;
+    min-width: max-content;
+    white-space: nowrap;
+    z-index: 50;
 }
 
 .nav-item:hover .dropdown-menu {
-    display: block !important;
+    display: block;
 }
 
 .dropdown-menu li {
-    padding: 10px 20px !important;
+    padding: 10px 20px;
 }
 
 .dropdown-menu a {
-    color: var(--color-primary-light) !important;
-    text-decoration: none !important;
+    color: var(--color-primary-light);
+    text-decoration: none;
 }
 
 .dropdown-menu a:hover {
-    color: var(--color-brand-light) !important;
+    color: var(--color-brand-light);
 }
 
-
-/* Кнопка */
+/* ================= BUTTON ================= */
 .button-contact {
+    width: 220px;
+    height: 56px;
     background: #242121;
     color: var(--color-primary-light);
     border-radius: 50px;
     border: none;
-    width: 220px;
-    height: 56px;
-    cursor: pointer;
     font-family: Inter;
     font-size: 23px;
-    text-align: center;
-    line-height: 56px; /* вертикальное выравнивание */
+    cursor: pointer;
 }
 
 .button-contact:hover {
     background: var(--color-brand-light);
-    transition: 0.3s ease;
     color: #fff;
-}
-
-
-/* ===== HEADER ===== */
-/* ===== HEADER ===== */
-/* ===== HEADER ===== */
-header {
-    position: relative;
-    z-index: 3000;
-    opacity: 0;               /* изначально скрыт */
-    transform: translateY(-50px); /* сдвиг сверху */
-    transition: all 0.7s ease-out;
-}
-
-header.visible {
-    opacity: 1;
-    transform: translateY(0);
+    transition: 0.3s ease;
 }

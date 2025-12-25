@@ -12,4 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { threshold: 0.2 });
 
     elements.forEach(el => observer.observe(el));
+    
+    const arrow = document.querySelector('.about-title-arrow');
+
+observer.observe(arrow);
+
 });

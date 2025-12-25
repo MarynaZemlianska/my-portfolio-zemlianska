@@ -1,46 +1,51 @@
-// Получаем элементы
-const modal = document.getElementById('consultationModal');
-const openModalBtn = document.querySelector('.button-contact');
-const closeModalBtn = document.getElementById('modalClose');
+document.addEventListener("DOMContentLoaded", () => {
+    emailjs.init("LLvGckVcu-rYdYajp"); // Твой User ID
 
-// Функция для открытия модального окна
-const openModal = () => {
-  modal.classList.remove('is-hidden');
-  document.body.style.overflow = 'hidden'; // Отключаем прокрутку страницы
-};
+    const modal = document.getElementById('consultationModal');
+    const openBtn = document.getElementById('openModal');
+    const closeBtn = document.getElementById('modalClose');
+    const form = document.getElementById('consultationForm');
+    const successMessage = document.getElementById("successMessage");
 
-// Функция для закрытия модального окна
-const closeModal = () => {
-  modal.classList.add('is-hidden');
-  document.body.style.overflow = ''; // Включаем прокрутку страницы
-};
+    openBtn.addEventListener('click', () => {
+        modal.classList.remove('is-hidden');
+        modal.classList.add('is-visible');
+    });
 
-// Открытие модального окна при клике на кнопку
-openModalBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', () => {
+        modal.classList.remove('is-visible');
+        modal.classList.add('is-hidden');
+    });
 
-// Закрытие модального окна при клике на кнопку закрытия
-closeModalBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if(e.target === modal) {
+            modal.classList.remove('is-visible');
+            modal.classList.add('is-hidden');
+        }
+    });
 
-// Закрытие модального окна при клике вне его содержимого
-modal.addEventListener('click', (event) => {
-  if (event.target === modal) {
-    closeModal();
-  }
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
+
+        const formData = {
+            name: form.name.value,
+            email: form.email.value,
+            message: form.message.value
+        };
+
+        emailjs.send('service_z4roncj', 'template_aau9edp', formData)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                successMessage.classList.add("visible");
+                form.reset();
+                setTimeout(() => {
+                    successMessage.classList.remove("visible");
+                    modal.classList.remove('is-visible');
+                    modal.classList.add('is-hidden');
+                }, 4000);
+            }, function(error) {
+                console.log('FAILED...', error);
+                alert("Oops! Something went wrong, please try again.");
+            });
+    });
 });
-
-if (openModalBtn) {
-  openModalBtn.addEventListener('click', openModal);
-}
-
-// Закрытие модального окна при нажатии клавиши ESC
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && !modal.classList.contains('is-hidden') && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
-    closeModal();
-  }
-});
-
-
-
-
-
-

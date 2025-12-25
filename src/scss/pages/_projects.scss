@@ -37,10 +37,16 @@
 
 .title-projects {
     font-size: 100px;
-    font-weight: 700;
-    line-height: 1;
-    color: #fff;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s ease-out;
 }
+
+.title-projects.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 .projects-subtitle {
     display: block;      /* под заголовком */
@@ -100,7 +106,7 @@
     /* начальное состояние для анимации */
     opacity: 0;
     transform: translateY(60px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .cards-column1.visible {
