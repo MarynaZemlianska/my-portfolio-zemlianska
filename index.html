@@ -7,7 +7,8 @@
     <title>Home - Maryna Zemlianska: Websites development</title>
     <link rel="icon" href="./src/images/favicon.svg" type="image/png">
     <link rel="stylesheet" href="./../dist/style.css">
-ф
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
 </head>
 
 <body>
@@ -44,31 +45,47 @@
                     </ul>
                 </nav>
             </div>
-            <button class="button-contact" id="openModal">Free consultation</button>
+            <button class="burger" id="burger" aria-label="Menu">
+
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- DESKTOP -->
+            <button class="button-contact button-desktop" id="openModal">
+                Free consultation
+            </button>
         </div>
     </header>
     <main>
-        <div class="header-top-container">
+        <div class="first-top-container">
             <div class="top-container">
                 <div class="top-left">
                     <h1 class="top-container-h1">Websites <br>development</h1>
                     <div class="top-text-items">
-                        <div class="line"></div>
-                        <div class="items-text">
-                            Hello, there!<br>
-                            I’m a web developer, Maryna Zemlianska.<br>
-                            I will bring your business idea to life.
+                        <div>
+                            <div class="top-block-items">
+                                <div class="line"></div>
+                                <div class="items-text">
+                                    Hello, there!<br>
+                                    I’m a web developer, Maryna Zemlianska.<br>
+                                    I will bring your business idea to life.
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="top-center">
                     <img src="src/images/ellipse-photo.png" alt="Illustration" class="top-image">
                 </div>
+                <button class="button-contact button-mobile" id="openModalMobile">
+                    Free consultation
+                </button>
                 <div class="top-right icons-container">
-                    <a href="https://www.instagram.com/zemlianskaya_marina_/" target="_blank"><svg class="icon">
+                    <a href="https://www.instagram.com/zemlianska_maryna/" target="_blank"><svg class="icon">
                             <use href="/src/images/sprite.svg#icon-instagram"></use>
                         </svg></a>
-                    <a href="https://t.me/zemlyanska_dev" target="_blank"><svg class="icon" width="45px" height="65px">
+                    <a href="https://t.me/zemlianska_dev" target="_blank"><svg class="icon" width="45px" height="65px">
                             <use href="/src/images/sprite.svg#icon-telegram"></use>
                         </svg></a>
                     <a href="viber://chat?number=%2B380637657506" target="_blank">
@@ -82,6 +99,10 @@
                         </svg></a>
                 </div>
             </div>
+            <div class="top-right-gradient"></div>
+            <button class="button-contact button-mobile2" id="openModalMobile">
+                Free consultation
+            </button>
         </div>
         <section class="section-stats">
             <div class="container">
@@ -116,7 +137,7 @@
                     <div class="container-cards">
                         <div class="cards-column1">
                             <div class="card">
-                                <a href="">
+                                <a href="https://iphones14pro.netlify.app/" target="_blank">
                                     <img src="src/images/project-1.PNG" alt="">
                                     <div class="card-hover-content">
                                         <span class="card-hover-title-top">Website</span>
@@ -126,7 +147,7 @@
                                 </a>
                             </div>
                             <div class="card">
-                                <a href="">
+                                <a href="https://lease-carss.netlify.app/" target="_blank">
                                     <img src="src/images/project-4.jpg" alt="">
                                     <div class="card-hover-content">
                                         <span class="card-hover-title-top">Website</span>
@@ -139,7 +160,7 @@
 
                         <div class="cards-column1">
                             <div class="card">
-                                <a href="">
+                                <a href="https://best-shopsuit.netlify.app/" target="_blank">
                                     <img src="src/images/project-2.jpg" alt="">
                                     <div class="card-hover-content">
                                         <span class="card-hover-title-top">Website</span>
@@ -149,7 +170,7 @@
                                 </a>
                             </div>
                             <div class="card">
-                                <a href="">
+                                <a href="https://seafoodone.netlify.app/" target="_blank">
                                     <img src="src/images/project-5.PNG" alt="">
                                     <div class="card-hover-content">
                                         <span class="card-hover-title-top">Website</span>
@@ -162,7 +183,7 @@
 
                         <div class="cards-column1">
                             <div class="card">
-                                <a href="">
+                                <a href="https://beauty-zones.netlify.app/" target="_blank">
                                     <img src="src/images/project-3.jpg" alt="">
                                     <div class="card-hover-content">
                                         <span class="card-hover-title-top">Website</span>
@@ -171,9 +192,8 @@
                                     </div>
                                 </a>
                             </div>
-                            <!-- Последняя карточка -->
                             <div class="card">
-                                <a href="">
+                                <a href="#services">
                                     <div class="card-hover-content single-title always-visible">
                                         <span class="card-hover-title-bottom">Your website</span>
                                         <span class="card-hover-arrow center-arrow"></span>
@@ -187,7 +207,7 @@
                 </div>
 
                 <div class="container-dots-projects">
-                    <!-- Дots -->
+                    <!-- Dots -->
                     <div class="dot"></div>
                     <div class="dot"></div>
                     <div class="dot"></div>
@@ -270,7 +290,6 @@
                                     </p>
                                 </div>
                             </li>
-
                             <li class="step">
                                 <div class="step-circle">5</div>
                                 <div class="step-content">
@@ -281,7 +300,6 @@
                                         mobile devices.</p>
                                 </div>
                             </li>
-
                             <li class="step">
                                 <div class="step-circle">6</div>
                                 <div class="step-content">
@@ -306,7 +324,7 @@
             </section>
 
 
-            <section class="section-services">
+            <section class="section-services" id="services">
 
                 <div class="container">
 
@@ -330,11 +348,12 @@
                                 <p class="services-card-text">
                                     A one-page website created to market a service or a select number of products.
                                 </p>
-                                <button class="services-card-button">See more</button>
+                                <a href="/src/html/landing-site.html" class="services-card-button">
+                                    See more
+                                </a>
                             </div>
                         </div>
                     </div>
-
                     <div class="service-card">
                         <div class="service-card-inner">
                             <div class="services-photo">
@@ -345,11 +364,12 @@
                                 <p class="services-card-text">
                                     A digital business card website featuring a concise overview of your services.
                                 </p>
-                                <button class="services-card-button">See more</button>
+                                <a href="/src/html/business-site.html" class="services-card-button">
+                                    See more
+                                </a>
                             </div>
                         </div>
                     </div>
-
                     <div class="service-card">
                         <div class="service-card-inner">
                             <div class="services-photo">
@@ -360,7 +380,10 @@
                                 <p class="services-card-text">
                                     A website providing information about a firm, company, or agency.
                                 </p>
-                                <button class="services-card-button">See more</button>
+                                <a href="/src/html/corporate-site.html" class="services-card-button">
+                                    See more
+                                </a>
+
                             </div>
                         </div>
                     </div>
@@ -374,7 +397,9 @@
                                 <p class="services-card-text">
                                     Platforms for selling goods and services with online payments.
                                 </p>
-                                <button class="services-card-button">See more</button>
+                                <a href="/src/html/e-commerce-site.html" class="services-card-button">
+                                    See more
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -389,7 +414,9 @@
                                 <p class="services-card-text">
                                     For your portfolio or personal page.
                                 </p>
-                                <button class="services-card-button">See more</button>
+                                <a href="/src/html/personal-site.html" class="services-card-button">
+                                    See more
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -404,8 +431,8 @@
                                 <p class="services-card-text">
                                     Custom web solutions tailored to your needs.
                                 </p>
-                                <a href="services.html" target="_blank">
-                                    <button class="services-card-button">See more</button>
+                                <a href="/src/html/other-services.html" class="services-card-button">
+                                    See more
                                 </a>
                             </div>
                         </div>
@@ -413,7 +440,7 @@
 
                 </div>
 
-                <!-- DOTS — НЕ ТРОНУТЫ -->
+                <!-- DOTS -->
                 <div class="container-dots">
                     <div class="dot"></div>
                     <div class="dot"></div>
@@ -442,14 +469,11 @@
                 </div>
             </section>
             <section class="section-about">
-                <!-- Левый блок: фото и заголовок -->
                 <div class="about-photo-container">
                     <div class="about-title-arrow"></div>
                     <h1 class="about-title">About<br>developer</h1>
                     <img class="ellipse-photo" src="./src/images/5348355399293276416.jpg" alt="Ellipse with photo">
                 </div>
-
-                <!-- Правый блок: текст -->
                 <div class="about-content">
                     <div class="about-text">
                         <div class="text-items">
@@ -690,7 +714,7 @@
             <div class="footer-contacts">
                 <ul class="contacts-ul">
                     <li>
-                        <a href="mailto:maryna.zemlianska@gmail.com" target="_blank" class="icon-footer-link">
+                        <a href="mailto:mv.zemlianska@gmail.com" target="_blank" class="icon-footer-link">
                             <svg class="icon-footer" viewBox="0 0 24 24">
                                 <use href="/src/images/sprite.svg#icon-mail"></use>
                             </svg>
@@ -698,7 +722,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" target="_blank" class="icon-footer-link">
+                        <a href="https://t.me/zemlianska_dev" target="_blank" class="icon-footer-link">
                             <svg class="icon-footer" viewBox="0 0 24 24">
                                 <use href="/src/images/sprite.svg#icon-telegram"></use>
                             </svg>
@@ -706,7 +730,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" target="_blank" class="icon-footer-link">
+                        <a href="viber://chat?number=%2B380637657506" target="_blank" class="icon-footer-link">
                             <svg class="icon-footer" viewBox="0 0 24 24">
                                 <use href="/src/images/sprite.svg#icon-viber"></use>
                             </svg>
@@ -747,7 +771,7 @@
         <li></li>
         <li></li>
     </ul>
-    <!-- Модальное окно -->
+    <!-- Modal -->
     <div class="modal is-hidden" id="consultationModal">
         <div class="modal-content">
             <span class="modal-close" id="modalClose">&times;</span>
@@ -765,9 +789,7 @@
 
         </div>
     </div>
-
-
-
+    <script src="./src/js/header.js"></script>
     <script src="./src/js/home-page.js"></script>
     <script src="./src/js/projects-section.js"></script>
     <script src="./src/js/steps-section.js"></script>

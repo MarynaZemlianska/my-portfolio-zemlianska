@@ -10,26 +10,10 @@ body {
     right: 0;
     width: 50%;
     height: 100%;
-    background: radial-gradient(
-        circle at top right,
-        rgba(235,3,255,0.6),
-        rgba(129,3,255,0.4) 50%,
-        rgba(3,44,255,0.2) 80%,
-        rgba(3,44,255,0.8) 100%
-    );
+    background: radial-gradient(circle at top right, rgba(235,3,255,0.6), rgba(129,3,255,0.4) 50%, rgba(3,44,255,0.2) 80%, rgba(3,44,255,0.8) 100%);
     filter: blur(80px);
     pointer-events: none;
     z-index: 1;
-
-    mask-image:
-        linear-gradient(to bottom, #000 0%, #000 70%, transparent 100%),
-        linear-gradient(to left, #000 0%, #000 70%, transparent 100%);
-    mask-composite: intersect;
-
-    -webkit-mask-image:
-        linear-gradient(to bottom, #000 0%, #000 70%, transparent 100%),
-        linear-gradient(to left, #000 0%, #000 70%, transparent 100%);
-    -webkit-mask-composite: destination-in;
 }
 
 /* ================= HEADER ================= */
@@ -60,21 +44,20 @@ header.scrolled .nav-container {
     border-radius: 0 0 30px 30px;
 }
 
+
 /* ================= NAV CONTAINER ================= */
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1150px;
-    margin: 50px auto 30px;
+    margin: 20px auto 0;
     padding: 0 25px;
     height: 95px;
     background-color: rgba(0,0,0,0.2);
     backdrop-filter: blur(10px);
     border-radius: 50px;
     border: 2px rgba(194,19,255,0.76);
-    font-family: Inter, sans-serif;
-    font-weight: 500;
     transition: all 0.35s ease;
 }
 
@@ -135,6 +118,7 @@ header.scrolled .nav-container {
 .nav {
     display: flex;
     align-items: center;
+    gap: 30px;
 }
 
 ul {
@@ -151,8 +135,13 @@ ul {
     align-items: center;
     gap: 6px;
     text-decoration: none;
+    font-family: 'Inter', sans-serif;
     color: var(--color-primary-light);
     white-space: nowrap;
+}
+
+.nav-link:hover{
+    color: var(--color-brand-light);
 }
 
 /* TEXT */
@@ -241,4 +230,230 @@ ul {
     background: var(--color-brand-light);
     color: #fff;
     transition: 0.3s ease;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+body.menu-open::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 9998;
+}
+
+
+/* ===== BURGER ===== */
+/* ===== BURGER ===== */
+.burger {
+    display: none;
+    width: 40px;
+    height: 28px;
+    position: relative;
+    z-index: 10001;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.burger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #ff00cc, #3b4cff);
+    transition: 0.3s ease;
+}
+
+.burger span:nth-child(1) { top: 0; }
+.burger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.burger span:nth-child(3) { bottom: 0; }
+
+.burger.active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+.burger.active span:nth-child(2) { opacity: 0; }
+.burger.active span:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+
+
+/* по умолчанию */
+.button-mobile {
+    display: none;
+}
+
+
+
+
+@media (max-width: 1024px) {
+    .burger { display: block; }
+    .header-gradient {
+        width: 70%;
+        filter: blur(100px);
+        opacity: 0.8;
+    }
+ .nav-container {
+        margin-left: auto;
+        margin-right: auto;
+        width: calc(100% - 40px); /* аккуратные края */
+    }
+    .burger {
+        display: block;
+    }
+
+     header {
+        top: 0;
+    }
+   
+    /* Позиционируем меню фиксировано для мобильных */
+    .nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        max-width: 360px;
+        height: 100vh;
+        background: rgba(0,0,0,0.97);
+        backdrop-filter: blur(16px);
+        padding: 120px 40px 40px;
+        transform: translateX(100%);
+        transition: transform 0.4s ease;
+        flex-direction: column;
+        z-index: 10000;
+    }
+
+    .nav.active { transform: translateX(0); }
+
+    /* dropdown в мобилке */
+    .dropdown-menu {
+        position: static;
+        background: transparent;
+        border: none;
+        padding-left: 15px;
+    }
+
+    .dropdown-menu li {
+        padding: 10px 0;
+    }
+
+   .nav ul { flex-direction: column; gap: 30px; }
+    .nav-link { font-size: 22px; }
+    .dropdown-menu { position: static; background: transparent; border: none; padding-left: 15px; }
+    .dropdown-menu li { padding: 10px 0; }
+
+    .button-desktop { display: none; }
+    .button-mobile { display: block; width: 100%; max-width: 300px; margin-top: 20px; }
+}
+
+
+@media (max-width: 991px) {
+
+    body { padding-top: 120px; } 
+
+    .header-gradient {
+        width: 50%;
+        filter: blur(100px);
+        opacity: 0.8;
+    }
+
+    .nav-container {
+        margin:0 auto;
+        height: 75px;
+        padding: 0 20px;
+        border-radius: 40px;
+    }
+
+    
+    .logo-icon {
+        font-size: 56px;
+    }
+
+    .logo-title {
+        font-size: 16px;
+    }
+
+    ul {
+        gap: 16px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+
+    .button-contact {
+        width: 160px;
+        height: 48px;
+        font-size: 18px;
+    }
+}
+
+
+@media (max-width: 767px) {
+
+    body {
+        padding-top: 100px;
+    }
+
+     .header-gradient {
+        display: none;
+    }
+
+     .top-right-gradient {
+        display: block;
+        position: absolute;
+        bottom: 0; /* от соцсетей */
+        right: 0;
+        width: 100%;
+        height: 300px; /* подбираешь под размер соцсетей */
+        background: radial-gradient(
+            circle at bottom center,
+            rgba(235, 3, 255, 0.6) 0%,
+            rgba(129, 3, 255, 0.4) 50%,
+            rgba(3, 44, 255, 0.2) 80%,
+            rgba(3, 44, 255, 0) 100%
+        );
+        filter: blur(80px);
+        pointer-events: none;
+        z-index: 1;
+
+        mask-image: linear-gradient(to top, #000 0%, #000 70%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to top, #000 0%, #000 70%, transparent 100%);
+        mask-composite: intersect;
+        -webkit-mask-composite: destination-in;
+    }
+
+    .nav-container {
+        margin:0 auto;
+        height: 70px;
+        border-radius: 0 0 30px 30px;
+    }
+
+
+    .nav-left {
+        gap: 0;
+    }
+
+    .logo-icon {
+        font-size: 48px;
+    }
+
+    .logo-title {
+        font-size: 14px;
+    }
+
+    .logo-subtitle {
+        letter-spacing: 5px;
+        font-size: 6px;
+    }
+
+    .button-contact {
+        width: 140px;
+        height: 42px;
+        font-size: 16px;
+    }
+}
+
+/* по умолчанию скрываем градиент для больших экранов */
+.top-right-gradient {
+    display: none;
 }
