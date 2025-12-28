@@ -106,11 +106,11 @@ a {
   top: 0;
   right: 0;
   width: 50%;
-  height: 100%;
+  height: 75%;
   background: radial-gradient(circle at top right, rgba(235, 3, 255, 0.6), rgba(129, 3, 255, 0.4) 50%, rgba(3, 44, 255, 0.2) 80%, rgba(3, 44, 255, 0));
   filter: blur(80px);
   pointer-events: none;
-  z-index: 1;
+  z-index: -3;
 }
 
 /* ================= HEADER ================= */
@@ -1111,6 +1111,9 @@ html, body {
   .header-gradient {
     display: none;
   }
+  .nav {
+    align-items: start;
+  }
   .top-right-gradient {
     display: block;
     position: absolute;
@@ -1250,7 +1253,8 @@ html, body {
   }
 }
 .section-stats {
-  z-index: 20000;
+  margin-top: 50px;
+  z-index: 30000;
   color: #fff;
   font-family: "Montserrat", sans-serif;
 }
@@ -2288,11 +2292,13 @@ ul.floating-boxes li:nth-child(10) {
   transform: rotate(90deg);
 }
 
+/* ================= SECTION ================= */
 .section-projects {
   position: relative;
-  margin-top: 150px;
+  margin-top: clamp(80px, 10vw, 150px);
 }
 
+/* ================= GRADIENT ================= */
 .section-projects-gradient {
   position: absolute;
   top: -90px;
@@ -2301,194 +2307,176 @@ ul.floating-boxes li:nth-child(10) {
   height: 420px;
   background: radial-gradient(circle at top left, rgba(235, 3, 255, 0.6) 0%, rgba(129, 3, 255, 0.4) 40%, rgba(3, 44, 255, 0.2) 65%, rgba(3, 44, 255, 0) 100%);
   filter: blur(110px);
-  pointer-events: none;
   z-index: -1;
 }
 
+/* ================= CONTAINER ================= */
 .container-projects {
-  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
-  margin: 0 auto;
-  z-index: 1;
+  gap: 60px;
+}
+
+/* ================= TITLE ================= */
+.container-projects-title {
+  display: flex;
+  flex-direction: column;
 }
 
 .title-projects {
-  font-size: 100px;
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 0.8s ease-out;
-}
-
-.title-projects.visible {
-  opacity: 1;
-  transform: translateY(0);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  font-size: clamp(44px, 6vw, 100px);
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.05;
 }
 
 .projects-subtitle {
-  display: block; /* под заголовком */
-  margin-top: 8px;
-  font-size: 18px; /* меньше заголовка */
-  font-weight: 400;
-  line-height: 1.2;
-  color: #fff;
+  display: block;
+  margin-top: 10px;
+  font-size: 16px;
   opacity: 0.7;
 }
 
-.title-projects.visible {
-  opacity: 1;
-  transform: translateY(0);
+.title-arrow {
+  width: 72px; /* чуть больше чем у карточек */
+  border-top: 3px dashed var(--color-brand-light);
+  position: relative;
+  margin-top: 12px;
 }
 
-.title-projects::after {
+.title-arrow::after {
   content: "";
   position: absolute;
-  top: 50%;
-  right: -150px;
-  transform: translateY(-50%) rotate(-180deg);
-  width: 100px;
-  height: 0;
-  border-top: 5px dashed var(--color-brand-light);
+  right: 0;
+  top: -7px;
+  width: 14px;
+  height: 14px;
+  border-top: 3px solid var(--color-brand-light);
+  border-right: 3px solid var(--color-brand-light);
+  transform: rotate(45deg);
 }
 
-.title-projects::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: -160px;
-  width: 12px;
-  height: 12px;
-  border-left: 4px solid var(--color-brand-light);
-  border-bottom: 4px solid var(--color-brand-light);
-  transform: translateY(-50%) rotate(-135deg);
+/* hover-свечение как у карточек */
+.title-arrow:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 14px rgba(124, 102, 255, 0.7), 0 0 30px rgba(124, 102, 255, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ===== CARDS GRID ===== */
+/* ================= GRID ================= */
 .container-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
   width: 100%;
-  margin-top: 20px;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
 }
 
 .cards-column1 {
+  display: contents;
+}
+
+/* ================= CARD ================= */
+.card {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  /* начальное состояние для анимации */
-  opacity: 0;
-  transform: translateY(60px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.cards-column1.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.card {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 5/4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 35px;
-}
-
-.card img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-  transition: transform 0.4s ease, filter 0.3s ease;
-}
-
-.card:hover img {
-  transform: scale(1.08);
-  filter: brightness(0.6);
-}
-
-/* DARK OVERLAY */
-.card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 2;
-  transition: 0.3s ease;
-}
-
-.card:hover::after {
-  background: rgba(0, 0, 0, 0.6);
 }
 
 .card a {
-  position: relative;
-  z-index: 3;
-  display: block;
-  width: 100%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   color: #fff;
 }
 
-/* Контейнер текста */
-.card-hover-content {
+/* ================= IMAGE ================= */
+/* ================= IMAGE WRAPPER ================= */
+.card-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+/* image */
+.card-image img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* затемнение */
+.card-image::after {
+  content: "";
   position: absolute;
   inset: 0;
-  z-index: 3;
+  background: rgba(0, 0, 0, 0.4);
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* hover: убираем затемнение + увеличиваем картинку */
+.card-image:hover::after {
+  opacity: 0;
+}
+
+.card-image:hover img {
+  transform: scale(1.06);
+}
+
+/* ================= TEXT BLOCK ================= */
+.card-hover-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  padding: 20px;
+  gap: 10px;
+  padding: 18px 6px 28px;
 }
 
-.card:hover .card-hover-content {
-  opacity: 1;
-}
-
-/* Заголовки */
-.card-hover-title-top {
-  font-family: "Montserrat", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 10px;
-  transition: transform 0.3s ease;
+/* ================= TITLES ================= */
+.card-mobile-title {
+  color: var(--color-brand-light);
+  margin-bottom: 16px;
 }
 
 .card-hover-title-bottom {
-  font-family: "Montserrat", sans-serif;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 800;
-  color: #fff;
-  text-align: center;
-  transition: transform 0.3s ease;
+  line-height: 1.2;
+  transition: text-shadow 0.3s ease;
 }
 
-/* Увеличение заголовков при наведении на карточку */
-.card:hover .card-hover-title-top,
-.card:hover .card-hover-title-bottom {
-  transform: scale(1.1);
+/* 🔥 TITLE HOVER — ONLY TITLE */
+.card-hover-title-bottom:hover {
+  text-shadow: 0 0 12px rgba(124, 102, 255, 0.7), 0 0 24px rgba(124, 102, 255, 0.45);
 }
 
-/* Стрелка */
+/* ================= DESCRIPTION ================= */
+.card-hover-text {
+  font-size: 14px;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+.card-hover-text_name {
+  font-size: 18px;
+  text-shadow: 0 0 12px rgba(124, 102, 255, 0.7), 0 0 24px rgba(124, 102, 255, 0.45);
+}
+
+/* ================= ARROW ================= */
 .card-hover-arrow {
+  width: 56px;
+  margin-top: 10px;
   border-top: 3px dashed var(--color-brand-light);
-  width: 60px;
-  height: 0;
   position: relative;
-  transition: transform 0.3s ease;
-  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-hover-arrow::after {
@@ -2503,85 +2491,225 @@ ul.floating-boxes li:nth-child(10) {
   transform: rotate(45deg);
 }
 
+/* 🔥 ARROW HOVER — ONLY ARROW */
 .card-hover-arrow:hover {
-  transform: scale(1.3);
+  transform: scale(1.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 12px rgba(124, 102, 255, 0.7), 0 0 26px rgba(124, 102, 255, 0.45);
 }
 
-/* Стрелка внизу справа для всех кроме последней */
-.bottom-right {
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-}
-
-/* Последняя карточка — центрированный заголовок */
-.single-title {
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-/* Заголовок всегда видимый */
-.always-visible {
-  opacity: 1 !important;
-}
-
-/* Стрелка для последней карточки */
-.center-arrow {
-  border-top: 3px dashed var(--color-brand-light);
-  width: 60px;
-  height: 0;
+/* ================= CTA CARD ================= */
+.card a:has(.always-visible) {
   position: relative;
-  margin-top: 10px;
-  transition: transform 0.3s ease;
-  cursor: pointer;
 }
 
-.center-arrow::after {
+.card a:has(.always-visible) .always-visible {
+  width: 100%;
+  margin-top: -24px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  border-radius: 0 0 30px 30px;
+  padding: 28px 20px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.card a:has(.always-visible) .card-hover-arrow {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ================= CTA IMAGE FAKE ================= */
+.card-image-cta {
+  aspect-ratio: 3/2; /* ВАЖНО */
+  position: relative;
+  background: linear-gradient(135deg, rgba(124, 102, 255, 0.35), rgba(3, 44, 255, 0.35));
+}
+
+/* затемнение как у обычных картинок */
+.card-image-cta::after {
   content: "";
   position: absolute;
-  right: 0;
-  top: -1px;
-  width: 10px;
-  height: 10px;
-  border-top: 3px solid var(--color-brand-light);
-  border-right: 3px solid var(--color-brand-light);
-  transform: translateY(-50%) rotate(45deg);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
 }
 
-.center-arrow:hover {
-  transform: scale(1.3);
+/* стеклянная подложка НА ВЕСЬ image-блок */
+.card-image-cta .cta-glass {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(22px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  z-index: 2;
+  padding: 24px;
+  border-radius: 30px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
 }
 
-/* Контейнер заголовка */
-.container-projects {
-  position: relative;
+.card-image-cta .card-hover-arrow {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Точки справа от заголовка */
+/* ================= CTA GLASS ================= */
+.card-cta .always-visible {
+  margin-top: -28px;
+  width: calc(100% - 0px);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(22px);
+  border-radius: 0 0 30px 30px;
+  padding: 26px 22px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+/* ================= DOTS ================= */
 .container-dots-projects {
   position: absolute;
-  top: 20%;
-  right: 70%;
-  transform: translateY(-50%) rotate(180deg);
-  z-index: 0;
+  top: 30px;
+  left: 300px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 30px;
-  width: 150px;
-  height: 70px;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 22px;
+  width: 140px;
   pointer-events: none;
+  opacity: 0.5;
+  z-index: -2;
 }
 
-/* Точки */
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background-color: rgba(28, 37, 255, 0.2509803922);
 }
 
+/* ================= SCROLL ANIMATION ================= */
+.section-projects {
+  opacity: 0;
+  transform: translateY(50px);
+  filter: blur(6px);
+  transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
+}
+
+.section-projects.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+  .card img {
+    aspect-ratio: 16/11;
+  }
+  .container-projects {
+    gap: 50px;
+  }
+  .container-cards {
+    gap: 24px;
+  }
+  .title-projects {
+    font-size: clamp(40px, 7vw, 72px);
+  }
+  .card-hover-title-bottom {
+    font-size: 22px;
+  }
+}
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  /* ===== GRID ===== */
+  .container-cards {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  /* ===== TITLE ===== */
+  .container-projects-title {
+    align-items: center;
+    text-align: center;
+  }
+  .title-projects {
+    gap: 14px;
+    font-size: clamp(36px, 9vw, 56px);
+  }
+  .title-arrow {
+    width: 56px;
+  }
+  .projects-subtitle {
+    font-size: 14px;
+  }
+  /* ===== CARD ===== */
+  .card-hover-content {
+    padding: 14px 4px 22px;
+  }
+  .card-hover-title-bottom {
+    font-size: 21px;
+  }
+  .card-hover-text_name {
+    font-size: 16px;
+  }
+  /* ===== IMAGE ===== */
+  .card-image {
+    border-radius: 24px;
+  }
+  .card-image img {
+    aspect-ratio: 4/3;
+  }
+  /* ===== CTA ===== */
+  .card-image-cta .cta-glass {
+    padding: 20px;
+  }
+}
+/* ================= SMALL ================= */
+@media (max-width: 480px) {
+  .section-projects {
+    margin-top: 90px;
+  }
+  .title-projects {
+    font-size: 34px;
+  }
+  .title-arrow {
+    width: 48px;
+  }
+  .card-hover-title-bottom {
+    font-size: 19px;
+  }
+  .card-hover-text {
+    font-size: 13px;
+  }
+  .card-hover-arrow {
+    width: 48px;
+  }
+  .card-image,
+  .card-image-cta {
+    border-radius: 20px;
+  }
+}
 /* ===== SECTION ===== */
 .section-services {
   position: relative;

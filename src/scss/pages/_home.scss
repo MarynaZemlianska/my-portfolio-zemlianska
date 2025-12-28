@@ -261,6 +261,10 @@ html, body {
         display: none;
     }
 
+    .nav{
+        align-items: start;
+    }
+
     .top-right-gradient {
         display: block;
         position: absolute;
@@ -444,7 +448,8 @@ html, body {
 }
 
 .section-stats {
-    z-index: 20000;
+    margin-top: 50px;
+    z-index: 30000;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
 }
