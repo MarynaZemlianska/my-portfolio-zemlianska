@@ -13,7 +13,7 @@
 
 <body>
     <div class="header-gradient"></div>
-    <header>
+    <header class="header scrolled">
         <div class="nav-container">
             <div class="nav-left">
                 <a href="index.html" class="logo">
@@ -23,7 +23,7 @@
                         <span class="logo-subtitle">ZEMLIANSKA</span>
                     </span>
                 </a>
-                <nav class="nav">
+                <nav class="nav nav hidden">
                     <ul>
                         <li><a class="nav-link" href="index.html">HOME</a></li>
                         <li class="nav-item">
@@ -58,6 +58,7 @@
         </div>
     </header>
     <main>
+        <section class="hero">
         <div class="first-top-container">
             <div class="top-container">
                 <div class="top-left">
@@ -75,12 +76,17 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="top-center">
                     <img src="src/images/ellipse-photo.png" alt="Illustration" class="top-image">
                 </div>
                 <button class="button-contact button-mobile" id="openModalMobile">
                     Free consultation
                 </button>
+                <div class="top-actions">
+                <button class="button-contact button-mobile2" id="openModalMobile">
+                Free consultation
+            </button>
                 <div class="top-right icons-container">
                     <a href="https://www.instagram.com/zemlianska_maryna/" target="_blank"><svg class="icon">
                             <use href="/src/images/sprite.svg#icon-instagram"></use>
@@ -100,10 +106,9 @@
                 </div>
             </div>
             <div class="top-right-gradient"></div>
-            <button class="button-contact button-mobile2" id="openModalMobile">
-                Free consultation
-            </button>
+            </div>
         </div>
+        </section>
         <section class="section-stats">
             <div class="container">
                 <div class="stats-cards">

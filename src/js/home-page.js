@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
             header.classList.remove("scrolled");
         }
     });
+window.addEventListener("scroll", () => {
+    console.log("scrollY:", window.scrollY);
+});
 
     // ===== SCROLL REVEAL =====
     const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -25,18 +28,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, { threshold: 0.2 });
 
-    const revealSelectors = [
-        '.top-container-h1',
-        '.items-text',
-        '.top-image',
-        '.top-right a',
-        '.about-title',
-        '.about-title-arrow',
-        '.ellipse-photo',
-        '.text-items p',
-        '.section-testimonials',
-        '.section-faq'
-    ];
+  const revealSelectors = [
+    '.top-container-h1',
+    '.items-text',
+    '.top-image',
+    '.top-right a',
+    '.button-mobile2', // 👈 ДОБАВИЛИ
+    '.about-title',
+    '.about-title-arrow',
+    '.ellipse-photo',
+    '.text-items p',
+    '.section-testimonials',
+    '.section-faq'
+];
 
     revealSelectors.forEach(selector => {
         document.querySelectorAll(selector).forEach(el => revealObserver.observe(el));

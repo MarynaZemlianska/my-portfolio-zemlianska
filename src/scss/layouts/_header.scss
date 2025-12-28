@@ -1,7 +1,4 @@
-/* ================= BASE ================= */
-body {
-    padding-top: 140px;
-}
+
 
 /* ================= HEADER GRADIENT ================= */
 .header-gradient {
@@ -10,12 +7,20 @@ body {
     right: 0;
     width: 50%;
     height: 100%;
-    background: radial-gradient(circle at top right, rgba(235,3,255,0.6), rgba(129,3,255,0.4) 50%, rgba(3,44,255,0.2) 80%, rgba(3,44,255,0.8) 100%);
+    background: radial-gradient(
+        circle at top right,
+        rgba(235,3,255,0.6),
+        rgba(129,3,255,0.4) 50%,
+        rgba(3,44,255,0.2) 80%,
+        rgba(3,44,255,0)
+    );
     filter: blur(80px);
     pointer-events: none;
     z-index: 1;
 }
 
+
+/* ================= HEADER ================= */
 /* ================= HEADER ================= */
 header {
     position: fixed;
@@ -28,37 +33,26 @@ header {
     transition: all 0.35s ease;
 }
 
-header.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-header.scrolled {
-    top: 0;
-}
-
-header.scrolled .nav-container {
-    margin-top: 0;
-    background-color: rgba(0,0,0,0.85);
-    backdrop-filter: blur(14px);
-    border-radius: 0 0 30px 30px;
-}
-
-
 /* ================= NAV CONTAINER ================= */
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     max-width: 1150px;
-    margin: 20px auto 0;
-    padding: 0 25px;
     height: 95px;
+    padding: 0 25px;
+
+    margin: 20px auto 0;
     background-color: rgba(0,0,0,0.2);
     backdrop-filter: blur(10px);
     border-radius: 50px;
-    border: 2px rgba(194,19,255,0.76);
-    transition: all 0.35s ease;
+
+    transition: 
+        margin-top 0.35s ease,
+        background-color 0.35s ease,
+        backdrop-filter 0.35s ease,
+        border-radius 0.35s ease;
 }
 
 /* ================= NAV LEFT ================= */
@@ -119,6 +113,8 @@ header.scrolled .nav-container {
     display: flex;
     align-items: center;
     gap: 30px;
+    transform: translateX(0);
+    transition: transform 0.4s ease;
 }
 
 ul {
@@ -244,6 +240,10 @@ body.menu-open::before {
     z-index: 9998;
 }
 
+/* по умолчанию скрываем градиент для больших экранов */
+.top-right-gradient {
+    display: none;
+}
 
 /* ===== BURGER ===== */
 /* ===== BURGER ===== */
@@ -285,7 +285,7 @@ body.menu-open::before {
 
 
 
-@media (max-width: 1024px) {
+@media (max-width: 1034px) {
     .burger { display: block; }
     .header-gradient {
         width: 70%;
@@ -293,36 +293,40 @@ body.menu-open::before {
         opacity: 0.8;
     }
  .nav-container {
-        margin-left: auto;
-        margin-right: auto;
+
         width: calc(100% - 40px); /* аккуратные края */
     }
     .burger {
         display: block;
     }
-
-     header {
-        top: 0;
+    .nav {
+        opacity: 0;
+        pointer-events: none;
     }
-   
+
+    .nav.active {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
     /* Позиционируем меню фиксировано для мобильных */
     .nav {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100%;
-        max-width: 360px;
-        height: 100vh;
-        background: rgba(0,0,0,0.97);
-        backdrop-filter: blur(16px);
-        padding: 120px 40px 40px;
-        transform: translateX(100%);
-        transition: transform 0.4s ease;
-        flex-direction: column;
-        z-index: 10000;
-    }
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 360px;
+    height: 100vh;
+    background: rgba(0,0,0,0.97);
+    backdrop-filter: blur(16px);
+    padding: 120px 40px 40px;
 
-    .nav.active { transform: translateX(0); }
+    transform: translateX(0);
+    transition: transform 0.4s ease;
+}
+
+.nav.active { transform: translateX(0); }
+
 
     /* dropdown в мобилке */
     .dropdown-menu {
@@ -348,7 +352,16 @@ body.menu-open::before {
 
 @media (max-width: 991px) {
 
-    body { padding-top: 120px; } 
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    transition: top 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+}
+
+ header.scrolled .nav-container {
+        height: 70px;
+    }
 
     .header-gradient {
         width: 50%;
@@ -357,11 +370,11 @@ body.menu-open::before {
     }
 
     .nav-container {
-        margin:0 auto;
         height: 75px;
         padding: 0 20px;
         border-radius: 40px;
     }
+    
 
     
     .logo-icon {
@@ -388,11 +401,7 @@ body.menu-open::before {
 }
 
 
-@media (max-width: 767px) {
-
-    body {
-        padding-top: 100px;
-    }
+@media (max-width: 632px) {
 
      .header-gradient {
         display: none;
@@ -404,7 +413,7 @@ body.menu-open::before {
         bottom: 0; /* от соцсетей */
         right: 0;
         width: 100%;
-        height: 300px; /* подбираешь под размер соцсетей */
+        height: 600px; /* подбираешь под размер соцсетей */
         background: radial-gradient(
             circle at bottom center,
             rgba(235, 3, 255, 0.6) 0%,
@@ -414,7 +423,7 @@ body.menu-open::before {
         );
         filter: blur(80px);
         pointer-events: none;
-        z-index: 1;
+        z-index: -1;
 
         mask-image: linear-gradient(to top, #000 0%, #000 70%, transparent 100%);
         -webkit-mask-image: linear-gradient(to top, #000 0%, #000 70%, transparent 100%);
@@ -423,7 +432,6 @@ body.menu-open::before {
     }
 
     .nav-container {
-        margin:0 auto;
         height: 70px;
         border-radius: 0 0 30px 30px;
     }
@@ -453,7 +461,25 @@ body.menu-open::before {
     }
 }
 
-/* по умолчанию скрываем градиент для больших экранов */
-.top-right-gradient {
-    display: none;
+header.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+header:not(.scrolled) .nav-container {
+    margin-top: 20px; 
+    background-color: rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+}
+
+header.scrolled {
+    top: 0;
+}
+
+header.scrolled .nav-container {
+    margin-top: 0;
+    background-color: rgba(0,0,0,0.85);
+    backdrop-filter: blur(14px);
+    border-radius: 0 0 30px 30px;
 }
