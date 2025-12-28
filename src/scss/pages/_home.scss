@@ -449,7 +449,7 @@ html, body {
 
 .section-stats {
     margin-top: 50px;
-    z-index: 30000;
+    z-index: 20000;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
 }
@@ -541,9 +541,14 @@ html, body {
 
 /* TITLE */
 .title-steps {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 90px;
+    font-weight: 900;
+    font-size: 100px;
     line-height: 1.1;
     color: var(--color-primary-light);
     text-align: center;
@@ -556,29 +561,129 @@ html, body {
     transition: opacity 0.9s ease, transform 0.9s ease, filter 0.9s ease;
 }
 
+/* ===== TITLE GRAPHIC ===== */
+
+/* декоративная линия + стрелка */
+.title-graphic {
+    width: 160px;
+    height: 0;
+    border-top: 3px dashed var(--color-brand-light);
+    position: relative;
+
+    opacity: 0;
+    transform: translateY(20px) scaleX(0.8);
+    filter: blur(6px);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+/* стрелка */
+.title-graphic::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -8px;
+
+    width: 14px;
+    height: 14px;
+
+    border-top: 3px solid var(--color-brand-light);
+    border-right: 3px solid var(--color-brand-light);
+
+    transform: rotate(45deg);
+}
+
+/* glow */
+.title-graphic {
+    box-shadow:
+        0 0 14px rgba(124, 102, 255, 0.45),
+        0 0 30px rgba(124, 102, 255, 0.25);
+}
+
+/* появляется при скролле */
+.title-steps.visible .title-graphic {
+    opacity: 1;
+    transform: translateY(0) scaleX(1);
+    filter: blur(0);
+}
+
+
 .title-steps.visible {
     opacity: 1;
     transform: scale(1) translateY(0);
     filter: blur(0);
 }
 
-/* LIST */
+/* ===== TITLE DOTS ===== */
+/* ===== TITLE DOTS ===== */
+.title-dots {
+    position: absolute;
+    right: 0;
+    top: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+
+    opacity: 0;
+    transform: translateX(120%);
+    filter: blur(6px);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+.title-steps.visible .title-dots {
+    opacity: 1;
+    transform: translateX(100%);
+    filter: blur(0);
+}
+
+
+/* точки */
+.title-dots i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(124, 102, 255, 0.4);
+    box-shadow:
+        0 0 10px rgba(124, 102, 255, 0.35);
+}
+
+/* появление */
+.title-steps.visible .title-dots {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+}
+
+
 .list-steps {
     width: 100%;
     position: relative;
+    padding-left: 15px; /* 56px кружок + gap */
 }
 
-/* VERTICAL LINE */
+
 .list-steps::before {
     content: '';
     position: absolute;
-    left: 30px;
-    /* Центр линии по кружкам */
     top: 0;
     bottom: 0;
+
+    left: calc(88px / 2);
+    transform: translateX(-50%);
+
     width: 4px;
     background: rgba(28, 37, 255, 0.25);
 }
+
+
 
 /* LIST ITEMS */
 .list-items {
@@ -590,16 +695,16 @@ html, body {
     gap: 50px;
 }
 
-/* STEP ITEM */
 .list-items li {
     display: flex;
-    gap: 30px;
     align-items: flex-start;
+    gap: 24px;
 
     opacity: 0;
     transform: translateY(60px);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
 
 /* активный шаг */
 .list-items li.visible {
@@ -693,17 +798,198 @@ html, body {
     letter-spacing: 0.5px;
 }
 
-/* MOBILE */
-@media screen and (max-width: 768px) {
-    .list-items li {
-        flex-direction: column;
-        align-items: flex-start;
+@media (max-width: 1024px) {
+
+    .container-steps {
+        max-width: 760px;
+        gap: 40px;
+    }
+
+    .title-steps {
+        font-size: 100px;
+        margin-bottom: 30px;
+    }
+
+    .list-items {
+        gap: 40px;
+    }
+
+    .list-steps {
+        padding-left: 19px;
+    }
+
+    .step-circle {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+    }
+
+    .step-content h4 {
+        font-size: 20px;
+    }
+
+    .step-content p {
+        font-size: 15px;
+    }
+
+     .title-dots {
+        right: -80px;
+        top: 18px;
+        gap: 12px;
+    }
+
+    .title-dots i {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+
+   .list-steps {
+        padding-left: 13px; /* 40px кружок + gap */
     }
 
     .list-steps::before {
-        left: 15px;
+        left: calc(64px / 2);
+        width: 3px;
+    }
+
+    .step-circle {
+        width: 40px;
+        height: 40px;
+    }
+    .section-steps {
+        padding: 80px 0;
+    }
+
+    .container-steps {
+        max-width: 100%;
+        padding: 0 20px;
+        gap: 32px;
+    }
+
+    /* TITLE */
+    .title-steps {
+        font-size: 65px;
+        line-height: 1.15;
+        margin-bottom: 20px;
+    }
+
+    /* LIST */
+    
+    .list-items {
+        gap: 32px;
+    }
+
+    .list-items li {
+        gap: 20px;
+        transform: translateY(40px);
+    }
+
+
+    /* CONTENT */
+    .step-content h4 {
+        font-size: 18px;
+    }
+
+    .step-content p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    /* убираем сильный hover на touch */
+    .list-items li:hover .step-circle {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+     .title-graphic {
+        width: 110px;
+        border-top-width: 2px;
+    }
+
+    .title-graphic::after {
+        width: 12px;
+        height: 12px;
+        top: -7px;
+    }
+
+     .title-steps {
+        position: relative;
+        padding-bottom: 32px;
+    }
+
+
+}
+
+@media (max-width: 480px) {
+    .title-graphic {
+        width: 90px;
+    }
+ .list-steps {
+        padding-left: 12px;
+    }
+
+    .list-steps::before {
+        left: calc(56px / 2);
+    }
+
+    .step-circle {
+        width: 36px;
+        height: 36px;
+    }
+    .title-steps {
+        font-size: 50px;
+    }
+
+
+    .step-content h4 {
+        font-size: 16px;
+    }
+
+    .step-content p {
+        font-size: 13px;
+    }
+
+      .title-dots {
+        gap: 8px;
+    }
+
+    .title-dots i {
+        width: 6px;
+        height: 6px;
     }
 }
+
+@media (max-width: 480px){
+    .title-steps {
+        font-size: 40px;
+    }
+}
+
+@media (hover: none) {
+
+    .title-steps {
+        transition-duration: 0.5s;
+    }
+
+    .list-items li {
+        transition-duration: 0.4s;
+    }
+
+    .step-circle {
+        transition-duration: 0.3s;
+    }
+
+    .step-content h4,
+    .step-content p {
+        transition-duration: 0.35s;
+    }
+}
+
+
+
 
 .section-faq {
     margin-top: 50px;
