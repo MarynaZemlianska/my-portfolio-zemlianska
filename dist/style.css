@@ -876,7 +876,7 @@ html, body {
 
 /* ================= HEADER HEIGHT ================= */
 :root {
-  --header-height: 50px;
+  --header-height: 140px; /* desktop */
 }
 
 @media (max-width: 991px) {
@@ -891,10 +891,10 @@ html, body {
 }
 .hero {
   position: relative;
-  min-height: 100dvh;
+  min-height: calc(100svh - var(--header-height));
   padding-top: var(--header-height);
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* ⬅️ ВАЖНО */
   justify-content: center;
   overflow: hidden;
 }
@@ -904,12 +904,11 @@ html, body {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* ⬅️ */
   align-items: center;
-  padding: 0 20px;
+  padding: clamp(20px, 5vh, 60px) 20px 0;
   color: #fff;
 }
 
@@ -929,7 +928,7 @@ html, body {
   min-width: 250px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
   color: #fff;
 }
 
@@ -941,6 +940,7 @@ html, body {
 }
 
 .top-container-h1 {
+  font-weight: bold;
   font-size: 85px;
   line-height: 1.2;
   word-break: normal;
@@ -1127,9 +1127,10 @@ html, body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 32px;
+    gap: 50px;
     width: 100%;
     max-width: 100%;
+    margin: 0 20px;
   }
   .top-left {
     align-items: center;
@@ -1143,13 +1144,13 @@ html, body {
     height: 60px;
   }
   .items-text {
-    max-width: 5720px;
+    max-width: 720px;
     font-size: clamp(16px, 2vw, 18px);
     line-height: 1.4;
     text-align: center;
   }
   .top-container-h1 {
-    font-size: clamp(44px, 6vw, 64px);
+    font-size: clamp(85px, 6vw, 200px);
     line-height: 1.15;
   }
   .top-center img {
@@ -1204,6 +1205,9 @@ html, body {
 }
 /* ===== 767px: mobile-fixes ===== */
 @media (max-width: 767px) {
+  .top-container-h1 {
+    font-size: 65px;
+  }
   .hero {
     overflow: visible;
   }
@@ -1221,7 +1225,7 @@ html, body {
 /* ===== 481px: smallest screens ===== */
 @media (max-width: 481px) {
   .top-container-h1 {
-    font-size: 38px;
+    font-size: 50px;
   }
   .items-text {
     font-size: 16px;
@@ -1235,6 +1239,14 @@ html, body {
   }
   .button-mobile2 {
     max-width: 320px;
+  }
+}
+@media (max-width: 360px) {
+  .top-container-h1 {
+    font-size: 40px;
+  }
+  .items-text {
+    font-size: 14px;
   }
 }
 .section-stats {
