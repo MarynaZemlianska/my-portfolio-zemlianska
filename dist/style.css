@@ -1695,7 +1695,7 @@ html, body {
   }
 }
 .section-faq {
-  margin-top: 50px;
+  margin-top: 20px;
   padding: 0 20px 150px;
   color: var(--color-primary-light);
   font-family: "Montserrat", sans-serif;
@@ -2121,25 +2121,14 @@ ul.floating-boxes li:nth-child(10) {
 
 /* ===== TITLE ===== */
 .about-title {
-  position: absolute;
-  left: 250px; /* ⬅️ заходит на фото */
-  top: -45px; /* ⬅️ выше фото */
-  max-width: 800px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 100px;
-  font-weight: 700;
-  line-height: 1.05;
-  color: var(--color-primary-light);
-  z-index: 2;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.6s ease-out;
+  position: relative;
+  display: inline-block;
 }
 
 .about-title-arrow {
   position: absolute;
-  top: 40px; /* ⬅️ на уровне первой строки заголовка */
-  left: 800px;
+  right: -60px; /* ⬅️ справа от заголовка */
+  top: 32px;
   width: 100px;
   height: 8px;
   background-color: var(--color-brand-light);
@@ -2264,6 +2253,164 @@ ul.floating-boxes li:nth-child(10) {
   transition-delay: 0.5s;
 }
 
+@media (max-width: 1200px) {
+  .section-about {
+    gap: 60px;
+    padding-top: 120px;
+    padding-bottom: 100px;
+    padding: 120px 20px 100px 10px;
+  }
+  .about-photo-container {
+    width: 360px;
+    height: 460px;
+  }
+  .ellipse-photo {
+    width: 360px;
+    height: 360px;
+  }
+  .about-title {
+    font-size: 84px;
+    top: -40px;
+  }
+  .about-title-arrow {
+    width: 80px;
+    top: 34px;
+  }
+  .text-items p {
+    font-size: 18px;
+    line-height: 32px;
+  }
+}
+/* =========================
+   ≤ 955px — FIX OVERLAP
+========================= */
+@media (max-width: 955px) {
+  .section-about {
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+  /* Блок с заголовком и фото */
+  .about-photo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+  }
+  .about-title {
+    font-size: 72px;
+    text-align: center;
+  }
+  .about-title-arrow {
+    top: 28px;
+    width: 80px;
+    height: 6px;
+  }
+  .ellipse-photo {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin: 0 auto;
+  }
+  /* ТЕКСТ — ВСЕГДА НИЖЕ */
+  .about-content {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .text-items {
+    align-items: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+  .section-about {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .about-photo-container {
+    width: 280px;
+    height: 360px;
+  }
+  .ellipse-photo {
+    width: 280px;
+    height: 280px;
+  }
+  .about-title {
+    font-size: 44px;
+  }
+  .about-title-arrow {
+    width: 70px;
+    height: 6px;
+    margin-bottom: 20px;
+  }
+  .about-title-arrow::after {
+    width: 20px;
+    height: 20px;
+    border-width: 6px;
+  }
+  .text-items p {
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+  }
+}
+@media (max-width: 480px) {
+  .about-photo-container {
+    width: 240px;
+    height: 320px;
+  }
+  .ellipse-photo {
+    width: 240px;
+    height: 240px;
+  }
+  .about-title {
+    font-size: 44px;
+  }
+  .about-title-arrow {
+    right: -70px;
+    top: 22px;
+    width: 60px;
+    height: 5px;
+  }
+  .about-title-arrow::after {
+    width: 18px;
+    height: 18px;
+    border-width: 5px;
+  }
+  .text-items p {
+    font-size: 15px;
+    line-height: 26px;
+  }
+}
+@media (max-width: 398px) {
+  .about-photo-container {
+    margin-bottom: 50px;
+  }
+  .about-title {
+    text-align: center;
+    padding-bottom: 50px; /* место под стрелку */
+  }
+  .about-title-arrow {
+    right: 50%;
+    top: 100px;
+    bottom: -30px;
+    transform: translateX(50%) rotate(90deg);
+    width: 50px;
+    height: 5px;
+  }
+  .about-title-arrow::after {
+    width: 16px;
+    height: 16px;
+    border-width: 5px;
+  }
+  /* когда появляется */
+  .about-title-arrow.visible {
+    transform: translateX(50%) rotate(90deg);
+  }
+}
 /* ===== SECTION CONTACTS ===== */
 .section-contacts {
   position: relative;
