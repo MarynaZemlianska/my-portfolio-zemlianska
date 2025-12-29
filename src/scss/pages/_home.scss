@@ -548,7 +548,7 @@ html, body {
     gap: 24px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
-    font-size: 100px;
+    font-size: 80px;
     line-height: 1.1;
     color: var(--color-primary-light);
     text-align: center;
@@ -806,7 +806,7 @@ html, body {
     }
 
     .title-steps {
-        font-size: 100px;
+        font-size: 70px;
         margin-bottom: 30px;
     }
 
@@ -962,11 +962,14 @@ html, body {
     }
 }
 
-@media (max-width: 480px){
-    .title-steps {
+
+@media (max-width: 345px){
+.title-steps {
         font-size: 40px;
     }
+
 }
+
 
 @media (hover: none) {
 

@@ -46,7 +46,7 @@
     display: inline-flex;
     align-items: center;
     gap: 22px;
-    font-size: clamp(44px, 6vw, 100px);
+    font-size: clamp(70px, 6vw, 100px);
     font-weight: 800;
     text-align: center;
     line-height: 1.05;
@@ -410,7 +410,7 @@
     }
 
     .title-projects {
-        font-size: clamp(50px, 7vw, 72px);
+        font-size: clamp(70px, 7vw, 84px);
     }
 
     .card-hover-title-bottom {

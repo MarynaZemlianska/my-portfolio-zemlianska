@@ -1,8 +1,10 @@
 /* ===== SECTION ===== */
+
 .section-services {
     position: relative;
-    overflow: hidden;
+    overflow: visible; /* ⬅️ позволяем dots жить */
 }
+
 
 /* ===== CONTAINER ===== */
 .container {
@@ -18,10 +20,16 @@
 }
 
 .title-services {
-    font-size: 64px;        /* размер заголовка */
+     position: relative;
+    overflow: visible; /* ⬅️ КРИТИЧЕСКИ ВАЖНО */
+    margin: 30px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 100px;
     font-weight: 700;
-    line-height: 1;
+    letter-spacing: 6px;
     color: #fff;
+    position: relative;
+    line-height: 1; /* ⬅️ важно, чтобы высота не плавала */
 }
 
 .services-subtitle {
@@ -51,26 +59,16 @@
     transform: translateY(0);
 }
 
-.title-services {
-    margin: 30px 0;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 100px;
-    font-weight: 700;
-    letter-spacing: 6px;
-    color: #fff;
-    position: relative;
-    line-height: 1; /* ⬅️ важно, чтобы высота не плавала */
-}
-
 .title-services::after {
     content: "×";
     position: absolute;
-    top: 40px;              /* ⬅️ вместо bottom */
-    right: -13%;
+    top: 20px;
+    right: -80px;          /* вместо процентов */
     font-size: 100px;
     transform: rotate(10deg);
-    line-height: 1;      /* ⬅️ фикс */
+    line-height: 1;
 }
+
 
 /* ===== CARDS GRID ===== */
 .container-services-cards {
@@ -232,9 +230,12 @@
     width: 250px;
     height: 113px;
 
-    z-index: -1;           /* выше градиента, ниже карточек */
+    z-index: 0;           /* выше градиента, ниже карточек */
     pointer-events: none;
 }
+
+
+
 
 /* BOTTOM — под контентом секции */
 .container-dots3 {
@@ -253,4 +254,226 @@
 
     z-index: 0;           /* выше градиента, ниже карточек */
     pointer-events: none;
+}
+
+.container,
+.container-services-cards {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================
+   ≤ 1200px
+========================= */
+@media (max-width: 1200px) {
+
+    .container-services-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .title-services {
+        font-size: 84px;
+        letter-spacing: 4px;
+    }
+
+    .title-services::after {
+        font-size: 84px;
+        right: -10%;
+        top: 34px;
+    }
+}
+
+
+/* =========================
+   ≤ 1024px
+========================= */
+@media (max-width: 1024px) {
+
+    .container-services-title {
+        justify-content: center;
+    }
+
+     .title-services::after {
+        text-align: center;
+        right: -50px;
+        top: 30px;
+        font-size: 80px;
+    }
+
+    .services-subtitle {
+        font-size: 16px;
+    }
+
+    .container-services-cards {
+        gap: 22px;
+    }
+
+    .services-card-items h3 {
+        font-size: 26px;
+    }
+
+    .services-card-text {
+        font-size: 15px;
+    }
+
+    .services-card-button {
+        width: 150px;
+        height: 46px;
+        font-size: 16px;
+    }
+
+    .container-dots {
+        left: 10%;
+        opacity: 0.6;
+    }
+}
+
+
+/* =========================
+   ≤ 768px (TABLET / MOBILE)
+========================= */
+@media (max-width: 768px) {
+
+    .section-services {
+        padding-bottom: 60px;
+    }
+
+    .title-services {
+        font-size: 70px;
+        letter-spacing: 3px;
+    }
+    .title-services::after {
+        right: -30px;
+        top: 30px;
+        font-size: 56px;
+
+    }
+
+    .services-subtitle {
+        font-size: 15px;
+        margin-top: 6px;
+    }
+
+    .container-services-cards {
+        grid-template-columns: (1fr);
+        gap: 26px;
+    }
+
+    .service-card {
+        max-width: 520px;
+        margin: 0 auto;
+        border-radius: 28px;
+    }
+
+    .services-card-items {
+        padding: 22px;
+    }
+
+    .services-card-items h3 {
+        font-size: 24px;
+    }
+
+    .services-card-text {
+        font-size: 14px;
+        margin-top: 14px;
+    }
+
+    .services-card-button {
+        margin-top: 16px;
+    }
+
+    .container-dots {
+        top: auto;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 180px;
+        gap: 18px;
+
+        opacity: 0.35;
+        z-index: 1; /* ⬅️ ВАЖНО */
+    }
+
+   
+
+    .container-services-cards {
+        display: grid;
+        grid-template-columns: 1fr; /* ⬅️ ОДНА карточка */
+        justify-items: center;      /* ⬅️ центрируем */
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .service-card {
+        width: 100%;
+        max-width: 520px;           /* ⬅️ ограничиваем ширину */
+        margin: 0 auto;
+    }
+}
+
+
+/* =========================
+   ≤ 480px (MOBILE)
+========================= */
+@media (max-width: 480px) {
+
+    .title-services {
+        font-size: 60px;
+        letter-spacing: 2px;
+    }
+     .title-services::after {
+        right: -20px;
+        top: 30px;
+        font-size: 44px;
+    }
+
+    .services-subtitle {
+        font-size: 14px;
+    }
+
+    .service-card {
+        max-width: 100%;
+        aspect-ratio: 4 / 3;
+        border-radius: 24px;
+    }
+
+    .services-card-items h3 {
+        font-size: 22px;
+    }
+
+    .services-card-text {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .services-card-button {
+        width: 140px;
+        height: 44px;
+        font-size: 15px;
+    }
+
+   .container-dots {
+        width: 140px;
+        gap: 14px;
+        opacity: 0.25;
+    }
+}
+
+
+/* =========================
+   TOUCH DEVICES
+========================= */
+@media (hover: none) {
+
+    .service-card:hover .services-photo img {
+        transform: scale(1.05);
+    }
+
+    .services-card-button:hover {
+        background: rgba(36, 33, 33, 0.7);
+    }
 }
