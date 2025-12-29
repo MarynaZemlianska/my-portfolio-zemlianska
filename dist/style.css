@@ -1696,7 +1696,7 @@ html, body {
 }
 .section-faq {
   margin-top: 20px;
-  padding: 0 20px 150px;
+  padding: 0 20px 50px;
   color: var(--color-primary-light);
   font-family: "Montserrat", sans-serif;
 }
@@ -1940,20 +1940,123 @@ html, body {
   /* немного отступ от края */
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
+/* =========================
+   ≤ 1200px
+========================= */
+@media (max-width: 1200px) {
+  .testimonials-wrapper {
+    max-width: 900px;
+    padding: 0 50px;
+  }
   .testimonial-card {
-    min-width: 200px;
-    padding: 20px;
+    max-width: 280px;
+  }
+}
+/* =========================
+   ≤ 992px (TABLET)
+========================= */
+@media (max-width: 992px) {
+  .section-title {
+    font-size: 32px;
+    margin-bottom: 32px;
+  }
+  .testimonials-wrapper {
+    max-width: 760px;
+    padding: 0 46px;
+  }
+  .testimonial-card {
+    max-width: 260px;
+    padding: 24px;
+    font-size: 14px;
+  }
+  .slider-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+}
+/* =========================
+   ≤ 768px (TABLET / MOBILE)
+========================= */
+@media (max-width: 768px) {
+  .section-testimonials {
+    padding: 50px 16px;
+  }
+  .section-title {
+    font-size: 28px;
   }
   .testimonials-wrapper {
     padding: 0 40px;
   }
+  .testimonials-slider {
+    gap: 16px;
+  }
+  .testimonial-card {
+    max-width: 240px;
+    padding: 22px;
+    line-height: 22px;
+  }
   .slider-prev {
-    left: 5px;
+    left: 4px;
   }
   .slider-next {
-    right: 5px;
+    right: 4px;
+  }
+}
+/* =========================
+   ≤ 600px (MOBILE)
+========================= */
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+  .testimonials-wrapper {
+    padding: 0 36px;
+  }
+  .testimonials-slider {
+    scroll-snap-type: x mandatory;
+  }
+  .testimonial-card {
+    min-width: 85%;
+    max-width: 85%;
+    scroll-snap-align: center;
+    padding: 20px;
+    font-size: 14px;
+  }
+  .slider-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+}
+/* =========================
+   ≤ 420px (SMALL MOBILE)
+========================= */
+@media (max-width: 420px) {
+  .section-title {
+    font-size: 22px;
+  }
+  .testimonials-wrapper {
+    padding: 0 32px;
+  }
+  .testimonial-card {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 18px;
+  }
+  .slider-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+}
+/* =========================
+   TOUCH DEVICES
+========================= */
+@media (hover: none) {
+  .slider-btn:hover {
+    background: rgba(255, 0, 204, 0.8);
   }
 }
 /* The Boxes */
@@ -2655,6 +2758,152 @@ ul.floating-boxes li:nth-child(10) {
   transform: rotate(90deg);
 }
 
+/* =========================
+   ≤ 1200px
+========================= */
+@media (max-width: 1200px) {
+  .contacts-title {
+    font-size: 90px;
+    line-height: 1;
+  }
+  .form {
+    width: 55%;
+  }
+  .form-label {
+    font-size: 24px;
+  }
+  .input1,
+  .input2 {
+    height: 64px;
+    font-size: 20px;
+  }
+  .input3 {
+    height: 220px;
+    font-size: 20px;
+  }
+}
+/* =========================
+   ≤ 1024px
+========================= */
+@media (max-width: 1024px) {
+  .section-contacts {
+    gap: 40px;
+  }
+  .contacts-title {
+    font-size: 80px;
+    letter-spacing: 4px;
+  }
+  .form {
+    width: 70%;
+  }
+  .form-title {
+    font-size: 18px;
+    padding: 16px 26px;
+  }
+  .form-button {
+    width: 260px;
+    font-size: 22px;
+  }
+  .container-dots {
+    opacity: 0.6;
+  }
+  .arc-bottom {
+    width: 520px;
+    height: 520px;
+    top: 260px;
+  }
+}
+/* =========================
+   ≤ 768px (TABLET / MOBILE)
+========================= */
+@media (max-width: 768px) {
+  .section-contacts {
+    padding: 50px 20px;
+    gap: 32px;
+  }
+  .contacts-title {
+    font-size: 70px;
+    letter-spacing: 3px;
+  }
+  .form {
+    width: 100%;
+    max-width: 520px;
+  }
+  .form-label {
+    font-size: 20px;
+  }
+  .input1,
+  .input2 {
+    height: 58px;
+    font-size: 18px;
+  }
+  .input3 {
+    height: 200px;
+    font-size: 18px;
+  }
+  .form-button {
+    width: 100%;
+    height: 54px;
+    font-size: 20px;
+  }
+  .container-dots {
+    top: auto;
+    bottom: 20px;
+    gap: 16px;
+    opacity: 0.4;
+  }
+  .arc-top {
+    width: 220px;
+    height: 220px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+  }
+}
+/* =========================
+   ≤ 480px (MOBILE)
+========================= */
+@media (max-width: 480px) {
+  .contacts-title {
+    font-size: 65px;
+    letter-spacing: 2px;
+  }
+  .form-title {
+    font-size: 16px;
+    padding: 14px 22px;
+  }
+  .form-label {
+    font-size: 18px;
+  }
+  .input1,
+  .input2 {
+    height: 52px;
+    font-size: 16px;
+  }
+  .input3 {
+    height: 180px;
+    font-size: 16px;
+  }
+  .form-button {
+    height: 50px;
+    font-size: 18px;
+  }
+  .info-form {
+    font-size: 12px;
+  }
+  .container-dots {
+    width: 180px;
+    gap: 12px;
+  }
+}
+/* =========================
+   TOUCH DEVICES
+========================= */
+@media (hover: none) {
+  .form-button:hover {
+    background: var(--color-brand-light);
+    border: none;
+  }
+}
 /* ================= SECTION ================= */
 .section-projects {
   position: relative;
