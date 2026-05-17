@@ -186,6 +186,7 @@ ul {
     display: none;
     background-color: var(--color-brand);
     border: 1px solid rgba(194,19,255,0.76);
+    font-family:'Inter', system-ui, sans-serif ;
     border-radius: 6px;
     min-width: max-content;
     white-space: nowrap;
@@ -216,7 +217,7 @@ ul {
     background: #242121;
     color: var(--color-primary-light);
     border-radius: 50px;
-    border: none;
+    border: 1px solid var(--color-brand-light);
     font-family: Inter;
     font-size: 23px;
     cursor: pointer;
@@ -482,4 +483,30 @@ header.scrolled .nav-container {
     background-color: rgba(0,0,0,0.85);
     backdrop-filter: blur(14px);
     border-radius: 0 0 30px 30px;
+}
+
+.modal.is-hidden {
+    display: none;
+}
+
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.modal.active {
+    display: flex;
+}
+.modal-content {
+    background: #111;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 420px;
 }

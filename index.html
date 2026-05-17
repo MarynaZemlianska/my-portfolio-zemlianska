@@ -27,12 +27,12 @@
                     <ul>
                         <li><a class="nav-link" href="index.html">HOME</a></li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link--dropdown" href="services.html">
-                                <span class="nav-text">SERVICES & PRICES</span>
+                            <a class="nav-link nav-link--dropdown" href="#">
+                                <span class="nav-text">SERVICES</span>
                                 <span class="nav-arrow"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="landing-site.html">Landing website</a></li>
+                                <li><a href="/src/html/landing-site.html">Landing website</a></li>
                                 <li><a href="business-site.html">Business card website</a></li>
                                 <li><a href="corporate-site.html">Corporate website</a></li>
                                 <li><a href="personal-site.html">Personal website</a></li>
@@ -40,6 +40,7 @@
                                 <li><a href="other-services.html">Other services</a></li>
                             </ul>
                         </li>
+                        <li><a class="nav-link" href="projects.html">PRICES</a></li>
                         <li><a class="nav-link" href="projects.html">PROJECTS</a></li>
                         <li><a class="nav-link" href="contacts.html">CONTACTS</a></li>
                     </ul>
@@ -62,7 +63,7 @@
             <div class="first-top-container">
                 <div class="top-container">
                     <div class="top-left">
-                        <h1 class="top-container-h1">Websites <br>development</h1>
+                        <h1 class="top-container-h1">Websites <br><span class="h1-small">development</span></h1>
                         <div class="top-text-items">
                             <div>
                                 <div class="top-block-items">
@@ -78,7 +79,7 @@
                     </div>
 
                     <div class="top-center">
-                        <img src="src/images/ellipse-photo.png" alt="Illustration" class="top-image">
+                        <img src="src/images/top-image.svg" alt="Illustration" class="top-image">
                     </div>
                     <button class="button-contact button-mobile" id="openModalMobile">
                         Free consultation
@@ -290,7 +291,7 @@
 
                                     <!-- заглавие КАК У ВСЕХ -->
                                     <div class="card-mobile-title">
-                                        <span class="card-hover-title-bottom">Your website</span>
+                                        <span class="card-hover-title-bottom">Let’s create your next project together.</span>
                                     </div>
 
                                     <!-- image-блок как у всех -->
@@ -300,7 +301,7 @@
                                         <div class="cta-glass">
 
                                             <p class="card-hover-text">
-                                                Let’s create your next project together.
+                                                Your website
                                             </p>
 
                                             <span class="card-hover-arrow"></span>
@@ -914,6 +915,30 @@
 
         </div>
     </div>
+
+    <!-- MOBILE MODAL -->
+<div class="modal is-hidden" id="mobileConsultationModal">
+
+    <div class="modal-content">
+        <span class="modal-close" id="mobileModalClose">&times;</span>
+
+        <h2>Free Consultation</h2>
+        <p>Fill out the form below and we will contact you shortly.</p>
+
+        <form id="mobileConsultationForm">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Message" rows="4" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+
+        <div class="success-message" id="mobileSuccessMessage">
+            Your message has been sent successfully!
+        </div>
+
+    </div>
+
+</div>
     <script src="./src/js/header.js"></script>
     <script src="./src/js/home-page.js"></script>
     <script src="./src/js/projects-section.js"></script>

@@ -272,6 +272,7 @@ ul {
   display: none;
   background-color: var(--color-brand);
   border: 1px solid rgba(194, 19, 255, 0.76);
+  font-family: "Inter", system-ui, sans-serif;
   border-radius: 6px;
   min-width: max-content;
   white-space: nowrap;
@@ -302,7 +303,7 @@ ul {
   background: #242121;
   color: var(--color-primary-light);
   border-radius: 50px;
-  border: none;
+  border: 1px solid var(--color-brand-light);
   font-family: Inter;
   font-size: 23px;
   cursor: pointer;
@@ -565,6 +566,32 @@ header.scrolled .nav-container {
   background-color: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(14px);
   border-radius: 0 0 30px 30px;
+}
+
+.modal.is-hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #111;
+  padding: 30px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 420px;
 }
 
 /* ===== FOOTER ===== */
@@ -908,7 +935,6 @@ html, body {
   flex-direction: column;
   justify-content: flex-start; /* ⬅️ */
   align-items: center;
-  padding: clamp(20px, 5vh, 60px) 20px 0;
   color: #fff;
 }
 
@@ -941,15 +967,25 @@ html, body {
 
 .top-container-h1 {
   font-weight: bold;
-  font-size: 85px;
   line-height: 1.2;
   word-break: normal;
   overflow-wrap: normal;
   hyphens: auto;
-  font-size: clamp(36px, 6vw, 85px);
+  font-size: 100px;
   line-height: 1.1;
   color: #fff;
   /* белый заголовок */
+}
+
+.h1-small {
+  font-weight: bold;
+  line-height: 1.2;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: auto;
+  font-size: 70px;
+  line-height: 1.1;
+  color: #fff;
 }
 
 /* Линия + текст */
@@ -976,11 +1012,17 @@ html, body {
   /* белый текст */
 }
 
-/* Центр - изображение */
-.top-center img {
-  border-radius: 50%;
-  width: 420px;
+.top-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-image {
   max-width: 100%;
+  height: auto;
+  transform: scale(1.1);
+  transition: 0.3s ease;
 }
 
 /* Правая колонка - соцсети */
@@ -1153,11 +1195,14 @@ html, body {
     text-align: center;
   }
   .top-container-h1 {
-    font-size: clamp(85px, 6vw, 200px);
+    font-size: clamp(85px, 6vw, 100px);
+    line-height: 1.15;
+  }
+  .h1-small {
+    font-size: clamp(50px, 6vw, 40px);
     line-height: 1.15;
   }
   .top-center img {
-    width: clamp(300px, 45vw, 380px);
     max-width: 100%;
   }
   .button-mobile2 {
@@ -1197,7 +1242,7 @@ html, body {
     max-width: 420px;
   }
   .top-center img {
-    width: clamp(240px, 32vw, 300px);
+    max-width: 100%;
   }
   .top-right {
     margin-top: 28px;
@@ -1224,6 +1269,9 @@ html, body {
   .button-mobile2 {
     font-size: 16px;
   }
+  .top-image {
+    max-width: 100%;
+  }
 }
 /* ===== 481px: smallest screens ===== */
 @media (max-width: 481px) {
@@ -1234,7 +1282,7 @@ html, body {
     font-size: 16px;
   }
   .top-center img {
-    width: 240px;
+    max-width: 100%;
   }
   .top-right a svg {
     width: 32px;
@@ -1247,6 +1295,10 @@ html, body {
 @media (max-width: 360px) {
   .top-container-h1 {
     font-size: 40px;
+  }
+  .h1-small {
+    font-size: clamp(40px, 6vw, 30px);
+    line-height: 1.15;
   }
   .items-text {
     font-size: 14px;
@@ -1332,7 +1384,7 @@ html, body {
   gap: 24px;
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
-  font-size: 80px;
+  font-size: clamp(42px, 6.5vw, 100px);
   line-height: 1.1;
   color: var(--color-primary-light);
   text-align: center;
@@ -2226,11 +2278,23 @@ ul.floating-boxes li:nth-child(10) {
 .about-title {
   position: relative;
   display: inline-block;
+  z-index: 2;
+  left: 200px;
+  top: -90px;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(42px, 6.5vw, 100px); /* ⬅️ БОЛЬШЕ */
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--color-primary-light);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
 }
 
 .about-title-arrow {
   position: absolute;
-  right: -60px; /* ⬅️ справа от заголовка */
+  right: 250px; /* ⬅️ справа от заголовка */
   top: 32px;
   width: 100px;
   height: 8px;
@@ -2275,8 +2339,9 @@ ul.floating-boxes li:nth-child(10) {
 .about-content {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* текст опускается вниз */
+  justify-content: center; /* текст опускается вниз */
   flex: 1;
+  margin-top: 200px;
 }
 
 /* текстовый контейнер */
@@ -2373,7 +2438,6 @@ ul.floating-boxes li:nth-child(10) {
   }
   .about-title {
     font-size: 84px;
-    top: -40px;
   }
   .about-title-arrow {
     width: 80px;
@@ -2396,19 +2460,24 @@ ul.floating-boxes li:nth-child(10) {
   /* Блок с заголовком и фото */
   .about-photo-container {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    justify-content: center;
     height: auto;
+    margin-bottom: 40px;
+  }
+  .section-about {
+    flex-direction: column;
+    align-items: center;
   }
   .about-title {
-    font-size: 72px;
-    text-align: center;
+    font-size: 74px; /* ⬅️ HERO SIZE */
   }
   .about-title-arrow {
-    top: 28px;
-    width: 80px;
-    height: 6px;
+    right: -120px; /* стрелка красиво справа */
+    top: 42px;
   }
   .ellipse-photo {
     position: relative;
@@ -3381,8 +3450,8 @@ ul.floating-boxes li:nth-child(10) {
 .title-services::after {
   content: "×";
   position: absolute;
-  top: 20px;
-  right: -80px; /* вместо процентов */
+  top: 35px;
+  right: -60px; /* вместо процентов */
   font-size: 100px;
   transform: rotate(10deg);
   line-height: 1;
