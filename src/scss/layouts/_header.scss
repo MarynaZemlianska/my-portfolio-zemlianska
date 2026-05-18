@@ -66,7 +66,6 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
 }
@@ -79,26 +78,24 @@ header {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.logo-text{
+    margin-top: 0px;
+}
 
 .logo-title {
-    font-size: 18px;
-    letter-spacing: 2px;
-    margin-top: -24px;
+    font-size: 27px;
+    letter-spacing: 0px;
     background: linear-gradient(90deg, #ff00cc, #3b4cff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.logo-subtitle,
-.logo-subtitle2 {
-    font-size: 7px;
+.logo-subtitle {
+    font-size: 10px;
     display: block;
     white-space: nowrap;
     line-height: 1;
-}
-
-.logo-subtitle {
-    letter-spacing: 7px;
+    letter-spacing: 4px;
     color: #ff00cc;
 }
 
@@ -379,12 +376,18 @@ header {
 
     
     .logo-icon {
-        font-size: 56px;
+        font-size: 70px;
     }
 
     .logo-title {
-        font-size: 16px;
+        font-size: 27px;
     }
+
+     .logo-subtitle {
+        letter-spacing: 5px;
+        font-size: 9px;
+    }
+
 
     ul {
         gap: 16px;
@@ -399,6 +402,8 @@ header {
         height: 48px;
         font-size: 18px;
     }
+
+    
 }
 
 
@@ -443,16 +448,16 @@ header {
     }
 
     .logo-icon {
-        font-size: 48px;
+        font-size: 70px;
     }
 
     .logo-title {
-        font-size: 14px;
+        font-size: 27px;
     }
 
     .logo-subtitle {
         letter-spacing: 5px;
-        font-size: 6px;
+        font-size: 9px;
     }
 
     .button-contact {
@@ -460,6 +465,36 @@ header {
         height: 42px;
         font-size: 16px;
     }
+}
+
+@media (max-width: 632px){
+   .logo-icon {
+        font-size: 60px;
+    }
+
+    .logo-title {
+        font-size: 25px;
+    }
+
+    .logo-subtitle {
+        letter-spacing: 5px;
+        font-size: 8px;
+    }  
+}
+
+@media (max-width: 415px){
+   .logo-icon {
+        font-size: 50px;
+    }
+
+    .logo-title {
+        font-size: 22px;
+    }
+
+    .logo-subtitle {
+        letter-spacing: 4px;
+        font-size: 7px;
+    }  
 }
 
 header.visible {

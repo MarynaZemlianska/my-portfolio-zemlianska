@@ -19,30 +19,57 @@
 }
 
 /* ===== LOGO ===== */
-.footer-logo{
+.footer-logo-item{
     display: flex;
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
 }
 
-.logo {
-    display: flex;
+.footer-logo{
+      display: flex;
     align-items: center;
-    gap: 10px;
-    font-family: 'Montserrat', sans-serif;
-    color: var(--color-primary-light);
     text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.logo-title {
-    font-size: 28px;
+
+
+.footer-logo-icon {
+    font-size: 70px;
+    line-height: 1;
     font-weight: 700;
+    background: linear-gradient(90deg, #ff00cc, #3b4cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.footer-logo-text{
+    margin-top: 0px;
 }
 
-.logo-subtitle {
-    font-size: 11px;
-    font-weight: 200px;
+.footer-logo-title {
+    font-size: 27px;
+    letter-spacing: 0px;
+    background: linear-gradient(90deg, #ff00cc, #3b4cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
+.footer-logo-subtitle {
+    font-size: 10px;
+    display: block;
+    white-space: nowrap;
+    line-height: 1;
+    letter-spacing: 4px;
+    color: #ff00cc;
+}
+
+.footer-logo-subtitle2 {
+    margin-top: 5px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.3);
+}
+
+
 .subtitle-footer{
     margin: 0 auto;
     margin-top: 20px;
@@ -127,6 +154,24 @@
 }
 
 /* ===== RESPONSIVE ===== */
+
+@media (max-width: 1071px) {
+    
+    .footer-logo-icon {
+        font-size: 65px;
+    }
+
+    .footer-logo-title {
+        font-size: 25px;
+    }
+
+     .footer-logo-subtitle {
+        letter-spacing: 6px;
+        font-size: 7px;
+    }
+
+
+}
 @media (max-width: 1024px) {
     .footer-container {
         gap: 20px;
