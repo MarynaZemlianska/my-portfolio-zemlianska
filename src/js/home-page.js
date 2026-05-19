@@ -35,30 +35,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // ================= COUNTER =================
             if (el.classList.contains("stat-number")) {
-    if (el.dataset.started) return;
-    el.dataset.started = "true";
+                if (el.dataset.started === "true") return;
+                el.dataset.started = "true";
 
-    const target = Number(el.dataset.target) || 0;
-    const duration = 500; // 🔥 быстрее (0.5 сек)
-    const start = performance.now();
+                const target = Number(el.dataset.target) || 0;
 
-    const easeOutQuad = (t) => t * (2 - t); // ускоряет старт
+                // 🔥 быстрее и стабильнее
+                const duration = 450;
 
-    const animate = (time) => {
-        const progress = Math.min((time - start) / duration, 1);
-        const eased = easeOutQuad(progress);
+                let start = null;
 
-        el.textContent = Math.floor(eased * target);
+                const step = (timestamp) => {
+                    if (!start) start = timestamp;
 
-        if (progress < 1) {
-            requestAnimationFrame(animate);
-        } else {
-            el.textContent = target + "+";
-        }
-    };
+                    const progress = Math.min((timestamp - start) / duration, 1);
 
-    requestAnimationFrame(animate);
-}
+                    // easing (ускоряет ощущение)
+                    const eased = 1 - Math.pow(1 - progress, 3);
+
+                    el.textContent = Math.floor(eased * target);
+
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        el.textContent = target + "+";
+                    }
+                };
+
+                requestAnimationFrame(step);
+            }
             obs.unobserve(el);
         });
     }, {
