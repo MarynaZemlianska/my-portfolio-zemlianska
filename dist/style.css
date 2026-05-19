@@ -165,7 +165,7 @@ header {
   font-size: 70px;
   line-height: 1;
   font-weight: 700;
-  background: linear-gradient(90deg, #ff00cc, #3b4cff, #00ffe1, #ff00cc);
+  background: linear-gradient(90deg, #ff00cc, #3b4cff, #6f00ff, #ff00cc);
   background-size: 300% 300%;
   animation: logoGradientMove 6s ease infinite;
   -webkit-background-clip: text;
@@ -179,7 +179,7 @@ header {
 .logo-title {
   font-size: 27px;
   letter-spacing: 0px;
-  background: linear-gradient(90deg, #ff00cc, #3b4cff, #00ffe1, #ff00cc);
+  background: linear-gradient(90deg, #ff00cc, #3b4cff, #6f00ff, #ff00cc);
   background-size: 300% 300%;
   animation: logoGradientMove 6s ease infinite;
   -webkit-background-clip: text;
@@ -316,23 +316,46 @@ ul {
 
 /* ================= BUTTON ================= */
 .button-contact {
+  position: relative;
   width: 220px;
   height: 56px;
-  background: #242121;
-  color: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50px;
-  border: 1px solid var(--color-brand-light);
-  font-family: Inter;
+  border: 2px solid transparent;
+  /* 🔥 тёмный фон внутри */
+  background: linear-gradient(rgba(20, 20, 20, 0.92), rgba(20, 20, 20, 0.92)) padding-box, linear-gradient(90deg, #ff00cc, #3b4cff, #ff00cc) border-box;
+  background-size: 100% 100%, 300% 300%;
+  animation: borderMove 5s linear infinite;
+  color: var(--color-primary-light);
+  font-family: "Inter", sans-serif;
   font-size: 23px;
+  font-weight: 500;
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* hover */
 .button-contact:hover {
-  background: var(--color-brand-light);
-  color: #fff;
-  transition: 0.3s ease;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(255, 0, 204, 0.25), 0 0 30px rgba(59, 76, 255, 0.18);
 }
 
+/* click */
+.button-contact:active {
+  transform: scale(0.98);
+}
+
+/* 🔥 движение градиента */
+@keyframes borderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
 body.menu-open {
   overflow: hidden;
 }
@@ -982,15 +1005,103 @@ header.scrolled .nav-container {
     transform: translateY(0);
   }
 }
+/* =========================================
+   TABLET
+========================================= */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 92%;
+    padding: 28px 22px;
+    border-radius: 22px;
+  }
+  .modal-content h2 {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+  .modal-content p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .modal-content input,
+  .modal-content textarea {
+    font-size: 15px;
+    padding: 12px 14px;
+  }
+  .modal-content button {
+    width: 100%;
+    font-size: 16px;
+    padding: 14px 20px;
+  }
+}
+/* =========================================
+   MOBILE
+========================================= */
+@media (max-width: 480px) {
+  .modal {
+    padding: 15px;
+  }
+  .modal-content {
+    width: 100%;
+    padding: 24px 18px;
+    border-radius: 20px;
+  }
+  .modal-content h2 {
+    font-size: 22px;
+    margin-bottom: 14px;
+  }
+  .modal-content p {
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+  .modal-content input,
+  .modal-content textarea {
+    padding: 11px 13px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+  .modal-content textarea {
+    min-height: 120px;
+  }
+  .modal-content button {
+    height: 52px;
+    font-size: 15px;
+  }
+  .modal-close {
+    top: 10px;
+    right: 12px;
+    font-size: 24px;
+  }
+}
+/* =========================================
+   SMALL MOBILE
+========================================= */
+@media (max-width: 350px) {
+  .modal-content {
+    padding: 20px 14px;
+  }
+  .modal-content h2 {
+    font-size: 20px;
+  }
+  .modal-content p {
+    font-size: 13px;
+  }
+  .modal-content input,
+  .modal-content textarea {
+    font-size: 13px;
+  }
+}
 /* ================= VIEWPORT FIX ================= */
-html, body {
+html,
+body {
   height: 100%;
   overflow-x: hidden;
 }
 
 /* ================= HEADER HEIGHT ================= */
 :root {
-  --header-height: 140px; /* desktop */
+  --header-height: 140px;
+  /* desktop */
 }
 
 @media (max-width: 991px) {
@@ -1005,10 +1116,10 @@ html, body {
 }
 .hero {
   position: relative;
-  min-height: calc(100svh - var(--header-height));
   padding-top: var(--header-height);
   display: flex;
-  align-items: flex-start; /* ⬅️ ВАЖНО */
+  align-items: flex-start;
+  /* ⬅️ ВАЖНО */
   justify-content: center;
   overflow: hidden;
 }
@@ -1020,7 +1131,8 @@ html, body {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* ⬅️ */
+  justify-content: flex-start;
+  /* ⬅️ */
   align-items: center;
   color: #fff;
 }
@@ -1029,7 +1141,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 30px;
   width: 100%;
   max-width: 1150px;
   position: relative;
@@ -1084,12 +1196,24 @@ html, body {
 }
 
 .line {
-  width: 1px;
-  height: 120px;
-  background: var(--color-primary-light);
-  height: clamp(60px, 10vw, 120px);
+  width: 2px;
+  height: clamp(90px, 10vw, 150px);
+  background: linear-gradient(180deg, #ff00cc, #3b4cff, #00d4ff, #ff00cc);
+  background-size: 300% 300%;
+  animation: lineGradient 5s linear infinite;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(255, 0, 204, 0.3), 0 0 20px rgba(59, 76, 255, 0.2);
 }
 
+/* animation */
+@keyframes lineGradient {
+  0% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 300%;
+  }
+}
 .items-text {
   font-family: Inter, sans-serif;
   font-size: 20px;
@@ -1180,6 +1304,10 @@ html, body {
   transform: translateY(0) scale(1);
 }
 
+.top-actions {
+  margin-bottom: 30px;
+}
+
 /* Кнопка мобильная */
 .button-mobile {
   display: none;
@@ -1231,27 +1359,63 @@ html, body {
   transform: translateY(0) scale(1);
 }
 
+.error-message {
+  display: none;
+  text-align: center;
+  padding: 15px;
+  margin-top: 15px;
+  background: rgba(255, 50, 50, 0.15);
+  border: 1px solid rgba(255, 80, 80, 0.4);
+  border-radius: 12px;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  font-weight: 600;
+}
+
+.error-message.visible {
+  display: block;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.error-message.visible {
+  display: block;
+  animation: fadeIn 0.5s ease forwards;
+}
+
 /* ===== ADAPTIVE ===== */
 /* ======================================================
-  HERO COLUMN LAYOUT FROM 1034px AND BELOW
-  ====================================================== */
+   HERO COLUMN LAYOUT FROM 1034px AND BELOW
+   ====================================================== */
+@media (max-width: 1180px) {
+  .first-top-container {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .top-container-h1 {
+    font-size: 90px;
+  }
+  .h1-small {
+    font-size: 60px;
+  }
+}
 /* ===== 1034px: перестраиваем hero в колонку ===== */
 @media (max-width: 1034px) {
-  .header-gradient {
-    display: none;
-  }
   .nav {
     align-items: start;
+  }
+  .header-gradient {
+    display: none;
   }
   .top-right-gradient {
     display: block;
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 600px;
-    background: radial-gradient(circle at bottom center, rgba(235, 3, 255, 0.6) 0%, rgba(129, 3, 255, 0.4) 50%, rgba(3, 44, 255, 0.2) 80%, rgba(3, 44, 255, 0) 100%);
-    filter: blur(100px);
+    left: 50%;
+    top: 55%;
+    transform: translateX(-50%);
+    width: 140%;
+    height: 700px;
+    background: radial-gradient(circle at center, rgba(235, 3, 255, 0.55) 0%, rgba(129, 3, 255, 0.35) 35%, rgba(3, 44, 255, 0.18) 65%, rgba(3, 44, 255, 0) 100%);
+    filter: blur(110px);
     pointer-events: none;
     z-index: -1;
   }
@@ -1259,7 +1423,6 @@ html, body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 50px;
     width: 100%;
     max-width: 100%;
     margin: 0 20px;
@@ -1271,9 +1434,6 @@ html, body {
   .top-text-items,
   .top-block-items {
     justify-content: center;
-  }
-  .line {
-    height: 60px;
   }
   .items-text {
     max-width: 720px;
@@ -1338,13 +1498,30 @@ html, body {
     font-size: 16px;
   }
 }
+@media (max-width: 900px) {
+  .top-right-gradient {
+    top: 60%;
+    width: 160%;
+    height: 750px;
+  }
+}
+@media (max-width: 480px) {
+  .top-right-gradient {
+    top: 65%;
+    width: 220%;
+    height: 850px;
+  }
+}
 /* ===== 767px: mobile-fixes ===== */
 @media (max-width: 767px) {
   .top-container-h1 {
     font-size: 65px;
   }
-  .hero {
-    overflow: visible;
+  .top-right-gradient {
+    top: 62%;
+    width: 180%;
+    height: 800px;
+    filter: blur(120px);
   }
   .first-top-container {
     padding: 0;
@@ -1566,7 +1743,8 @@ html, body {
 .list-steps {
   width: 100%;
   position: relative;
-  padding-left: 15px; /* 56px кружок + gap */
+  padding-left: 15px;
+  /* 56px кружок + gap */
 }
 
 .list-steps::before {
@@ -1723,7 +1901,8 @@ html, body {
 }
 @media (max-width: 768px) {
   .list-steps {
-    padding-left: 13px; /* 40px кружок + gap */
+    padding-left: 13px;
+    /* 40px кружок + gap */
   }
   .list-steps::before {
     left: 32px;

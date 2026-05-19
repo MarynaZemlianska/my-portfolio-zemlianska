@@ -84,7 +84,7 @@ header {
         90deg,
         #ff00cc,
         #3b4cff,
-        #00ffe1,
+        #6f00ff,
         #ff00cc
     );
     background-size: 300% 300%;
@@ -106,7 +106,7 @@ header {
         90deg,
         #ff00cc,
         #3b4cff,
-        #00ffe1,
+        #6f00ff,
         #ff00cc
     );
     background-size: 300% 300%;
@@ -245,21 +245,69 @@ ul {
 
 /* ================= BUTTON ================= */
 .button-contact {
+    position: relative;
+
     width: 220px;
     height: 56px;
-    background: #242121;
-    color: var(--color-primary-light);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     border-radius: 50px;
-    border: 1px solid var(--color-brand-light);
-    font-family: Inter;
+    border: 2px solid transparent;
+
+    /* 🔥 тёмный фон внутри */
+    background:
+        linear-gradient(rgba(20,20,20,0.92), rgba(20,20,20,0.92)) padding-box,
+        linear-gradient(
+            90deg,
+            #ff00cc,
+            #3b4cff,
+            #ff00cc
+        ) border-box;
+
+    background-size: 100% 100%, 300% 300%;
+
+    animation: borderMove 5s linear infinite;
+
+    color: var(--color-primary-light);
+
+    font-family: 'Inter', sans-serif;
     font-size: 23px;
+    font-weight: 500;
+
     cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
+/* hover */
 .button-contact:hover {
-    background: var(--color-brand-light);
-    color: #fff;
-    transition: 0.3s ease;
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 15px rgba(255, 0, 204, 0.25),
+        0 0 30px rgba(59, 76, 255, 0.18);
+}
+
+/* click */
+.button-contact:active {
+    transform: scale(0.98);
+}
+
+/* 🔥 движение градиента */
+@keyframes borderMove {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 300% 50%;
+    }
 }
 
 body.menu-open {

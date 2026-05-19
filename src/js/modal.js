@@ -1,51 +1,101 @@
 document.addEventListener("DOMContentLoaded", () => {
-    emailjs.init("LLvGckVcu-rYdYajp"); // Твой User ID
 
     const modal = document.getElementById('consultationModal');
-    const openBtn = document.getElementById('openModal');
     const closeBtn = document.getElementById('modalClose');
-    const form = document.getElementById('consultationForm');
-    const successMessage = document.getElementById("successMessage");
 
-    openBtn.addEventListener('click', () => {
-        modal.classList.remove('is-hidden');
-        modal.classList.add('is-visible');
+    const form = document.getElementById('consultationForm');
+
+    const successMessage = document.getElementById("successMessage");
+    const errorMessage = document.getElementById("errorMessage");
+
+    /* ===== ВСЕ КНОПКИ ОТКРЫТИЯ ===== */
+    const openBtns = document.querySelectorAll(
+        '#openModal, #openQuoteModal, #openModalMobile'
+    );
+
+    /* ===== OPEN ===== */
+    openBtns.forEach(btn => {
+
+        if (!btn) return;
+
+        btn.addEventListener('click', () => {
+
+            modal.classList.remove('is-hidden');
+            modal.classList.add('is-visible');
+
+            document.body.style.overflow = 'hidden';
+
+        });
+
     });
 
-    closeBtn.addEventListener('click', () => {
+    /* ===== CLOSE ===== */
+    function closeModal() {
+
         modal.classList.remove('is-visible');
         modal.classList.add('is-hidden');
-    });
+
+        document.body.style.overflow = '';
+
+    }
+
+    closeBtn.addEventListener('click', closeModal);
 
     modal.addEventListener('click', (e) => {
-        if(e.target === modal) {
-            modal.classList.remove('is-visible');
-            modal.classList.add('is-hidden');
+
+        if (e.target === modal) {
+            closeModal();
         }
+
     });
 
+    /* ===== ESC ===== */
+    document.addEventListener('keydown', (e) => {
+
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+
+    });
+
+    /* ===== FORM SEND ===== */
     form.addEventListener('submit', function(e){
+
         e.preventDefault();
 
+        /* скрываем старые сообщения */
+        successMessage.classList.remove("visible");
+
+        if (errorMessage) {
+            errorMessage.classList.remove("visible");
+        }
+
+        /* получаем данные */
         const formData = {
             name: form.name.value,
             email: form.email.value,
             message: form.message.value
         };
 
-        emailjs.send('service_z4roncj', 'template_aau9edp', formData)
-            .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
-                successMessage.classList.add("visible");
-                form.reset();
-                setTimeout(() => {
-                    successMessage.classList.remove("visible");
-                    modal.classList.remove('is-visible');
-                    modal.classList.add('is-hidden');
-                }, 4000);
-            }, function(error) {
-                console.log('FAILED...', error);
-                alert("Oops! Something went wrong, please try again.");
-            });
+        console.log("FORM DATA:", formData);
+
+        /* 🔥 ИМИТАЦИЯ ОТПРАВКИ */
+        setTimeout(() => {
+
+            successMessage.classList.add("visible");
+
+            form.reset();
+
+            setTimeout(() => {
+
+                successMessage.classList.remove("visible");
+
+                closeModal();
+
+            }, 3000);
+
+        }, 800);
+
     });
+
 });

@@ -144,3 +144,132 @@
     0% {opacity: 0; transform: translateY(10px);}
     100% {opacity: 1; transform: translateY(0);}
 }
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+    .modal-content {
+
+        width: 92%;
+        padding: 28px 22px;
+        border-radius: 22px;
+    }
+
+    .modal-content h2 {
+
+        font-size: 26px;
+        line-height: 1.2;
+    }
+
+    .modal-content p {
+
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .modal-content input,
+    .modal-content textarea {
+
+        font-size: 15px;
+        padding: 12px 14px;
+    }
+
+    .modal-content button {
+
+        width: 100%;
+        font-size: 16px;
+        padding: 14px 20px;
+    }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .modal {
+
+        padding: 15px;
+    }
+
+    .modal-content {
+
+        width: 100%;
+        padding: 24px 18px;
+        border-radius: 20px;
+    }
+
+    .modal-content h2 {
+
+        font-size: 22px;
+        margin-bottom: 14px;
+    }
+
+    .modal-content p {
+
+        font-size: 14px;
+        margin-bottom: 18px;
+    }
+
+    .modal-content input,
+    .modal-content textarea {
+
+        padding: 11px 13px;
+        border-radius: 10px;
+        font-size: 14px;
+        margin-bottom: 14px;
+    }
+
+    .modal-content textarea {
+
+        min-height: 120px;
+    }
+
+    .modal-content button {
+
+        height: 52px;
+        font-size: 15px;
+    }
+
+    .modal-close {
+
+        top: 10px;
+        right: 12px;
+        font-size: 24px;
+    }
+
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 350px) {
+
+    .modal-content {
+
+        padding: 20px 14px;
+    }
+
+    .modal-content h2 {
+
+        font-size: 20px;
+    }
+
+    .modal-content p {
+
+        font-size: 13px;
+    }
+
+    .modal-content input,
+    .modal-content textarea {
+
+        font-size: 13px;
+    }
+
+}
