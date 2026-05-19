@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         closeBtn.addEventListener('click', closeModal);
     }
 
-    // клик по фону (закрытие)
+
     if (modal) {
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {

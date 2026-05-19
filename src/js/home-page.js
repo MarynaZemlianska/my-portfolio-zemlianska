@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const target = Number(el.dataset.target) || 0;
 
-                // 🔥 быстрее и стабильнее
                 const duration = 450;
 
                 let start = null;
@@ -50,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     const progress = Math.min((timestamp - start) / duration, 1);
 
-                    // easing (ускоряет ощущение)
                     const eased = 1 - Math.pow(1 - progress, 3);
 
                     el.textContent = Math.floor(eased * target);

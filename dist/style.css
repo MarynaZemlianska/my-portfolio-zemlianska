@@ -14,7 +14,7 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px; /* чтобы не прилипало на мобилке */
+  padding: 0 20px;
 }
 
 @font-face {
@@ -66,7 +66,6 @@ a {
   text-decoration: none;
 }
 
-/* Стили для формы */
 #consultationForm {
   display: flex;
   flex-direction: column;
@@ -107,23 +106,27 @@ a {
   right: 0;
   width: 50%;
   height: 75%;
-  background: radial-gradient(circle at top right, rgba(235, 3, 255, 0.6), rgba(129, 3, 255, 0.4) 50%, rgba(3, 44, 255, 0.2) 80%, rgba(3, 44, 255, 0));
-  filter: blur(80px);
+  background: radial-gradient(circle at top right, rgba(235, 3, 255, 0.55), rgba(129, 3, 255, 0.35) 50%, rgba(3, 44, 255, 0.18) 80%, rgba(3, 44, 255, 0));
+  filter: blur(90px);
   pointer-events: none;
   z-index: -3;
 }
 
 /* ================= HEADER ================= */
-/* ================= HEADER ================= */
 header {
   position: fixed;
-  top: 10px;
+  top: 15px;
   left: 0;
   width: 100%;
   z-index: 9999;
   opacity: 0;
   transform: translateY(-20px);
-  transition: all 0.35s ease;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+header.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ================= NAV CONTAINER ================= */
@@ -132,13 +135,17 @@ header {
   justify-content: space-between;
   align-items: center;
   max-width: 1150px;
+  width: calc(100% - 40px);
   height: 95px;
+  margin: 0 auto;
   padding: 0 25px;
-  margin: 20px auto 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 50px;
-  transition: margin-top 0.35s ease, background-color 0.35s ease, backdrop-filter 0.35s ease, border-radius 0.35s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  transition: background 0.35s ease, height 0.35s ease, border-radius 0.35s ease, box-shadow 0.35s ease;
 }
 
 /* ================= NAV LEFT ================= */
@@ -154,11 +161,11 @@ header {
   align-items: center;
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
+  transition: transform 0.3s ease;
 }
 
 .logo:hover {
   transform: scale(1.03);
-  transition: 0.3s ease;
 }
 
 .logo-icon {
@@ -173,12 +180,11 @@ header {
 }
 
 .logo-text {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .logo-title {
   font-size: 27px;
-  letter-spacing: 0px;
   background: linear-gradient(90deg, #ff00cc, #3b4cff, #6f00ff, #ff00cc);
   background-size: 300% 300%;
   animation: logoGradientMove 6s ease infinite;
@@ -187,12 +193,12 @@ header {
 }
 
 .logo-subtitle {
-  font-size: 10px;
   display: block;
-  white-space: nowrap;
+  font-size: 10px;
   line-height: 1;
   letter-spacing: 4px;
   color: #ff00cc;
+  white-space: nowrap;
 }
 
 .logo-subtitle2 {
@@ -217,16 +223,14 @@ header {
   display: flex;
   align-items: center;
   gap: 30px;
-  transform: translateX(0);
-  transition: transform 0.4s ease;
 }
 
 ul {
   display: flex;
   gap: 30px;
-  list-style: none;
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 /* ================= NAV LINK ================= */
@@ -238,6 +242,7 @@ ul {
   font-family: "Inter", sans-serif;
   color: var(--color-primary-light);
   white-space: nowrap;
+  transition: color 0.3s ease;
 }
 
 .nav-link:hover {
@@ -251,9 +256,10 @@ ul {
 
 .nav-text::after {
   content: "";
+  font-family: "Inter", sans-serif;
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: 0px;
   width: 0;
   height: 2px;
   background-color: var(--color-brand-light);
@@ -288,11 +294,12 @@ ul {
   position: absolute;
   left: 0;
   display: none;
-  background-color: var(--color-brand);
-  border: 1px solid rgba(194, 19, 255, 0.76);
-  font-family: "Inter", system-ui, sans-serif;
-  border-radius: 6px;
   min-width: max-content;
+  padding: 10px 0;
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(194, 19, 255, 0.35);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
   white-space: nowrap;
   z-index: 50;
 }
@@ -303,11 +310,13 @@ ul {
 
 .dropdown-menu li {
   padding: 10px 20px;
+  font-family: "Inter", sans-serif;
 }
 
 .dropdown-menu a {
-  color: var(--color-primary-light);
   text-decoration: none;
+  color: var(--color-primary-light);
+  transition: color 0.3s ease;
 }
 
 .dropdown-menu a:hover {
@@ -324,7 +333,6 @@ ul {
   justify-content: center;
   border-radius: 50px;
   border: 2px solid transparent;
-  /* 🔥 тёмный фон внутри */
   background: linear-gradient(rgba(20, 20, 20, 0.92), rgba(20, 20, 20, 0.92)) padding-box, linear-gradient(90deg, #ff00cc, #3b4cff, #ff00cc) border-box;
   background-size: 100% 100%, 300% 300%;
   animation: borderMove 5s linear infinite;
@@ -336,18 +344,15 @@ ul {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* hover */
 .button-contact:hover {
   transform: translateY(-2px);
   box-shadow: 0 0 15px rgba(255, 0, 204, 0.25), 0 0 30px rgba(59, 76, 255, 0.18);
 }
 
-/* click */
 .button-contact:active {
   transform: scale(0.98);
 }
 
-/* 🔥 движение градиента */
 @keyframes borderMove {
   0% {
     background-position: 0% 50%;
@@ -356,6 +361,7 @@ ul {
     background-position: 300% 50%;
   }
 }
+/* ================= BODY LOCK ================= */
 body.menu-open {
   overflow: hidden;
 }
@@ -368,13 +374,12 @@ body.menu-open::before {
   z-index: 9998;
 }
 
-/* по умолчанию скрываем градиент для больших экранов */
+/* ================= GRADIENT MOBILE ================= */
 .top-right-gradient {
   display: none;
 }
 
-/* ===== BURGER ===== */
-/* ===== BURGER ===== */
+/* ================= BURGER ================= */
 .burger {
   display: none;
   width: 40px;
@@ -423,11 +428,12 @@ body.menu-open::before {
   transform: translateY(50%) rotate(-45deg);
 }
 
-/* по умолчанию */
+/* ================= MOBILE BUTTON ================= */
 .button-mobile {
   display: none;
 }
 
+/* ================= TABLET ================= */
 @media (max-width: 1034px) {
   .burger {
     display: block;
@@ -438,21 +444,10 @@ body.menu-open::before {
     opacity: 0.8;
   }
   .nav-container {
-    width: calc(100% - 40px); /* аккуратные края */
+    width: calc(100% - 32px);
+    height: 80px;
+    padding: 0 20px;
   }
-  .burger {
-    display: block;
-  }
-  .nav {
-    opacity: 0;
-    pointer-events: none;
-  }
-  .nav.active {
-    transform: translateX(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-  /* Позиционируем меню фиксировано для мобильных */
   .nav {
     position: fixed;
     top: 0;
@@ -460,24 +455,20 @@ body.menu-open::before {
     width: 100%;
     max-width: 360px;
     height: 100vh;
+    padding: 120px 40px 40px;
     background: rgba(0, 0, 0, 0.97);
     backdrop-filter: blur(16px);
-    padding: 120px 40px 40px;
-    transform: translateX(0);
-    transition: transform 0.4s ease;
+    flex-direction: column;
+    align-items: flex-start;
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s ease, opacity 0.4s ease;
   }
   .nav.active {
     transform: translateX(0);
-  }
-  /* dropdown в мобилке */
-  .dropdown-menu {
-    position: static;
-    background: transparent;
-    border: none;
-    padding-left: 15px;
-  }
-  .dropdown-menu li {
-    padding: 10px 0;
+    opacity: 1;
+    pointer-events: auto;
   }
   .nav ul {
     flex-direction: column;
@@ -488,9 +479,11 @@ body.menu-open::before {
   }
   .dropdown-menu {
     position: static;
+    margin-top: 12px;
     background: transparent;
     border: none;
     padding-left: 15px;
+    backdrop-filter: none;
   }
   .dropdown-menu li {
     padding: 10px 0;
@@ -505,25 +498,10 @@ body.menu-open::before {
     margin-top: 20px;
   }
 }
+/* ================= 991px ================= */
 @media (max-width: 991px) {
-  header {
-    position: fixed;
-    width: 100%;
-    z-index: 9999;
-    transition: top 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
-  }
-  header.scrolled .nav-container {
-    height: 70px;
-  }
-  .header-gradient {
-    width: 50%;
-    filter: blur(100px);
-    opacity: 0.8;
-  }
   .nav-container {
     height: 75px;
-    padding: 0 20px;
-    border-radius: 40px;
   }
   .logo-icon {
     font-size: 70px;
@@ -532,14 +510,8 @@ body.menu-open::before {
     font-size: 27px;
   }
   .logo-subtitle {
-    letter-spacing: 5px;
     font-size: 9px;
-  }
-  ul {
-    gap: 16px;
-  }
-  .nav-link {
-    font-size: 14px;
+    letter-spacing: 5px;
   }
   .button-contact {
     width: 160px;
@@ -547,50 +519,22 @@ body.menu-open::before {
     font-size: 18px;
   }
 }
+/* ================= MOBILE ================= */
 @media (max-width: 632px) {
+  header {
+    top: 0;
+  }
   .header-gradient {
     display: none;
   }
-  .top-right-gradient {
-    display: block;
-    position: absolute;
-    bottom: 0; /* от соцсетей */
-    right: 0;
-    width: 100%;
-    height: 600px; /* подбираешь под размер соцсетей */
-    background: radial-gradient(circle at bottom center, rgba(235, 3, 255, 0.6) 0%, rgba(129, 3, 255, 0.4) 50%, rgba(3, 44, 255, 0.2) 80%, rgba(3, 44, 255, 0) 100%);
-    filter: blur(80px);
-    pointer-events: none;
-    z-index: -1;
-    mask-image: linear-gradient(to top, #000 0%, #000 70%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to top, #000 0%, #000 70%, transparent 100%);
-    mask-composite: intersect;
-    -webkit-mask-composite: destination-in;
-  }
   .nav-container {
+    width: 100%;
     height: 70px;
-    border-radius: 0 0 30px 30px;
+    border-radius: 0 0 28px 28px;
   }
   .nav-left {
     gap: 0;
   }
-  .logo-icon {
-    font-size: 70px;
-  }
-  .logo-title {
-    font-size: 27px;
-  }
-  .logo-subtitle {
-    letter-spacing: 5px;
-    font-size: 9px;
-  }
-  .button-contact {
-    width: 140px;
-    height: 42px;
-    font-size: 16px;
-  }
-}
-@media (max-width: 632px) {
   .logo-icon {
     font-size: 60px;
   }
@@ -598,10 +542,16 @@ body.menu-open::before {
     font-size: 25px;
   }
   .logo-subtitle {
-    letter-spacing: 5px;
     font-size: 8px;
+    letter-spacing: 5px;
+  }
+  .button-contact {
+    width: 140px;
+    height: 42px;
+    font-size: 16px;
   }
 }
+/* ================= SMALL MOBILE ================= */
 @media (max-width: 415px) {
   .logo-icon {
     font-size: 50px;
@@ -610,33 +560,28 @@ body.menu-open::before {
     font-size: 22px;
   }
   .logo-subtitle {
-    letter-spacing: 4px;
     font-size: 7px;
+    letter-spacing: 4px;
   }
 }
-header.visible {
-  opacity: 1;
-  transform: translateY(0);
+@media (max-width: 349px) {
+  .nav-container {
+    width: 100%;
+    margin: 0;
+    padding: 0 12px;
+    border-radius: 0 0 20px 20px;
+    box-sizing: border-box;
+  }
+  header {
+    left: 0;
+    width: 100%;
+    padding: 0;
+  }
+  body {
+    overflow-x: hidden;
+  }
 }
-
-header:not(.scrolled) .nav-container {
-  margin-top: 20px;
-  background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  border-radius: 50px;
-}
-
-header.scrolled {
-  top: 0;
-}
-
-header.scrolled .nav-container {
-  margin-top: 0;
-  background-color: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(14px);
-  border-radius: 0 0 30px 30px;
-}
-
+/* ================= MODAL ================= */
 .modal.is-hidden {
   display: none;
 }
@@ -644,10 +589,10 @@ header.scrolled .nav-container {
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
   display: none;
   align-items: center;
   justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
   z-index: 10000;
 }
 
@@ -656,11 +601,11 @@ header.scrolled .nav-container {
 }
 
 .modal-content {
-  background: #111;
-  padding: 30px;
-  border-radius: 20px;
   width: 90%;
   max-width: 420px;
+  padding: 30px;
+  background: #111;
+  border-radius: 20px;
 }
 
 /* ===== FOOTER ===== */
@@ -785,15 +730,14 @@ header.scrolled .nav-container {
   color: var(--color-brand-light);
 }
 
-/* Единый размер и выравнивание иконок */
 .icon-footer {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
   fill: var(--color-brand-light);
   vertical-align: middle;
-  display: block; /* убирает лишние отступы */
-  object-fit: contain; /* масштабируем пропорционально */
+  display: block;
+  object-fit: contain;
 }
 
 /* ===== INFO TEXT ===== */
@@ -854,7 +798,6 @@ header.scrolled .nav-container {
     align-items: center;
   }
 }
-/* Модальное окно */
 .modal {
   display: flex;
   justify-content: center;
@@ -864,7 +807,7 @@ header.scrolled .nav-container {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7); /* чуть темнее для фокуса */
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 10000;
   opacity: 0;
   pointer-events: none;
@@ -877,7 +820,7 @@ header.scrolled .nav-container {
 }
 
 .modal-content {
-  background: rgba(36, 33, 33, 0.9); /* тёмный фон в твоем стиле */
+  background: rgba(36, 33, 33, 0.9);
   border: 2px solid rgba(194, 19, 255, 0.8);
   border-radius: 24px;
   padding: 30px;
@@ -963,17 +906,15 @@ header.scrolled .nav-container {
   box-shadow: 0 0 20px rgba(235, 3, 255, 0.5);
 }
 
-/* Скрытие placeholder при фокусе */
 #consultationForm input:focus::placeholder,
 #consultationForm textarea:focus::placeholder {
-  color: transparent; /* делаем текст прозрачным */
+  color: transparent;
   transition: color 0.3s ease;
 }
 
-/* Можно добавить плавное появление обратно при blur */
 #consultationForm input::placeholder,
 #consultationForm textarea::placeholder {
-  color: rgba(255, 255, 255, 0.5); /* или нужный цвет */
+  color: rgba(255, 255, 255, 0.5);
   transition: color 0.3s ease;
 }
 
@@ -1215,7 +1156,6 @@ body {
   font-size: clamp(14px, 1.6vw, 20px);
   line-height: 1.4;
   color: #fff;
-  /* белый текст */
 }
 
 .top-center {
@@ -1498,7 +1438,6 @@ body {
     height: 850px;
   }
 }
-/* ===== 767px: mobile-fixes ===== */
 @media (max-width: 767px) {
   .top-container-h1 {
     font-size: 65px;
@@ -1523,7 +1462,6 @@ body {
     max-width: 100%;
   }
 }
-/* ===== 481px: smallest screens ===== */
 @media (max-width: 481px) {
   .top-container-h1 {
     font-size: 50px;
@@ -1596,7 +1534,6 @@ body {
 .section-steps {
   position: relative;
   overflow: hidden;
-  /* важно, чтобы градиент не вылезал */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1608,7 +1545,6 @@ body {
 .steps-gradient {
   position: absolute;
   inset: 20%;
-  /* расширяем, чтобы не было резких краёв */
   z-index: 0;
   pointer-events: none;
   background: radial-gradient(circle at top left, rgba(235, 3, 255, 0.45) 0%, rgba(129, 3, 255, 0.35) 30%, rgba(3, 44, 255, 0.25) 55%, transparent 40%), radial-gradient(circle at bottom right, rgba(3, 44, 255, 0.35) 0%, rgba(129, 3, 255, 0.25) 35%, rgba(235, 3, 255, 0.2) 55%, transparent 40%), radial-gradient(circle at center, rgba(250, 0, 255, 0.25) 0%, rgba(3, 44, 255, 0.2) 40%, transparent 40%);
@@ -1646,7 +1582,6 @@ body {
 }
 
 /* ===== TITLE GRAPHIC ===== */
-/* декоративная линия + стрелка */
 .title-graphic {
   width: 160px;
   height: 0;
@@ -1658,7 +1593,6 @@ body {
   transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
 }
 
-/* стрелка */
 .title-graphic::after {
   content: "";
   position: absolute;
@@ -1671,12 +1605,10 @@ body {
   transform: rotate(45deg);
 }
 
-/* glow */
 .title-graphic {
   box-shadow: 0 0 14px rgba(124, 102, 255, 0.45), 0 0 30px rgba(124, 102, 255, 0.25);
 }
 
-/* появляется при скролле */
 .title-steps.visible .title-graphic {
   opacity: 1;
   transform: translateY(0) scaleX(1);
@@ -1689,7 +1621,6 @@ body {
   filter: blur(0);
 }
 
-/* ===== TITLE DOTS ===== */
 /* ===== TITLE DOTS ===== */
 .title-dots {
   position: absolute;
@@ -1710,7 +1641,6 @@ body {
   filter: blur(0);
 }
 
-/* точки */
 .title-dots i {
   width: 10px;
   height: 10px;
@@ -1719,7 +1649,6 @@ body {
   box-shadow: 0 0 10px rgba(124, 102, 255, 0.35);
 }
 
-/* появление */
 .title-steps.visible .title-dots {
   opacity: 1;
   transform: translateX(0);
@@ -1763,7 +1692,6 @@ body {
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* активный шаг */
 .list-items li.visible {
   opacity: 1;
   transform: translateY(0);
@@ -1789,7 +1717,6 @@ body {
   transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.5s ease, background-color 0.4s ease;
 }
 
-/* Подсветка при видимости шага */
 .list-items li.visible .step-circle {
   transform: scale(1);
   opacity: 1;
@@ -1798,7 +1725,6 @@ body {
   background-color: var(--color-brand-light);
 }
 
-/* Дополнительно — усиление при hover */
 .list-items li:hover .step-circle {
   transform: scale(1.2);
   box-shadow: 0 0 25px 8px rgba(250, 0, 255, 0.6);
@@ -1826,14 +1752,12 @@ body {
   transition: all 0.5s ease;
 }
 
-/* заголовок появляется чуть раньше */
 .list-items li.visible .step-content h4 {
   opacity: 1;
   transform: translateX(0);
   transition-delay: 0.15s;
 }
 
-/* текст — чуть позже */
 .list-items li.visible .step-content p {
   opacity: 1;
   transform: translateX(0);
@@ -1888,7 +1812,6 @@ body {
 @media (max-width: 768px) {
   .list-steps {
     padding-left: 13px;
-    /* 40px кружок + gap */
   }
   .list-steps::before {
     left: 32px;
@@ -1928,7 +1851,6 @@ body {
     font-size: 14px;
     line-height: 1.5;
   }
-  /* убираем сильный hover на touch */
   .list-items li:hover .step-circle {
     transform: scale(1);
     box-shadow: none;
@@ -2199,7 +2121,6 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-/* Заголовок по центру */
 .faq-title {
   text-align: center;
   font-size: 72px;
@@ -2218,7 +2139,6 @@ body {
   opacity: 0.7;
 }
 
-/* Контейнер уже по ширине */
 .faq-list {
   max-width: 780px;
   margin: 0 auto;
@@ -2227,7 +2147,6 @@ body {
   gap: 24px;
 }
 
-/* Карточка */
 .faq-item {
   border: 1px solid rgba(194, 19, 255, 0.4);
   border-radius: 20px;
@@ -2238,7 +2157,6 @@ body {
   transition: all 0.6s ease-out;
 }
 
-/* Вопрос */
 .faq-question {
   width: 100%;
   padding: 24px 30px;
@@ -2254,7 +2172,6 @@ body {
   cursor: pointer;
 }
 
-/* Стрелка */
 .faq-arrow {
   width: 10px;
   height: 10px;
@@ -2264,7 +2181,6 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* Ответ */
 .faq-answer {
   max-height: 0;
   overflow: hidden;
@@ -2276,7 +2192,6 @@ body {
   transition: all 0.4s ease;
 }
 
-/* Активное состояние */
 .faq-item.active .faq-answer {
   max-height: 2000px;
   padding: 0 30px 24px;
@@ -2285,7 +2200,6 @@ body {
 
 .faq-answer p {
   white-space: normal;
-  /* ⬅️ ОБЯЗАТЕЛЬНО */
   word-break: break-word;
   margin: 0 0 16px;
   font-size: 18px;
@@ -2308,7 +2222,6 @@ body {
   transform: translateY(0);
 }
 
-/* задержка */
 .section-faq.visible .faq-item:nth-child(1) {
   transition-delay: 0.2s;
 }
@@ -2353,7 +2266,6 @@ body {
   margin: 0 auto;
   overflow: hidden;
   padding: 0 60px;
-  /* отступы слева и справа для стрелок */
 }
 
 /* SLIDER */
@@ -2372,10 +2284,8 @@ body {
 /* CARD */
 .testimonial-card {
   max-width: 300px;
-  /* меньше ширина */
   flex-shrink: 0;
   padding: 28px;
-  /* чуть меньше внутренние отступы */
   border-radius: 24px;
   background: linear-gradient(135deg, rgba(255, 0, 204, 0.15), rgba(59, 76, 255, 0.15));
   border: 1px solid rgba(255, 0, 204, 0.3);
@@ -2387,7 +2297,6 @@ body {
   transition: all 0.6s ease-out;
 }
 
-/* Анимация появления */
 .section-testimonials.visible .testimonial-card:nth-child(1) {
   transition-delay: 0.2s;
 }
@@ -2427,20 +2336,14 @@ body {
   background: rgb(255, 0, 204);
 }
 
-/* Позиционирование стрелок снаружи карточек, но внутри wrapper */
 .slider-prev {
   left: 0px;
-  /* немного отступ от края */
 }
 
 .slider-next {
   right: 0px;
-  /* немного отступ от края */
 }
 
-/* =========================
-   ≤ 1200px
-========================= */
 @media (max-width: 1200px) {
   .testimonials-wrapper {
     max-width: 900px;
@@ -2450,9 +2353,6 @@ body {
     max-width: 280px;
   }
 }
-/* =========================
-   ≤ 992px (TABLET)
-========================= */
 @media (max-width: 992px) {
   .section-title {
     font-size: 32px;
@@ -2473,9 +2373,6 @@ body {
     font-size: 20px;
   }
 }
-/* =========================
-   ≤ 768px (TABLET / MOBILE)
-========================= */
 @media (max-width: 768px) {
   .section-testimonials {
     padding: 50px 16px;
@@ -2501,9 +2398,6 @@ body {
     right: 4px;
   }
 }
-/* =========================
-   ≤ 600px (MOBILE)
-========================= */
 @media (max-width: 600px) {
   .section-title {
     font-size: 24px;
@@ -2528,9 +2422,6 @@ body {
     font-size: 18px;
   }
 }
-/* =========================
-   ≤ 420px (SMALL MOBILE)
-========================= */
 @media (max-width: 420px) {
   .section-title {
     font-size: 22px;
@@ -2549,9 +2440,6 @@ body {
     font-size: 16px;
   }
 }
-/* =========================
-   TOUCH DEVICES
-========================= */
 @media (hover: none) {
   .slider-btn:hover {
     background: rgba(255, 0, 204, 0.8);
@@ -2575,7 +2463,6 @@ ul.floating-boxes li {
   bottom: -110rem;
   animation: floatingbox 25s linear infinite;
   opacity: 1;
-  /* Элементы сразу видимы */
 }
 
 ul.floating-boxes li:nth-child(1) {
@@ -2583,7 +2470,6 @@ ul.floating-boxes li:nth-child(1) {
   height: 6rem;
   width: 6rem;
   animation-delay: 0s;
-  /* Задержка убрана */
   animation-duration: 15s;
 }
 
@@ -2816,7 +2702,7 @@ ul.floating-boxes li:nth-child(10) {
   position: fixed;
   right: 15px;
   bottom: 15px;
-  z-index: 100;
+  z-index: 10002 !important;
   width: 50px;
   height: 50px;
   font-size: 20px;
@@ -2827,7 +2713,6 @@ ul.floating-boxes li:nth-child(10) {
   text-decoration: none;
   transition: 0.32s ease-in-out;
   transform: translateY(20px);
-  /* 🔥 твой современный градиент */
   background: linear-gradient(135deg, #7c5cff, #3e2cdd, #ff4ecd);
   color: #fff;
   pointer-events: none;
@@ -2835,14 +2720,13 @@ ul.floating-boxes li:nth-child(10) {
   border-radius: 50px;
 }
 
-/* появление */
 .to-top-btn.show {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+  z-index: 10002;
 }
 
-/* иконка */
 .to-top-btn svg {
   width: 22px;
   height: 22px;
@@ -2850,7 +2734,6 @@ ul.floating-boxes li:nth-child(10) {
   stroke-width: 2;
 }
 
-/* hover */
 .to-top-btn:hover {
   transform: translateY(-3px) scale(1.05);
   filter: brightness(1.1);

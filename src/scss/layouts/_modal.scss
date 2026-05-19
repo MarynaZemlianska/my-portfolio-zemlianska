@@ -1,4 +1,4 @@
-/* Модальное окно */
+
 .modal {
     display: flex;
     justify-content: center;
@@ -8,7 +8,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7); /* чуть темнее для фокуса */
+    background-color: rgba(0, 0, 0, 0.7); 
     z-index: 10000;
     opacity: 0;
     pointer-events: none;
@@ -21,7 +21,7 @@
 }
 
 .modal-content {
-    background: rgba(36,33,33,0.9); /* тёмный фон в твоем стиле */
+    background: rgba(36,33,33,0.9); 
     border: 2px solid rgba(194,19,255,0.8);
     border-radius: 24px;
     padding: 30px;
@@ -108,17 +108,17 @@
     box-shadow: 0 0 20px rgba(235,3,255,0.5);
 }
 
-/* Скрытие placeholder при фокусе */
+
 #consultationForm input:focus::placeholder,
 #consultationForm textarea:focus::placeholder {
-    color: transparent; /* делаем текст прозрачным */
+    color: transparent;
     transition: color 0.3s ease;
 }
 
-/* Можно добавить плавное появление обратно при blur */
+
 #consultationForm input::placeholder,
 #consultationForm textarea::placeholder {
-    color: rgba(255, 255, 255, 0.5); /* или нужный цвет */
+    color: rgba(255, 255, 255, 0.5); 
     transition: color 0.3s ease;
 }
 

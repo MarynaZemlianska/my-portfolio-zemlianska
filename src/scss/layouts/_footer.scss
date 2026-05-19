@@ -121,15 +121,14 @@
     color: var(--color-brand-light);
 }
 
-/* Единый размер и выравнивание иконок */
 .icon-footer {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
     fill: var(--color-brand-light);
     vertical-align: middle;
-    display: block; /* убирает лишние отступы */
-    object-fit: contain; /* масштабируем пропорционально */
+    display: block; 
+    object-fit: contain;
 }
 
 /* ===== INFO TEXT ===== */

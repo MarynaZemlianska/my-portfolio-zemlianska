@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const successMessage = document.getElementById("successMessage");
     const errorMessage = document.getElementById("errorMessage");
 
-    /* ===== ВСЕ КНОПКИ ОТКРЫТИЯ ===== */
+    
     const openBtns = document.querySelectorAll(
         '#openModal, #openQuoteModal, #openModalMobile'
     );
@@ -63,14 +63,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         e.preventDefault();
 
-        /* скрываем старые сообщения */
+
         successMessage.classList.remove("visible");
 
         if (errorMessage) {
             errorMessage.classList.remove("visible");
         }
 
-        /* получаем данные */
+      
         const formData = {
             name: form.name.value,
             email: form.email.value,
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log("FORM DATA:", formData);
 
-        /* 🔥 ИМИТАЦИЯ ОТПРАВКИ */
+   
         setTimeout(() => {
 
             successMessage.classList.add("visible");

@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Заголовок секции
+
     const sectionTitle = document.querySelector('.title-services');
-    // Все карточки
+
     const cards = document.querySelectorAll('.service-card');
 
     const observer = new IntersectionObserver(entries => {
@@ -13,8 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, { threshold: 0.2 });
 
-    // Подключаем заголовок
     if (sectionTitle) observer.observe(sectionTitle);
-    // Подключаем карточки
+
     cards.forEach(card => observer.observe(card));
 });

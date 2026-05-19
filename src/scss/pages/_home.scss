@@ -142,7 +142,7 @@ body {
     font-size: clamp(14px, 1.6vw, 20px);
     line-height: 1.4;
     color: #fff;
-    /* белый текст */
+
 }
 
 .top-center {
@@ -482,7 +482,6 @@ body {
 
 }
 
-/* ===== 767px: mobile-fixes ===== */
 @media (max-width: 767px) {
 
     .top-container-h1 {
@@ -519,7 +518,6 @@ body {
 }
 
 
-/* ===== 481px: smallest screens ===== */
 @media (max-width: 481px) {
 
     .top-container-h1 {
@@ -608,7 +606,6 @@ body {
 .section-steps {
     position: relative;
     overflow: hidden;
-    /* важно, чтобы градиент не вылезал */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -621,7 +618,6 @@ body {
 .steps-gradient {
     position: absolute;
     inset: 20%;
-    /* расширяем, чтобы не было резких краёв */
     z-index: 0;
     pointer-events: none;
 
@@ -679,7 +675,6 @@ body {
 
 /* ===== TITLE GRAPHIC ===== */
 
-/* декоративная линия + стрелка */
 .title-graphic {
     width: 160px;
     height: 0;
@@ -696,7 +691,7 @@ body {
         filter 0.6s ease;
 }
 
-/* стрелка */
+
 .title-graphic::after {
     content: '';
     position: absolute;
@@ -712,14 +707,12 @@ body {
     transform: rotate(45deg);
 }
 
-/* glow */
 .title-graphic {
     box-shadow:
         0 0 14px rgba(124, 102, 255, 0.45),
         0 0 30px rgba(124, 102, 255, 0.25);
 }
 
-/* появляется при скролле */
 .title-steps.visible .title-graphic {
     opacity: 1;
     transform: translateY(0) scaleX(1);
@@ -734,7 +727,7 @@ body {
 }
 
 /* ===== TITLE DOTS ===== */
-/* ===== TITLE DOTS ===== */
+
 .title-dots {
     position: absolute;
     right: 0;
@@ -761,7 +754,6 @@ body {
 }
 
 
-/* точки */
 .title-dots i {
     width: 10px;
     height: 10px;
@@ -771,7 +763,7 @@ body {
         0 0 10px rgba(124, 102, 255, 0.35);
 }
 
-/* появление */
+
 .title-steps.visible .title-dots {
     opacity: 1;
     transform: translateX(0);
@@ -800,8 +792,6 @@ body {
     background: rgba(28, 37, 255, 0.25);
 }
 
-
-
 /* LIST ITEMS */
 .list-items {
     list-style: none;
@@ -823,7 +813,6 @@ body {
 }
 
 
-/* активный шаг */
 .list-items li.visible {
     opacity: 1;
     transform: translateY(0);
@@ -852,7 +841,7 @@ body {
         box-shadow 0.5s ease, background-color 0.4s ease;
 }
 
-/* Подсветка при видимости шага */
+
 .list-items li.visible .step-circle {
     transform: scale(1);
     opacity: 1;
@@ -861,12 +850,10 @@ body {
     background-color: var(--color-brand-light);
 }
 
-/* Дополнительно — усиление при hover */
 .list-items li:hover .step-circle {
     transform: scale(1.2);
     box-shadow: 0 0 25px 8px rgba(250, 0, 255, 0.6);
 }
-
 
 /* STEP CONTENT */
 .step-content h4 {
@@ -892,14 +879,14 @@ body {
     transition: all 0.5s ease;
 }
 
-/* заголовок появляется чуть раньше */
+
 .list-items li.visible .step-content h4 {
     opacity: 1;
     transform: translateX(0);
     transition-delay: 0.15s;
 }
 
-/* текст — чуть позже */
+
 .list-items li.visible .step-content p {
     opacity: 1;
     transform: translateX(0);
@@ -965,7 +952,7 @@ body {
 
     .list-steps {
         padding-left: 13px;
-        /* 40px кружок + gap */
+
     }
 
     .list-steps::before {
@@ -1017,7 +1004,7 @@ body {
         line-height: 1.5;
     }
 
-    /* убираем сильный hover на touch */
+
     .list-items li:hover .step-circle {
         transform: scale(1);
         box-shadow: none;
@@ -1440,7 +1427,6 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Заголовок по центру */
 .faq-title {
     text-align: center;
     font-size: 72px;
@@ -1461,7 +1447,6 @@ body {
 }
 
 
-/* Контейнер уже по ширине */
 .faq-list {
     max-width: 780px;
     margin: 0 auto;
@@ -1471,7 +1456,7 @@ body {
     gap: 24px;
 }
 
-/* Карточка */
+
 .faq-item {
     border: 1px solid rgba(194, 19, 255, 0.4);
     border-radius: 20px;
@@ -1483,7 +1468,7 @@ body {
     transition: all 0.6s ease-out;
 }
 
-/* Вопрос */
+
 .faq-question {
     width: 100%;
     padding: 24px 30px;
@@ -1503,7 +1488,7 @@ body {
     cursor: pointer;
 }
 
-/* Стрелка */
+
 .faq-arrow {
     width: 10px;
     height: 10px;
@@ -1515,7 +1500,6 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Ответ */
 .faq-answer {
     max-height: 0;
     overflow: hidden;
@@ -1529,7 +1513,7 @@ body {
     transition: all 0.4s ease;
 }
 
-/* Активное состояние */
+
 .faq-item.active .faq-answer {
     max-height: 2000px;
     padding: 0 30px 24px;
@@ -1538,7 +1522,6 @@ body {
 
 .faq-answer p {
     white-space: normal;
-    /* ⬅️ ОБЯЗАТЕЛЬНО */
     word-break: break-word;
     margin: 0 0 16px;
     font-size: 18px;
@@ -1561,7 +1544,7 @@ body {
     transform: translateY(0);
 }
 
-/* задержка */
+
 .section-faq.visible .faq-item:nth-child(1) {
     transition-delay: 0.2s;
 }
@@ -1607,7 +1590,7 @@ body {
     margin: 0 auto;
     overflow: hidden;
     padding: 0 60px;
-    /* отступы слева и справа для стрелок */
+
 }
 
 /* SLIDER */
@@ -1626,10 +1609,8 @@ body {
 /* CARD */
 .testimonial-card {
     max-width: 300px;
-    /* меньше ширина */
     flex-shrink: 0;
     padding: 28px;
-    /* чуть меньше внутренние отступы */
     border-radius: 24px;
     background: linear-gradient(135deg, rgba(255, 0, 204, 0.15), rgba(59, 76, 255, 0.15));
     border: 1px solid rgba(255, 0, 204, 0.3);
@@ -1642,7 +1623,6 @@ body {
     transition: all 0.6s ease-out;
 }
 
-/* Анимация появления */
 .section-testimonials.visible .testimonial-card:nth-child(1) {
     transition-delay: 0.2s;
 }
@@ -1682,20 +1662,17 @@ body {
     background: rgba(255, 0, 204, 1);
 }
 
-/* Позиционирование стрелок снаружи карточек, но внутри wrapper */
 .slider-prev {
     left: 0px;
-    /* немного отступ от края */
+
 }
 
 .slider-next {
     right: 0px;
-    /* немного отступ от края */
+
 }
 
-/* =========================
-   ≤ 1200px
-========================= */
+
 @media (max-width: 1200px) {
     .testimonials-wrapper {
         max-width: 900px;
@@ -1707,10 +1684,6 @@ body {
     }
 }
 
-
-/* =========================
-   ≤ 992px (TABLET)
-========================= */
 @media (max-width: 992px) {
 
     .section-title {
@@ -1737,9 +1710,6 @@ body {
 }
 
 
-/* =========================
-   ≤ 768px (TABLET / MOBILE)
-========================= */
 @media (max-width: 768px) {
 
     .section-testimonials {
@@ -1774,9 +1744,6 @@ body {
 }
 
 
-/* =========================
-   ≤ 600px (MOBILE)
-========================= */
 @media (max-width: 600px) {
 
     .section-title {
@@ -1808,9 +1775,6 @@ body {
 }
 
 
-/* =========================
-   ≤ 420px (SMALL MOBILE)
-========================= */
 @media (max-width: 420px) {
 
     .section-title {
@@ -1835,16 +1799,12 @@ body {
 }
 
 
-/* =========================
-   TOUCH DEVICES
-========================= */
+
 @media (hover: none) {
     .slider-btn:hover {
         background: rgba(255, 0, 204, 0.8);
     }
 }
-
-
 
 
 /* The Boxes */
@@ -1868,7 +1828,7 @@ ul.floating-boxes li {
     bottom: -110rem;
     animation: floatingbox 25s linear infinite;
     opacity: 1;
-    /* Элементы сразу видимы */
+
 }
 
 ul.floating-boxes li:nth-child(1) {
@@ -1876,7 +1836,6 @@ ul.floating-boxes li:nth-child(1) {
     height: 6rem;
     width: 6rem;
     animation-delay: 0s;
-    /* Задержка убрана */
     animation-duration: 15s;
 }
 
@@ -2141,7 +2100,7 @@ ul.floating-boxes li:nth-child(10) {
     position: fixed;
     right: 15px;
     bottom: 15px;
-    z-index: 100;
+    z-index: 10002 !important;
     width: 50px;
     height: 50px;
     font-size: 20px;
@@ -2155,7 +2114,6 @@ ul.floating-boxes li:nth-child(10) {
     transition: 0.32s ease-in-out;
     transform: translateY(20px);
 
-    /* 🔥 твой современный градиент */
     background: linear-gradient(135deg,
             #7c5cff,
             #3e2cdd,
@@ -2167,14 +2125,14 @@ ul.floating-boxes li:nth-child(10) {
 }
 
 
-/* появление */
 .to-top-btn.show {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+    z-index: 10002;
+
 }
 
-/* иконка */
 .to-top-btn svg {
     width: 22px;
     height: 22px;
@@ -2182,7 +2140,6 @@ ul.floating-boxes li:nth-child(10) {
     stroke-width: 2;
 }
 
-/* hover */
 .to-top-btn:hover {
     transform: translateY(-3px) scale(1.05);
     filter: brightness(1.1);

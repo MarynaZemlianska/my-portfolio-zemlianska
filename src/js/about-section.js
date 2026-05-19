@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
             1
         );
 
-        // 🔥 мягкое движение
+        
         const photoY = progress * 60;
         const textY = progress * -40;
 

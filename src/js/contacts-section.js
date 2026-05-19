@@ -1,9 +1,9 @@
-// Получаем элементы
+
 const contactsTitle = document.querySelector('.contacts-title');
 const form = document.querySelector('.form');
 const formElements = form ? Array.from(form.querySelectorAll('.form-title, .form-label, .input1, .input2, .input3, .form-button, .info-form')) : [];
 
-// IntersectionObserver для заголовка
+// IntersectionObserver 
 const titleObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if(entry.isIntersecting){
@@ -15,7 +15,7 @@ const titleObserver = new IntersectionObserver(entries => {
 
 if (contactsTitle) titleObserver.observe(contactsTitle);
 
-// IntersectionObserver для формы
+// IntersectionObserver 
 const formObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if(entry.isIntersecting){

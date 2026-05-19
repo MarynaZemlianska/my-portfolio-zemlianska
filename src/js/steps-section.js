@@ -14,13 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
         threshold: 0.2
     });
 
-    // наблюдаем за заголовком
+
     if (title) observer.observe(title);
 
-    // наблюдаем за шагами с задержкой анимации
+
     steps.forEach((step, i) => {
         observer.observe(step);
-        step.style.transitionDelay = `${0.1 * i}s`; // stagger
+        step.style.transitionDelay = `${0.1 * i}s`; 
     });
 
 });
