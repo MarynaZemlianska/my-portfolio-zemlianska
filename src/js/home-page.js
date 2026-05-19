@@ -1,171 +1,111 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // ===== HEADER =====
     const header = document.querySelector("header");
+    const toTopBtn = document.getElementById("toTopBtn");
+
+    // ================= HEADER =================
     header.classList.add("hidden");
+
     setTimeout(() => {
         header.classList.remove("hidden");
         header.classList.add("visible");
     }, 100);
 
+    let lastScroll = 0;
+
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 20) {
-            header.classList.add("scrolled");
-        } else {
-            header.classList.remove("scrolled");
+        const scroll = window.scrollY;
+
+        header.classList.toggle("scrolled", scroll > 20);
+
+        // кнопка "наверх"
+        if (toTopBtn) {
+            toTopBtn.classList.toggle("show", scroll > 300);
         }
-    });
-window.addEventListener("scroll", () => {
-    console.log("scrollY:", window.scrollY);
-});
 
-    // ===== SCROLL REVEAL =====
-    const revealObserver = new IntersectionObserver((entries, observer) => {
+        lastScroll = scroll;
+    }, { passive: true });
+
+    // ================= SINGLE OBSERVER =================
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.2 });
+            if (!entry.isIntersecting) return;
 
-  const revealSelectors = [
-    '.top-container-h1',
-    '.items-text',
-    '.top-image',
-    '.top-right a',
-    '.button-mobile2', // 👈 ДОБАВИЛИ
-    '.about-title',
-    '.about-title-arrow',
-    '.ellipse-photo',
-    '.text-items p',
-    '.section-testimonials',
-    '.section-faq'
-];
+            const el = entry.target;
 
-    revealSelectors.forEach(selector => {
-        document.querySelectorAll(selector).forEach(el => revealObserver.observe(el));
-    });
+            el.classList.add("visible");
 
-   // ===== COUNTERS =====
-const counters = document.querySelectorAll(".stat-number");
+            // ===== COUNTER =====
+            if (el.classList.contains("stat-number")) {
+                if (el.dataset.started === "true") return;
+                el.dataset.started = "true";
 
-const counterObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
+                const target = Number(el.dataset.target);
+                const duration = 800;
+                const startTime = performance.now();
 
-        const counter = entry.target;
+                const animate = (time) => {
+                    const progress = Math.min((time - startTime) / duration, 1);
+                    el.textContent = Math.floor(progress * target);
 
-        // 🛑 защита от повторного запуска
-        if (counter.dataset.started === "true") return;
-        counter.dataset.started = "true";
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        el.textContent = target + "+";
+                    }
+                };
 
-        const target = Number(counter.dataset.target);
-        const duration = 900;
-        const startTime = performance.now();
-
-        const animate = (time) => {
-            const progress = Math.min((time - startTime) / duration, 1);
-            const value = Math.floor(progress * target);
-
-            counter.textContent = value;
-
-            if (progress < 1) {
                 requestAnimationFrame(animate);
-            } else {
-                counter.textContent = target + "+";
             }
-        };
 
-        requestAnimationFrame(animate);
-
-        observer.unobserve(counter);
+            observer.unobserve(el);
+        });
+    }, {
+        threshold: 0.25,
+        rootMargin: "0px 0px -10% 0px"
     });
-}, {
-    threshold: 0.3, // 👈 лучше для мобилки
-    rootMargin: "0px 0px -10% 0px"
-});
 
-counters.forEach(counter => counterObserver.observe(counter));
+    // ================= ELEMENTS TO OBSERVE =================
+    document.querySelectorAll(`
+        .top-container-h1,
+        .items-text,
+        .top-image,
+        .top-right a,
+        .button-mobile2,
+        .section-testimonials,
+        .section-faq,
+        .quote-section,
+        .stat-number
+    `).forEach(el => observer.observe(el));
 
-// ===== FAQ ACCORDION =====
-document.querySelectorAll(".faq-question").forEach(btn => {
-    btn.addEventListener("click", () => {
-        btn.closest(".faq-item").classList.toggle("active");
+    // ================= FAQ =================
+    document.querySelectorAll(".faq-question").forEach(btn => {
+        btn.addEventListener("click", () => {
+            btn.closest(".faq-item").classList.toggle("active");
+        });
     });
-});
-    // ===== TESTIMONIALS SLIDER =====
-    const slider = document.querySelector('.testimonials-slider');
-    const nextBtn = document.querySelector('.slider-next');
-    const prevBtn = document.querySelector('.slider-prev');
+
+    // ================= TESTIMONIALS SLIDER =================
+    const slider = document.querySelector(".testimonials-slider");
+    const nextBtn = document.querySelector(".slider-next");
+    const prevBtn = document.querySelector(".slider-prev");
 
     if (slider && nextBtn && prevBtn) {
-        nextBtn.addEventListener('click', () => {
-            slider.scrollBy({ left: slider.offsetWidth, behavior: 'smooth' });
+        nextBtn.addEventListener("click", () => {
+            slider.scrollBy({ left: slider.offsetWidth, behavior: "smooth" });
         });
 
-        prevBtn.addEventListener('click', () => {
-            slider.scrollBy({ left: -slider.offsetWidth, behavior: 'smooth' });
+        prevBtn.addEventListener("click", () => {
+            slider.scrollBy({ left: -slider.offsetWidth, behavior: "smooth" });
         });
     }
 
-    // Появление секции отзывов
-    const section = document.querySelector('.section-testimonials');
-    if (section) {
-        const observer = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting){
-                    section.classList.add('visible');
-                    obs.unobserve(section);
-                }
+    // ================= TO TOP BUTTON CLICK =================
+    if (toTopBtn) {
+        toTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
             });
-        }, { threshold: 0.2 });
-
-        observer.observe(section);
-    }
-});
-
-//Секция просчёта цен
-const quoteSection = document.querySelector('.quote-section');
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
-    });
-}, {
-    threshold: 0.3
-});
-
-if (quoteSection) observer.observe(quoteSection);
-
-
-//Стрелка
-document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("toTopBtn");
-
-    if (!btn) return;
-
-    const toggleBtn = () => {
-        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-
-        if (scrollTop > 300) {
-            btn.classList.add("show");
-        } else {
-            btn.classList.remove("show");
-        }
-    };
-
-    window.addEventListener("scroll", toggleBtn, { passive: true });
-
-    // важно — проверить сразу при загрузке
-    toggleBtn();
-
-    btn.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
         });
-    });
+    }
 });
