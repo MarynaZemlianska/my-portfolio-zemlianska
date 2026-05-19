@@ -132,3 +132,33 @@ const observer = new IntersectionObserver(entries => {
 });
 
 if (quoteSection) observer.observe(quoteSection);
+
+
+//Стрелка
+document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("toTopBtn");
+
+    if (!btn) return;
+
+    const toggleBtn = () => {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+        if (scrollTop > 300) {
+            btn.classList.add("show");
+        } else {
+            btn.classList.remove("show");
+        }
+    };
+
+    window.addEventListener("scroll", toggleBtn, { passive: true });
+
+    // важно — проверить сразу при загрузке
+    toggleBtn();
+
+    btn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+});
