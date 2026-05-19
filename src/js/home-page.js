@@ -35,34 +35,27 @@ document.addEventListener("DOMContentLoaded", () => {
             el.classList.add("visible");
 
             // ===== COUNTER =====
-            if (el.classList.contains("stat-number")) {
-                if (el.dataset.started === "true") return;
-                el.dataset.started = "true";
+           if (el.classList.contains("stat-number")) {
+    if (el.dataset.started === "true") return;
+    el.dataset.started = "true";
 
-                const target = Number(el.dataset.target);
-                const duration = 800;
-                const startTime = performance.now();
+    const target = Number(el.dataset.target);
+    const duration = 700; // 🔥 быстрее
 
-                const animate = (time) => {
-                    const progress = Math.min((time - startTime) / duration, 1);
-                    el.textContent = Math.floor(progress * target);
+    const start = Date.now();
 
-                    if (progress < 1) {
-                        requestAnimationFrame(animate);
-                    } else {
-                        el.textContent = target + "+";
-                    }
-                };
+    const timer = setInterval(() => {
+        const progress = Math.min((Date.now() - start) / duration, 1);
+        const value = Math.floor(progress * target);
 
-                requestAnimationFrame(animate);
-            }
+        el.textContent = value;
 
-            observer.unobserve(el);
-        });
-    }, {
-        threshold: 0.25,
-        rootMargin: "0px 0px -10% 0px"
-    });
+        if (progress >= 1) {
+            clearInterval(timer);
+            el.textContent = target + "+";
+        }
+    }, 16); // ~60fps фикс, но не зависит от rAF
+}
 
     // ================= ELEMENTS TO OBSERVE =================
     document.querySelectorAll(`

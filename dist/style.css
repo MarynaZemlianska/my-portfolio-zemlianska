@@ -3823,7 +3823,6 @@ ul.floating-boxes li:nth-child(10) {
 .container-dots-projects {
   position: absolute;
   top: 30px;
-  left: 300px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(3, 1fr);
