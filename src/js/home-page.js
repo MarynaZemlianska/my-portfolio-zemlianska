@@ -54,9 +54,13 @@ const counterObserver = new IntersectionObserver((entries, observer) => {
         if (!entry.isIntersecting) return;
 
         const counter = entry.target;
-        const target = Number(counter.dataset.target);
 
-        const duration = 800; // скорость анимации (0.8 сек)
+        // 🛑 защита от повторного запуска
+        if (counter.dataset.started === "true") return;
+        counter.dataset.started = "true";
+
+        const target = Number(counter.dataset.target);
+        const duration = 900;
         const startTime = performance.now();
 
         const animate = (time) => {
@@ -73,14 +77,15 @@ const counterObserver = new IntersectionObserver((entries, observer) => {
         };
 
         requestAnimationFrame(animate);
+
         observer.unobserve(counter);
     });
 }, {
-    threshold: 0.5
+    threshold: 0.3, // 👈 лучше для мобилки
+    rootMargin: "0px 0px -10% 0px"
 });
 
 counters.forEach(counter => counterObserver.observe(counter));
-
 
 // ===== FAQ ACCORDION =====
 document.querySelectorAll(".faq-question").forEach(btn => {
