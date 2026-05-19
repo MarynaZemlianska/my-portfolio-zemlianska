@@ -46,7 +46,7 @@ window.addEventListener("scroll", () => {
         document.querySelectorAll(selector).forEach(el => revealObserver.observe(el));
     });
 
-    // ===== COUNTERS =====
+   // ===== COUNTERS =====
 const counters = document.querySelectorAll(".stat-number");
 
 const counterObserver = new IntersectionObserver((entries, observer) => {
@@ -54,23 +54,25 @@ const counterObserver = new IntersectionObserver((entries, observer) => {
         if (!entry.isIntersecting) return;
 
         const counter = entry.target;
-        const target = +counter.getAttribute("data-target");
+        const target = Number(counter.dataset.target);
 
-        let count = 0;
-        const step = Math.ceil(target / 20);
+        const duration = 800; // скорость анимации (0.8 сек)
+        const startTime = performance.now();
 
-        const update = () => {
-            count += step;
+        const animate = (time) => {
+            const progress = Math.min((time - startTime) / duration, 1);
+            const value = Math.floor(progress * target);
 
-            if (count >= target) {
-                counter.textContent = target + "+";
+            counter.textContent = value;
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
             } else {
-                counter.textContent = count;
-                requestAnimationFrame(update);
+                counter.textContent = target + "+";
             }
         };
 
-        update();
+        requestAnimationFrame(animate);
         observer.unobserve(counter);
     });
 }, {
@@ -78,14 +80,14 @@ const counterObserver = new IntersectionObserver((entries, observer) => {
 });
 
 counters.forEach(counter => counterObserver.observe(counter));
-    // ===== FAQ ACCORDION =====
-    document.querySelectorAll('.faq-question').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const item = btn.closest('.faq-item');
-            item.classList.toggle('active');
-        });
-    });
 
+
+// ===== FAQ ACCORDION =====
+document.querySelectorAll(".faq-question").forEach(btn => {
+    btn.addEventListener("click", () => {
+        btn.closest(".faq-item").classList.toggle("active");
+    });
+});
     // ===== TESTIMONIALS SLIDER =====
     const slider = document.querySelector('.testimonials-slider');
     const nextBtn = document.querySelector('.slider-next');
