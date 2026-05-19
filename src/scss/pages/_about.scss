@@ -2,16 +2,13 @@
     position: relative;
     display: flex;
     justify-content: center;
-    gap: 80px;
+    gap: 20px;
 
-    padding-top: 150px;
-    padding-bottom: 120px;
-
-    min-height: 500px;
     max-width: 1200px;
     margin: 0 auto;
-}
 
+    padding: 20px 10px 70px 10px;
+}
 
 /* Градиент сверху-слева */
 .section-about::before {
@@ -31,86 +28,84 @@
     z-index: 0;
 }
 
+.container-about{
+    display: flex;
+    gap: 30px;
+}
 
 /* ===== LEFT BLOCK ===== */
 .about-photo-container {
     position: relative;
-    flex-shrink: 0;
-    width: 400px;
-    height: 500px; /* ⬅️ ВАЖНО: даём высоту */
-}
 
+    width: 400px;
+    min-width: 400px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-shrink: 0;
+}
 
 /* Фото */
 .ellipse-photo {
-    position: absolute;
-    bottom: 0;              /* ⬅️ фото «стоит» внизу контейнера */
-    left: 0;
+    position: relative;
 
     width: 400px;
     height: 400px;
+
     border-radius: 50%;
     object-fit: cover;
     object-position: top center;
 
     opacity: 0;
     transform: translateY(50px);
-    transition: all 0.6s ease-out;
+    transition:
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
 }
 
+/* ===== TITLE ===== */
+.about-title-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    flex: 1;
+    max-width: 650px;
+
+
+    z-index: 2;
+
+}
 
 
 /* ===== TITLE ===== */
 .about-title {
-    position: relative;
-    display: inline-block;
-    z-index: 2;
-    left: 200px;
-    top: -90px;
-
-
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(42px, 6.5vw,100px);              /* ⬅️ БОЛЬШЕ */
-    font-weight: 700;
-    line-height: 1.05;
-    color: var(--color-primary-light);
-
+    margin: 0;
     text-align: center;
 
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.6s ease-out;
+    font-size: 100px;   /* 🔥 ВОТ ТВОИ НОРМАЛЬНЫЕ РАЗМЕРЫ */
+    font-weight: 700;
+    line-height: 1.05;
+
+    color: var(--color-primary-light);
 }
 
-
+/* ARROW */
 .about-title-arrow {
-    position: absolute;
-    right:250px;   /* ⬅️ справа от заголовка */
-    top: 32px;
+    width: 140px;   /* 🔥 БОЛЬШЕ */
+    height: 10px;
 
-    width: 100px;
-    height: 8px;
     background-color: var(--color-brand-light);
 
-    opacity: 0;
-    transform: translateX(40px);
-    transition: all 0.6s ease-out;
-    transition-delay: 0.25s;
+    margin-top: 18px;
+
+    position: relative;
+
+    border-radius: 10px;
 }
-
-.about-title-arrow::after {
-    content: '';
-    position: absolute;
-    right: -12px;
-    top: 50%;
-    width: 30px;
-    height: 30px;
-    border-top: 8px solid var(--color-brand-light);
-    border-right: 8px solid var(--color-brand-light);
-    transform: translateY(-50%) rotate(45deg);
-}
-
-
 
 /* Наконечник стрелки */
 .about-title-arrow::after {
@@ -126,11 +121,6 @@
 }
 
 
-/* Hover эффект */
-.about-title-arrow:hover {
-    transform: translateY(-50%) scale(1.2);
-}
-
 
 /* ===== RIGHT BLOCK ===== */
 .about-content {
@@ -138,7 +128,7 @@
     flex-direction: column;
     justify-content: center; /* текст опускается вниз */
     flex: 1;
-    margin-top: 200px;
+    margin-top: 50px;
 }
 
 /* текстовый контейнер */
@@ -213,199 +203,137 @@
 .text-items.visible p:nth-child(2) { transition-delay: 0.35s; }
 .text-items.visible p:nth-child(3) { transition-delay: 0.5s; }
 
-@media (max-width: 1200px) {
+@media (max-width: 1180px) {
 
-    .section-about {
-        gap: 60px;
-        padding-top: 120px;
-        padding-bottom: 100px;
-        padding: 120px 20px 100px 10px;
-    }
-
-    .about-photo-container {
-        width: 360px;
-        height: 460px;
-    }
-
-    .ellipse-photo {
-        width: 360px;
-        height: 360px;
+    .container-about {
+        gap: 40px;
     }
 
     .about-title {
-        font-size: 84px;
+        font-size: 72px;
+    }
+
+    .ellipse-photo {
+        width: 340px;
+        height: 340px;
+    }
+
+    .about-photo-container {
+        width: 340px;
+        min-width: 340px;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .section-about {
+        gap: 50px;
+    }
+
+    .about-title {
+        font-size: 70px;
     }
 
     .about-title-arrow {
-        width: 80px;
-   
-        top: 34px;
+        width: 110px;
+    }
+}
+@media (max-width: 812px) {
+
+    .section-about {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        text-align: center;
+    }
+
+  
+
+    .about-content {
+        order: 3;
+        margin-top: 0;
+        width: 100%;
+    }
+
+    /* 🔥 заголовок нормально по центру */
+    .about-title {
+        font-size: 60px;
+        text-align: center;
+    }
+
+    /* 🔥 стрелка остаётся под заголовком */
+    .about-title-arrow {
+        margin: 12px auto 0 auto;
+    }
+
+    /* 🔥 фото по центру */
+    .ellipse-photo {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+
+    /* 🔥 текст под фото */
+    .text-items {
+        align-items: center;
+        padding: 0 15px;
     }
 
     .text-items p {
-        font-size: 18px;
-        line-height: 32px;
+        text-align: center;
+        font-size: 16px;
+        line-height: 26px;
     }
+
+  
 }
 
-/* =========================
-   ≤ 955px — FIX OVERLAP
-========================= */
-@media (max-width: 955px) {
+@media (max-width: 950px) {
 
-    .section-about {
+    .container-about {
         flex-direction: column;
         align-items: center;
-        gap: 48px;
+        text-align: center;
     }
 
-    /* Блок с заголовком и фото */
-    .about-photo-container {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        justify-content: center;
-        height: auto;
-        margin-bottom: 40px;
+    .about-title-wrap {
+        max-width: 100%;
     }
-    .section-about {
-        flex-direction: column;
-        align-items: center;
+
+    .about-content {
+        margin-top: 0;
     }
+}
+@media (max-width: 480px) {
 
     .about-title {
-        font-size: 74px;           /* ⬅️ HERO SIZE */
-    }
-
-    .about-title-arrow {
-        right: -120px;              /* стрелка красиво справа */
-        top: 42px;}
-   
-
-    .ellipse-photo {
-        position: relative;
-        width: 320px;
-        height: 320px;
-        margin: 0 auto;
-    }
-
-    /* ТЕКСТ — ВСЕГДА НИЖЕ */
-    .about-content {
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-    }
-
-    .text-items {
-        align-items: center;
-        max-width: 720px;
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 768px) {
-
-    .section-about {
-        padding-top: 80px;
-        padding-bottom: 80px;
-    }
-
-    .about-photo-container {
-        width: 280px;
-        height: 360px;
-    }
-
-    .ellipse-photo {
-        width: 280px;
-        height: 280px;
-    }
-.about-title {
-        font-size: 44px;
+        font-size: 42px;
     }
 
     .about-title-arrow {
         width: 70px;
-        height: 6px;
-        margin-bottom: 20px;
+        height: 8px;
     }
 
     .about-title-arrow::after {
-        width: 20px;
-        height: 20px;
-        border-width: 6px;
-    }
-
-    .text-items p {
-        font-size: 16px;
-        line-height: 28px;
-        letter-spacing: 0.5px;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .about-photo-container {
-        width: 240px;
-        height: 320px;
+        width: 22px;
+        height: 22px;
+        border-width: 8px;
     }
 
     .ellipse-photo {
         width: 240px;
         height: 240px;
     }
- .about-title {
-        font-size: 44px;
-    }
-
-    .about-title-arrow {
-        right: -70px;
-        top: 22px;
-        width: 60px;
-        height: 5px;
-    }
-
-    .about-title-arrow::after {
-        width: 18px;
-        height: 18px;
-        border-width: 5px;
-    }
-    .text-items p {
-        font-size: 15px;
-        line-height: 26px;
-    }
 }
-
-@media (max-width: 398px) {
-
-    .about-photo-container {
-        margin-bottom: 50px;;
-}
+@media (max-width: 350px) {
 
     .about-title {
-        text-align: center;
-        padding-bottom: 50px; /* место под стрелку */
+        font-size: 36px;
     }
 
-    .about-title-arrow {
-        right: 50%;
-        top: 100px;
-        bottom: -30px;
-
-        transform: translateX(50%) rotate(90deg);
-        width: 50px;
-        height: 5px;
-    }
-
-    .about-title-arrow::after {
-        width: 16px;
-        height: 16px;
-        border-width: 5px;
-    }
-
-    /* когда появляется */
-    .about-title-arrow.visible {
-        transform: translateX(50%) rotate(90deg);
+    .text-items p {
+        font-size: 14px;
     }
 }

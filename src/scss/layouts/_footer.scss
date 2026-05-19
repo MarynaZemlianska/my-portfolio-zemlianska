@@ -32,7 +32,10 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-
+.footer-logo:hover {
+    transform: scale(1.03);
+    transition: 0.3s ease;
+}
 
 .footer-logo-icon {
     font-size: 70px;

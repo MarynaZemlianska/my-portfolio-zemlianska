@@ -1,20 +1,44 @@
-// section-about.js — анимация при скролле
 document.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll('.about-title, .ellipse-photo, .text-items');
 
-    const observer = new IntersectionObserver(entries => {
+    // ===== VISIBILITY ANIMATION =====
+    const elements = document.querySelectorAll(
+        '.about-title, .ellipse-photo, .text-items, .about-title-arrow'
+    );
+
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.2 });
 
     elements.forEach(el => observer.observe(el));
-    
-    const arrow = document.querySelector('.about-title-arrow');
 
-observer.observe(arrow);
+
+    // ===== PARALLAX (ONLY ONE WRAPPER!) =====
+    const section = document.querySelector(".section-about");
+    const photo = document.querySelector(".about-photo-container");
+    const textWrap = document.querySelector(".about-title-wrap");
+
+    if (!section || !photo || !textWrap) return;
+
+    window.addEventListener("scroll", () => {
+
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        const progress = Math.min(
+            Math.max((windowHeight - rect.top) / (windowHeight + rect.height), 0),
+            1
+        );
+
+        // 🔥 мягкое движение
+        const photoY = progress * 60;
+        const textY = progress * -40;
+
+        photo.style.transform = `translateY(${photoY}px)`;
+        textWrap.style.transform = `translateY(${textY}px)`;
+    });
 
 });

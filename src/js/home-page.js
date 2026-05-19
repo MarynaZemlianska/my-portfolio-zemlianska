@@ -47,29 +47,37 @@ window.addEventListener("scroll", () => {
     });
 
     // ===== COUNTERS =====
-    const counters = document.querySelectorAll(".stat-number");
-    const counterObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const counter = entry.target;
-                const target = +counter.getAttribute("data-target");
-                let count = 0;
-                const step = Math.ceil(target / 100);
+const counters = document.querySelectorAll(".stat-number");
 
-                const increment = () => {
-                    count += step;
-                    if (count > target) count = target;
-                    counter.textContent = count;
-                    if (count < target) requestAnimationFrame(increment);
-                };
-                increment();
-                observer.unobserve(counter);
+const counterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        const counter = entry.target;
+        const target = +counter.getAttribute("data-target");
+
+        let count = 0;
+        const step = Math.ceil(target / 100);
+
+        const update = () => {
+            count += step;
+
+            if (count >= target) {
+                counter.textContent = target + "+";
+            } else {
+                counter.textContent = count;
+                requestAnimationFrame(update);
             }
-        });
-    }, { threshold: 0.5 });
+        };
 
-    counters.forEach(counter => counterObserver.observe(counter));
+        update();
+        observer.unobserve(counter);
+    });
+}, {
+    threshold: 0.5
+});
 
+counters.forEach(counter => counterObserver.observe(counter));
     // ===== FAQ ACCORDION =====
     document.querySelectorAll('.faq-question').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -108,3 +116,19 @@ window.addEventListener("scroll", () => {
         observer.observe(section);
     }
 });
+
+//Секция просчёта цен
+const quoteSection = document.querySelector('.quote-section');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.3
+});
+
+if (quoteSection) observer.observe(quoteSection);

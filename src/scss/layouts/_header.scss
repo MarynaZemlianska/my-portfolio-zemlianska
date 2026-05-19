@@ -70,14 +70,30 @@ header {
     font-family: 'Montserrat', sans-serif;
 }
 
+.logo:hover {
+    transform: scale(1.03);
+    transition: 0.3s ease;
+}
+
 .logo-icon {
     font-size: 70px;
     line-height: 1;
     font-weight: 700;
-    background: linear-gradient(90deg, #ff00cc, #3b4cff);
+
+    background: linear-gradient(
+        90deg,
+        #ff00cc,
+        #3b4cff,
+        #00ffe1,
+        #ff00cc
+    );
+    background-size: 300% 300%;
+    animation: logoGradientMove 6s ease infinite;
+
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 .logo-text{
     margin-top: 0px;
 }
@@ -85,7 +101,17 @@ header {
 .logo-title {
     font-size: 27px;
     letter-spacing: 0px;
-    background: linear-gradient(90deg, #ff00cc, #3b4cff);
+
+    background: linear-gradient(
+        90deg,
+        #ff00cc,
+        #3b4cff,
+        #00ffe1,
+        #ff00cc
+    );
+    background-size: 300% 300%;
+    animation: logoGradientMove 6s ease infinite;
+
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -104,7 +130,17 @@ header {
     letter-spacing: 3px;
     color: rgba(255,255,255,0.3);
 }
-
+@keyframes logoGradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 /* ================= NAV ================= */
 .nav {
     display: flex;
