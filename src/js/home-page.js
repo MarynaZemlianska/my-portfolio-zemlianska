@@ -57,7 +57,7 @@ const counterObserver = new IntersectionObserver((entries, observer) => {
         const target = +counter.getAttribute("data-target");
 
         let count = 0;
-        const step = Math.ceil(target / 100);
+        const step = Math.ceil(target / 20);
 
         const update = () => {
             count += step;
