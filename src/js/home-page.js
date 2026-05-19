@@ -35,27 +35,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // ================= COUNTER =================
             if (el.classList.contains("stat-number")) {
-                if (el.dataset.started) return;
-                el.dataset.started = "true";
+    if (el.dataset.started) return;
+    el.dataset.started = "true";
 
-                const target = parseInt(el.dataset.target, 10) || 0;
-                const duration = 600; // быстрее
-                const start = performance.now();
+    const target = Number(el.dataset.target) || 0;
+    const duration = 500; // 🔥 быстрее (0.5 сек)
+    const start = performance.now();
 
-                const update = (time) => {
-                    const progress = Math.min((time - start) / duration, 1);
-                    const value = Math.floor(progress * target);
+    const easeOutQuad = (t) => t * (2 - t); // ускоряет старт
 
-                    el.textContent = progress < 1 ? value : target + "+";
+    const animate = (time) => {
+        const progress = Math.min((time - start) / duration, 1);
+        const eased = easeOutQuad(progress);
 
-                    if (progress < 1) {
-                        requestAnimationFrame(update);
-                    }
-                };
+        el.textContent = Math.floor(eased * target);
 
-                requestAnimationFrame(update);
-            }
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        } else {
+            el.textContent = target + "+";
+        }
+    };
 
+    requestAnimationFrame(animate);
+}
             obs.unobserve(el);
         });
     }, {
