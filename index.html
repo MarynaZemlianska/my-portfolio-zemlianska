@@ -1,20 +1,21 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web{LAB} Zemlianska - frontend developer portfolio, website development and UI/UX projects.">
     <title>Home - Web{LAB} Zemlianska - Websites development</title>
     <link rel="icon" href="./src/images/favicon.svg" type="image/png">
     <link rel="stylesheet" href="./../dist/style.css">
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="./src/images/top-image.svg">
 </head>
 
 <body>
     <div class="header-gradient"></div>
-<header class="header scrolled">
+    <header class="header scrolled">
         <div class="nav-container">
             <div class="nav-left">
                 <a href="index.html" class="logo">
@@ -26,24 +27,24 @@
                 </a>
                 <nav class="nav nav hidden">
                     <ul>
-                        <li><a class="nav-link" href="index.html">ГОЛОВНА</a></li>
-                        <li class="nav-item">
+                        <li><a class="nav-link" href="index.html" aria-label="View home-page">ГОЛОВНА</a></li>
+                        <li class="nav-item" aria-label="View services">
                             <a class="nav-link nav-link--dropdown" href="#">
                                 <span class="nav-text">ПОСЛУГИ</span>
                                 <span class="nav-arrow"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="/src/html/landing-site.html">Лендінг сайт</a></li>
-                                <li><a href="business-site.html">Сайт-візитка</a></li>
-                                <li><a href="corporate-site.html">Корпоративний сайт</a></li>
-                                <li><a href="personal-site.html">Персональний сайт</a></li>
-                                <li><a href="e-commerce-site.html">E-commerce сайти</a></li>
-                                <li><a href="other-services.html">Інші послуги</a></li>
+                                <li><a href="/src/html/landing-site.html" aria-label="View landing-site">Лендінг сайт</a></li>
+                                <li><a href="business-site.html" aria-label="View business-site">Сайт-візитка</a></li>
+                                <li><a href="corporate-site.html" aria-label="View corporate-site">Корпоративний сайт</a></li>
+                                <li><a href="personal-site.html" aria-label="View personal-site">Персональний сайт</a></li>
+                                <li><a href="e-commerce-site.html" aria-label="View e-commerce-site">E-commerce сайти</a></li>
+                                <li><a href="other-services.html" aria-label="View other-services">Інші послуги</a></li>
                             </ul>
                         </li>
-                        <li><a class="nav-link" href="projects.html">ЦІНИ</a></li>
-                        <li><a class="nav-link" href="projects.html">ПРОЄКТИ</a></li>
-                        <li><a class="nav-link" href="contacts.html">КОНТАКТИ</a></li>
+                        <li><a class="nav-link" href="projects.html" aria-label="View price">ЦІНИ</a></li>
+                        <li><a class="nav-link" href="projects.html" aria-label="View projects">ПРОЄКТИ</a></li>
+                        <li><a class="nav-link" href="contacts.html" aria-label="View contacts">КОНТАКТИ</a></li>
                     </ul>
                 </nav>
             </div>
@@ -65,265 +66,271 @@
     </header>
     <main>
         <section class="hero">
-    <div class="first-top-container">
-        <div class="top-container">
-            <div class="top-left">
-                <h1 class="top-container-h1">Розробка вебсайтів <br></h1>
-                <div class="top-text-items">
-                    <div>
-                        <div class="top-block-items">
-                            <div class="line"></div>
-                            <div class="items-text">
-                                Привіт!<br>
-                                Я веброзробниця, Марина Землянська.<br>
-                                Я втілю вашу бізнес-ідею в життя.
+            <div class="first-top-container">
+                <div class="top-container">
+                    <div class="top-left">
+                        <h2 class="top-container-h1">Розробка вебсайтів <br></h1>
+                        <div class="top-text-items">
+                            <div>
+                                <div class="top-block-items">
+                                    <div class="line"></div>
+                                    <div class="items-text">
+                                        Привіт!<br>
+                                        Я веброзробниця, Марина Землянська.<br>
+                                        Я реалізую вашу бізнес-ідею в життя.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="top-center">
+                        <img src="src/images/top-image.svg" fetchpriority="high" loading="eager" width="..."
+                            height="..." alt="Ілюстрація" class="top-image">
+                    </div>
+
+                    <div class="top-actions">
+                        <button class="button-contact button-mobile2" id="openModalMobile">
+                            Безкоштовна консультація
+                        </button>
+                        <div class="top-right icons-container">
+                            <a href="https://www.instagram.com/zemlianska_maryna/" target="_blank">
+                                <svg class="icon">
+                                    <use href="/src/images/sprite.svg#icon-instagram"></use>
+                                </svg>
+                            </a>
+                            <a href="https://t.me/zemlianska_dev" target="_blank">
+                                <svg class="icon" width="45px" height="65px">
+                                    <use href="/src/images/sprite.svg#icon-telegram"></use>
+                                </svg>
+                            </a>
+                            <a href="viber://chat?number=%2B380637657506" target="_blank">
+                                <svg class="icon" width="50" height="65">
+                                    <use href="/src/images/sprite.svg#icon-viber"></use>
+                                </svg>
+                            </a>
+                            <a href="mailto:mv.zemlianska@gmail.com" target="_blank">
+                                <svg class="icon" width="50px" height="65px">
+                                    <use href="/src/images/sprite.svg#icon-mail"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="top-right-gradient"></div>
                 </div>
             </div>
+        </section>
 
-            <div class="top-center">
-                <img src="src/images/top-image.svg" alt="Ілюстрація" class="top-image">
-            </div>
+        <section class="section-stats">
 
-            <div class="top-actions">
-                <button class="button-contact button-mobile2" id="openModalMobile">
-                    Безкоштовна консультація
-                </button>
-                <div class="top-right icons-container">
-                    <a href="https://www.instagram.com/zemlianska_maryna/" target="_blank">
-                        <svg class="icon">
-                            <use href="/src/images/sprite.svg#icon-instagram"></use>
-                        </svg>
-                    </a>
-                    <a href="https://t.me/zemlianska_dev" target="_blank">
-                        <svg class="icon" width="45px" height="65px">
-                            <use href="/src/images/sprite.svg#icon-telegram"></use>
-                        </svg>
-                    </a>
-                    <a href="viber://chat?number=%2B380637657506" target="_blank">
-                        <svg class="icon" width="50" height="65">
-                            <use href="/src/images/sprite.svg#icon-viber"></use>
-                        </svg>
-                    </a>
-                    <a href="mailto:mv.zemlianska@gmail.com" target="_blank">
-                        <svg class="icon" width="50px" height="65px">
-                            <use href="/src/images/sprite.svg#icon-mail"></use>
-                        </svg>
-                    </a>
-                </div>
-            </div>
+            <div class="stats-cards">
 
-            <div class="top-right-gradient"></div>
-        </div>
-    </div>
-</section>
-
-<section class="section-stats">
-
-    <div class="stats-cards">
-
-        <div class="stat-card">
-            <h2 class="stat-number" data-target="30">0</h2>
-            <p class="stat-text">Завершених сайтів</p>
-        </div>
-
-        <div class="stat-card">
-            <h2 class="stat-number" data-target="5">0</h2>
-            <p class="stat-text">Років в IT</p>
-        </div>
-
-        <div class="stat-card">
-            <h2 class="stat-number" data-target="50">0</h2>
-            <p class="stat-text">Клієнтів</p>
-        </div>
-
-    </div>
-<section class="section-projects">
-    <div class="section-projects-gradient"></div>
-
-    <div class="container-projects">
-
-        <div class="container-projects-title">
-            <h1 class="title-projects">
-                Проєкти
-                <span class="title-arrow"></span>
-            </h1>
-            <span class="projects-subtitle">Натисніть, щоб переглянути проєкт</span>
-        </div>
-
-        <div class="container-cards">
-
-            <!-- COLUMN 1-->
-            <div class="cards-column1">
-
-                <div class="card">
-                    <a href="https://best-shopsuit.netlify.app/" target="_blank">
-
-                        <div class="card-mobile-title">
-                            <span class="card-hover-title-bottom">Best Shop</span>
-                        </div>
-
-                        <div class="card-image">
-                            <img src="src/images/project-2.jpg" alt="Best Shop">
-                        </div>
-
-                        <div class="card-hover-content">
-                            <p class="card-hover-text_name">
-                                Вебсайт для Best Shop
-                            </p>
-                            <p class="card-hover-text">
-                                Концепт e-commerce з акцентом на картки товарів.
-                            </p>
-
-                            <span class="card-hover-arrow"></span>
-                        </div>
-
-                    </a>
+                <div class="stat-card">
+                    <h2 class="stat-number" data-target="30">0</h2>
+                    <p class="stat-text">Завершених сайтів</p>
                 </div>
 
-                <div class="card">
-                    <a href="https://seafoodone.netlify.app/" target="_blank">
+                <div class="stat-card">
+                    <h2 class="stat-number" data-target="5">0</h2>
+                    <p class="stat-text">Років в IT</p>
+                </div>
 
-                        <div class="card-mobile-title">
-                            <span class="card-hover-title-bottom">Sea Food Norway</span>
-                        </div>
-
-                        <div class="card-image">
-                            <img src="src/images/project-5.PNG" alt="Sea Food Norway">
-                        </div>
-
-                        <div class="card-hover-content">
-                            <p class="card-hover-text_name">
-                                Вебсайт для Sea Food Norway
-                            </p>
-                            <p class="card-hover-text">
-                                Корпоративний сайт бренду морепродуктів з елегантним дизайном.
-                            </p>
-
-                            <span class="card-hover-arrow"></span>
-                        </div>
-
-                    </a>
+                <div class="stat-card">
+                    <h2 class="stat-number" data-target="50">0</h2>
+                    <p class="stat-text">Клієнтів</p>
                 </div>
 
             </div>
+            <section class="section-projects">
+                <div class="section-projects-gradient"></div>
 
-            <!-- COLUMN 2 -->
-            <div class="cards-column1">
+                <div class="container-projects">
 
-                <div class="card">
-                    <a href="https://iphones14pro.netlify.app/" target="_blank">
+                    <div class="container-projects-title">
+                        <h2 class="title-projects">
+                            Проєкти
+                            <span class="title-arrow"></span>
+                        </h2>
+                        <span class="projects-subtitle">Натисніть, щоб переглянути проєкт</span>
+                    </div>
 
-                        <div class="card-mobile-title">
-                            <span class="card-hover-title-bottom">Iphone 14 Pro</span>
-                        </div>
+                    <div class="container-cards">
 
-                        <div class="card-image">
-                            <img src="src/images/project-1.PNG" alt="Iphone 14 Pro">
-                        </div>
+                        <!-- COLUMN 1-->
+                        <div class="cards-column1">
 
-                        <div class="card-hover-content">
-                            <p class="card-hover-text_name">
-                                Вебсайт Iphone 14 Pro
-                            </p>
-                            <p class="card-hover-text">
-                                Сучасний лендінг з презентацією продукту та плавними анімаціями.
-                            </p>
+                            <div class="card">
+                                <a href="https://best-shopsuit.netlify.app/" target="_blank">
 
-                            <span class="card-hover-arrow"></span>
-                        </div>
+                                    <div class="card-mobile-title">
+                                        <span class="card-hover-title-bottom">Best Shop</span>
+                                    </div>
 
-                    </a>
-                </div>
+                                    <div class="card-image">
+                                        <img src="src/images/project-2.jpg" loading="lazy" decoding="async"
+                                            alt="Best Shop">
+                                    </div>
 
-                <div class="card">
-                    <a href="https://lease-carss.netlify.app/" target="_blank">
+                                    <div class="card-hover-content">
+                                        <p class="card-hover-text_name">
+                                            Вебсайт для Best Shop
+                                        </p>
+                                        <p class="card-hover-text">
+                                            Концепт e-commerce з акцентом на картки товарів.
+                                        </p>
 
-                        <div class="card-mobile-title">
-                            <span class="card-hover-title-bottom">Leasing From D&M</span>
-                        </div>
+                                        <span class="card-hover-arrow"></span>
+                                    </div>
 
-                        <div class="card-image">
-                            <img src="src/images/project-4.jpg" alt="Leasing From D&M">
-                        </div>
+                                </a>
+                            </div>
 
-                        <div class="card-hover-content">
-                            <p class="card-hover-text_name">
-                                Вебсайт для Leasing From D&M
-                            </p>
-                            <p class="card-hover-text">
-                                Сайт автолізингу з чистим UI та адаптивною версткою.
-                            </p>
+                            <div class="card">
+                                <a href="https://seafoodone.netlify.app/" target="_blank">
 
-                            <span class="card-hover-arrow"></span>
-                        </div>
+                                    <div class="card-mobile-title">
+                                        <span class="card-hover-title-bottom">Sea Food Norway</span>
+                                    </div>
 
-                    </a>
-                </div>
+                                    <div class="card-image">
+                                        <img src="src/images/project-5.PNG" loading="lazy" decoding="async"
+                                            alt="Sea Food Norway">
+                                    </div>
 
-            </div>
+                                    <div class="card-hover-content">
+                                        <p class="card-hover-text_name">
+                                            Вебсайт для Sea Food Norway
+                                        </p>
+                                        <p class="card-hover-text">
+                                            Корпоративний сайт бренду морепродуктів з елегантним дизайном.
+                                        </p>
 
-            <!-- COLUMN 3 -->
-            <div class="cards-column1">
+                                        <span class="card-hover-arrow"></span>
+                                    </div>
 
-                <div class="card">
-                    <a href="https://beauty-zones.netlify.app/" target="_blank">
-
-                        <div class="card-mobile-title">
-                            <span class="card-hover-title-bottom">Beauty Zone</span>
-                        </div>
-
-                        <div class="card-image">
-                            <img src="src/images/project-3.jpg" alt="Beauty Zone">
-                        </div>
-
-                        <div class="card-hover-content">
-                            <p class="card-hover-text_name">
-                                Вебсайт для Beauty Zone
-                            </p>
-                            <p class="card-hover-text">
-                                Сайт б’юті-індустрії з м’якими візуальними рішеннями та лаконічним дизайном.
-                            </p>
-
-                            <span class="card-hover-arrow"></span>
-                        </div>
-
-                    </a>
-                </div>
-
-                <!-- CTA CARD -->
-                <div class="card card-cta">
-                    <a href="#services">
-
-                        <div class="card-mobile-title">
-                            <span class="card-hover-title-bottom">
-                                Давайте створимо ваш наступний проєкт разом.
-                            </span>
-                        </div>
-
-                        <div class="card-image card-image-cta">
-
-                            <div class="cta-glass">
-
-                                <p class="card-hover-text">
-                                    Ваш сайт
-                                </p>
-
-                                <span class="card-hover-arrow"></span>
+                                </a>
                             </div>
 
                         </div>
 
-                    </a>
+                        <!-- COLUMN 2 -->
+                        <div class="cards-column1">
+
+                            <div class="card">
+                                <a href="https://iphones14pro.netlify.app/" target="_blank">
+
+                                    <div class="card-mobile-title">
+                                        <span class="card-hover-title-bottom">Iphone 14 Pro</span>
+                                    </div>
+
+                                    <div class="card-image">
+                                        <img src="src/images/project-1.PNG" loading="lazy" decoding="async"
+                                            alt="Iphone 14 Pro">
+                                    </div>
+
+                                    <div class="card-hover-content">
+                                        <p class="card-hover-text_name">
+                                            Вебсайт Iphone 14 Pro
+                                        </p>
+                                        <p class="card-hover-text">
+                                            Сучасний лендінг з презентацією продукту та плавними анімаціями.
+                                        </p>
+
+                                        <span class="card-hover-arrow"></span>
+                                    </div>
+
+                                </a>
+                            </div>
+
+                            <div class="card">
+                                <a href="https://lease-carss.netlify.app/" target="_blank">
+
+                                    <div class="card-mobile-title">
+                                        <span class="card-hover-title-bottom">Leasing From D&M</span>
+                                    </div>
+
+                                    <div class="card-image">
+                                        <img src="src/images/project-4.jpg" loading="lazy" decoding="async"
+                                            alt="Leasing From D&M">
+                                    </div>
+
+                                    <div class="card-hover-content">
+                                        <p class="card-hover-text_name">
+                                            Вебсайт для Leasing From D&M
+                                        </p>
+                                        <p class="card-hover-text">
+                                            Сайт автолізингу з чистим UI та адаптивною версткою.
+                                        </p>
+
+                                        <span class="card-hover-arrow"></span>
+                                    </div>
+
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <!-- COLUMN 3 -->
+                        <div class="cards-column1">
+
+                            <div class="card">
+                                <a href="https://beauty-zones.netlify.app/" target="_blank">
+
+                                    <div class="card-mobile-title">
+                                        <span class="card-hover-title-bottom">Beauty Zone</span>
+                                    </div>
+
+                                    <div class="card-image">
+                                        <img src="src/images/project-3.jpg" loading="lazy" decoding="async"
+                                            alt="Beauty Zone">
+                                    </div>
+
+                                    <div class="card-hover-content">
+                                        <p class="card-hover-text_name">
+                                            Вебсайт для Beauty Zone
+                                        </p>
+                                        <p class="card-hover-text">
+                                            Сайт б’юті-індустрії з м’якими візуальними рішеннями та лаконічним дизайном.
+                                        </p>
+
+                                        <span class="card-hover-arrow"></span>
+                                    </div>
+
+                                </a>
+                            </div>
+
+                            <!-- CTA CARD -->
+                            <div class="card card-cta">
+                                <a href="#services">
+
+                                    <div class="card-mobile-title">
+                                        <span class="card-hover-title-bottom">
+                                            Давайте створимо ваш наступний проєкт разом.
+                                        </span>
+                                    </div>
+
+                                    <div class="card-image card-image-cta">
+
+                                        <div class="cta-glass">
+
+                                            <p class="card-hover-text">
+                                                Ваш сайт
+                                            </p>
+
+                                            <span class="card-hover-arrow"></span>
+                                        </div>
+
+                                    </div>
+
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
-
-            </div>
-
-        </div>
-    </div>
-<!-- DOTS -->
+                <!-- DOTS -->
                 <div class="container-dots-projects">
                     <div class="dot"></div>
                     <div class="dot"></div>
@@ -352,224 +359,224 @@
                 </div>
 
             </section>
-<section class="section-steps">
-    <div class="steps-gradient"></div>
-    <div class="container-steps">
-        <h1 class="title-steps">
-            Етапи <br>розробки
+            <section class="section-steps">
+                <div class="steps-gradient"></div>
+                <div class="container-steps">
+                    <h2 class="title-steps">
+                        Етапи <br>розробки
 
-            <span class="title-graphic"></span>
+                        <span class="title-graphic"></span>
 
-            <span class="title-dots">
-                <i></i><i></i><i></i>
-                <i></i><i></i><i></i>
-                <i></i><i></i><i></i>
-            </span>
-        </h1>
+                        <span class="title-dots">
+                            <i></i><i></i><i></i>
+                            <i></i><i></i><i></i>
+                            <i></i><i></i><i></i>
+                        </span>
+                    </h2>
 
-        <div class="list-steps">
-            <ol class="list-items">
+                    <div class="list-steps">
+                        <ol class="list-items">
 
-                <li class="step">
-                    <div class="step-circle">1</div>
-                    <div class="step-content">
-                        <h4>Заповнення брифу та оцінка вартості</h4>
-                        <p>
-                            Ви заповнюєте бриф для оцінки проєкту, після чого я надаю вартість.
-                            Узгоджена ціна залишається незмінною протягом усього процесу розробки.
-                        </p>
+                            <li class="step">
+                                <div class="step-circle">1</div>
+                                <div class="step-content">
+                                    <h3>Заповнення брифу та оцінка вартості</h3>
+                                    <p>
+                                        Ви заповнюєте бриф для оцінки проєкту, після чого я надаю вартість.
+                                        Узгоджена ціна залишається незмінною протягом усього процесу розробки.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="step">
+                                <div class="step-circle">2</div>
+                                <div class="step-content">
+                                    <h3>Розробка технічного завдання та підписання договору</h3>
+                                    <p>
+                                        Формується технічне завдання для проєкту, продумуються основні функції сайту
+                                        та етапи роботи. На цьому етапі підписується договір.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="step">
+                                <div class="step-circle">3</div>
+                                <div class="step-content">
+                                    <h3>Бронювання дати та терміни проєкту</h3>
+                                    <p>
+                                        Ми визначаємо дату старту та термін виконання проєкту.
+                                        Для бронювання дати необхідна передоплата 20% від загальної вартості.
+                                        Решта суми сплачується після завершення роботи.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="step">
+                                <div class="step-circle">4</div>
+                                <div class="step-content">
+                                    <h4>Дизайн</h4>
+                                    <p>
+                                        Створюється макет і дизайн сайту відповідно до вимог.
+                                        На цьому етапі плануються функції та унікальні особливості майбутнього сайту.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="step">
+                                <div class="step-circle">5</div>
+                                <div class="step-content">
+                                    <h3>Розробка сайту</h4>
+                                    <p>
+                                        Спочатку створюється десктопна версія сайту, налаштовується функціонал і
+                                        вносяться правки. Потім сайт адаптується під мобільні пристрої.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="step">
+                                <div class="step-circle">6</div>
+                                <div class="step-content">
+                                    <h3>Технічне налаштування</h3>
+                                    <p>
+                                        Виконується технічне налаштування, підключення до пошукових систем
+                                        та інші необхідні технічні процедури.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="step">
+                                <div class="step-circle">7</div>
+                                <div class="step-content">
+                                    <h3>Завершення</h3>
+                                    <p>
+                                        Сайт проходить фінальну перевірку, здійснюється оплата,
+                                        і я передаю готовий проєкт з усіма доступами та інструкціями.
+                                    </p>
+                                </div>
+                            </li>
+
+                        </ol>
                     </div>
-                </li>
+                </div>
+            </section>
+            <section class="section-services" id="services">
 
-                <li class="step">
-                    <div class="step-circle">2</div>
-                    <div class="step-content">
-                        <h4>Розробка технічного завдання та підписання договору</h4>
-                        <p>
-                            Формується технічне завдання для проєкту, продумуються основні функції сайту
-                            та етапи роботи. На цьому етапі підписується договір.
-                        </p>
+                <div class="container">
+
+                    <div class="container-services-title">
+                        <h2 class="title-services">
+                            Послуги
+                            <span class="services-subtitle">Оберіть тип сайту</span>
+                        </h2>
                     </div>
-                </li>
 
-                <li class="step">
-                    <div class="step-circle">3</div>
-                    <div class="step-content">
-                        <h4>Бронювання дати та терміни проєкту</h4>
-                        <p>
-                            Ми визначаємо дату старту та термін виконання проєкту.
-                            Для бронювання дати необхідна передоплата 20% від загальної вартості.
-                            Решта суми сплачується після завершення роботи.
-                        </p>
+                </div>
+
+                <div class="container-services-cards">
+
+                    <div class="service-card">
+                        <div class="service-card-inner">
+                            <div class="services-photo">
+                                <img src="src/images/service-photo.jpg" loading="lazy" decoding="async" alt="">
+                            </div>
+                            <div class="services-card-items">
+                                <h3>Лендінг-сторінка</h3>
+                                <p class="services-card-text">
+                                    Односторінковий сайт для просування послуги або окремого продукту.
+                                </p>
+                                <a href="/src/html/landing-site.html" class="services-card-button">
+                                    Дізнатися більше
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </li>
 
-                <li class="step">
-                    <div class="step-circle">4</div>
-                    <div class="step-content">
-                        <h4>Дизайн</h4>
-                        <p>
-                            Створюється макет і дизайн сайту відповідно до вимог.
-                            На цьому етапі плануються функції та унікальні особливості майбутнього сайту.
-                        </p>
+                    <div class="service-card">
+                        <div class="service-card-inner">
+                            <div class="services-photo">
+                                <img src="src/images/services-photo2.png" loading="lazy" decoding="async" alt="">
+                            </div>
+                            <div class="services-card-items">
+                                <h3>Сайт-візитка</h3>
+                                <p class="services-card-text">
+                                    Цифрова візитка з короткою інформацією про ваші послуги.
+                                </p>
+                                <a href="/src/html/business-site.html" class="services-card-button">
+                                    Дізнатися більше
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </li>
 
-                <li class="step">
-                    <div class="step-circle">5</div>
-                    <div class="step-content">
-                        <h4>Розробка сайту</h4>
-                        <p>
-                            Спочатку створюється десктопна версія сайту, налаштовується функціонал і
-                            вносяться правки. Потім сайт адаптується під мобільні пристрої.
-                        </p>
+                    <div class="service-card">
+                        <div class="service-card-inner">
+                            <div class="services-photo">
+                                <img src="src/images/services-photo1.jpg" loading="lazy" decoding="async" alt="">
+                            </div>
+                            <div class="services-card-items">
+                                <h3>Корпоративний сайт</h3>
+                                <p class="services-card-text">
+                                    Сайт з інформацією про компанію, фірму або агентство.
+                                </p>
+                                <a href="/src/html/corporate-site.html" class="services-card-button">
+                                    Дізнатися більше
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </li>
 
-                <li class="step">
-                    <div class="step-circle">6</div>
-                    <div class="step-content">
-                        <h4>Технічне налаштування</h4>
-                        <p>
-                            Виконується технічне налаштування, підключення до пошукових систем
-                            та інші необхідні технічні процедури.
-                        </p>
+                    <div class="service-card">
+                        <div class="service-card-inner">
+                            <div class="services-photo">
+                                <img src="src/images/services-photo7.png" loading="lazy" decoding="async" alt="">
+                            </div>
+                            <div class="services-card-items">
+                                <h3>Інтернет-магазин</h3>
+                                <p class="services-card-text">
+                                    Платформи для продажу товарів і послуг з онлайн-оплатою.
+                                </p>
+                                <a href="/src/html/e-commerce-site.html" class="services-card-button">
+                                    Дізнатися більше
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </li>
 
-                <li class="step">
-                    <div class="step-circle">7</div>
-                    <div class="step-content">
-                        <h4>Завершення</h4>
-                        <p>
-                            Сайт проходить фінальну перевірку, здійснюється оплата,
-                            і я передаю готовий проєкт з усіма доступами та інструкціями.
-                        </p>
+                    <div class="service-card">
+                        <div class="service-card-inner">
+                            <div class="services-photo">
+                                <img src="src/images/services-photo6.jpg" loading="lazy" decoding="async" alt="">
+                            </div>
+                            <div class="services-card-items">
+                                <h3>Персональний сайт</h3>
+                                <p class="services-card-text">
+                                    Для вашого портфоліо або особистої сторінки.
+                                </p>
+                                <a href="/src/html/personal-site.html" class="services-card-button">
+                                    Дізнатися більше
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </li>
 
-            </ol>
-        </div>
-    </div>
-</section>
-<section class="section-services" id="services">
+                    <div class="service-card">
+                        <div class="service-card-inner">
+                            <div class="services-photo">
+                                <img src="src/images/services-photo4.jpg" loading="lazy" decoding="async" alt="">
+                            </div>
+                            <div class="services-card-items">
+                                <h3>Інші послуги</h3>
+                                <p class="services-card-text">
+                                    Індивідуальні веб-рішення під ваші потреби.
+                                </p>
+                                <a href="/src/html/other-services.html" class="services-card-button">
+                                    Дізнатися більше
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-    <div class="container">
-
-        <div class="container-services-title">
-            <h1 class="title-services">
-                Послуги
-                <span class="services-subtitle">Оберіть тип сайту</span>
-            </h1>
-        </div>
-
-    </div>
-
-    <div class="container-services-cards">
-
-        <div class="service-card">
-            <div class="service-card-inner">
-                <div class="services-photo">
-                    <img src="src/images/service-photo.jpg" alt="">
                 </div>
-                <div class="services-card-items">
-                    <h3>Лендінг-сторінка</h3>
-                    <p class="services-card-text">
-                        Односторінковий сайт для просування послуги або окремого продукту.
-                    </p>
-                    <a href="/src/html/landing-site.html" class="services-card-button">
-                        Дізнатися більше
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="service-card">
-            <div class="service-card-inner">
-                <div class="services-photo">
-                    <img src="src/images/services-photo2.png" alt="">
-                </div>
-                <div class="services-card-items">
-                    <h3>Сайт-візитка</h3>
-                    <p class="services-card-text">
-                        Цифрова візитка з короткою інформацією про ваші послуги.
-                    </p>
-                    <a href="/src/html/business-site.html" class="services-card-button">
-                        Дізнатися більше
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="service-card">
-            <div class="service-card-inner">
-                <div class="services-photo">
-                    <img src="src/images/services-photo1.jpg" alt="">
-                </div>
-                <div class="services-card-items">
-                    <h3>Корпоративний сайт</h3>
-                    <p class="services-card-text">
-                        Сайт з інформацією про компанію, фірму або агентство.
-                    </p>
-                    <a href="/src/html/corporate-site.html" class="services-card-button">
-                        Дізнатися більше
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="service-card">
-            <div class="service-card-inner">
-                <div class="services-photo">
-                    <img src="src/images/services-photo7.png" alt="">
-                </div>
-                <div class="services-card-items">
-                    <h3>Інтернет-магазин</h3>
-                    <p class="services-card-text">
-                        Платформи для продажу товарів і послуг з онлайн-оплатою.
-                    </p>
-                    <a href="/src/html/e-commerce-site.html" class="services-card-button">
-                        Дізнатися більше
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="service-card">
-            <div class="service-card-inner">
-                <div class="services-photo">
-                    <img src="src/images/services-photo6.jpg" alt="">
-                </div>
-                <div class="services-card-items">
-                    <h3>Персональний сайт</h3>
-                    <p class="services-card-text">
-                        Для вашого портфоліо або особистої сторінки.
-                    </p>
-                    <a href="/src/html/personal-site.html" class="services-card-button">
-                        Дізнатися більше
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="service-card">
-            <div class="service-card-inner">
-                <div class="services-photo">
-                    <img src="src/images/services-photo4.jpg" alt="">
-                </div>
-                <div class="services-card-items">
-                    <h3>Інші послуги</h3>
-                    <p class="services-card-text">
-                        Індивідуальні веб-рішення під ваші потреби.
-                    </p>
-                    <a href="/src/html/other-services.html" class="services-card-button">
-                        Дізнатися більше
-                    </a>
-                </div>
-            </div>
-        </div>
-
-    </div>
 
 
                 <!-- DOTS -->
@@ -602,93 +609,96 @@
             </section>
             <section class="quote-section">
 
-    <div class="quote-container">
+                <div class="quote-container">
 
-        <h2 class="quote-title">
-            Запит на оцінку вартості сайту
-        </h2>
+                    <h2 class="quote-title">
+                        Запит на оцінку вартості сайту
+                    </h2>
 
-        <p class="quote-text">
-            Плануєте створити сайт? Я розробляю сучасні, швидкі та ефективні сайти,
-            адаптовані під ваші бізнес-цілі та стиль бренду.
-        </p>
+                    <p class="quote-text">
+                        Плануєте створити сайт? Я розробляю сучасні, швидкі та ефективні сайти,
+                        адаптовані під ваші бізнес-цілі та стиль бренду.
+                    </p>
 
-        <div class="quote-info">
-            <p>✔ Оцінка проєкту</p>
-            <p>✔ Чіткий план розробки</p>
-            <p>✔ Прозора вартість і терміни</p>
-        </div>
+                    <div class="quote-info">
+                        <p>✔ Оцінка проєкту</p>
+                        <p>✔ Чіткий план розробки</p>
+                        <p>✔ Прозора вартість і терміни</p>
+                    </div>
 
-        <button class="quote-btn" id="openQuoteModal">
-            Отримати безкоштовну оцінку
-        </button>
+                    <button class="quote-btn" id="openQuoteModal">
+                        Отримати безкоштовну оцінку
+                    </button>
 
-        <div class="quote-socials">
+                    <div class="quote-socials">
 
-            <a href="https://www.instagram.com/zemlianska_maryna/" target="_blank"
-                class="social instagram">Instagram</a>
-            <a href="https://www.facebook.com/share/1CuLmCxB2N/?mibextid=wwXIfr" target="_blank"
-                class="social facebook">Facebook</a>
-            <a href="mailto:mv.zemlianska@gmail.com" class="social email">Email</a>
-            <a href="tel:+380637657506" class="social phone">Телефон</a>
-            <a href="https://t.me/zemlianska_dev" target="_blank" class="social telegram">Telegram</a>
-            <a href="viber://chat?number=%2B380637657506" target="_blank" class="social viber">Viber</a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="section-about">
-    <div class="container-about">
-
-        <div class="about-photo-container">
-            <img class="ellipse-photo" src="./src/images/5348355399293276416.jpg" alt="Фото в еліпсі">
-        </div>
-
-        <div class="about-title-wrap">
-
-            <h1 class="about-title">
-                Про<br>розробницю
-            </h1>
-
-            <div class="about-title-arrow"></div>
-
-            <div class="about-content">
-
-                <div class="about-text">
-
-                    <div class="text-items">
-
-                        <p>
-                            Привіт! Мене звати <span class="accent-name">Марина Землянська</span>, і я з радістю
-                            створю для вас сайт для вашого бізнесу.
-                        </p>
-
-                        <p>
-                            <span class="accent-title">Що я можу вам запропонувати?</span>
-                            Мої послуги включають створення <span class="accent">сучасних та функціональних сайтів</span>,
-                            які доступні за прийнятною ціною.
-                        </p>
-
-                        <p>
-                            Замовивши <span class="accent">сайт</span> у мене, ви отримаєте повністю готовий
-                            ресурс, який сприятиме зростанню вашого <span class="accent">капіталу</span>
-                            та розширенню вашої <span class="accent">клієнтської бази.</span>
-                        </p>
+                        <a href="https://www.instagram.com/zemlianska_maryna/" target="_blank"
+                            class="social instagram" aria-label="Instagram profile">Instagram</a>
+                        <a href="https://www.facebook.com/share/1CuLmCxB2N/?mibextid=wwXIfr" target="_blank"
+                            class="social facebook" aria-label="Facebook profile">Facebook</a>
+                        <a href="mailto:mv.zemlianska@gmail.com" class="social email" aria-label="Send email">Email</a>
+                        <a href="tel:+380637657506" class="social phone" aria-label="Phone">Телефон</a>
+                        <a href="https://t.me/zemlianska_dev" target="_blank" class="social telegram" aria-label="Telegram contact">Telegram</a>
+                        <a href="viber://chat?number=%2B380637657506" target="_blank" class="social viber" aria-label="Viber chat">Viber</a>
 
                     </div>
 
                 </div>
 
-            </div>
+            </section>
 
-        </div>
+            <section class="section-about">
+                <div class="container-about">
 
-    </div>
-</section>
-<section class="why-section">
+                    <div class="about-photo-container">
+                        <img class="ellipse-photo" src="./src/images/5348355399293276416.jpg" oading="lazy"
+                            decoding="async" alt="Фото в еліпсі">
+                    </div>
+
+                    <div class="about-title-wrap">
+
+                        <h2 class="about-title">
+                            Про<br>розробницю
+                        </h2>
+
+                        <div class="about-title-arrow"></div>
+
+                        <div class="about-content">
+
+                            <div class="about-text">
+
+                                <div class="text-items">
+
+                                    <p>
+                                        Привіт! Мене звати <span class="accent-name">Марина Землянська</span>, і я з
+                                        радістю
+                                        створю для вас сайт для вашого бізнесу.
+                                    </p>
+
+                                    <p>
+                                        <span class="accent-title">Що я можу вам запропонувати?</span>
+                                        Мої послуги включають створення <span class="accent">сучасних та функціональних
+                                            сайтів</span>,
+                                        які доступні за прийнятною ціною.
+                                    </p>
+
+                                    <p>
+                                        Замовивши <span class="accent">сайт</span> у мене, ви отримаєте повністю готовий
+                                        ресурс, який сприятиме зростанню вашого <span class="accent">капіталу</span>
+                                        та розширенню вашої <span class="accent">клієнтської бази.</span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+            <section class="why-section">
 
                 <div class="why-gradient"></div>
 
@@ -740,7 +750,8 @@
                             </h3>
 
                             <p>
-                                Професійні та сучасні сайти можуть бути доступними. Прозоре ціноутворення без завищених вартостей або прихованих платежів.
+                                Професійні та сучасні сайти можуть бути доступними. Прозоре ціноутворення без завищених
+                                вартостей або прихованих платежів.
                             </p>
 
                         </article>
@@ -760,7 +771,8 @@
                             </h3>
 
                             <p>
-                                Я поясню, як усе працює, надам безкоштовні відеоінструкції та підкажу, що робити після запуску сайту.
+                                Я поясню, як усе працює, надам безкоштовні відеоінструкції та підкажу, що робити після
+                                запуску сайту.
                             </p>
 
                         </article>
@@ -770,11 +782,11 @@
                 </div>
 
             </section>
-<section class="section-faq">
-                <h1 class="faq-title">
+            <section class="section-faq">
+                <h2 class="faq-title">
                     Питання та відповіді
                     <span class="faq-subtitle">Найчастіші запитання</span>
-                </h1>
+                </h2>
 
                 <div class="faq-list">
                     <div class="faq-item">
@@ -797,7 +809,8 @@
                             Потрібна лише передоплата 20% до початку роботи.
                             Це гарантує бронювання вашого часу та старт розробки.
 
-                            Далі сайт розробляється. Після завершення ви оплачуєте решту вартості, і я надаю всі доступи та детальні відеоінструкції.
+                            Далі сайт розробляється. Після завершення ви оплачуєте решту вартості, і я надаю всі доступи
+                            та детальні відеоінструкції.
                         </div>
                     </div>
 
@@ -807,7 +820,8 @@
                             <span class="faq-arrow"></span>
                         </button>
                         <div class="faq-answer">
-                            Після завершення розробки сайту ви оплачуєте решту вартості, а я надаю всі доступи до сайту та детальні інструкції.
+                            Після завершення розробки сайту ви оплачуєте решту вартості, а я надаю всі доступи до сайту
+                            та детальні інструкції.
                         </div>
                     </div>
 
@@ -829,7 +843,8 @@
                         </button>
                         <div class="faq-answer">
                             <p><strong>1. Оцінка вартості та передоплата (20%)</strong><br>
-                                Ми обговорюємо вимоги та розраховуємо фінальну вартість проєкту. Для старту потрібна передоплата 20%.</p>
+                                Ми обговорюємо вимоги та розраховуємо фінальну вартість проєкту. Для старту потрібна
+                                передоплата 20%.</p>
 
                             <p><strong>2. Заповнення та підписання документів</strong><br>
                                 Заповнюється бриф, технічне завдання та договір.</p>
@@ -860,7 +875,7 @@
                     <div class="arc-container"><span class="arc arc-bottom"></span></div>
                 </div>
                 <div class="container-top-contacts">
-                    <h1 class="contacts-title">Зв’яжіться зі мною</h1>
+                    <h2 class="contacts-title">Зв’яжіться зі мною</h1>
                 </div>
 
                 <form class="form" autocomplete="off">
@@ -873,8 +888,8 @@
 
                         <label class="form-label" for="user-email">Email :</label>
                         <input class="input2" type="email" id="user-email" name="user-email"
-                            placeholder="Введіть ваш email..."
-                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required />
+                            placeholder="Введіть ваш email..." pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                            required />
 
                         <label class="form-label" for="user-message">Повідомлення...</label>
                         <textarea class="input3" id="user-message" name="user-message"
@@ -884,7 +899,8 @@
                     <button type="submit" class="form-button">Отримати безкоштовну консультацію</button>
                     <p class="info-form">
                         Натискаючи кнопку, <br>
-                        <a href="./src/html/politics-of-confident.html" target="">я погоджуюсь із політикою конфіденційності.</a>
+                        <a href="./src/html/politics-of-confident.html" target="">я погоджуюсь із політикою
+                            конфіденційності.</a>
                     </p>
                 </form>
                 <div class="container-dots">
@@ -914,7 +930,7 @@
                     <div class="dot"></div>
                 </div>
             </section>
-            
+
     </main>
     <footer class="footer">
         <div class="footer-container">
@@ -941,7 +957,7 @@
             <div class="footer-contacts">
                 <ul class="contacts-ul">
                     <li>
-                        <a href="mailto:mv.zemlianska@gmail.com" target="_blank" class="icon-footer-link">
+                        <a href="mailto:mv.zemlianska@gmail.com" target="_blank" class="icon-footer-link" aria-label="Send email">
                             <svg class="icon-footer" viewBox="0 0 24 24">
                                 <use href="/src/images/sprite.svg#icon-mail"></use>
                             </svg>
@@ -949,7 +965,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://t.me/zemlianska_dev" target="_blank" class="icon-footer-link">
+                        <a href="https://t.me/zemlianska_dev" target="_blank" class="icon-footer-link" aria-label="Telegram contact">
                             <svg class="icon-footer" viewBox="0 0 24 24">
                                 <use href="/src/images/sprite.svg#icon-telegram"></use>
                             </svg>
@@ -957,7 +973,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="viber://chat?number=%2B380637657506" target="_blank" class="icon-footer-link">
+                        <a href="viber://chat?number=%2B380637657506" target="_blank" class="icon-footer-link" aria-label="Viber chat">
                             <svg class="icon-footer" viewBox="0 0 24 24">
                                 <use href="/src/images/sprite.svg#icon-viber"></use>
                             </svg>
@@ -965,7 +981,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="icon-footer-link">
+                        <a class="icon-footer-link" aria-label="Schedule">
                             <svg class="icon-footer" viewBox="0 0 24 24">
                                 <use href="/src/images/sprite.svg#icon-clock"></use>
                             </svg>
@@ -976,7 +992,8 @@
             </div>
 
             <div class="footer-info">
-                <a class="info-item" href="./src/html/politics-of-confident.html" target="">Політика конфіденційності</a>
+                <a class="info-item" href="./src/html/politics-of-confident.html" target="">Політика
+                    конфіденційності</a>
                 <a href="https://www.figma.com/community/file/1335196687351078757/my-personal-portfolio"
                     target="_blank">
                     <p class="info-design">Дизайн: Rohan Patil</p>
@@ -984,8 +1001,8 @@
                 <p class="info-safety">© 2026 Maryna Zemlianska. Усі права захищені.</p>
             </div>
         </div>
-</footer>
-<ul class="floating-boxes">
+    </footer>
+    <ul class="floating-boxes">
         <li></li>
         <li></li>
         <li></li>
@@ -998,51 +1015,51 @@
         <li></li>
     </ul>
     <!-- Modal -->
-<div class="modal is-hidden" id="consultationModal">
-    <div class="modal-content">
-        <span class="modal-close" id="modalClose">&times;</span>
-        <h2>Безкоштовна консультація</h2>
-        <p>Заповніть форму нижче, і ми зв’яжемося з вами найближчим часом.</p>
+    <div class="modal is-hidden" id="consultationModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h2>Безкоштовна консультація</h2>
+            <p>Заповніть форму нижче, і ми зв’яжемося з вами найближчим часом.</p>
 
-        <form id="consultationForm">
-            <input type="text" id="name" name="name" placeholder="Ім’я" required>
-            <input type="email" id="email" name="email" placeholder="Email" required>
-            <textarea id="message" name="message" placeholder="Повідомлення" rows="4" required></textarea>
-            <button type="submit">Надіслати</button>
-        </form>
+            <form id="consultationForm">
+                <input type="text" id="name" name="name" placeholder="Ім’я" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <textarea id="message" name="message" placeholder="Повідомлення" rows="4" required></textarea>
+                <button type="submit">Надіслати</button>
+            </form>
 
-        <div id="successMessage" class="success-message">Ваше повідомлення успішно надіслано!</div>
+            <div id="successMessage" class="success-message">Ваше повідомлення успішно надіслано!</div>
 
-    </div>
-</div>
-
-<!-- MOBILE MODAL -->
-<div class="modal is-hidden" id="mobileConsultationModal">
-
-    <div class="modal-content">
-        <span class="modal-close" id="mobileModalClose">&times;</span>
-
-        <h2>Безкоштовна консультація</h2>
-        <p>Заповніть форму нижче, і ми зв’яжемося з вами найближчим часом.</p>
-
-        <form id="mobileConsultationForm">
-            <input type="text" name="name" placeholder="Ім’я" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <textarea name="message" placeholder="Повідомлення" rows="4" required></textarea>
-            <button type="submit">Надіслати</button>
-        </form>
-
-        <div class="success-message" id="mobileSuccessMessage">
-            Ваше повідомлення успішно надіслано!
         </div>
-        <div class="error-message" id="errorMessage">
-            Сталася помилка. Спробуйте ще раз.
-        </div>
-
     </div>
 
-</div>
-     <button class="to-top-btn" id="toTopBtn">
+    <!-- MOBILE MODAL -->
+    <div class="modal is-hidden" id="mobileConsultationModal">
+
+        <div class="modal-content">
+            <span class="modal-close" id="mobileModalClose">&times;</span>
+
+            <h2>Безкоштовна консультація</h2>
+            <p>Заповніть форму нижче, і ми зв’яжемося з вами найближчим часом.</p>
+
+            <form id="mobileConsultationForm">
+                <input type="text" name="name" placeholder="Ім’я" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Повідомлення" rows="4" required></textarea>
+                <button type="submit">Надіслати</button>
+            </form>
+
+            <div class="success-message" id="mobileSuccessMessage">
+                Ваше повідомлення успішно надіслано!
+            </div>
+            <div class="error-message" id="errorMessage">
+                Сталася помилка. Спробуйте ще раз.
+            </div>
+
+        </div>
+
+    </div>
+    <button class="to-top-btn" id="toTopBtn" aria-label="Повернутися вгору">
         <svg viewBox="0 0 24 24" fill="none">
             <path d="M12 19V5" />
             <path d="M5 12L12 5L19 12" />

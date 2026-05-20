@@ -1924,7 +1924,11 @@ ul.floating-boxes li:nth-child(10) {
         border-radius: 50%;
     }
 }
-
+@media (max-width: 768px) {
+    ul.floating-boxes {
+        display: none;
+    }
+}
 
 .quote-section {
     padding: 120px 20px;

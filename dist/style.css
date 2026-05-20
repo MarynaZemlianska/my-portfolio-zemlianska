@@ -19,34 +19,35 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("../fonts/Inter/static/Inter_18pt-Regular.ttf") format("truetype");
+  src: url("../fonts/Inter_18pt-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Inter";
-  src: url("../fonts/Inter/static/Inter_18pt-Regular.ttf") format("truetype");
+  src: url("../fonts/Inter_24pt-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("../fonts/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
+  src: url("../fonts/Montserrat-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("../fonts/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
+  src: url("../fonts/Montserrat-ExtraBold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 body {
   background-color: var(--color-brand);
+  font-display: swap;
 }
 
 h1, h2, h3,
@@ -2555,6 +2556,11 @@ ul.floating-boxes li:nth-child(10) {
     transform: translateY(-110rem) rotate(1080deg);
     opacity: 1;
     border-radius: 50%;
+  }
+}
+@media (max-width: 768px) {
+  ul.floating-boxes {
+    display: none;
   }
 }
 .quote-section {
