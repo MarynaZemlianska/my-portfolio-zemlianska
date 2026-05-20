@@ -95,11 +95,8 @@ header.visible {
 .logo {
     display: flex;
     align-items: center;
-
     text-decoration: none;
-
-    font-family: 'Montserrat', sans-serif;
-
+    font-family: 'Inter', sans-serif;
     transition: transform 0.3s ease;
 }
 
@@ -110,7 +107,7 @@ header.visible {
 .logo-icon {
     font-size: 70px;
     line-height: 1;
-    font-weight: 700;
+    font-weight: 400;
 
     background: linear-gradient(90deg,
             #ff00cc,
@@ -145,6 +142,7 @@ header.visible {
 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-family: 'Inter', sans-serif;
 }
 
 .logo-subtitle {
@@ -158,6 +156,7 @@ header.visible {
     color: #ff00cc;
 
     white-space: nowrap;
+    font-family: 'Inter', sans-serif;
 }
 
 .logo-subtitle2 {
@@ -353,8 +352,9 @@ ul {
     color: var(--color-primary-light);
 
     font-family: 'Inter', sans-serif;
-    font-size: 23px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 0 10px 0 10px;
 
     cursor: pointer;
 

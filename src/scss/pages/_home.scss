@@ -74,15 +74,13 @@ body {
 }
 
 .top-container-h1 {
-    font-weight: bold;
+    font: 400;
     line-height: 1.2;
     word-break: normal;
     overflow-wrap: normal;
-    hyphens: auto;
-    font-size: 100px;
-    line-height: 1.1;
+    font-size: 90px;
     color: #fff;
-    /* белый заголовок */
+  
 }
 
 .h1-small {
@@ -315,7 +313,7 @@ body {
 
     .top-container-h1 {
 
-        font-size: 90px;
+        font-size: 60px;
 
     }
 
@@ -390,7 +388,7 @@ body {
 
     .top-container-h1 {
 
-        font-size: clamp(85px, 6vw, 100px);
+        font-size: clamp(60px, 6vw, 80px);
         line-height: 1.15;
     }
 
@@ -485,7 +483,8 @@ body {
 @media (max-width: 767px) {
 
     .top-container-h1 {
-        font-size: 65px;
+        font-size: 45px;
+        margin: 0 15px 0 15px;
     }
 
 
@@ -1810,6 +1809,7 @@ body {
 /* The Boxes */
 
 ul.floating-boxes {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
