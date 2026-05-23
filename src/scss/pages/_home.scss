@@ -850,7 +850,7 @@ html, body {
     transform: translateY(0);
 }
 
-/* ===== STEP CIRCLE ACTIVE HIGHLIGHT ===== */
+//* ===== STEP CIRCLE ACTIVE HIGHLIGHT ===== */
 .step-circle {
     width: 56px;
     height: 56px;
@@ -1852,17 +1852,29 @@ html, body {
 /* ================= TESTIMONIAL CARD ================= */
 
 .testimonial-card {
+    position: relative;
+
     flex: 0 0 230px;
     height: 440px;
     padding: 18px;
+
     border-radius: 50px;
+
     background: rgba(165, 164, 164, 0.3);
     border: 8px solid #1f1f1f;
+
     overflow: hidden;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+
+    isolation: isolate;
+
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
+.testimonial-card::before,
+.testimonial-card::after {
+    border-radius: inherit;
+}
 /* CAMERA / DYNAMIC ISLAND */
 
 .section-testimonials {
