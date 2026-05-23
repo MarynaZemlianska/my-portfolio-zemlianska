@@ -27,6 +27,10 @@
                     </span>
                 </a>
                 <nav class="nav nav hidden">
+                    <div class="mobile-lang-switch">
+                        <button class="lang-btn" data-lang-btn="en">EN</button>
+                        <button class="lang-btn active" data-lang-btn="ua">UA</button>
+                    </div>
                     <ul>
                         <li><a class="nav-link" href="index.html" aria-label="View home-page">ГОЛОВНА</a></li>
                         <li class="nav-item" aria-label="View services">
@@ -53,16 +57,18 @@
                     </ul>
                 </nav>
             </div>
-            <button class="burger" id="burger" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+
             <div class="nav-item">
                 <div class="lang-switch">
                     <button class="lang-btn" data-lang-btn="en">EN</button>
                     <button class="lang-btn active" data-lang-btn="ua">UA</button>
                 </div>
+                <button class="burger" id="burger" aria-label="Menu">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <!-- DESKTOP -->
                 <button class="button-contact button-desktop" id="openModal">
                     Безкоштовна консультація
@@ -75,19 +81,24 @@
             <div class="first-top-container">
                 <div class="top-container">
                     <div class="top-left">
-                        <h2 class="top-container-h1">Розробка сайтів <br></h1>
-                            <div class="top-text-items">
-                                <div>
-                                    <div class="top-block-items">
-                                        <div class="line"></div>
-                                        <div class="items-text">
-                                            Привіт!<br>
-                                            Я веброзробниця, Марина Землянська.<br>
-                                            Я реалізую вашу бізнес-ідею в життя.
-                                        </div>
+
+                        <h1 class="top-container-h1">
+                            <p class="hero-subtitle">
+                                Cучасні вебсайти, що продають
+                            </p>Розробка сайтів
+                        </h1>
+                        <div class="top-text-items">
+                            <div>
+                                <div class="top-block-items">
+                                    <div class="line"></div>
+                                    <div class="items-text">
+                                        Привіт!<br>
+                                        Я веброзробниця, Марина Землянська.<br>
+                                        Я реалізую вашу бізнес-ідею в життя.
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     </div>
 
                     <div class="top-center">
@@ -121,10 +132,12 @@
                                 </svg>
                             </a>
                         </div>
+                        <div class="top-right-gradient"></div>
                     </div>
 
-                    <div class="top-right-gradient"></div>
+
                 </div>
+
             </div>
         </section>
 
@@ -132,23 +145,27 @@
 
             <div class="stats-cards">
 
-                <div class="stat-card">
-                    <h2 class="stat-number" data-target="30">0</h2>
-                    <p class="stat-text">Завершених сайтів</p>
-                </div>
+               <div class="stat-card">
+    <h2 class="stat-number" data-target="30" data-suffix="+">0</h2>
+    <div class="stat-bar"><span></span></div>
+    <p class="stat-text">Завершених сайтів</p>
+</div>
 
-                <div class="stat-card">
-                    <h2 class="stat-number" data-target="5">0</h2>
-                    <p class="stat-text">Років в IT</p>
-                </div>
+<div class="stat-card">
+    <h2 class="stat-number" data-target="5" data-suffix="+">0</h2>
+    <div class="stat-bar"><span></span></div>
+    <p class="stat-text">Років в IT</p>
+</div>
 
-                <div class="stat-card">
-                    <h2 class="stat-number" data-target="50">0</h2>
-                    <p class="stat-text">Клієнтів</p>
-                </div>
+<div class="stat-card">
+    <h2 class="stat-number" data-target="100" data-suffix="%">0</h2>
+    <div class="stat-bar"><span></span></div>
+    <p class="stat-text">Задоволених клієнтів</p>
+</div>
             </div>
         </section>
 
+        </div>
         <section class="section-projects">
             <div class="section-projects-gradient"></div>
 
@@ -312,7 +329,7 @@
 
                                 <div class="card-mobile-title">
                                     <span class="card-hover-title-bottom">
-                                        Давайте створимо ваш наступний проєкт разом.
+                                        Cтворимо ваш проєкт разом.
                                     </span>
                                 </div>
 
@@ -320,7 +337,7 @@
 
                                     <div class="cta-glass">
 
-                                        <p class="card-hover-text">
+                                        <p class="card-hover-text-own-site">
                                             Ваш сайт
                                         </p>
 
@@ -420,7 +437,7 @@
                         <li class="step">
                             <div class="step-circle">4</div>
                             <div class="step-content">
-                                <h4>Дизайн</h4>
+                                <h3>Дизайн</h3>
                                 <p>
                                     Створюється макет і дизайн сайту відповідно до вимог.
                                     На цьому етапі плануються функції та унікальні особливості майбутнього сайту.
@@ -666,7 +683,7 @@
                 <div class="about-title-wrap">
 
                     <h2 class="about-title">
-                        Про<br>розробницю
+                        Про<br>розробника
                     </h2>
 
                     <div class="about-title-arrow"></div>
@@ -792,7 +809,7 @@
         </section>
         <section class="section-faq">
             <h2 class="faq-title">
-                Питання та відповіді
+                FAQs
                 <span class="faq-subtitle">Найчастіші запитання</span>
             </h2>
 
@@ -887,7 +904,6 @@
             </div>
 
             <form class="form" autocomplete="off">
-                <p class="form-title">Запит безкоштовної консультації</p>
                 <div class="container-form-items">
                     <label class="form-label" for="user-name">Ім’я :</label>
                     <input class="input1" type="text" id="user-name" name="user-name" placeholder="Введіть ваше ім’я..."
@@ -935,6 +951,38 @@
                 <div class="dot"></div>
                 <div class="dot"></div>
                 <div class="dot"></div>
+            </div>
+        </section>
+        <section class="section-testimonials">
+            <h2 class="section-title">Відгуки клієнтів</h2>
+
+            <div class="testimonials-wrapper">
+                <button class="slider-btn slider-prev">&#10094;</button>
+
+                <div class="testimonials-slider">
+                    <div class="testimonial-card">
+                        <p>“Марина створила чудовий сайт для нашого бізнесу. Процес був швидким і комфортним.”</p>
+                        <span>— Оксана Харитонова</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>“Сайт перевершив наші очікування. Дуже рекомендуємо її послуги!”</p>
+                        <span>— Денис Чекмарьов</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>“Професійний підхід і відмінна комунікація. Дуже задоволені результатом.”</p>
+                        <span>— Майкл Борисенко</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>“Неймовірний досвід! Марина реалізувала саме те, що ми хотіли, і навіть більше.”</p>
+                        <span>— Софія Лемачева</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>“Креативні рішення, швидке виконання та чудова підтримка. Щиро рекомендую!”</p>
+                        <span>— Даніїл Куреленко</span>
+                    </div>
+                </div>
+
+                <button class="slider-btn slider-next">&#10095;</button>
             </div>
         </section>
 
