@@ -1178,20 +1178,28 @@ body.menu-open::before {
   }
 }
 /* ================= VIEWPORT FIX ================= */
-html,
+@supports (-webkit-touch-callout: none) {
+  .hero {
+    min-height: 100vh;
+  }
+  .top-container-h1 {
+    font-weight: 600;
+  }
+}
 body {
   height: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
+/* Safari fallback вместо overflow: clip */
 .hero,
 .first-top-container {
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 /* ================= HEADER HEIGHT ================= */
 :root {
   --header-height: 140px;
-  /* desktop */
 }
 
 @media (max-width: 991px) {
@@ -1204,6 +1212,15 @@ body {
     --header-height: 100px;
   }
 }
+/* ================= BUTTON FIX (iOS Safari) ================= */
+button,
+.button-mobile2,
+.slider-btn,
+.to-top-btn {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 .hero {
   position: relative;
   padding-top: var(--header-height);
@@ -1228,7 +1245,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
   width: 100%;
   max-width: 1150px;
   position: relative;
@@ -1236,7 +1252,7 @@ body {
 }
 
 .top-left {
-  min-width: 250px;
+  min-width: 320px;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -1251,7 +1267,6 @@ body {
 }
 
 .top-container-h1 {
-  font: 400;
   line-height: 1.2;
   word-break: normal;
   overflow-wrap: normal;
@@ -1263,18 +1278,10 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 20px;
   opacity: 0.4;
-  max-width: 500px;
-}
-
-.h1-small {
-  font-weight: bold;
-  line-height: 1.2;
+  max-width: 350px;
   word-break: normal;
   overflow-wrap: normal;
-  hyphens: auto;
-  font-size: 70px;
-  line-height: 1.1;
-  color: #fff;
+  margin-bottom: 20px;
 }
 
 .top-text-items {
@@ -1282,6 +1289,8 @@ body {
   align-items: center;
   gap: 20px;
   color: #fff;
+  word-break: normal;
+  overflow-wrap: normal;
 }
 
 .line {
@@ -1321,8 +1330,10 @@ body {
 .top-image {
   max-width: 100%;
   height: auto;
+  margin-top: 30px;
   transform: scale(1.1);
   transition: 0.3s ease;
+  -webkit-transform: scale(1.1);
 }
 
 .top-right {
@@ -1459,14 +1470,15 @@ body {
   visibility: hidden;
   transition: opacity 0.4s ease;
   position: absolute;
-  bottom: 0%;
+  bottom: 0;
   left: 50%;
   transform: translate(-50%, -20%);
   width: 180%;
   height: 150%;
-  background: radial-gradient(circle at bottom, rgba(235, 3, 255, 0.55), rgba(129, 3, 255, 0.35) 100%, rgba(3, 44, 255, 0.18) 80%, rgba(3, 44, 255, 0));
+  background: radial-gradient(circle at bottom, rgba(235, 3, 255, 0.55), rgba(129, 3, 255, 0.35), rgba(3, 44, 255, 0.18), transparent);
   pointer-events: none;
   z-index: -4;
+  -webkit-filter: blur(120px);
   filter: blur(120px);
 }
 
@@ -1477,7 +1489,7 @@ body {
     padding-right: 50px;
   }
   .top-container-h1 {
-    font-size: 60px;
+    font-size: 70px;
   }
   .h1-small {
     font-size: 60px;
@@ -1562,14 +1574,6 @@ body {
     margin-bottom: 20px;
   }
 }
-@media (max-width: 1027px) {
-  .button-mobile2 {
-    width: clamp(150px, 18vw, 200px);
-    height: clamp(44px, 5vw, 48px);
-    font-size: clamp(12px, 2vw, 14px);
-    padding: 10px;
-  }
-}
 @media (max-width: 991px) {
   .button-mobile2 {
     width: 100%;
@@ -1616,7 +1620,7 @@ body {
 }
 @media (max-width: 481px) {
   .top-container-h1 {
-    font-size: 50px;
+    font-size: 55px;
   }
   .items-text {
     font-size: 16px;
@@ -1631,13 +1635,16 @@ body {
   .button-mobile2 {
     max-width: 260px;
   }
+  .hero-subtitle {
+    font-size: 14px;
+  }
 }
 @media (max-width: 360px) {
   .nav-container {
     min-width: 0;
   }
   .top-container-h1 {
-    font-size: 50px;
+    font-size: 55px;
   }
   .h1-small {
     font-size: clamp(40px, 6vw, 30px);
@@ -2129,6 +2136,7 @@ body {
   margin-bottom: 18px;
   background: linear-gradient(90deg, #ff00cc, #3b4cff);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -2152,7 +2160,9 @@ body {
   position: relative;
   padding: 42px 34px;
   border-radius: 28px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  background: rgba(255, 255, 255, 0.04);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 0, 204, 0.22);
   backdrop-filter: blur(14px);
   overflow: hidden;
@@ -2314,7 +2324,7 @@ body {
     padding: 90px 16px;
   }
   .why-title {
-    font-style: 50px;
+    font-size: 50px;
   }
   .why-subtitle {
     font-size: 15px;
@@ -2602,9 +2612,9 @@ body {
   gap: 20px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  padding: 20px;
-  scrollbar-width: none;
+  margin-top: 30px;
 }
 
 .testimonials-slider::-webkit-scrollbar {
@@ -2613,23 +2623,25 @@ body {
 
 /* ================= TESTIMONIAL CARD ================= */
 .testimonial-card {
-  position: relative;
   flex: 0 0 230px;
   height: 440px;
-  weight: 130px;
   padding: 18px;
-  border-radius: 48px;
-  background: rgba(165, 164, 165, 0.3176470588);
+  border-radius: 50px;
+  background: rgba(165, 164, 164, 0.3);
   border: 8px solid #1f1f1f;
   overflow: hidden;
-  flex-shrink: 0;
-  scroll-snap-align: start;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 /* CAMERA / DYNAMIC ISLAND */
 .section-testimonials {
   text-align: center;
   padding-top: 30px;
+}
+
+.section-title-testi {
+  font-size: 50px;
 }
 
 .testimonial-card::before {
@@ -2641,7 +2653,7 @@ body {
   width: 120px;
   height: 32px;
   background: #000;
-  border-radius: 30px;
+  border-radius: 50px;
   z-index: 10;
 }
 
@@ -3102,14 +3114,16 @@ ul.floating-boxes li:nth-child(10) {
   justify-content: center;
   border-radius: 50%;
   background: rgba(28, 28, 30, 0.85);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   opacity: 0;
   transform: translateY(20px);
   transition: 0.3s ease;
-  pointer-events: none;
   overflow: hidden;
+  cursor: pointer;
+  z-index: 20007;
 }
 
 /* SHOW */
@@ -3450,7 +3464,7 @@ ul.floating-boxes li:nth-child(10) {
 
 .contacts-title {
   font-family: "Inter", sans-serif;
-  font-size: clamp(52px, 7vw, 96px);
+  font-size: 70px;
   font-weight: 700;
   line-height: 1;
   letter-spacing: 4px;
@@ -3474,8 +3488,8 @@ ul.floating-boxes li:nth-child(10) {
 .form {
   position: relative;
   z-index: 2;
-  width: 100%;
-  max-width: 760px;
+  width: 90%;
+  max-width: 560px;
   padding: 50px;
   display: flex;
   flex-direction: column;
@@ -3514,24 +3528,6 @@ ul.floating-boxes li:nth-child(10) {
   background: rgba(235, 3, 255, 0.12);
   filter: blur(90px);
   z-index: -1;
-}
-
-/* =========================================
-   FORM TITLE
-========================================= */
-.form-title {
-  font-family: "Montserrat", sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
-  padding: 16px 24px;
-  border-radius: 100px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  width: fit-content;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: 0.6s ease;
 }
 
 /* =========================================
@@ -3780,7 +3776,7 @@ ul.floating-boxes li:nth-child(10) {
     padding: 40px;
   }
   .contacts-title {
-    font-size: 50px;
+    font-size: 55px;
   }
   .container-dots {
     right: 2%;
@@ -3796,7 +3792,7 @@ ul.floating-boxes li:nth-child(10) {
     gap: 40px;
   }
   .contacts-title {
-    font-size: 40px;
+    font-size: 45px;
     letter-spacing: 2px;
   }
   .form {
@@ -3833,7 +3829,7 @@ ul.floating-boxes li:nth-child(10) {
     padding: 80px 16px;
   }
   .contacts-title {
-    font-size: 30px;
+    font-size: 35px;
     line-height: 1.1;
   }
   .form {

@@ -36,7 +36,7 @@
 
 .contacts-title {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(52px, 7vw, 96px);
+    font-size: 70px;
     font-weight: 700;
     line-height: 1;
     letter-spacing: 4px;
@@ -65,8 +65,8 @@
     position: relative;
     z-index: 2;
 
-    width: 100%;
-    max-width: 760px;
+    width: 90%;
+    max-width: 560px;
 
     padding: 50px;
 
@@ -125,32 +125,6 @@
     filter: blur(90px);
 
     z-index: -1;
-}
-
-/* =========================================
-   FORM TITLE
-========================================= */
-
-.form-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-
-    color: rgba(255, 255, 255, 0.85);
-
-    padding: 16px 24px;
-
-    border-radius: 100px;
-
-    background: rgba(255, 255, 255, 0.05);
-
-    border: 1px solid rgba(255, 255, 255, 0.08);
-
-    width: fit-content;
-
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 0.6s ease;
 }
 
 /* =========================================
@@ -495,7 +469,7 @@
     }
 
     .contacts-title {
-        font-size: 50px;
+        font-size: 55px;
     }
 
     .container-dots {
@@ -516,7 +490,7 @@
     }
 
     .contacts-title {
-        font-size: 40px;
+        font-size: 45px;
         letter-spacing: 2px;
     }
 
@@ -563,7 +537,7 @@
     }
 
     .contacts-title {
-        font-size: 30px;
+        font-size: 35px;
         line-height: 1.1;
     }
 
