@@ -2,12 +2,14 @@
 
 .section-services {
     position: relative;
-    overflow: visible; /* ⬅️ позволяем dots жить */
+    overflow: visible;
 }
 
 
 /* ===== CONTAINER ===== */
 .container {
+    display: flex;
+    justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -20,32 +22,35 @@
 }
 
 .title-services {
-     position: relative;
-    overflow: visible; /* ⬅️ КРИТИЧЕСКИ ВАЖНО */
-    margin: 30px 0;
+    position: relative;
+    overflow: visible;
+    margin: 20px 10px 20px 20px;
     font-family: 'Montserrat', sans-serif;
     font-size: 100px;
     font-weight: 700;
     letter-spacing: 6px;
     color: #fff;
     position: relative;
-    line-height: 1; /* ⬅️ важно, чтобы высота не плавала */
+    line-height: 1;
+
 }
 
 .services-subtitle {
-    display: block;         /* чтобы был под заголовком */
+    display: block;
+
     margin-top: 8px;
 
-    font-size: 18px;        /* ⬅️ МЕНЬШЕ заголовка */
+    font-size: 18px;
+
     font-weight: 400;
     line-height: 1.2;
 
     color: #fff;
-    opacity: 0.7;           /* можно убрать, если не нужно */
+    opacity: 0.7;
+
 }
 
 
-/* Скрываем элементы изначально */
 .title-services,
 .service-card {
     opacity: 0;
@@ -63,10 +68,11 @@
     content: "×";
     position: absolute;
     top: 35px;
-    right: -60px;          /* вместо процентов */
+    right: -60px;
     font-size: 100px;
     transform: rotate(10deg);
     line-height: 1;
+    font-weight: 400;
 }
 
 
@@ -112,13 +118,16 @@
 /* ===== CONTENT OVER IMAGE ===== */
 .services-card-items {
     position: absolute;
-    inset: 0;                 /* ⬅️ занимает всю карточку */
+    inset: 0;
+    /* ⬅️ занимает всю карточку */
     z-index: 3;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;  /* ⬅️ вертикальный центр */
-    align-items: center;      /* ⬅️ горизонтальный центр */
+    justify-content: center;
+    /* ⬅️ вертикальный центр */
+    align-items: center;
+    /* ⬅️ горизонтальный центр */
 
     padding: 25px;
     text-align: center;
@@ -128,10 +137,11 @@
 /* ===== TEXT ===== */
 .services-card-items h3 {
     font-family: 'Montserrat', sans-serif;
-    font-size:30px;
+    font-size: 30px;
     font-weight: 700;
     color: #fff;
 }
+
 .service-card-inner {
     position: relative;
     width: 100%;
@@ -174,11 +184,11 @@
 
     background: linear-gradient(90deg, #ff00cc, #3b4cff);
 
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
-            mask-composite: exclude;
+    mask-composite: exclude;
 
     pointer-events: none;
 }
@@ -195,6 +205,7 @@
 .services-card-button:hover {
     transform: translateY(-2px);
 }
+
 /* ===== HOVER EFFECT ===== */
 .service-card:hover .services-photo img {
     transform: scale(1.08);
@@ -218,13 +229,11 @@
     left: 0;
     width: 30%;
     height: 30%;
-    background: radial-gradient(
-        circle at top left,
-        rgba(235, 3, 255, 0.6) 0%,
-        rgba(129, 3, 255, 0.4) 40%,
-        rgba(3, 44, 255, 0.2) 80%,
-        rgba(3, 44, 255, 0.8) 100%
-    );
+    background: radial-gradient(circle at top left,
+            rgba(235, 3, 255, 0.6) 0%,
+            rgba(129, 3, 255, 0.4) 40%,
+            rgba(3, 44, 255, 0.2) 80%,
+            rgba(3, 44, 255, 0.8) 100%);
     filter: blur(70px);
     pointer-events: none;
     z-index: -1;
@@ -233,10 +242,12 @@
 
 /* ===== DOTS VISIBLE ===== */
 .dot {
-    width: 12px;            /* размер точки */
+    width: 12px;
+    /* размер точки */
     height: 12px;
-    border-radius: 50%; 
-    background-color: rgba(28, 37, 255, 0.25); /* полупрозрачный синий */
+    border-radius: 50%;
+    background-color: rgba(28, 37, 255, 0.25);
+    /* полупрозрачный синий */
 }
 
 /* RIGHT — центр правой стороны секции */
@@ -253,7 +264,8 @@
     width: 250px;
     height: 113px;
 
-    z-index: 0;           /* выше градиента, ниже карточек */
+    z-index: 0;
+    /* выше градиента, ниже карточек */
     pointer-events: none;
 }
 
@@ -263,7 +275,8 @@
 /* BOTTOM — под контентом секции */
 .container-dots3 {
     position: absolute;
-    bottom: 0;        /* чуть выше нижнего края */
+    bottom: 0;
+    /* чуть выше нижнего края */
     right: 0;
     transform: translateX(-50%);
 
@@ -275,7 +288,8 @@
     width: 250px;
     height: 113px;
 
-    z-index: 0;           /* выше градиента, ниже карточек */
+    z-index: 0;
+    /* выше градиента, ниже карточек */
     pointer-events: none;
 }
 
@@ -318,7 +332,7 @@
         justify-content: center;
     }
 
-     .title-services::after {
+    .title-services::after {
         text-align: center;
         right: -50px;
         top: 30px;
@@ -367,6 +381,7 @@
         font-size: 70px;
         letter-spacing: 3px;
     }
+
     .title-services::after {
         right: -30px;
         top: 30px;
@@ -417,15 +432,18 @@
         gap: 18px;
 
         opacity: 0.35;
-        z-index: 1; /* ⬅️ ВАЖНО */
+        z-index: 1;
+        /* ⬅️ ВАЖНО */
     }
 
-   
+
 
     .container-services-cards {
         display: grid;
-        grid-template-columns: 1fr; /* ⬅️ ОДНА карточка */
-        justify-items: center;      /* ⬅️ центрируем */
+        grid-template-columns: 1fr;
+        /* ⬅️ ОДНА карточка */
+        justify-items: center;
+        /* ⬅️ центрируем */
         width: 100%;
         padding: 0 20px;
         box-sizing: border-box;
@@ -433,7 +451,8 @@
 
     .service-card {
         width: 100%;
-        max-width: 520px;           /* ⬅️ ограничиваем ширину */
+        max-width: 520px;
+        /* ⬅️ ограничиваем ширину */
         margin: 0 auto;
     }
 }
@@ -448,7 +467,8 @@
         font-size: 60px;
         letter-spacing: 2px;
     }
-     .title-services::after {
+
+    .title-services::after {
         right: -20px;
         top: 30px;
         font-size: 44px;
@@ -479,7 +499,7 @@
         font-size: 15px;
     }
 
-   .container-dots {
+    .container-dots {
         width: 140px;
         gap: 14px;
         opacity: 0.25;

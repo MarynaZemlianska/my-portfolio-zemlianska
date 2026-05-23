@@ -5,11 +5,10 @@
     --color-primary-light:#FFFFFF;
 }
 
-.body{
-    font-family: 'Inter', system-ui, sans-serif;
-    overflow-x: hidden;
-}
 
+body {  
+  background-color: var(--color-brand);
+}
 
 .container {
     max-width: 1200px;

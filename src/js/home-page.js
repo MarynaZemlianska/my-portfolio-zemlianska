@@ -64,10 +64,59 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             obs.unobserve(el);
         });
+        const counters = document.querySelectorAll('.stat-number');
+const statsSection = document.querySelector('.section-stats');
+
+const animateCounter = (el) => {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+
+    const bar = el.parentElement.querySelector('.stat-bar span');
+
+    let start = 0;
+    const duration = 1200;
+    const startTime = performance.now();
+
+    const update = (currentTime) => {
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+
+        const value = Math.floor(progress * target);
+
+        el.textContent = value + suffix;
+
+        // 🔥 прогресс-полоса (0–100%)
+        if (bar) {
+            bar.style.width = (progress * 100) + '%';
+        }
+
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        } else {
+            el.textContent = target + suffix;
+            if (bar) bar.style.width = '100%';
+        }
+    };
+
+    requestAnimationFrame(update);
+};
+
+const statsObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            counters.forEach(counter => animateCounter(counter));
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.4 });
+
+if (statsSection) {
+    statsObserver.observe(statsSection);
+}
     }, {
         threshold: 0.25,
         rootMargin: "0px 0px -10% 0px"
     });
+
 
     // ================= ELEMENTS =================
     const elements = document.querySelectorAll(`
@@ -83,6 +132,30 @@ document.addEventListener("DOMContentLoaded", () => {
     `);
 
     elements.forEach(el => observer.observe(el));
+
+    // ================= WHY SECTION =================
+const whyTitle = document.querySelector('.why-title');
+const whySubtitle = document.querySelector('.why-subtitle');
+const whyCards = document.querySelectorAll('.why-card');
+
+const whyObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+    });
+}, {
+    threshold: 0.2
+});
+
+if (whyTitle) whyObserver.observe(whyTitle);
+if (whySubtitle) whyObserver.observe(whySubtitle);
+
+whyCards.forEach(card => {
+    whyObserver.observe(card);
+});
+    
 
     // ================= FAQ =================
     document.querySelectorAll(".faq-question").forEach(btn => {

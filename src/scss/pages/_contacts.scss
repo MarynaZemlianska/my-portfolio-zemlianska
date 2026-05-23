@@ -1,36 +1,51 @@
-/* ===== SECTION CONTACTS ===== */
+/* =========================================
+   CONTACTS SECTION — MODERN UI
+========================================= */
+
 .section-contacts {
     position: relative;
     overflow: hidden;
-    /* важно для градиентов */
-    padding: 20px 20px;
+
+    padding: 140px 20px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px;
+    gap: 60px;
+
+    background:
+        radial-gradient(circle at top left,
+            rgba(0, 102, 255, 0.08),
+            transparent 35%),
+        radial-gradient(circle at bottom right,
+            rgba(235, 3, 255, 0.08),
+            transparent 35%);
 }
 
+/* =========================================
+   TITLE
+========================================= */
 
-/* HEADER */
 .container-top-contacts {
     position: relative;
     z-index: 2;
+    width: 100%;
     display: flex;
     justify-content: center;
-    width: 100%;
 }
 
 .contacts-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 100px;
-    font-weight: 600;
-    line-height: 84px;
-    letter-spacing: 5px;
-    color: var(--color-primary-light);
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 4px;
     text-align: center;
 
+    color: var(--color-primary-light);
+
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(40px);
     transition: all 0.8s ease;
 }
 
@@ -39,401 +54,564 @@
     transform: translateY(0);
 }
 
-/* FORM */
+/* =========================================
+   FORM CARD
+========================================= */
+
 .form {
     position: relative;
     z-index: 2;
+
+    width: 100%;
+    max-width: 760px;
+
+    padding: 50px;
+
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 40%;
-    max-width: 600px;
+    justify-content: center;
+
+    gap: 30px;
+
+    border-radius: 40px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 0 80px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 }
 
-.form-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    /* ⬅️ НОВЫЙ размер */
-    font-weight: 400;
-    color: var(--color-primary-light);
-    text-align: center;
-
-    border: 1px solid var(--color-brand-light);
-    /* ⬅️ НОВАЯ толщина */
-    padding: 20px 30px;
-    border-radius: 80px;
-
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-
-.form-label,
-.input1,
-.input2,
-.input3,
-.form-button,
-.info-form {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-
-/* Начальное состояние формы */
-.form-label,
-.input1,
-.input2,
-.input3,
-.form-button,
-.info-form {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-/* Когда видим */
-.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* LABELS */
-.form-label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 28px;
-    font-weight: 500;
-    color: var(--color-primary-light);
-    margin-top: 20px;
-}
-
-/* INPUTS */
-.container-form-items {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-}
-
-.input1,
-.input2 {
-    width: 100%;
-    height: 70px;
-    border-radius: 35px;
-    border: none;
-    background: rgba(73, 33, 33, 0.38);
-    padding-left: 20px;
-    font-family: 'Inter', sans-serif;
-    font-size: 22px;
-    color: var(--color-primary-light);
-}
-
-.input3 {
-    width: 100%;
-    height: 240px;
-    border-radius: 35px;
-    border: none;
-    background: rgba(73, 33, 33, 0.38);
-    padding: 30px;
-    font-family: 'Inter', sans-serif;
-    font-size: 22px;
-    color: var(--color-primary-light);
-    resize: vertical;
-}
-
-.input1::placeholder,
-.input2::placeholder,
-.input3::placeholder {
-    color: rgba(217, 217, 217, 0.85);
-}
-
-/* ===== INPUT & TEXTAREA PLACEHOLDER ===== */
-.input1:focus::placeholder,
-.input2:focus::placeholder,
-.input3:focus::placeholder {
-    color: transparent;
-    /* текст плейсхолдера исчезает при фокусе */
-}
-
-/* ===== TEXTAREA ===== */
-.input3 {
-    resize: none;
-    /* убираем возможность растягивания */
-}
-
-/* BUTTON */
-.form-button {
-    width: 280px;
-    height: 56px;
-    border-radius: 50px;
-    border: none;
-    background: var(--color-brand-light);
-    color: var(--color-primary-light);
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: 0.3s ease;
-}
-
-.form-button:hover {
-    background: var(--color-brand);
-    color: var(--color-primary-light);
-    border: 2px solid var(--color-primary-light);
-}
-
-/* INFO */
-.info-form {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    color: #747272;
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* DOTS */
-.container-dots {
+/* glow */
+.form::before {
+    content: "";
     position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 20px;
-    pointer-events: none;
+
+    width: 320px;
+    height: 320px;
+
+    top: -140px;
+    right: -120px;
+
+    border-radius: 50%;
+
+    background: rgba(0, 102, 255, 0.12);
+    filter: blur(90px);
+
     z-index: -1;
 }
 
-.dot {
-    width: 12px;
-    height: 12px;
+.form::after {
+    content: "";
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    bottom: -140px;
+    left: -100px;
+
     border-radius: 50%;
-    background-color: rgba(28, 37, 255, 0.25);
+
+    background: rgba(235, 3, 255, 0.12);
+    filter: blur(90px);
+
+    z-index: -1;
 }
 
+/* =========================================
+   FORM TITLE
+========================================= */
 
+.form-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
 
+    color: rgba(255, 255, 255, 0.85);
 
-/*ARCS*/
+    padding: 16px 24px;
 
-/*ARCS*/
+    border-radius: 100px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    width: fit-content;
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.6s ease;
+}
+
+/* =========================================
+   FORM ITEMS
+========================================= */
+
+.container-form-items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* =========================================
+   LABELS
+========================================= */
+
+.form-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    margin-bottom: -10px;
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.6s ease;
+}
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.input1,
+.input2,
+.input3 {
+    width: 100%;
+
+    border: 1px solid transparent;
+
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.05),
+            rgba(255, 255, 255, 0.05));
+
+    color: var(--color-primary-light);
+
+    font-family: 'Inter', sans-serif;
+
+    transition:
+        border 0.3s ease,
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* inputs */
+.input1,
+.input2 {
+    height: 68px;
+
+    border-radius: 22px;
+
+    padding: 0 24px;
+
+    font-size: 18px;
+}
+
+/* textarea */
+.input3 {
+    min-height: 200px;
+
+    border-radius: 28px;
+
+    padding: 24px;
+
+    resize: none;
+
+    font-size: 18px;
+}
+
+/* placeholder */
+.input1::placeholder,
+.input2::placeholder,
+.input3::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+/* focus */
+.input1:focus,
+.input2:focus,
+.input3:focus {
+    outline: none;
+
+    border: 1px solid rgba(0, 102, 255, 0.5);
+
+    background: rgba(255, 255, 255, 0.08);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 0 4px rgba(0, 102, 255, 0.08),
+        0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.input1:focus::placeholder,
+.input2:focus::placeholder,
+.input3:focus::placeholder {
+    opacity: 0;
+}
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.form-button {
+    position: relative;
+
+    width: 100%;
+    height: 68px;
+
+    border: none;
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(135deg,
+            #004cff,
+            #8f00ff);
+
+    color: white;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* shine */
+.form-button::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -120%;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.35),
+            transparent);
+
+    transition: left 0.7s ease;
+}
+
+.form-button:hover::before {
+    left: 120%;
+}
+
+.form-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 76, 255, 0.35);
+}
+
+/* =========================================
+   INFO
+========================================= */
+
+.info-form {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.6s ease;
+}
+
+.info-form a {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.info-form a:hover {
+    color: white;
+}
+
+/* =========================================
+   VISIBLE ANIMATION
+========================================= */
+
+.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* =========================================
+   DOTS
+========================================= */
+
+.container-dots {
+    position: absolute;
+
+    right: 5%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: rgba(0, 102, 255, 0.3);
+
+    animation: pulseDots 3s infinite ease-in-out;
+}
+
+.dot:nth-child(2n) {
+    background: rgba(235, 3, 255, 0.25);
+}
+
+@keyframes pulseDots {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.4);
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   ARCS
+========================================= */
+
 .contacts-arcs {
     position: absolute;
     inset: 0;
+
     pointer-events: none;
+
     z-index: 0;
 }
 
 .arc {
     position: absolute;
-    border-radius:30%;
-    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(20px);
 }
 
 .arc-bottom {
-    width: 600px;
-    height: 600px;
-    left: 0px;
-    top: 240px;
-    background: radial-gradient(circle at 30% 40%, transparent 56%, rgba(235, 3, 255, 0.2) 70%, transparent 68%);
-    transform: rotate(90deg);
+    width: 700px;
+    height: 700px;
+
+    left: -250px;
+    bottom: -320px;
+
+    background:
+        radial-gradient(circle,
+            rgba(235, 3, 255, 0.12),
+            transparent 70%);
 }
 
 .arc-top {
-    width: 300px;
-    height: 300px;
-    left: 190px;
-    top: 300px;
-    background: radial-gradient(circle at 30% 40%, transparent 50%, rgba(235, 3, 255, 0.6) 70%, transparent 70%);
-    transform: rotate(90deg);
+    width: 500px;
+    height: 500px;
+
+    right: -150px;
+    top: -150px;
+
+    background:
+        radial-gradient(circle,
+            rgba(0, 102, 255, 0.12),
+            transparent 70%);
 }
 
-/* =========================
+/* =========================================
    ≤ 1200px
-========================= */
+========================================= */
+
 @media (max-width: 1200px) {
 
+    .form {
+        max-width: 680px;
+    }
+
     .contacts-title {
-        font-size: 90px;
-        line-height: 1;
+        font-size: 84px;
+    }
+}
+
+/* =========================================
+   ≤ 992px
+========================================= */
+
+@media (max-width: 992px) {
+
+    .section-contacts {
+        padding: 120px 20px;
     }
 
     .form {
-        width: 55%;
+        padding: 40px;
     }
 
-    .form-label {
-        font-size: 24px;
+    .contacts-title {
+        font-size: 60px;
     }
 
-    .input1,
-    .input2 {
-        height: 64px;
-        font-size: 20px;
-    }
-
-    .input3 {
-        height: 220px;
-        font-size: 20px;
+    .container-dots {
+        right: 2%;
+        opacity: 0.5;
     }
 }
 
+/* =========================================
+   ≤ 768px
+========================================= */
 
-/* =========================
-   ≤ 1024px
-========================= */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
 
     .section-contacts {
+        padding: 100px 20px;
         gap: 40px;
     }
 
     .contacts-title {
-        font-size: 80px;
-        letter-spacing: 4px;
-    }
-
-    .form {
-        width: 70%;
-    }
-
-    .form-title {
-        font-size: 18px;
-        padding: 16px 26px;
-    }
-
-    .form-button {
-        width: 260px;
-        font-size: 22px;
-    }
-
-    .container-dots {
-        opacity: 0.6;
-    }
-
-    .arc-bottom {
-        width: 520px;
-        height: 520px;
-        top: 260px;
-    }
-}
-
-
-/* =========================
-   ≤ 768px (TABLET / MOBILE)
-========================= */
-@media (max-width: 768px) {
-
-    .section-contacts {
-        padding: 50px 20px;
-        gap: 32px;
-    }
-
-    .contacts-title {
-        font-size: 70px;
-        letter-spacing: 3px;
-    }
-
-    .form {
-        width: 100%;
-        max-width: 520px;
-    }
-
-    .form-label {
-        font-size: 20px;
-    }
-
-    .input1,
-    .input2 {
-        height: 58px;
-        font-size: 18px;
-    }
-
-    .input3 {
-        height: 200px;
-        font-size: 18px;
-    }
-
-    .form-button {
-        width: 100%;
-        height: 54px;
-        font-size: 20px;
-    }
-
-    .container-dots {
-        top: auto;
-        bottom: 20px;
-        gap: 16px;
-        opacity: 0.4;
-    }
-
-    .arc-top {
-        width: 220px;
-        height: 220px;
-        left: 50%;
-        transform: translateX(-50%) rotate(90deg);
-    }
-}
-
-
-/* =========================
-   ≤ 480px (MOBILE)
-========================= */
-@media (max-width: 480px) {
-
-    .contacts-title {
-        font-size: 65px;
+        font-size: 40px;
         letter-spacing: 2px;
     }
 
-    .form-title {
-        font-size: 16px;
-        padding: 14px 22px;
+    .form {
+        padding: 32px 24px;
+        border-radius: 30px;
     }
 
-    .form-label {
-        font-size: 18px;
+    .form-title {
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
     }
 
     .input1,
     .input2 {
-        height: 52px;
+        height: 60px;
         font-size: 16px;
     }
 
     .input3 {
-        height: 180px;
+        min-height: 170px;
         font-size: 16px;
     }
 
     .form-button {
-        height: 50px;
+        height: 60px;
         font-size: 18px;
+    }
+
+    .container-dots {
+        display: none;
+    }
+}
+
+/* =========================================
+   ≤ 480px
+========================================= */
+
+@media (max-width: 480px) {
+
+    .section-contacts {
+        padding: 80px 16px;
+    }
+
+    .contacts-title {
+        font-size: 30px;
+        line-height: 1.1;
+    }
+
+    .form {
+        padding: 24px 18px;
+        gap: 24px;
+
+        border-radius: 24px;
+    }
+
+    .form-label {
+        font-size: 16px;
+    }
+
+    .input1,
+    .input2 {
+        height: 56px;
+
+        border-radius: 18px;
+
+        padding: 0 18px;
+    }
+
+    .input3 {
+        border-radius: 22px;
+        padding: 18px;
+    }
+
+    .form-button {
+        height: 56px;
+        border-radius: 18px;
+        font-size: 17px;
     }
 
     .info-form {
         font-size: 12px;
     }
-
-    .container-dots {
-        width: 180px;
-        gap: 12px;
-    }
 }
 
-
-/* =========================
+/* =========================================
    TOUCH DEVICES
-========================= */
+========================================= */
+
 @media (hover: none) {
 
     .form-button:hover {
-        background: var(--color-brand-light);
-        border: none;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .form-button:hover::before {
+        left: -120%;
     }
 }
