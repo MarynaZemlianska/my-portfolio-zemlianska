@@ -1840,67 +1840,6 @@ body {
     }
 }
 
-
-/* ================= TESTIMONIALS ADAPTIVE ================= */
-
-@media (max-width: 991px) {
-
-    .section-testimonials {
-        padding: 50px 20px;
-    }
-
-    .section-title {
-        font-size: 32px;
-        margin-bottom: 32px;
-    }
-
-    .testimonials-wrapper {
-        padding: 0 40px;
-    }
-}
-
-
-@media (max-width: 768px) {
-
-    .section-testimonials {
-        padding: 40px 16px;
-    }
-
-    .section-title {
-        font-size: 28px;
-        margin-bottom: 24px;
-    }
-
-    .testimonials-wrapper {
-        padding: 0 20px;
-    }
-}
-
-
-@media (max-width: 576px) {
-
-    .section-testimonials {
-        padding: 32px 14px;
-    }
-
-    .section-title {
-        font-size: 24px;
-        line-height: 1.2;
-    }
-
-    .testimonials-wrapper {
-        padding: 0;
-    }
-}
-
-
-@media (max-width: 390px) {
-
-    .section-title {
-        font-size: 22px;
-    }
-}
-
 /* SLIDER */
 .testimonials-slider {
     display: flex;
@@ -1920,9 +1859,8 @@ body {
     display: none;
 }
 
-/* CARD */
-/* ================= TESTIMONIAL CARD ================= */
 
+/* ================= TESTIMONIAL CARD ================= */
 
 
 .testimonial-card {
@@ -1948,6 +1886,11 @@ body {
 }
 
 /* CAMERA / DYNAMIC ISLAND */
+
+.section-testimonials{
+    text-align: center;
+    padding-top: 30px;
+}
 
 .testimonial-card::before {
     content: '';

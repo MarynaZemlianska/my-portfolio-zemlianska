@@ -53,6 +53,11 @@ body {
 
 h1, h2, h3, h4 .logo {
   font-family: "Inter", sans-serif;
+  color: var(--color-primary-light);
+}
+
+h2 {
+  font-size: 60px;
 }
 
 *,
@@ -2587,48 +2592,6 @@ body {
     padding: 0 14px 16px;
   }
 }
-/* ================= TESTIMONIALS ADAPTIVE ================= */
-@media (max-width: 991px) {
-  .section-testimonials {
-    padding: 50px 20px;
-  }
-  .section-title {
-    font-size: 32px;
-    margin-bottom: 32px;
-  }
-  .testimonials-wrapper {
-    padding: 0 40px;
-  }
-}
-@media (max-width: 768px) {
-  .section-testimonials {
-    padding: 40px 16px;
-  }
-  .section-title {
-    font-size: 28px;
-    margin-bottom: 24px;
-  }
-  .testimonials-wrapper {
-    padding: 0 20px;
-  }
-}
-@media (max-width: 576px) {
-  .section-testimonials {
-    padding: 32px 14px;
-  }
-  .section-title {
-    font-size: 24px;
-    line-height: 1.2;
-  }
-  .testimonials-wrapper {
-    padding: 0;
-  }
-}
-@media (max-width: 390px) {
-  .section-title {
-    font-size: 22px;
-  }
-}
 /* SLIDER */
 .testimonials-slider {
   display: flex;
@@ -2643,7 +2606,6 @@ body {
   display: none;
 }
 
-/* CARD */
 /* ================= TESTIMONIAL CARD ================= */
 .testimonial-card {
   position: relative;
@@ -2659,6 +2621,11 @@ body {
 }
 
 /* CAMERA / DYNAMIC ISLAND */
+.section-testimonials {
+  text-align: center;
+  padding-top: 30px;
+}
+
 .testimonial-card::before {
   content: "";
   position: absolute;
