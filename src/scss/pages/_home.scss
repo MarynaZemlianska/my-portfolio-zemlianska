@@ -246,7 +246,7 @@ body {
 
 .top-actions {
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .button-mobile2 {
@@ -436,14 +436,16 @@ body {
         justify-content: center;
         align-items: center;
         margin: 0 auto;
-        margin-bottom: 50px;
+        margin-top: 20px;
+       
     }
 
     .top-right {
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        margin-top: 20px;
+        padding-top: 30px;
+
         gap: 18px;
     }
 
@@ -453,9 +455,10 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top: 40px;
+        margin-bottom: 20px;
 
     }
+
 
 }
 
@@ -525,10 +528,7 @@ body {
         padding: 0;
     }
 
-    .top-right {
-        margin-top: 40px;
-        margin-bottom: 50px;
-    }
+  
 
     .button-mobile2 {
         font-size: 16px;
@@ -561,7 +561,7 @@ body {
     }
 
     .button-mobile2 {
-        max-width: 320px;
+        max-width: 260px;
     }
 }
 
@@ -955,6 +955,10 @@ body {
     .section-stats,
     .section-prijects {
         z-index: 2007;
+    }
+
+    .section-stats{
+        margin-top: 80px;
     }
 
     .container-steps {
