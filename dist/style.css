@@ -1177,24 +1177,16 @@ body.menu-open::before {
     font-size: 13px;
   }
 }
-/* ================= VIEWPORT FIX ================= */
-@supports (-webkit-touch-callout: none) {
-  .hero {
-    min-height: 100vh;
-  }
-  .top-container-h1 {
-    font-weight: 600;
-  }
-}
-body {
-  height: 100%;
-  -webkit-text-size-adjust: 100%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Safari fallback вместо overflow: clip */
-.hero,
-.first-top-container {
+html, body {
+  width: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /* ================= HEADER HEIGHT ================= */
@@ -1212,15 +1204,6 @@ body {
     --header-height: 100px;
   }
 }
-/* ================= BUTTON FIX (iOS Safari) ================= */
-button,
-.button-mobile2,
-.slider-btn,
-.to-top-btn {
-  -webkit-appearance: none;
-  appearance: none;
-}
-
 .hero {
   position: relative;
   padding-top: var(--header-height);
@@ -1244,11 +1227,10 @@ button,
 .top-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
   max-width: 1150px;
-  position: relative;
-  z-index: 2;
+  margin: 0 auto;
 }
 
 .top-left {
@@ -1499,9 +1481,6 @@ button,
   .top-center {
     transform: translateY(-10px);
   }
-  .nav {
-    align-items: start;
-  }
   .top-right-gradient {
     opacity: 1;
     visibility: visible;
@@ -1516,7 +1495,6 @@ button,
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-left: auto;
   }
   .top-container {
     flex-direction: column;
@@ -1875,6 +1853,7 @@ button,
   transform: translateY(0);
 }
 
+/* ===== STEP CIRCLE ACTIVE HIGHLIGHT ===== */
 .step-circle {
   width: 56px;
   height: 56px;
