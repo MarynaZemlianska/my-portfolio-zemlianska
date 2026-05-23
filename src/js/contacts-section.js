@@ -19,11 +19,11 @@ if (contactsTitle) titleObserver.observe(contactsTitle);
 const formObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if(entry.isIntersecting){
-            // добавляем класс visible всем элементам формы с небольшой задержкой
+           
             formElements.forEach((el, index) => {
                 setTimeout(() => {
                     el.classList.add('visible');
-                }, index * 100); // 100ms между каждым элементом
+                }, index * 100); 
             });
             formObserver.unobserve(entry.target);
         }

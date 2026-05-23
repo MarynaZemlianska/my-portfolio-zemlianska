@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }, {
-        threshold: 0.05,          // 🔥 почти сразу
+        threshold: 0.05,    
         rootMargin: "0px 0px -50px 0px"
     });
 
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 setTimeout(() => {
                     entry.target.classList.add('visible');
-                }, index * 70);     // 🔥 быстрый каскад
+                }, index * 70);  
 
                 cardsObserver.unobserve(entry.target);
             }

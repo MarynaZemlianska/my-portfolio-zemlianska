@@ -58,7 +58,6 @@
     transition: all 0.6s ease-out;
 }
 
-/* Когда элемент виден */
 .visible {
     opacity: 1;
     transform: translateY(0);
@@ -119,15 +118,13 @@
 .services-card-items {
     position: absolute;
     inset: 0;
-    /* ⬅️ занимает всю карточку */
     z-index: 3;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* ⬅️ вертикальный центр */
+
     align-items: center;
-    /* ⬅️ горизонтальный центр */
 
     padding: 25px;
     text-align: center;
@@ -174,7 +171,7 @@
     text-decoration: none;
 }
 
-/* градиентный бордер */
+
 .services-card-button::before {
     content: "";
     position: absolute;
@@ -211,16 +208,15 @@
     transform: scale(1.08);
 }
 
-/* Дополнительно: чуть масштабируем карточки при появлении */
+
 .service-card.visible .services-photo img {
     transform: scale(1.08);
 }
 
-/* При наведении на карточку */
+
 .service-card:hover .services-photo img {
     transform: scale(1.12);
 }
-
 
 /* ===== GRADIENT ===== */
 .top-gradient {
@@ -243,14 +239,11 @@
 /* ===== DOTS VISIBLE ===== */
 .dot {
     width: 12px;
-    /* размер точки */
     height: 12px;
     border-radius: 50%;
-    background-color: rgba(28, 37, 255, 0.25);
-    /* полупрозрачный синий */
+
 }
 
-/* RIGHT — центр правой стороны секции */
 .container-dots {
     position: absolute;
     top: 0;
@@ -265,18 +258,13 @@
     height: 113px;
 
     z-index: 0;
-    /* выше градиента, ниже карточек */
     pointer-events: none;
 }
 
 
-
-
-/* BOTTOM — под контентом секции */
 .container-dots3 {
     position: absolute;
     bottom: 0;
-    /* чуть выше нижнего края */
     right: 0;
     transform: translateX(-50%);
 
@@ -289,7 +277,6 @@
     height: 113px;
 
     z-index: 0;
-    /* выше градиента, ниже карточек */
     pointer-events: none;
 }
 
@@ -433,17 +420,16 @@
 
         opacity: 0.35;
         z-index: 1;
-        /* ⬅️ ВАЖНО */
-    }
 
+    }
 
 
     .container-services-cards {
         display: grid;
         grid-template-columns: 1fr;
-        /* ⬅️ ОДНА карточка */
+
         justify-items: center;
-        /* ⬅️ центрируем */
+
         width: 100%;
         padding: 0 20px;
         box-sizing: border-box;
@@ -452,7 +438,7 @@
     .service-card {
         width: 100%;
         max-width: 520px;
-        /* ⬅️ ограничиваем ширину */
+
         margin: 0 auto;
     }
 }
@@ -464,13 +450,13 @@
 @media (max-width: 480px) {
 
     .title-services {
-        font-size: 60px;
+        font-size: 50px;
         letter-spacing: 2px;
     }
 
     .title-services::after {
         right: -20px;
-        top: 30px;
+        top: 25px;
         font-size: 44px;
     }
 

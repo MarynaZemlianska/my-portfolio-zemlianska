@@ -22,7 +22,7 @@
 .footer-logo-item{
     display: flex;
     flex-direction: column;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .footer-logo{
@@ -30,6 +30,7 @@
     align-items: center;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
+    transition: transform 0.3s ease;
 }
 
 .footer-logo:hover {
@@ -40,7 +41,7 @@
 .footer-logo-icon {
     font-size: 70px;
     line-height: 1;
-    font-weight: 400;
+    font-weight:500;
     background: linear-gradient(90deg, #ff00cc, #3b4cff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -87,14 +88,15 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    color: var(--color-primary-light);
+    color: #b9b7b7;
+    font-size: 14px;
 }
 
 .footer-link a,
 .footer-contacts a,
 .info-item,
 .info-safety {
-    color: var(--color-primary-light);
+    color: #b9b7b7;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     transition: color 0.3s;
@@ -153,6 +155,12 @@
 .footer-container > *.visible {
     opacity: 1;
     transform: translateY(0) scale(1);
+}
+
+.footer-h3{
+padding-bottom: 20px;
+font-size: 17px;
+    
 }
 
 /* ===== RESPONSIVE ===== */

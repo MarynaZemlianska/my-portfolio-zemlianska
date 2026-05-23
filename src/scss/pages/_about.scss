@@ -10,14 +10,11 @@
     padding: 20px 10px 70px 10px;
 }
 
-/* Градиент сверху-слева */
 .section-about::before {
     content: '';
     position: absolute;
     top: -50px;
-    /* чуть выше секции */
     left: -50px;
-    /* чуть левее контейнера */
     width: 400px;
     height: 400px;
     background: radial-gradient(circle at top left,
@@ -25,7 +22,6 @@
             rgba(129, 3, 255, 0.4) 50%,
             rgba(3, 44, 255, 0.2) 80%,
             rgba(3, 44, 255, 0.0) 100%);
-    /* плавное исчезновение к краю */
     filter: blur(80px);
     pointer-events: none;
     z-index: 0;
@@ -50,7 +46,6 @@
     flex-shrink: 0;
 }
 
-/* Фото */
 .ellipse-photo {
     position: relative;
 
@@ -77,8 +72,6 @@
     gap: 30px;
     flex: 1;
     max-width: 650px;
-
-
     z-index: 2;
 
 }
@@ -90,7 +83,6 @@
     text-align: center;
 
     font-size: 100px;
-    /* 🔥 ВОТ ТВОИ НОРМАЛЬНЫЕ РАЗМЕРЫ */
     font-weight: 700;
     line-height: 1.05;
 
@@ -100,7 +92,6 @@
 /* ARROW */
 .about-title-arrow {
     width: 140px;
-    /* 🔥 БОЛЬШЕ */
     height: 10px;
 
     background-color: var(--color-brand-light);
@@ -112,42 +103,33 @@
     border-radius: 10px;
 }
 
-/* Наконечник стрелки */
 .about-title-arrow::after {
     content: '';
     position: absolute;
     right: -5%;
-    /* конец линии */
     top: 50%;
-    /* центр вертикально */
     width: 30px;
     height: 30px;
     border-top: 8px solid var(--color-brand-light);
     border-right: 8px solid var(--color-brand-light);
     transform: translateY(-50%) rotate(45deg);
-    /* поворот вправо */
 }
-
-
 
 /* ===== RIGHT BLOCK ===== */
 .about-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* текст опускается вниз */
     flex: 1;
     margin-top: 50px;
 }
 
-/* текстовый контейнер */
 .about-text {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-/* текст */
 .text-items {
     display: flex;
     flex-direction: column;
@@ -273,18 +255,17 @@
         width: 100%;
     }
 
-    /* 🔥 заголовок нормально по центру */
+
     .about-title {
         font-size: 60px;
         text-align: center;
     }
 
-    /* 🔥 стрелка остаётся под заголовком */
+
     .about-title-arrow {
         margin: 12px auto 0 auto;
     }
 
-    /* 🔥 фото по центру */
     .ellipse-photo {
         position: relative;
         width: 300px;
@@ -292,7 +273,7 @@
         margin: 0 auto;
     }
 
-    /* 🔥 текст под фото */
+
     .text-items {
         align-items: center;
         padding: 0 15px;
@@ -303,7 +284,6 @@
         font-size: 16px;
         line-height: 26px;
     }
-
 
 }
 
@@ -329,7 +309,7 @@
 @media (max-width: 480px) {
 
     .about-title {
-        font-size: 42px;
+        font-size: 50px;
     }
 
     .about-title-arrow {

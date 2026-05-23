@@ -84,7 +84,6 @@ const animateCounter = (el) => {
 
         el.textContent = value + suffix;
 
-        // 🔥 прогресс-полоса (0–100%)
         if (bar) {
             bar.style.width = (progress * 100) + '%';
         }
