@@ -101,9 +101,17 @@ a {
   background-color: var(--color-brand-dark);
 }
 
-/* ================= HEADER GRADIENT ================= */
 .header {
-  overflow-x: clip;
+  position: relative;
+  z-index: 10000;
+}
+
+.header-gradient,
+.section-projects-gradient,
+.steps-gradient,
+.why-gradient,
+.floating-boxes {
+  pointer-events: none;
 }
 
 .header-gradient {
@@ -172,7 +180,6 @@ a {
 
 .logo:hover {
   transform: scale(1.03);
-  transition: 0.3s ease;
 }
 
 .logo-icon {
@@ -305,6 +312,7 @@ ul {
 .dropdown-menu {
   position: absolute;
   left: 0;
+  top: 100%;
   display: none;
   min-width: max-content;
   padding: 10px 0;
@@ -1306,7 +1314,6 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 20007;
 }
 
 .top-image {
@@ -1334,14 +1341,12 @@ html, body {
 .top-right a.visible {
   opacity: 1;
   transform: translateY(0) scale(1);
-  z-index: 20007;
 }
 
 .top-right a svg {
   width: 40px;
   height: 40px;
   transition: fill 0.6s ease, transform 0.7s ease;
-  z-index: 20007;
 }
 
 .top-right a:hover svg {
@@ -1415,7 +1420,6 @@ html, body {
   opacity: 0;
   transform: translateY(40px) scale(0.95);
   transition: all 0.7s ease-out;
-  z-index: 20005;
 }
 
 .button-mobile2.visible {
@@ -3108,7 +3112,7 @@ ul.floating-boxes li:nth-child(10) {
   transition: 0.3s ease;
   overflow: hidden;
   cursor: pointer;
-  z-index: 20007;
+  z-index: 1000;
 }
 
 /* SHOW */

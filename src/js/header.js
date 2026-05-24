@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', 
+    () => {
 
     const burger = document.getElementById('burger');
     const nav = document.querySelector('.nav');
@@ -9,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileBtn = document.getElementById('openModalMobile');
     const desktopBtn = document.getElementById('openModalDesktop');
     const headerBtn = document.getElementById('openModal');
+    
 
     // ===== BURGER =====
     if (burger && nav) {

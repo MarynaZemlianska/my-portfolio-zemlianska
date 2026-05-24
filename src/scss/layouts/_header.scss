@@ -1,6 +1,15 @@
-/* ================= HEADER GRADIENT ================= */
+
 .header {
-    overflow-x: clip;
+  position: relative;
+  z-index: 10000;
+}
+
+.header-gradient,
+.section-projects-gradient,
+.steps-gradient,
+.why-gradient,
+.floating-boxes {
+  pointer-events: none;
 }
 
 .header-gradient {
@@ -105,7 +114,6 @@
 
 .logo:hover {
     transform: scale(1.03);
-    transition: 0.3s ease;
 }
 
 .logo-icon {
@@ -289,6 +297,7 @@ ul {
 .dropdown-menu {
     position: absolute;
     left: 0;
+    top: 100%;
 
     display: none;
 
