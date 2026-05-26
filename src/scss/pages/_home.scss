@@ -28,6 +28,9 @@ html, body {
 }
 
 
+.hero * {
+  animation-delay: 0s !important;
+} 
 
 .hero {
     position: relative;
