@@ -35,6 +35,11 @@
     gap: 60px;
 }
 
+.section-projects.visible .container-projects {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* ================= TITLE ================= */
 .container-projects-title {
     display: flex;
@@ -89,6 +94,20 @@
         0 0 14px rgba(124, 102, 255, 0.7),
         0 0 30px rgba(124, 102, 255, 0.45);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container-projects-title {
+    opacity: 0;
+    transform: translateY(40px);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+.section-projects.visible .container-projects-title {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ================= GRID ================= */
@@ -397,20 +416,11 @@
 /* ================= SCROLL ANIMATION ================= */
 
 .section-projects {
-    opacity: 0;
-    transform: translateY(50px);
-    filter: blur(6px);
-    transition:
-        opacity 0.6s ease,
-        transform 0.6s ease,
-        filter 0.6s ease;
+     position: relative;
+    margin-top: clamp(80px, 10vw, 150px);
+    font-family: 'Inter', sans-serif;
 }
 
-.section-projects.visible {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-}
 
 
 .card {

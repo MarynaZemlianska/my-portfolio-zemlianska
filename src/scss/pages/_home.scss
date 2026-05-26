@@ -301,9 +301,7 @@ html, body {
 /* ================= GRADIENT MOBILE ================= */
 
 .top-right-gradient {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease;
+     
     position: absolute;
     top: 30%;
     left: 50%;
@@ -317,6 +315,10 @@ html, body {
             transparent);
     pointer-events: none;
     z-index: -4;
+
+    opacity: 1;
+    visibility: visible;
+    transition: none;
 
     -webkit-filter: blur(120px);
     filter: blur(120px);
@@ -714,14 +716,9 @@ html, body {
     border-top: 3px dashed var(--color-brand-light);
     position: relative;
 
-    opacity: 0;
-    transform: translateY(20px) scaleX(0.8);
-    filter: blur(6px);
-
-    transition:
-        opacity 0.6s ease,
-        transform 0.6s ease,
-        filter 0.6s ease;
+    opacity: 1;
+    transform: none;
+    filter: none;
 }
 
 
@@ -770,14 +767,9 @@ html, body {
     grid-template-columns: repeat(3, 1fr);
     gap: 14px;
 
-    opacity: 0;
-    transform: translateX(120%);
-    filter: blur(6px);
-
-    transition:
-        opacity 0.6s ease,
-        transform 0.6s ease,
-        filter 0.6s ease;
+     opacity: 1;
+    transform: none;
+    filter: none;
 }
 
 .title-steps.visible .title-dots {
@@ -2167,131 +2159,6 @@ html, body {
 }
 
 
-/* The Boxes */
-
-ul.floating-boxes {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: -1;
-}
-
-ul.floating-boxes li {
-    position: absolute;
-    list-style: none;
-    height: 2rem;
-    width: 2rem;
-    background-image: linear-gradient(135deg,
-            rgba(255, 64, 105, 0.07),
-            hsla(263, 64%, 39%, 0.07));
-    bottom: -110rem;
-    animation: floatingbox 25s linear infinite;
-    opacity: 1;
-
-}
-
-ul.floating-boxes li:nth-child(1) {
-    left: 25%;
-    height: 6rem;
-    width: 6rem;
-    animation-delay: 0s;
-    animation-duration: 15s;
-}
-
-ul.floating-boxes li:nth-child(2) {
-    left: 10%;
-    height: 2rem;
-    width: 2rem;
-    animation-delay: 0s;
-    animation-duration: 15s;
-}
-
-ul.floating-boxes li:nth-child(3) {
-    left: 65%;
-    height: 9rem;
-    width: 9rem;
-    animation-delay: 0s;
-    animation-duration: 10s;
-}
-
-ul.floating-boxes li:nth-child(4) {
-    left: 45%;
-    height: 6rem;
-    width: 6rem;
-    animation-delay: 0s;
-    animation-duration: 20s;
-}
-
-ul.floating-boxes li:nth-child(5) {
-    left: 55%;
-    height: 4.5rem;
-    width: 4.5rem;
-    animation-delay: 0s;
-    animation-duration: 18s;
-}
-
-ul.floating-boxes li:nth-child(6) {
-    left: 35%;
-    height: 7rem;
-    width: 7rem;
-    animation-delay: 0s;
-    animation-duration: 22s;
-}
-
-ul.floating-boxes li:nth-child(7) {
-    left: 15%;
-    height: 11rem;
-    width: 11rem;
-    animation-delay: 0s;
-    animation-duration: 7s;
-}
-
-ul.floating-boxes li:nth-child(8) {
-    left: 75%;
-    height: 10rem;
-    width: 10rem;
-    animation-delay: 0s;
-    animation-duration: 9s;
-}
-
-ul.floating-boxes li:nth-child(9) {
-    left: 85%;
-    height: 5rem;
-    width: 5rem;
-    animation-delay: 0s;
-    animation-duration: 4s;
-}
-
-ul.floating-boxes li:nth-child(10) {
-    left: 95%;
-    height: 5.5rem;
-    width: 5.5rem;
-    animation-delay: 0s;
-    animation-duration: 25s;
-}
-
-@keyframes floatingbox {
-    0% {
-        transform: translateY(0) rotate(0);
-        opacity: 1;
-        border-radius: 0;
-    }
-
-    100% {
-        transform: translateY(-110rem) rotate(1080deg);
-        opacity: 1;
-        border-radius: 50%;
-    }
-}
-
-@media (max-width: 768px) {
-    ul.floating-boxes {
-        display: none;
-    }
-}
-
 .quote-section {
     padding: 60px 20px;
     display: flex;
@@ -2340,7 +2207,7 @@ ul.floating-boxes li:nth-child(10) {
             #ff00cc);
 
     background-size: 300% 300%;
-    animation: gradientMove 6s linear infinite;
+    
 
     -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
@@ -2349,21 +2216,6 @@ ul.floating-boxes li:nth-child(10) {
     mask-composite: exclude;
 
     pointer-events: none;
-}
-
-/* ANIMATION */
-@keyframes gradientMove {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
 }
 
 .quote-container:hover {
@@ -2519,3 +2371,11 @@ ul.floating-boxes li:nth-child(10) {
     background: rgba(44, 44, 46, 0.9);
 }
 
+
+.top-right-gradient,
+.header-gradient,
+.steps-gradient,
+.why-gradient{
+    animation: none !important;
+    transition: none !important;
+}

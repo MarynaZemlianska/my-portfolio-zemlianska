@@ -984,7 +984,6 @@ body.menu-open::before {
   color: #fff;
   position: relative;
   box-shadow: 0 0 40px rgba(235, 3, 255, 0.5);
-  animation: modal-pop 0.4s ease forwards;
 }
 
 @keyframes modal-pop {
@@ -1452,9 +1451,6 @@ html, body {
 
 /* ================= GRADIENT MOBILE ================= */
 .top-right-gradient {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease;
   position: absolute;
   top: 30%;
   left: 50%;
@@ -1464,6 +1460,9 @@ html, body {
   background: radial-gradient(circle at bottom, rgba(235, 3, 255, 0.55), rgba(129, 3, 255, 0.35), rgba(3, 44, 255, 0.18), transparent);
   pointer-events: none;
   z-index: -4;
+  opacity: 1;
+  visibility: visible;
+  transition: none;
   -webkit-filter: blur(120px);
   filter: blur(120px);
 }
@@ -1748,10 +1747,9 @@ html, body {
   height: 0;
   border-top: 3px dashed var(--color-brand-light);
   position: relative;
-  opacity: 0;
-  transform: translateY(20px) scaleX(0.8);
-  filter: blur(6px);
-  transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
+  opacity: 1;
+  transform: none;
+  filter: none;
 }
 
 .title-graphic::after {
@@ -1790,10 +1788,9 @@ html, body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
-  opacity: 0;
-  transform: translateX(120%);
-  filter: blur(6px);
-  transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
+  opacity: 1;
+  transform: none;
+  filter: none;
 }
 
 .title-steps.visible .title-dots {
@@ -2835,124 +2832,6 @@ html, body {
     background: rgba(255, 0, 204, 0.8);
   }
 }
-/* The Boxes */
-ul.floating-boxes {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: -1;
-}
-
-ul.floating-boxes li {
-  position: absolute;
-  list-style: none;
-  height: 2rem;
-  width: 2rem;
-  background-image: linear-gradient(135deg, rgba(255, 64, 105, 0.07), hsla(263, 64%, 39%, 0.07));
-  bottom: -110rem;
-  animation: floatingbox 25s linear infinite;
-  opacity: 1;
-}
-
-ul.floating-boxes li:nth-child(1) {
-  left: 25%;
-  height: 6rem;
-  width: 6rem;
-  animation-delay: 0s;
-  animation-duration: 15s;
-}
-
-ul.floating-boxes li:nth-child(2) {
-  left: 10%;
-  height: 2rem;
-  width: 2rem;
-  animation-delay: 0s;
-  animation-duration: 15s;
-}
-
-ul.floating-boxes li:nth-child(3) {
-  left: 65%;
-  height: 9rem;
-  width: 9rem;
-  animation-delay: 0s;
-  animation-duration: 10s;
-}
-
-ul.floating-boxes li:nth-child(4) {
-  left: 45%;
-  height: 6rem;
-  width: 6rem;
-  animation-delay: 0s;
-  animation-duration: 20s;
-}
-
-ul.floating-boxes li:nth-child(5) {
-  left: 55%;
-  height: 4.5rem;
-  width: 4.5rem;
-  animation-delay: 0s;
-  animation-duration: 18s;
-}
-
-ul.floating-boxes li:nth-child(6) {
-  left: 35%;
-  height: 7rem;
-  width: 7rem;
-  animation-delay: 0s;
-  animation-duration: 22s;
-}
-
-ul.floating-boxes li:nth-child(7) {
-  left: 15%;
-  height: 11rem;
-  width: 11rem;
-  animation-delay: 0s;
-  animation-duration: 7s;
-}
-
-ul.floating-boxes li:nth-child(8) {
-  left: 75%;
-  height: 10rem;
-  width: 10rem;
-  animation-delay: 0s;
-  animation-duration: 9s;
-}
-
-ul.floating-boxes li:nth-child(9) {
-  left: 85%;
-  height: 5rem;
-  width: 5rem;
-  animation-delay: 0s;
-  animation-duration: 4s;
-}
-
-ul.floating-boxes li:nth-child(10) {
-  left: 95%;
-  height: 5.5rem;
-  width: 5.5rem;
-  animation-delay: 0s;
-  animation-duration: 25s;
-}
-
-@keyframes floatingbox {
-  0% {
-    transform: translateY(0) rotate(0);
-    opacity: 1;
-    border-radius: 0;
-  }
-  100% {
-    transform: translateY(-110rem) rotate(1080deg);
-    opacity: 1;
-    border-radius: 50%;
-  }
-}
-@media (max-width: 768px) {
-  ul.floating-boxes {
-    display: none;
-  }
-}
 .quote-section {
   padding: 60px 20px;
   display: flex;
@@ -2992,25 +2871,12 @@ ul.floating-boxes li:nth-child(10) {
   border-radius: 24px;
   background: linear-gradient(90deg, #ff00cc, #3b4cff, #00ffe1, #ff00cc);
   background-size: 300% 300%;
-  animation: gradientMove 6s linear infinite;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
 }
 
-/* ANIMATION */
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 .quote-container:hover {
   transform: translateY(-5px);
 }
@@ -3140,6 +3006,14 @@ ul.floating-boxes li:nth-child(10) {
 .to-top-btn:hover {
   transform: translateY(-3px) scale(1.08);
   background: rgba(44, 44, 46, 0.9);
+}
+
+.top-right-gradient,
+.header-gradient,
+.steps-gradient,
+.why-gradient {
+  animation: none !important;
+  transition: none !important;
 }
 
 .section-about {
@@ -3694,7 +3568,6 @@ ul.floating-boxes li:nth-child(10) {
   height: 10px;
   border-radius: 50%;
   background: rgba(0, 102, 255, 0.3);
-  animation: pulseDots 3s infinite ease-in-out;
 }
 
 .dot:nth-child(2n) {
@@ -3890,6 +3763,11 @@ ul.floating-boxes li:nth-child(10) {
   gap: 60px;
 }
 
+.section-projects.visible .container-projects {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ================= TITLE ================= */
 .container-projects-title {
   display: flex;
@@ -3941,6 +3819,17 @@ ul.floating-boxes li:nth-child(10) {
   transform: scale(1.15);
   box-shadow: 0 0 14px rgba(124, 102, 255, 0.7), 0 0 30px rgba(124, 102, 255, 0.45);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container-projects-title {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section-projects.visible .container-projects-title {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ================= GRID ================= */
@@ -4180,16 +4069,9 @@ ul.floating-boxes li:nth-child(10) {
 
 /* ================= SCROLL ANIMATION ================= */
 .section-projects {
-  opacity: 0;
-  transform: translateY(50px);
-  filter: blur(6px);
-  transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
-}
-
-.section-projects.visible {
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
+  position: relative;
+  margin-top: clamp(80px, 10vw, 150px);
+  font-family: "Inter", sans-serif;
 }
 
 .card {
