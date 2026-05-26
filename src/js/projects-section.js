@@ -38,3 +38,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cards.forEach(card => cardsObserver.observe(card));
 });
+
+
+  /* ===== FILTERS ===== */
+const buttons = document.querySelectorAll('.projects-filters button');
+const cards = document.querySelectorAll('.card');
+
+buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        cards.forEach(card => {
+            const type = card.dataset.type;
+
+            if (filter === 'all' || filter === type) {
+                card.style.display = "flex";
+            } else {
+                card.style.display = "none";
+            }
+        });
+
+    });
+});

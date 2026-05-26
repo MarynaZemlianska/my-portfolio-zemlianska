@@ -4175,6 +4175,31 @@ body.menu-open::before {
     border-radius: 20px;
   }
 }
+.projects-filters {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.projects-filters button {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.projects-filters button.active {
+  background: #7c66ff;
+  border-color: transparent;
+}
+
 /* ===== SECTION ===== */
 .section-services {
   position: relative;
