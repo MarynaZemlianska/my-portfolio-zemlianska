@@ -2094,12 +2094,21 @@ html, body {
 
 .why-gradient {
   position: absolute;
-  inset: 0;
   background: radial-gradient(circle at top left, rgba(255, 0, 204, 0.18), transparent 35%), radial-gradient(circle at bottom right, rgba(59, 76, 255, 0.18), transparent 40%);
-  filter: blur(100px);
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 0;
+  left: 0;
+  filter: blur(40px);
   pointer-events: none;
 }
 
+@supports not (backdrop-filter: blur(1px)) {
+  .why-card {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
 .why-container {
   position: relative;
   z-index: 2;
@@ -2298,9 +2307,13 @@ html, body {
 /* =========================================
    MOBILE
 ========================================= */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .why-section {
-    padding: 90px 16px;
+    padding: 50px 16px;
+  }
+  .why-gradient {
+    opacity: 0;
+    filter: none;
   }
   .why-title {
     font-size: 50px;
@@ -3031,10 +3044,10 @@ html, body {
   position: absolute;
   top: -50px;
   left: -50px;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   background: radial-gradient(circle at top left, rgba(235, 3, 255, 0.6), rgba(129, 3, 255, 0.4) 50%, rgba(3, 44, 255, 0.2) 80%, rgba(3, 44, 255, 0) 100%);
-  filter: blur(80px);
+  filter: blur(50px);
   pointer-events: none;
   z-index: 0;
 }
@@ -3681,6 +3694,16 @@ html, body {
   }
   .container-dots {
     display: none;
+  }
+}
+@media (max-width: 768px) {
+  .section-contacts {
+    background: #0b0b12;
+  }
+  .form::before,
+  .form::after {
+    opacity: 0.2;
+    filter: blur(40px);
   }
 }
 /* =========================================

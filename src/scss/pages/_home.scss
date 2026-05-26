@@ -1148,7 +1148,7 @@ html, body {
 .why-gradient {
 
     position: absolute;
-    inset: 0;
+
 
     background:
         radial-gradient(circle at top left,
@@ -1159,9 +1159,21 @@ html, body {
             rgba(59, 76, 255, 0.18),
             transparent 40%);
 
-    filter: blur(100px);
+             position: absolute;
+    width: 400px;
+    height: 400px;
+    top: 0;
+    left: 0;
+
+    filter: blur(40px);
 
     pointer-events: none;
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+    .why-card {
+        background: rgba(255,255,255,0.08);
+    }
 }
 
 .why-container {
@@ -1457,11 +1469,16 @@ html, body {
    MOBILE
 ========================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
 
     .why-section {
 
-        padding: 90px 16px;
+        padding: 50px 16px;
+    }
+
+    .why-gradient {
+        opacity: 0;
+        filter: none;
     }
 
     .why-title {

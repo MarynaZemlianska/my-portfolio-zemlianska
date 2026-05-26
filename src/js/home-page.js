@@ -154,6 +154,7 @@ if (whySubtitle) whyObserver.observe(whySubtitle);
 whyCards.forEach(card => {
     whyObserver.observe(card);
 });
+
     
 
     // ================= FAQ =================
