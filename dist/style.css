@@ -10,12 +10,6 @@ body {
   background-color: var(--color-brand);
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
 @font-face {
   font-family: "Inter";
   src: url("../fonts/Inter_18pt-Regular.woff2") format("woff2");
@@ -61,10 +55,6 @@ h1, h2, h3, h4 {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
 }
 
 #consultationForm {
@@ -1183,18 +1173,6 @@ body.menu-open::before {
     font-size: 13px;
   }
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  width: 100%;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
-
 /* ================= HEADER HEIGHT ================= */
 :root {
   --header-height: 140px;
@@ -3095,7 +3073,6 @@ html, body {
   z-index: 2;
 }
 
-/* ===== TITLE ===== */
 .about-title {
   margin: 0;
   text-align: center;
@@ -4617,7 +4594,7 @@ html, body {
   }
 }
 .policy-container {
-  color: #fff; /* текст белый */
+  color: #fff;
   max-width: 900px;
   margin: 60px auto;
   padding: 40px 30px;
@@ -4627,7 +4604,6 @@ html, body {
   line-height: 1.7;
 }
 
-/* Начальное состояние элементов */
 .policy-container .animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);
@@ -4638,15 +4614,13 @@ html, body {
   transition: opacity 0.8s ease-out, transform 0.8s ease-out, color 0.8s ease-out;
 }
 
-/* Когда элемент виден */
 .policy-container .animate-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
-  color: #ffffff; /* текст становится видимым */
+  color: #ffffff;
   background: none;
 }
 
-/* Задержки через переменные для последовательного появления */
 .policy-container .animate-on-scroll:nth-child(1) {
   transition-delay: 0.1s;
 }
@@ -4675,14 +4649,12 @@ html, body {
   transition-delay: 0.7s;
 }
 
-/* Можно добавить градиентное свечение при наведении на текст */
 .policy-container .animate-on-scroll:hover {
   background: linear-gradient(90deg, #FA00FF, #1C25FF);
   -webkit-background-clip: text;
   color: transparent;
 }
 
-/* Заголовки */
 .policy-title {
   color: #FA00FF;
   font-size: 2.5rem;
@@ -4696,14 +4668,12 @@ html, body {
   margin-bottom: 16px;
 }
 
-/* Параграфы */
 .policy-paragraph {
   color: #ffffff;
   font-size: 1rem;
   margin-bottom: 16px;
 }
 
-/* Списки */
 .policy-list {
   padding-left: 20px;
   margin-bottom: 16px;
@@ -4713,13 +4683,11 @@ html, body {
   margin-bottom: 8px;
 }
 
-/* Ссылки */
 .policy-link {
   color: #FA00FF;
   text-decoration: underline;
 }
 
-/* Адаптивность */
 @media (max-width: 600px) {
   .policy-container {
     padding: 20px 15px;
@@ -4731,8 +4699,21 @@ html, body {
     font-size: 1.5rem;
   }
 }
-html {
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
