@@ -1,9 +1,30 @@
+.top-center-projects {
+    max-width: 420px;
+    width: 100%;
+}
+
+.top-image-projects {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    transform: scale(1);
+    transition: 0.3s ease;
+
+    display: block;
+}
+
 /* ================= SECTION ================= */
 
 .section-projects {
     position: relative;
     margin-top: clamp(80px, 10vw, 150px);
-    font-size: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 /* ================= GRADIENT ================= */
@@ -24,15 +45,30 @@
 }
 
 /* ================= CONTAINER ================= */
+/* ================= PROJECTS TOP CONTAINER ================= */
 
-.container-projects {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px;
+.projects-first-top-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 60px;
+    justify-content: space-between;
+}
+
+.projects-hero .projects-top-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* TABLET + MOBILE */
+@media (max-width: 1034px) {
+
+    .projects-top-container {
+        flex-direction: column;
+    }
+
 }
 
 .section-projects.visible .container-projects {
@@ -44,18 +80,21 @@
 .container-projects-title {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    ;
 }
 
 .title-projects {
     position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 22px;
     font-size: clamp(70px, 6vw, 100px);
     font-weight: 800;
     text-align: center;
     line-height: 1.05;
-    font-size: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
     color: #fff;
 }
 
@@ -64,7 +103,7 @@
     margin-top: 10px;
     font-size: 16px;
     opacity: 0.7;
-    font-size: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
     color: #fff;
 }
 
@@ -128,6 +167,7 @@
 .card {
     display: flex;
     flex-direction: column;
+
 }
 
 .card a {
@@ -337,7 +377,7 @@
 
     border: 2 px solid rgba(177, 1, 253, 0.574);
 
-    
+
 
     display: flex;
     flex-direction: column;
@@ -415,14 +455,6 @@
 
 /* ================= SCROLL ANIMATION ================= */
 
-.section-projects {
-     position: relative;
-    margin-top: clamp(80px, 10vw, 150px);
-    font-family: 'Inter', sans-serif;
-}
-
-
-
 .card {
     opacity: 0;
     transform: translateY(30px);
@@ -448,33 +480,28 @@
 
 
 
-@media (max-width: 1181px) {
-
-    .top-center-projects{
-        padding-right: 20px;
-    }
-
-}
+@media (max-width: 1181px) {}
 
 /* ================= TABLET ================= */
 
 @media (max-width: 1034px) {
 
-    .top-container-projects,
-    .top-center-projects{
+    .projects-hero .projects-first-top-container {
+        flex-direction: column;
         display: flex;
         flex-direction: column;
         justify-content: center !important;
-        align-items: center  !important;    
+        align-items: center !important;
     }
 
-     .top-items-projects{
+
+    .top-items-projects {
         display: flex;
         flex-direction: column;
-        align-items: center !important;      
-        justify-content: center  !important;    
+        align-items: center !important;
+        justify-content: center !important;
 
-     }
+    }
 
     .card img {
         aspect-ratio: 16 / 11;
@@ -513,7 +540,6 @@
     }
 
     .title-projects {
-        gap: 14px;
         font-size: clamp(50px, 9vw, 56px);
     }
 
@@ -558,12 +584,6 @@
 
 @media (max-width: 488px) {
 
-
-
-    .section-projects {
-        margin-top: 90px;
-    }
-
     .title-projects {
         font-size: 50px;
     }
@@ -592,9 +612,8 @@
 
 
 .projects-filters {
-    margin-top: 20px;
+    margin-top: 40px;
     margin-bottom: 40px;
-    padding-bottom: 20px;
     display: flex;
     gap: 12px;
     justify-content: center;
@@ -604,7 +623,7 @@
 .projects-filters button {
     padding: 10px 16px;
     border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     background: transparent;
     color: #fff;
     cursor: pointer;
