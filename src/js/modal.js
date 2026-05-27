@@ -8,17 +8,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const successMessage = document.getElementById("successMessage");
     const errorMessage = document.getElementById("errorMessage");
 
-    
-    const openBtns = document.querySelectorAll(
-        '#openModal, #openQuoteModal, #openModalMobile'
-    );
+
+    const openBtns = document.querySelectorAll('.open-modal');
 
     /* ===== OPEN ===== */
     openBtns.forEach(btn => {
 
-        if (!btn) return;
+        btn.addEventListener('click', (e) => {
 
-        btn.addEventListener('click', () => {
+            e.preventDefault();
 
             modal.classList.remove('is-hidden');
             modal.classList.add('is-visible');
@@ -28,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     });
-
     /* ===== CLOSE ===== */
     function closeModal() {
 
@@ -59,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* ===== FORM SEND ===== */
-    form.addEventListener('submit', function(e){
+    form.addEventListener('submit', function (e) {
 
         e.preventDefault();
 
@@ -70,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
             errorMessage.classList.remove("visible");
         }
 
-      
+
         const formData = {
             name: form.name.value,
             email: form.email.value,
@@ -79,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log("FORM DATA:", formData);
 
-   
+
         setTimeout(() => {
 
             successMessage.classList.add("visible");

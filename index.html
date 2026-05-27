@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./../dist/style.css">
     <link rel="preload" href="./fonts/Inter_18pt-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" as="image" href="./src/images/top-image.webp">
-   
+
 </head>
 
 <body>
@@ -52,7 +52,8 @@
                             </ul>
                         </li>
                         <li><a class="nav-link" href="/src/html/" aria-label="View price">ЦІНИ</a></li>
-                        <li><a class="nav-link" href="/src/html/projects.html" aria-label="View projects">ПРОЄКТИ</a></li>
+                        <li><a class="nav-link" href="/src/html/projects.html" aria-label="View projects">ПРОЄКТИ</a>
+                        </li>
                         <li><a class="nav-link" href="/src/html/" aria-label="View contacts">КОНТАКТИ</a></li>
                     </ul>
                 </nav>
@@ -70,7 +71,7 @@
                     <span></span>
                 </button>
                 <!-- DESKTOP -->
-                <button class="button-contact button-desktop" id="openModal">
+                <button class="button-contact button-desktop open-modal">
                     Безкоштовна консультація
                 </button>
             </div>
@@ -107,7 +108,8 @@
                     </div>
 
                     <div class="top-actions">
-                        <button class="button-contact button-mobile2" id="openModalMobile">
+                        <!-- MOBILE -->
+                        <button class="button-contact button-mobile2 open-modal">
                             Безкоштовна консультація
                         </button>
                         <div class="top-right icons-container">
@@ -181,178 +183,161 @@
 
                 <div class="container-cards">
 
-                    <!-- COLUMN 1-->
-                    <div class="cards-column1">
+                    <div class="card">
+                        <a href="https://best-shopsuit.netlify.app/" target="_blank">
 
-                        <div class="card">
-                            <a href="https://best-shopsuit.netlify.app/" target="_blank">
+                            <div class="card-mobile-title">
+                                <span class="card-hover-title-bottom">Best Shop</span>
+                            </div>
 
-                                <div class="card-mobile-title">
-                                    <span class="card-hover-title-bottom">Best Shop</span>
-                                </div>
+                            <div class="card-image">
+                                <img src="src/images/project-2.webp" loading="lazy" width="600" height="400"
+                                    decoding="async" alt="Best Shop">
+                            </div>
 
-                                <div class="card-image">
-                                    <img src="src/images/project-2.webp" loading="lazy" width="600" height="340" decoding="async"
-                                        alt="Best Shop">
-                                </div>
+                            <div class="card-hover-content">
+                                <p class="card-hover-text_name">
+                                    Інтернет-магазин для продажу валіз
+                                </p>
+                                <p class="card-hover-text">
+                                    Концепт e-commerce з акцентом на картки товарів.
+                                </p>
 
-                                <div class="card-hover-content">
-                                    <p class="card-hover-text_name">
-                                        Інтернет-магазин для продажу валіз
-                                    </p>
-                                    <p class="card-hover-text">
-                                        Концепт e-commerce з акцентом на картки товарів.
-                                    </p>
+                                <span class="card-hover-arrow"></span>
+                            </div>
 
-                                    <span class="card-hover-arrow"></span>
-                                </div>
-
-                            </a>
-                        </div>
-
-                        <div class="card">
-                            <a href="https://seafoodone.netlify.app/" target="_blank">
-
-                                <div class="card-mobile-title">
-                                    <span class="card-hover-title-bottom">Sea Food Norway</span>
-                                </div>
-
-                                <div class="card-image">
-                                    <img src="src/images/project-5.webp" loading="lazy" width="600" height="340" 
-                                    decoding="async"
-                                        alt="Sea Food Norway">
-                                </div>
-
-                                <div class="card-hover-content">
-                                    <p class="card-hover-text_name">
-                                        Корпоративний сайт для магазину продуктів
-                                    </p>
-                                    <p class="card-hover-text">
-                                        Вебсайт бренду морепродуктів з елегантним дизайном.
-                                    </p>
-
-                                    <span class="card-hover-arrow"></span>
-                                </div>
-
-                            </a>
-                        </div>
-
+                        </a>
                     </div>
 
-                    <!-- COLUMN 2 -->
-                    <div class="cards-column1">
+                    <div class="card">
+                        <a href="https://seafoodone.netlify.app/" target="_blank">
 
-                        <div class="card">
-                            <a href="https://iphones14pro.netlify.app/" target="_blank">
+                            <div class="card-mobile-title">
+                                <span class="card-hover-title-bottom">Sea Food Norway</span>
+                            </div>
 
-                                <div class="card-mobile-title">
-                                    <span class="card-hover-title-bottom">Iphone 14 Pro</span>
-                                </div>
+                            <div class="card-image">
+                                <img src="src/images/project-5.webp" loading="lazy" width="600" height="400"
+                                    decoding="async" alt="Sea Food Norway">
+                            </div>
 
-                                <div class="card-image">
-                                    <img src="src/images/project-1.webp" loading="lazy" width="600" height="340" decoding="async"
-                                        alt="Iphone 14 Pro">
-                                </div>
+                            <div class="card-hover-content">
+                                <p class="card-hover-text_name">
+                                    Корпоративний сайт для магазину продуктів
+                                </p>
+                                <p class="card-hover-text">
+                                    Вебсайт бренду морепродуктів з елегантним дизайном.
+                                </p>
 
-                                <div class="card-hover-content">
-                                    <p class="card-hover-text_name">
-                                        Сайт-візитка для магазину техніки Apple
-                                    </p>
-                                    <p class="card-hover-text">
-                                        Сучасний вебсайт з презентацією продукту та плавними анімаціями.
-                                    </p>
+                                <span class="card-hover-arrow"></span>
+                            </div>
 
-                                    <span class="card-hover-arrow"></span>
-                                </div>
-
-                            </a>
-                        </div>
-
-                        <div class="card">
-                            <a href="https://lease-carss.netlify.app/" target="_blank">
-
-                                <div class="card-mobile-title">
-                                    <span class="card-hover-title-bottom">Leasing From D&M</span>
-                                </div>
-
-                                <div class="card-image">
-                                    <img src="src/images/project-4.webp" loading="lazy" width="600" height="340" decoding="async"
-                                        alt="Leasing From D&M">
-                                </div>
-
-                                <div class="card-hover-content">
-                                    <p class="card-hover-text_name">
-                                        Сайт-візитка для магазину авто
-                                    </p>
-                                    <p class="card-hover-text">
-                                        Вебсайт автолізингу з чистим UI та адаптивною версткою.
-                                    </p>
-
-                                    <span class="card-hover-arrow"></span>
-                                </div>
-
-                            </a>
-                        </div>
-
+                        </a>
                     </div>
 
-                    <!-- COLUMN 3 -->
-                    <div class="cards-column1">
+                    <div class="card">
+                        <a href="https://iphones14pro.netlify.app/" target="_blank">
 
-                        <div class="card">
-                            <a href="https://beauty-zones.netlify.app/" target="_blank">
+                            <div class="card-mobile-title">
+                                <span class="card-hover-title-bottom">Iphone 14 Pro</span>
+                            </div>
 
-                                <div class="card-mobile-title">
-                                    <span class="card-hover-title-bottom">Beauty Zone</span>
-                                </div>
+                            <div class="card-image">
+                                <img src="src/images/project-1.webp" loading="lazy" width="600" height="400"
+                                    decoding="async" alt="Iphone 14 Pro">
+                            </div>
 
-                                <div class="card-image">
-                                    <img src="src/images/project-3.webp" loading="lazy" width="600" height="340" decoding="async"
-                                        alt="Beauty Zone">
-                                </div>
+                            <div class="card-hover-content">
+                                <p class="card-hover-text_name">
+                                    Сайт-візитка для магазину техніки Apple
+                                </p>
+                                <p class="card-hover-text">
+                                    Сучасний вебсайт з презентацією продукту та плавними анімаціями.
+                                </p>
 
-                                <div class="card-hover-content">
-                                    <p class="card-hover-text_name">
-                                        Корпоративний сайт для салону краси
-                                    </p>
-                                    <p class="card-hover-text">
-                                        Вебсайт б’юті-індустрії з м’якими візуальними рішеннями та лаконічним дизайном.
+                                <span class="card-hover-arrow"></span>
+                            </div>
+
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <a href="https://lease-carss.netlify.app/" target="_blank">
+
+                            <div class="card-mobile-title">
+                                <span class="card-hover-title-bottom">Leasing From D&M</span>
+                            </div>
+
+                            <div class="card-image">
+                                <img src="src/images/project-4.webp" loading="lazy" width="600" height="400"
+                                    decoding="async" alt="Leasing From D&M">
+                            </div>
+
+                            <div class="card-hover-content">
+                                <p class="card-hover-text_name">
+                                    Сайт-візитка для магазину авто
+                                </p>
+                                <p class="card-hover-text">
+                                    Вебсайт автолізингу з чистим UI та адаптивною версткою.
+                                </p>
+
+                                <span class="card-hover-arrow"></span>
+                            </div>
+
+                        </a>
+                    </div>
+
+                    <div class="card">
+                        <a href="https://beauty-zones.netlify.app/" target="_blank">
+
+                            <div class="card-mobile-title">
+                                <span class="card-hover-title-bottom">Beauty Zone</span>
+                            </div>
+
+                            <div class="card-image">
+                                <img src="src/images/project-3.webp" loading="lazy" width="600" height="400"
+                                    decoding="async" alt="Beauty Zone">
+                            </div>
+
+                            <div class="card-hover-content">
+                                <p class="card-hover-text_name">
+                                    Корпоративний сайт для салону краси
+                                </p>
+                                <p class="card-hover-text">
+                                    Вебсайт б’юті-індустрії з м’якими візуальними рішеннями та лаконічним дизайном.
+                                </p>
+
+                                <span class="card-hover-arrow"></span>
+                            </div>
+
+                        </a>
+                    </div>
+
+                    <!-- CTA CARD -->
+                    <div class="card card-cta">
+                        <a href="#services">
+
+                            <div class="card-mobile-title">
+                                <span class="card-hover-title-bottom">
+                                    Cтворимо проєкт разом.
+                                </span>
+                            </div>
+
+                            <div class="card-image card-image-cta">
+
+                                <div class="cta-glass">
+
+                                    <p class="card-hover-text-own-site">
+                                        Ваш сайт
                                     </p>
 
                                     <span class="card-hover-arrow"></span>
                                 </div>
 
-                            </a>
-                        </div>
+                            </div>
 
-                        <!-- CTA CARD -->
-                        <div class="card card-cta" >
-                            <a href="#services">
-
-                                <div class="card-mobile-title">
-                                    <span class="card-hover-title-bottom">
-                                        Cтворимо ваш проєкт разом.
-                                    </span>
-                                </div>
-
-                                <div class="card-image card-image-cta">
-
-                                    <div class="cta-glass">
-
-                                        <p class="card-hover-text-own-site">
-                                            Ваш сайт
-                                        </p>
-
-                                        <span class="card-hover-arrow"></span>
-                                    </div>
-
-                                </div>
-
-                            </a>
-                        </div>
-
+                        </a>
                     </div>
-
                 </div>
             </div>
             <!-- DOTS -->
@@ -502,7 +487,8 @@
                 <div class="service-card">
                     <div class="service-card-inner">
                         <div class="services-photo">
-                            <img src="src/images/service-photo.webp" loading="lazy" width="600" height="340" decoding="async" alt="">
+                            <img src="src/images/service-photo.webp" loading="lazy" width="600" height="340"
+                                decoding="async" alt="">
                         </div>
                         <div class="services-card-items">
                             <h3>Лендінг-сторінка</h3>
@@ -519,7 +505,8 @@
                 <div class="service-card">
                     <div class="service-card-inner">
                         <div class="services-photo">
-                            <img src="src/images/services-photo1.webp" loading="lazy" width="600" height="340" decoding="async" alt="">
+                            <img src="src/images/services-photo1.webp" loading="lazy" width="600" height="340"
+                                decoding="async" alt="">
                         </div>
                         <div class="services-card-items">
                             <h3>Сайт-візитка</h3>
@@ -536,7 +523,8 @@
                 <div class="service-card">
                     <div class="service-card-inner">
                         <div class="services-photo">
-                            <img src="src/images/services-photo7.webp" loading="lazy" width="600" height="340" decoding="async" alt="">
+                            <img src="src/images/services-photo7.webp" loading="lazy" width="600" height="340"
+                                decoding="async" alt="">
                         </div>
                         <div class="services-card-items">
                             <h3>Корпоративний сайт</h3>
@@ -553,7 +541,8 @@
                 <div class="service-card">
                     <div class="service-card-inner">
                         <div class="services-photo">
-                            <img src="src/images/services-photo2.webp" loading="lazy" width="600" height="340" decoding="async" alt="">
+                            <img src="src/images/services-photo2.webp" loading="lazy" width="600" height="340"
+                                decoding="async" alt="">
                         </div>
                         <div class="services-card-items">
                             <h3>Інтернет-магазин</h3>
@@ -570,7 +559,8 @@
                 <div class="service-card">
                     <div class="service-card-inner">
                         <div class="services-photo">
-                            <img src="src/images/services-photo5.webp" loading="lazy" width="600" height="340" decoding="async" alt="">
+                            <img src="src/images/services-photo5.webp" loading="lazy" width="600" height="340"
+                                decoding="async" alt="">
                         </div>
                         <div class="services-card-items">
                             <h3>Персональний сайт</h3>
@@ -587,7 +577,8 @@
                 <div class="service-card">
                     <div class="service-card-inner">
                         <div class="services-photo">
-                            <img src="src/images/services-photo4.webp" loading="lazy" width="600" height="340" decoding="async" alt="">
+                            <img src="src/images/services-photo4.webp" loading="lazy" width="600" height="340"
+                                decoding="async" alt="">
                         </div>
                         <div class="services-card-items">
                             <h3>Інші послуги</h3>
@@ -678,8 +669,8 @@
             <div class="container-about">
 
                 <div class="about-photo-container">
-                    <img class="ellipse-photo" src="./src/images/5348355399293276416.webp" width="600" height="340" loading="lazy"
-                        decoding="async" alt="Фото в еліпсі">
+                    <img class="ellipse-photo" src="./src/images/5348355399293276416.webp" width="600" height="340"
+                        loading="lazy" decoding="async" alt="Фото в еліпсі">
                 </div>
 
                 <div class="about-title-wrap">
@@ -1128,14 +1119,14 @@
         </svg>
     </button>
     <script src="./src/js/header.js" defer></script>
-<script src="./src/js/home-page.js" defer></script>
-<script src="./src/js/projects-section.js" defer></script>
-<script src="./src/js/steps-section.js" defer></script>
-<script src="./src/js/contacts-section.js" defer></script>
-<script src="./src/js/services-section.js" defer></script>
-<script src="./src/js/about-section.js" defer></script>
-<script src="./src/js/footer.js" defer></script>
-<script src="./src/js/modal.js" defer></script>
+    <script src="./src/js/home-page.js" defer></script>
+    <script src="./src/js/projects-section.js" defer></script>
+    <script src="./src/js/steps-section.js" defer></script>
+    <script src="./src/js/contacts-section.js" defer></script>
+    <script src="./src/js/services-section.js" defer></script>
+    <script src="./src/js/about-section.js" defer></script>
+    <script src="./src/js/footer.js" defer></script>
+    <script src="./src/js/modal.js" defer></script>
 
 </body>
 

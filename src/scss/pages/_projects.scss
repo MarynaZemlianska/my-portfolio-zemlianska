@@ -11,12 +11,10 @@
     margin-top: 30px;
     margin-bottom: 30px;
 
-    transform: scale(1);
     transition: 0.3s ease;
 
     display: block;
 }
-
 /* ================= SECTION ================= */
 
 .section-projects {
@@ -44,7 +42,6 @@
     z-index: -1;
 }
 
-/* ================= CONTAINER ================= */
 /* ================= PROJECTS TOP CONTAINER ================= */
 
 .projects-first-top-container {
@@ -62,28 +59,33 @@
 }
 
 
-/* TABLET + MOBILE */
-@media (max-width: 1034px) {
-
-    .projects-top-container {
-        flex-direction: column;
-    }
-
-}
-
 .section-projects.visible .container-projects {
     opacity: 1;
     transform: translateY(0);
 }
 
 /* ================= TITLE ================= */
+.section-projects {
+    position: relative;
+
+    max-width: 1200px;
+    width: 100%;
+
+    margin: clamp(80px, 10vw, 150px) auto 0;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    font-family: 'Inter', sans-serif;
+}
+
 .container-projects-title {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 20px;
-    ;
+    font-size: 90px;
 }
 
 .title-projects {
@@ -152,50 +154,46 @@
 /* ================= GRID ================= */
 
 .container-cards {
-    width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
+    align-items: start;
 }
 
-.cards-column1 {
-    display: contents;
-}
 
 /* ================= CARD ================= */
 
 .card {
     display: flex;
     flex-direction: column;
+     height: auto;
 
 }
 
 .card a {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    text-decoration: none;
     color: #fff;
 }
 
 /* ================= IMAGE ================= */
-
-
-
 .card-image {
     position: relative;
-    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 3 / 2;
     border-radius: 30px;
+    overflow: hidden;
 }
-
 
 .card-image img {
     width: 100%;
-    aspect-ratio: 3 / 2;
+    height: 100%;
     object-fit: cover;
     display: block;
+
     transition: transform 0.5s ease;
 }
-
 
 .card-image::after {
     content: "";
@@ -347,13 +345,13 @@
 /* ================= CTA IMAGE FAKE ================= */
 
 .card-image-cta {
-    aspect-ratio: 3 / 2;
     position: relative;
-    background:
-        linear-gradient(135deg,
-            rgba(124, 102, 255, 0.35),
-            rgba(3, 44, 255, 0.35));
+    overflow: hidden;
+    border-radius: 30px;
+    aspect-ratio: 3 / 2;
+    width: 100%;
 }
+
 
 
 .card-image-cta::after {
@@ -369,15 +367,15 @@
 .card-image-cta .cta-glass {
     position: absolute;
     inset: 0;
+     width: 100%;
+    height: 100%;
 
     background:
         linear-gradient(145deg,
             rgba(255, 255, 255, 0.18),
             rgba(255, 255, 255, 0.05));
 
-    border: 2 px solid rgba(177, 1, 253, 0.574);
-
-
+    border: 2px solid rgba(177, 1, 253, 0.574);
 
     display: flex;
     flex-direction: column;
@@ -411,7 +409,7 @@
 
 .card-cta .always-visible {
     margin-top: -28px;
-    width: calc(100% - 0px);
+    width: 100%;
 
     background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(22px);
@@ -468,28 +466,21 @@
     transform: translateY(0);
 }
 
-.top-image-projects {
-    width: 100%;
-    height: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    transform: scale(1.1);
-    transition: 0.3s ease;
-    -webkit-transform: scale(1.1);
-}
-
-
-
-@media (max-width: 1181px) {}
 
 /* ================= TABLET ================= */
 
 @media (max-width: 1034px) {
 
+      .projects-top-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
+
     .projects-hero .projects-first-top-container {
         flex-direction: column;
         display: flex;
-        flex-direction: column;
         justify-content: center !important;
         align-items: center !important;
     }
@@ -557,7 +548,7 @@
     }
 
     .card-hover-title-bottom {
-        font-size: 25px;
+        font-size: 20px;
     }
 
     .card-hover-text_name {
@@ -593,7 +584,7 @@
     }
 
     .card-hover-title-bottom {
-        font-size: 25px;
+        font-size: 18px;
     }
 
     .card-hover-text {
