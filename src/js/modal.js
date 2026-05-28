@@ -9,7 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const errorMessage = document.getElementById("errorMessage");
 
 
-    const openBtns = document.querySelectorAll('.open-modal');
+    const openBtns = document.querySelectorAll(
+        '.open-modal, .quote-btn, .btn'
+    );
 
     /* ===== OPEN ===== */
     openBtns.forEach(btn => {
@@ -26,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     });
+
     /* ===== CLOSE ===== */
     function closeModal() {
 
@@ -60,13 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         e.preventDefault();
 
-
         successMessage.classList.remove("visible");
 
         if (errorMessage) {
             errorMessage.classList.remove("visible");
         }
-
 
         const formData = {
             name: form.name.value,
@@ -75,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         console.log("FORM DATA:", formData);
-
 
         setTimeout(() => {
 

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Web{LAB} Zemlianska - frontend developer portfolio, website development and UI/UX projects.">
-    <title>Проєкти - Web{LAB} Zemlianska - Розробка сайтів</title>
+    <title>Розробка лендінгу - Web{LAB} Zemlianska - Розробка сайтів</title>
     <link rel="icon" href="/src/images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/dist/style.css">
     <link rel="preload" href="./fonts/Inter_18pt-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -47,9 +47,8 @@
                                         сайт</a></li>
                                 <li><a href="personal-site.html" aria-label="View personal-site">Персональний сайт</a>
                                 </li>
-                                <li><a href="e-commerce-site.html" aria-label="View e-commerce-site">E-commerce
-                                        сайти</a></li>
-                                <li><a href="other-services.html" aria-label="View other-services">Інші послуги</a></li>
+                                <li><a href="e-commerce-site.html" aria-label="View e-commerce-site">Інтернет-магазин</a></li>
+                                <li><a href="other-services.html" aria-label="View other-services">Додаткові послуги</a></li>
                             </ul>
                         </li>
                         <li><a class="nav-link" href="projects.html" aria-label="View price">ЦІНИ</a></li>
@@ -144,7 +143,7 @@
             <!-- INTRO -->
             <div class="top-text">
 
-                <h2 class="top-title fade-up">Лендінг, який продає</h2>
+                <h2 class="top-title fade-up">Лендінг</h2>
 
                 <p class="top-description fade-up">
                     Сучасний односторінковий сайт для бізнесу, послуг або особистого бренду,
@@ -238,17 +237,19 @@
             </section>
 
         </div>
-        <div class="lp-cta">
-            <h2>Готові запустити свій сайт?</h2>
-
-            <p>
-                Обговоримо ідею та створимо Landing Page, який буде реально працювати на ваш бізнес.
-            </p>
-
-            <a href="#" class="btn open-modal">
-                Замовити сайт
-            </a>
-        </div>
+        <section>
+            <div class="lp-cta">
+                <h2>Готові запустити свій сайт?</h2>
+                <p>
+                    Обговоримо ідею та створимо сайт, який буде реально працювати на Вас.
+                </p>
+                <div class="container-btn"> 
+                <button class="btn open-modal" type="button">
+                    Замовити сайт
+                </button>
+            </div>
+            </div>
+        </section>
         </section>
 
         <section class="section-steps">
@@ -318,11 +319,11 @@
                         <li class="step">
                             <div class="step-circle">5</div>
                             <div class="step-content">
-                                <h3>Розробка сайту</h4>
-                                    <p>
-                                        Спочатку створюється десктопна версія сайту, налаштовується функціонал і
-                                        вносяться правки. Потім сайт адаптується під мобільні пристрої.
-                                    </p>
+                                <h3>Розробка сайту</h3>
+                                <p>
+                                    Спочатку створюється десктопна версія сайту, налаштовується функціонал і
+                                    вносяться правки. Потім сайт адаптується під мобільні пристрої.
+                                </p>
                             </div>
                         </li>
 
@@ -361,18 +362,18 @@
                     <h3>Шаблонний Landing</h3>
                     <p class="price">від 180€</p>
                     <p>Швидке рішення на основі готової структури</p>
-                    <a href="#" class="btn open-modal">
+                    <button class="btn open-modal">
                         Замовити
-                    </a>
+                    </button>
                 </div>
 
                 <div class="price-card highlight">
                     <h3>Індивідуальний дизайн</h3>
                     <p class="price">від 350€</p>
                     <p>Унікальний дизайн під ваш бренд</p>
-                    <a href="#" class="btn open-modal">
+                    <button type="button" class="btn open-modal">
                         Замовити
-                    </a>
+                    </button>
                     <span>Рекомендовано</span>
                 </div>
 
@@ -399,10 +400,10 @@
                         <li>Оптимізація швидкості завантаження</li>
                         <li>Підключення соцмереж</li>
                     </ul>
-                    <a href="#" class="btn open-modal">
+                    <buttontype="button" class="btn open-modal">
                         Замовити
-                    </a>
-                    <span class="tag">Для старту</span>
+                        </button>
+                        <span class="tag">Для старту</span>
                 </div>
 
                 <div class="package-card highlight">
@@ -422,9 +423,9 @@
                         <li>Оптимізація конверсії (CTA блоки)</li>
                         <li>Кросбраузерна верстка</li>
                     </ul>
-                    <a href="#" class="btn open-modal">
+                    <button class="btn open-modal">
                         Замовити
-                    </a>
+                    </button>
                     <span class="badge">Найпопулярніший</span>
                 </div>
 
@@ -445,9 +446,9 @@
                         <li>Підключення CRM / email систем</li>
                         <li>Технічна підтримка після запуску</li>
                     </ul>
-                    <a href="#" class="btn open-modal">
+                    <button type="button" class="btn open-modal">
                         Замовити
-                    </a>
+                    </button>
 
                     <span class="tag">Premium</span>
                 </div>
@@ -455,6 +456,12 @@
             </div>
 
         </section>
+        <div class="lp-final-price-note fade-up">
+            <p>
+                <span>Фінальна ціна:</span>
+                Залежить від складності проєкту та обговорюється індивідуально.
+            </p>
+        </div>
         <section class="lp-extra">
             <h2>Додаткові послуги</h2>
 
@@ -707,9 +714,9 @@
                 <h3 class="footer-h3">МЕНЮ</h3>
                 <ul class="footer-menu">
                     <li class="footer-link"><a href="/../index.html">Головна</a></li>
-                    <li class="footer-link"><a href="./services.html">Послуги</a></li>
+                    <li class="footer-link"><a href="/#services">Послуги</a></li>
                     <li class="footer-link"><a href="projects.html">Проєкти</a></li>
-                    <li class="footer-link"><a href="contacts.html">Ціни</a></li>
+                    <li class="footer-link"><a href="prices.html">Ціни</a></li>
                 </ul>
             </nav>
 
@@ -755,7 +762,7 @@
             </div>
 
             <div class="footer-info">
-                <a class="info-item" href="./src/html/politics-of-confident.html" target="">Політика
+                <a class="info-item" href="/../src/html/politics-of-confident.html" target="">Політика
                     конфіденційності</a>
                 <a href="https://www.figma.com/community/file/1335196687351078757/my-personal-portfolio"
                     target="_blank">
@@ -864,8 +871,8 @@
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
 
-                const rotateX = ((y - centerY) / centerY) * -8; // вверх/вниз
-                const rotateY = ((x - centerX) / centerX) * 8;  // влево/вправо
+                const rotateX = ((y - centerY) / centerY) * -8;
+                const rotateY = ((x - centerX) / centerX) * 8;
 
                 card.style.transform = `
       perspective(1000px)

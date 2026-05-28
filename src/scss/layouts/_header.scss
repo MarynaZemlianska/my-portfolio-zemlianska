@@ -98,7 +98,7 @@
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 100px;
 }
 
 
@@ -492,10 +492,6 @@ body.menu-open::before {
     display: none;
 }
 
-.mobile-lang-switch {
-    display: none;
-}
-
 .lang-switch {
     display: flex;
     align-items: center;
@@ -570,10 +566,7 @@ body.menu-open::before {
 /* MOBILE */
 @media (max-width: 768px) {
 
-    .lang-switch {
-        gap: 6px;
-        padding: 4px;
-    }
+    
 
     .lang-btn {
         padding: 8px 14px;
@@ -639,6 +632,80 @@ body.menu-open::before {
 
 @media (max-width: 1034px) {
 
+    .lang-switch {
+       display: none;
+    }
+
+    .mobile-lang-switch {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+         padding: 6px;
+         margin-bottom: 20px;
+
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 0, 204, 0.18);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 0 20px rgba(255, 0, 204, 0.08),
+        0 0 30px rgba(59, 76, 255, 0.06);
+}
+
+
+.lang-btn {
+    position: relative;
+
+    padding: 7px 12px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* HOVER */
+.lang-btn:hover {
+    color: #fff;
+
+    transform: translateY(-1px);
+
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* ACTIVE */
+.lang-btn.active {
+    color: #fff;
+
+    background: linear-gradient(135deg,
+            #ff00cc,
+            #3b4cff);
+
+    box-shadow:
+        0 0 14px rgba(255, 0, 204, 0.35),
+        0 0 28px rgba(59, 76, 255, 0.22);
+}
+
+
     .burger {
         display: block;
     }
@@ -703,6 +770,8 @@ body.menu-open::before {
 
     .dropdown-menu {
         position: static;
+        display: none;  
+      width: 100%;
 
         margin-top: 12px;
 
@@ -730,6 +799,15 @@ body.menu-open::before {
         max-width: 300px;
 
         margin-top: 20px;
+    }
+      .nav-item {
+        flex-direction: column; 
+        align-items: flex-start;
+    }
+
+    
+    .nav-item.active .dropdown-menu {
+        display: block;
     }
 }
 
@@ -846,11 +924,6 @@ body.menu-open::before {
         min-width: 0;
     }
 
-    .mobile-lang-switch {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
 
     .mobile-menu-top {
         display: flex;

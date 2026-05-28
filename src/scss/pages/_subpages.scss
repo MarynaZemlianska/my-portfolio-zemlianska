@@ -621,13 +621,17 @@
 }
 
 .lp-cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 110px 20px;
     background: radial-gradient(circle at top, rgba(124, 92, 255, 0.25), transparent 60%),
         #0b0b12;
     color: #fff;
     text-align: center;
     position: relative;
-    overflow: hidden;
+  
 
     &::before {
         content: "";
@@ -639,7 +643,7 @@
         height: 500px;
         background: radial-gradient(circle, rgba(139, 108, 255, 0.25), transparent 70%);
         filter: blur(40px);
-        z-index: 0;
+        z-index: -1000;
     }
 
     h2 {
@@ -659,68 +663,6 @@
         position: relative;
         z-index: 1;
     }
-
-    .btn {
-        display: inline-block;
-        padding: 14px 28px;
-        border-radius: 999px;
-
-        background: linear-gradient(135deg, #7c5cff, #b14cff);
-        color: #fff;
-        font-weight: 600;
-        text-decoration: none;
-
-        box-shadow: 0 15px 40px rgba(124, 92, 255, 0.25);
-        transition: 0.3s ease;
-        position: relative;
-        z-index: 1;
-
-        &:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 25px 60px rgba(124, 92, 255, 0.4);
-        }
-
-        &:active {
-            transform: scale(0.96);
-        }
-    }
-}
-
-.price-card .btn,
-.package-card .btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 100%;
-    height: 52px;
-
-    margin-top: 24px;
-    padding: 0 24px;
-
-    border-radius: 14px;
-
-    background: linear-gradient(90deg, #ff00cc, #3b4cff);
-    color: #fff;
-
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        opacity 0.25s ease;
-}
-
-.price-card .btn:hover,
-.package-card .btn:hover {
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 10px 30px rgba(255, 0, 204, 0.35);
-
-    opacity: 0.95;
 }
 
 /* =========================
@@ -1020,4 +962,216 @@
     .package-card .btn {
         width: 100%;
     }
+}
+
+.lp-extra {
+    padding: 90px 20px;
+    background: #0b0b12;
+    color: #fff;
+    text-align: center;
+}
+
+.lp-extra h2 {
+    font-size: 38px;
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+
+.lp-extra .top-description {
+    max-width: 700px;
+    margin: 0 auto 50px;
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.75;
+}
+
+/* GRID */
+.lp-extra-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* CARD */
+.extra-item {
+    position: relative;
+    padding: 20px;
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    text-align: left;
+
+    transition: 0.35s ease;
+    overflow: hidden;
+}
+
+/* hover glow */
+.extra-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
+            rgba(139, 108, 255, 0.18),
+            transparent 60%);
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.extra-item:hover::before {
+    opacity: 1;
+}
+
+.extra-item:hover {
+    transform: translateY(-6px);
+    border-color: rgba(139, 108, 255, 0.35);
+    box-shadow: 0 15px 40px rgba(139, 108, 255, 0.15);
+}
+
+/* TITLE */
+.extra-item .title {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* DESC */
+.extra-item .desc {
+    font-size: 13px;
+    line-height: 1.5;
+    opacity: 0.7;
+}
+
+/* PRICE */
+.extra-item .price {
+    font-size: 13px;
+    font-weight: 600;
+    color: #8b6cff;
+}
+
+/* BUTTON */
+.extra-item .btn {
+    margin-top: 8px;
+    padding: 10px 14px;
+
+    border-radius: 12px;
+    border: 1px solid rgba(139, 108, 255, 0.4);
+    background: transparent;
+
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.extra-item .btn:hover {
+    background: rgba(139, 108, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+/* HIGHLIGHT CARD */
+.extra-item.highlight {
+    background: linear-gradient(135deg, #7c5cff, #b14cff);
+    border: none;
+}
+
+.extra-item.highlight .price {
+    color: #fff;
+}
+
+.extra-item.highlight .btn {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .lp-extra h2 {
+        font-size: 28px;
+    }
+
+    .extra-item {
+        padding: 18px;
+    }
+}
+
+.lp-final-price-note {
+    max-width: 900px;
+    margin: 40px auto 0;
+    padding: 18px 22px;
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(139, 108, 255, 0.2);
+    border-radius: 16px;
+
+    backdrop-filter: blur(10px);
+
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: 0.3s ease;
+}
+
+.lp-final-price-note p {
+    margin: 0;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+}
+
+.lp-final-price-note span {
+    color: #8b6cff;
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+.lp-final-price-note:hover {
+    transform: translateY(-4px);
+    border-color: rgba(139, 108, 255, 0.4);
+    box-shadow: 0 15px 40px rgba(139, 108, 255, 0.15);
+}
+
+.lp-final-price-note {
+    max-width: 900px;
+    margin: 40px auto 0;
+    padding: 18px 22px;
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(139, 108, 255, 0.2);
+    border-radius: 16px;
+
+    backdrop-filter: blur(10px);
+
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: 0.3s ease;
+}
+
+.lp-final-price-note p {
+    margin: 0;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+}
+
+.lp-final-price-note span {
+    color: #8b6cff;
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+.lp-final-price-note:hover {
+    transform: translateY(-4px);
+    border-color: rgba(139, 108, 255, 0.4);
+    box-shadow: 0 15px 40px rgba(139, 108, 255, 0.15);
 }
