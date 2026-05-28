@@ -31,11 +31,11 @@
                         <button class="lang-btn" data-lang-btn="en">EN</button>
                         <button class="lang-btn active" data-lang-btn="ua">UA</button>
                     </div>
-                    <ul>
+                    <ul class="nav-item-links">
                         <li><a class="nav-link" href="index.html" aria-label="View home-page">ГОЛОВНА</a></li>
-                        <li class="nav-item" aria-label="View services">
+                        <li class="nav-item" aria-label="View services and prices">
                             <a class="nav-link nav-link--dropdown" href="#">
-                                <span class="nav-text">ПОСЛУГИ ТА ЦІНИ</span>
+                                ПОСЛУГИ ТА ЦІНИ
                                 <span class="nav-arrow"></span>
                             </a>
                             <ul class="dropdown-menu">
@@ -55,9 +55,52 @@
                                         aria-label="View other-services">Додаткові послуги</a></li>
                             </ul>
                         </li>
-                        <li><a class="nav-link" href="/src/html/prices.html" aria-label="View price">ЦІНИ</a></li>
-                        <li><a class="nav-link" href="/src/html/projects.html" aria-label="View projects">ПРОЄКТИ</a>
+                        <li>
+                            <a class="nav-link" href="/src/html/projects.html" aria-label="View projects">ПРОЄКТИ</a>
                         </li>
+                        <li>
+                            <a class="nav-link link-contacts" href="#contacts" aria-label="View contacts">КОНТАКТИ</a>
+                        </li>
+                            <div class="mobile-contacts">
+
+                                <ul class="contacts-ul mobile-contacts-ul">
+                                    <li>
+                                        <a href="mailto:mv.zemlianska@gmail.com" target="_blank"
+                                            class="icon-footer-link" aria-label="Send email">
+                                            <svg class="icon-footer" viewBox="0 0 24 24">
+                                                <use href="/src/images/sprite.svg#icon-mail"></use>
+                                            </svg>
+                                            mv.zemlianska@gmail.com
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://t.me/zemlianska_dev" target="_blank" class="icon-footer-link"
+                                            aria-label="Telegram contact">
+                                            <svg class="icon-footer" viewBox="0 0 24 24">
+                                                <use href="/src/images/sprite.svg#icon-telegram"></use>
+                                            </svg>
+                                            Telegram
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="viber://chat?number=%2B380637657506" target="_blank"
+                                            class="icon-footer-link" aria-label="Viber chat">
+                                            <svg class="icon-footer" viewBox="0 0 24 24">
+                                                <use href="/src/images/sprite.svg#icon-viber"></use>
+                                            </svg>
+                                            Viber
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="icon-footer-link" aria-label="Schedule">
+                                            <svg class="icon-footer" viewBox="0 0 24 24">
+                                                <use href="/src/images/sprite.svg#icon-clock"></use>
+                                            </svg>
+                                            Робочий графік: Пн–Пт 9:00–18:00
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                     </ul>
                 </nav>
             </div>
@@ -126,10 +169,14 @@
                                     <use href="/src/images/sprite.svg#icon-telegram"></use>
                                 </svg>
                             </a>
-                            <a href="viber://chat?number=%2B380637657506" target="_blank">
+                            <a class="viber-btn" href="viber://chat?number=380637657506"
+                                data-mobile="viber://chat?number=380637657506"
+                                data-desktop="https://invite.viber.com/?number=380637657506" target="_blank">
+
                                 <svg class="icon" width="50" height="65">
                                     <use href="/src/images/sprite.svg#icon-viber"></use>
                                 </svg>
+
                             </a>
                             <a href="mailto:mv.zemlianska@gmail.com" target="_blank">
                                 <svg class="icon" width="50px" height="65px">
@@ -1014,7 +1061,7 @@
 
     </main>
     <footer class="footer">
-        <div class="footer-container">
+        <div class="footer-container" id="contacts">
             <div class="footer-logo-item">
                 <a href="index.html" class="footer-logo">
                     <span class="footer-logo-icon">W</span>
@@ -1032,7 +1079,6 @@
                     <li class="footer-link"><a href="index.html">Головна</a></li>
                     <li class="footer-link"><a href="#services">Послуги та ціни</a></li>
                     <li class="footer-link"><a href="/src/html/projects.html">Проєкти</a></li>
-                    <li class="footer-link"><a href="/src/html/prices.html">Ціни</a></li>
                 </ul>
             </nav>
 

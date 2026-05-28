@@ -49,6 +49,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin: 0 20px;
 }
 
 .projects-hero .projects-top-container {
@@ -56,6 +57,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin: 0 20px;
 }
 
 
@@ -576,6 +578,11 @@
 /* ================= SMALL ================= */
 
 @media (max-width: 488px) {
+
+    .projects-first-top-container {
+    margin: 0 20px;
+}
+
 
     .title-projects {
         font-size: 50px;

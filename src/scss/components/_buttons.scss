@@ -44,3 +44,10 @@
 
     opacity: 0.95;
 }
+
+@media (max-width: 767px) {
+    .container-btn{
+    width: 240px;
+}
+
+}

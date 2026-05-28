@@ -164,21 +164,39 @@ whyCards.forEach(card => {
             if (item) item.classList.toggle("active");
         });
     });
+// ================= SLIDER =================
 
-    // ================= SLIDER =================
-    const slider = document.querySelector(".testimonials-slider");
-    const nextBtn = document.querySelector(".slider-next");
-    const prevBtn = document.querySelector(".slider-prev");
+const slider = document.querySelector(".testimonials-slider");
+const nextBtn = document.querySelector(".slider-next");
+const prevBtn = document.querySelector(".slider-prev");
 
-    if (slider && nextBtn && prevBtn) {
-        nextBtn.addEventListener("click", () => {
-            slider.scrollBy({ left: slider.offsetWidth, behavior: "smooth" });
+if (slider && nextBtn && prevBtn) {
+
+    const getCardWidth = () => {
+
+        const card = slider.querySelector(".testimonial-card");
+
+        const gap = window.innerWidth <= 600 ? 16 : 20;
+
+        return card.offsetWidth + gap;
+    };
+
+    nextBtn.addEventListener("click", () => {
+
+        slider.scrollBy({
+            left: getCardWidth(),
+            behavior: "smooth"
         });
+    });
 
-        prevBtn.addEventListener("click", () => {
-            slider.scrollBy({ left: -slider.offsetWidth, behavior: "smooth" });
+    prevBtn.addEventListener("click", () => {
+
+        slider.scrollBy({
+            left: -getCardWidth(),
+            behavior: "smooth"
         });
-    }
+    });
+}
 
     // ================= TO TOP BUTTON =================
     if (toTopBtn) {

@@ -98,7 +98,7 @@
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 100px;
+    gap: 50px;
 }
 
 
@@ -286,11 +286,12 @@ ul {
 
 /* ================= DROPDOWN ================= */
 
+
 .nav-item {
     position: relative;
 
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 7px;
 }
 
@@ -631,6 +632,13 @@ body.menu-open::before {
 /* ================= TABLET ================= */
 
 @media (max-width: 1034px) {
+
+    .nav-item-links{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+}
 
     .lang-switch {
        display: none;
