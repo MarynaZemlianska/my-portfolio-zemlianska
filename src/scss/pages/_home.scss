@@ -1005,6 +1005,11 @@ font-size: 90px;
 
 
 
+    .stat-bar span {
+        width: 100% !important;
+        transition: none !important;
+    }
+    
     .list-steps {
         padding-left: 13px;
 

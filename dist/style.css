@@ -2056,6 +2056,10 @@ body.menu-open::before {
   }
 }
 @media (max-width: 768px) {
+  .stat-bar span {
+    width: 100% !important;
+    transition: none !important;
+  }
   .list-steps {
     padding-left: 13px;
   }
