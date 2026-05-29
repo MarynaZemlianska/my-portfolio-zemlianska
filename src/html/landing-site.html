@@ -32,11 +32,11 @@
                         <button class="lang-btn" data-lang-btn="en">EN</button>
                         <button class="lang-btn active" data-lang-btn="ua">UA</button>
                     </div>
-                    <ul>
+                    <ul class="nav-item-links">
                         <li><a class="nav-link" href="/../index.html" aria-label="View home-page">ГОЛОВНА</a></li>
-                        <li class="nav-item" aria-label="View services">
+                        <li class="nav-item" aria-label="View services and prices">
                             <a class="nav-link nav-link--dropdown" href="#">
-                                <span class="nav-text">ПОСЛУГИ</span>
+                                <span class="nav-text">ПОСЛУГИ ТА ЦІНИ</span>
                                 <span class="nav-arrow"></span>
                             </a>
                             <ul class="dropdown-menu">
@@ -51,9 +51,48 @@
                                 <li><a href="other-services.html" aria-label="View other-services">Додаткові послуги</a></li>
                             </ul>
                         </li>
-                        <li><a class="nav-link" href="projects.html" aria-label="View price">ЦІНИ</a></li>
                         <li><a class="nav-link" href="projects.html" aria-label="View projects">ПРОЄКТИ</a></li>
-                        <li><a class="nav-link" href="contacts.html" aria-label="View contacts">КОНТАКТИ</a></li>
+                        <li>
+                            <a class="nav-link link-contacts" href="#contacts" aria-label="View contacts">КОНТАКТИ</a>
+                        </li>
+                        <div class="mobile-contacts">
+
+                            <ul class="contacts-ul mobile-contacts-ul">
+                                <li>
+                                    <a href="mailto:mv.zemlianska@gmail.com" target="_blank" class="icon-footer-link"
+                                        aria-label="Send email">
+                                        <svg class="icon-footer" viewBox="0 0 24 24">
+                                            <use href="/src/images/sprite.svg#icon-mail"></use>
+                                        </svg>
+                                        mv.zemlianska@gmail.com
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://t.me/zemlianska_dev" target="_blank" class="icon-footer-link"
+                                        aria-label="Telegram contact">
+                                        <svg class="icon-footer" viewBox="0 0 24 24">
+                                            <use href="/src/images/sprite.svg#icon-telegram"></use>
+                                        </svg>
+                                        Telegram
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="viber://chat?number=%2B380637657506" target="_blank"
+                                        class="icon-footer-link" aria-label="Viber chat">
+                                        <svg class="icon-footer" viewBox="0 0 24 24">
+                                            <use href="/src/images/sprite.svg#icon-viber"></use>
+                                        </svg>
+                                        Viber
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="icon-footer-link" aria-label="Schedule">
+                                        <svg class="icon-footer" viewBox="0 0 24 24">
+                                            <use href="/src/images/sprite.svg#icon-clock"></use>
+                                        </svg>
+                                        Робочий графік: Пн–Пт 9:00–18:00
+                                    </a>
+                                </li>
                     </ul>
                 </nav>
             </div>
@@ -400,7 +439,7 @@
                         <li>Оптимізація швидкості завантаження</li>
                         <li>Підключення соцмереж</li>
                     </ul>
-                    <buttontype="button" class="btn open-modal">
+                    <button type="button" class="btn open-modal">
                         Замовити
                         </button>
                         <span class="tag">Для старту</span>
@@ -784,46 +823,36 @@
         <li></li>
         <li></li>
     </ul>
-    <!-- Modal -->
+   <!-- Modal -->
     <div class="modal is-hidden" id="consultationModal">
+
         <div class="modal-content">
+
             <span class="modal-close" id="modalClose">&times;</span>
+
             <h2>Безкоштовна консультація</h2>
-            <p>Заповніть форму нижче, і ми зв’яжемося з вами найближчим часом.</p>
+            <p>Заповніть форму нижче, і я зв'яжусь з вами найближчим часом.</p>
 
             <form id="consultationForm">
-                <input type="text" id="name" name="name" placeholder="Ім’я" required>
-                <input type="email" id="email" name="email" placeholder="Email" required>
-                <textarea id="message" name="message" placeholder="Повідомлення" rows="4" required></textarea>
-                <button type="submit">Надіслати</button>
-            </form>
 
-            <div id="successMessage" class="success-message">Ваше повідомлення успішно надіслано!</div>
-
-        </div>
-    </div>
-
-    <!-- MOBILE MODAL -->
-    <div class="modal is-hidden" id="mobileConsultationModal">
-
-        <div class="modal-content">
-            <span class="modal-close" id="mobileModalClose">&times;</span>
-
-            <h2>Безкоштовна консультація</h2>
-            <p>Заповніть форму нижче, і ми зв’яжемося з вами найближчим часом.</p>
-
-            <form id="mobileConsultationForm">
                 <input type="text" name="name" placeholder="Ім’я" required>
+
                 <input type="email" name="email" placeholder="Email" required>
+
+                <input type="tel" name="phone" placeholder="Телефон (+...)" required>
+
                 <textarea name="message" placeholder="Повідомлення" rows="4" required></textarea>
+
                 <button type="submit">Надіслати</button>
+
             </form>
 
-            <div class="success-message" id="mobileSuccessMessage">
+            <div id="successMessage" class="success-message">
                 Ваше повідомлення успішно надіслано!
             </div>
-            <div class="error-message" id="errorMessage">
-                Сталася помилка. Спробуйте ще раз.
+
+            <div id="errorMessage" class="success-message">
+                Сталася помилка! Спробуйте ще.
             </div>
 
         </div>

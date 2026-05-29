@@ -3,6 +3,7 @@
 .section-services {
     position: relative;
     overflow: visible;
+    margin: 0 20px;
 }
 
 
@@ -49,7 +50,6 @@
     opacity: 0.7;
 
 }
-
 
 .title-services,
 .service-card {
@@ -145,7 +145,7 @@
     color: #fff;
 }
 
-/* ВНУТРЕННЯЯ КАРТОЧКА */
+
 .service-card-inner {
     position: relative;
     width: 100%;
@@ -300,7 +300,7 @@
     position: relative;
 }
 
-/* ===== СТРЕЛКА ===== */
+
 .service-link {
     position: absolute;
 
@@ -325,34 +325,29 @@
         background 0.3s ease,
         border-color 0.3s ease;
 }
-/* СТРЕЛКА */
+
+
 .service-link::before,
 .service-link::after {
     content: "";
     position: absolute;
-}
-
-.service-link::before {
-    width: 14px;
-    height: 14px;
-
+    width: 10px;
+    height: 10px;
     border-top: 2px solid #7c66ff;
     border-right: 2px solid #7c66ff;
 
-    transform: rotate(45deg);
+    transform: rotate(-5deg);
+}
 
-    top: 17px;
-    left: 16px;
+
+.service-link::before {
+    top: 20px;
+    left: 22px;
 }
 
 .service-link::after {
-    width: 18px;
-    height: 2px;
-
-    background: #7c66ff;
-
-    top: 24px;
-    left: 13px;
+    top: 26px;
+    left: 17px;
 }
 
 /* HOVER */
@@ -363,7 +358,6 @@
 
     border-color: #7c66ff;
 }
-
 
 /* =========================
    ≤ 1200px
