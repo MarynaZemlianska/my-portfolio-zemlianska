@@ -2057,7 +2057,7 @@ body.menu-open::before {
 }
 @media (max-width: 768px) {
   .top-actions,
-  .top-right-a,
+  .top-right a,
   .button-mobile2 {
     opacity: 1 !important;
     transform: none !important;
