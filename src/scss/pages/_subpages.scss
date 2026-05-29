@@ -319,7 +319,6 @@
     transform: translateY(-50%);
 
     color: var(--color-brand-light);
-    text-shadow: 0 0 10px rgba(250, 0, 255, 0.4);
 }
 
 .lp-includes li:hover {
@@ -341,19 +340,19 @@
     width: 100%;
 
     background: rgba(250, 0, 255, 0.06);
-    border: 1px solid rgba(250, 0, 255, 0.15);
+    border: 1px solid rgb(250 0 255);
 
     border-radius: 999px;
 }
 
 .lp-pricing {
-    padding: 80px 20px;
+    padding: 50px 20px;
     text-align: center;
     background: #0f0f17;
     color: #fff;
 
     h2 {
-        font-size: 36px;
+        font-size: 60px;
         margin-bottom: 50px;
         font-weight: 700;
         letter-spacing: 1px;
@@ -440,7 +439,7 @@
     text-align: center;
 
     h2 {
-        font-size: 38px;
+        font-size: 60px;
         margin-bottom: 60px;
         font-weight: 700;
     }
@@ -626,9 +625,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 110px 20px;
-    background: radial-gradient(circle at top, rgba(124, 92, 255, 0.25), transparent 60%),
-        #0b0b12;
+    padding: 50px 30px;
+    background: radial-gradient(circle at top, rgb(220 70 255 / 64%), transparent 60%), #0b0b12;
     color: #fff;
     text-align: center;
     position: relative;
@@ -671,6 +669,15 @@
 ========================= */
 @media (max-width: 1400px) {
 
+    .lp-for h2,
+    .lp-includes h2,
+    .lp-packages h2,
+    .lp-extra h2,
+    .lp-pricing h2,
+    .lp-cta h2 {
+        font-size: 50px;
+    }
+
     .lp-packages .lp-package-grid,
     .lp-pricing .lp-price-grid {
         gap: 24px;
@@ -703,7 +710,7 @@
     .lp-extra h2,
     .lp-pricing h2,
     .lp-cta h2 {
-        font-size: 32px;
+        font-size: 45px;
     }
 
     .lp-grid {
@@ -715,6 +722,8 @@
         gap: 20px;
     }
 }
+
+
 
 /* =========================
    TABLET
@@ -810,7 +819,7 @@
     .lp-packages h2,
     .lp-extra h2,
     .lp-cta h2 {
-        font-size: 28px;
+        font-size: 40px;
         margin-bottom: 50px;
     }
 
@@ -903,14 +912,7 @@
         font-size: 13px;
     }
 
-    .lp-for h2,
-    .lp-includes h2,
-    .lp-pricing h2,
-    .lp-packages h2,
-    .lp-extra h2,
-    .lp-cta h2 {
-        font-size: 24px;
-    }
+
 
     .lp-card {
         min-height: auto;
@@ -1095,9 +1097,7 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-    .lp-extra h2 {
-        font-size: 30px;
-    }
+
 
     .extra-item {
         padding: 18px;
@@ -1106,10 +1106,9 @@
 
 .lp-final-price-note {
     max-width: 900px;
-    margin: 40px auto 0;
+
     padding: 18px 22px;
 
-    background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(139, 108, 255, 0.2);
     border-radius: 16px;
 
@@ -1132,48 +1131,6 @@
     color: #8b6cff;
     font-weight: 700;
     margin-right: 6px;
-}
-
-.lp-final-price-note:hover {
-    transform: translateY(-4px);
-    border-color: rgba(139, 108, 255, 0.4);
-    box-shadow: 0 15px 40px rgba(139, 108, 255, 0.15);
-}
-
-.lp-final-price-note {
-    max-width: 900px;
-    margin: 40px auto 0;
-    padding: 18px 22px;
-
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(139, 108, 255, 0.2);
-    border-radius: 16px;
-
-    backdrop-filter: blur(10px);
-
-    text-align: center;
-
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    transition: 0.3s ease;
-}
-
-.lp-final-price-note p {
-    margin: 0;
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.75);
-    line-height: 1.6;
-}
-
-.lp-final-price-note span {
-    color: #8b6cff;
-    font-weight: 700;
-    margin-right: 6px;
-}
-
-.lp-final-price-note:hover {
-    transform: translateY(-4px);
-    border-color: rgba(139, 108, 255, 0.4);
-    box-shadow: 0 15px 40px rgba(139, 108, 255, 0.15);
 }
 
 

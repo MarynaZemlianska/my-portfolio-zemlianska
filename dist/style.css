@@ -1469,8 +1469,7 @@ body.menu-open::before {
 
 .top-actions {
   position: relative;
-  margin-bottom: 20px;
-  margin-left: 20px;
+  margin: 0 0 20px 20px;
 }
 
 .button-mobile2 {
@@ -1630,7 +1629,7 @@ body.menu-open::before {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin: 0 0 0 20px;
   }
 }
 @media (max-width: 991px) {
@@ -2069,7 +2068,7 @@ body.menu-open::before {
     height: 40px;
   }
   .section-steps {
-    padding: 80px 0;
+    padding: 50px 0;
   }
   .container-steps {
     max-width: 100%;
@@ -3770,7 +3769,7 @@ body.menu-open::before {
 ========================================= */
 @media (max-width: 992px) {
   .section-contacts {
-    padding: 120px 20px;
+    padding: 100px 20px;
   }
   .form {
     padding: 40px;
@@ -3788,7 +3787,7 @@ body.menu-open::before {
 ========================================= */
 @media (max-width: 768px) {
   .section-contacts {
-    padding: 100px 20px;
+    padding: 80px 20px;
     gap: 40px;
   }
   .contacts-title {
@@ -3836,7 +3835,7 @@ body.menu-open::before {
 ========================================= */
 @media (max-width: 480px) {
   .section-contacts {
-    padding: 80px 16px;
+    padding: 60px 16px;
   }
   .contacts-title {
     font-size: 35px;
@@ -4866,10 +4865,28 @@ body.menu-open::before {
   line-height: 1.7;
 }
 
+.policy-container ol,
+.policy-container ul {
+  width: 100%;
+  padding-left: 24px;
+  margin: 0 0 20px 0;
+  list-style-position: outside;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.policy-container li {
+  margin-bottom: 12px;
+  padding-left: 6px;
+  line-height: 1.7;
+}
+
 .animate-on-scroll {
   opacity: 1 !important;
   transform: none !important;
   filter: none !important;
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 .policy-container .animate-on-scroll {
@@ -4919,9 +4936,9 @@ body.menu-open::before {
   color: transparent;
 }
 
-.policy-title {
-  color: #FA00FF;
-  font-size: 2.5rem;
+.top-container-h1-policy {
+  color: #fff;
+  font-size: 60px;
   margin-bottom: 24px;
 }
 
@@ -4952,13 +4969,30 @@ body.menu-open::before {
   text-decoration: underline;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
+  .top-container-h1-policy {
+    font-size: 50px;
+  }
+}
+@media (max-width: 768px) {
   .policy-container {
     padding: 20px 15px;
     margin: 0 30px;
   }
-  .policy-title {
-    font-size: 2rem;
+  .top-container-h1-policy {
+    font-size: 40px;
+  }
+  .policy-subtitle {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .policy-container {
+    padding: 20px 15px;
+    margin: 0 30px;
+  }
+  .top-container-h1-policy {
+    font-size: 30px;
   }
   .policy-subtitle {
     font-size: 1.5rem;
@@ -5233,7 +5267,6 @@ body.menu-open::before {
   top: 50%;
   transform: translateY(-50%);
   color: var(--color-brand-light);
-  text-shadow: 0 0 10px rgba(250, 0, 255, 0.4);
 }
 
 .lp-includes li:hover {
@@ -5251,18 +5284,18 @@ body.menu-open::before {
   display: inline-block;
   width: 100%;
   background: rgba(250, 0, 255, 0.06);
-  border: 1px solid rgba(250, 0, 255, 0.15);
+  border: 1px solid rgb(250, 0, 255);
   border-radius: 999px;
 }
 
 .lp-pricing {
-  padding: 80px 20px;
+  padding: 50px 20px;
   text-align: center;
   background: #0f0f17;
   color: #fff;
 }
 .lp-pricing h2 {
-  font-size: 36px;
+  font-size: 60px;
   margin-bottom: 50px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -5338,7 +5371,7 @@ body.menu-open::before {
   text-align: center;
 }
 .lp-packages h2 {
-  font-size: 38px;
+  font-size: 60px;
   margin-bottom: 60px;
   font-weight: 700;
 }
@@ -5494,8 +5527,8 @@ body.menu-open::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 110px 20px;
-  background: radial-gradient(circle at top, rgba(124, 92, 255, 0.25), transparent 60%), #0b0b12;
+  padding: 50px 30px;
+  background: radial-gradient(circle at top, rgba(220, 70, 255, 0.64), transparent 60%), #0b0b12;
   color: #fff;
   text-align: center;
   position: relative;
@@ -5533,6 +5566,14 @@ body.menu-open::before {
    LARGE DESKTOP
 ========================= */
 @media (max-width: 1400px) {
+  .lp-for h2,
+  .lp-includes h2,
+  .lp-packages h2,
+  .lp-extra h2,
+  .lp-pricing h2,
+  .lp-cta h2 {
+    font-size: 50px;
+  }
   .lp-packages .lp-package-grid,
   .lp-pricing .lp-price-grid {
     gap: 24px;
@@ -5560,7 +5601,7 @@ body.menu-open::before {
   .lp-extra h2,
   .lp-pricing h2,
   .lp-cta h2 {
-    font-size: 32px;
+    font-size: 45px;
   }
   .lp-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -5647,7 +5688,7 @@ body.menu-open::before {
   .lp-packages h2,
   .lp-extra h2,
   .lp-cta h2 {
-    font-size: 28px;
+    font-size: 40px;
     margin-bottom: 50px;
   }
   .lp-card {
@@ -5720,14 +5761,6 @@ body.menu-open::before {
   }
   .top-description {
     font-size: 13px;
-  }
-  .lp-for h2,
-  .lp-includes h2,
-  .lp-pricing h2,
-  .lp-packages h2,
-  .lp-extra h2,
-  .lp-cta h2 {
-    font-size: 24px;
   }
   .lp-card {
     min-height: auto;
@@ -5892,18 +5925,13 @@ body.menu-open::before {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .lp-extra h2 {
-    font-size: 30px;
-  }
   .extra-item {
     padding: 18px;
   }
 }
 .lp-final-price-note {
   max-width: 900px;
-  margin: 40px auto 0;
   padding: 18px 22px;
-  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(139, 108, 255, 0.2);
   border-radius: 16px;
   backdrop-filter: blur(10px);
@@ -5923,44 +5951,6 @@ body.menu-open::before {
   color: #8b6cff;
   font-weight: 700;
   margin-right: 6px;
-}
-
-.lp-final-price-note:hover {
-  transform: translateY(-4px);
-  border-color: rgba(139, 108, 255, 0.4);
-  box-shadow: 0 15px 40px rgba(139, 108, 255, 0.15);
-}
-
-.lp-final-price-note {
-  max-width: 900px;
-  margin: 40px auto 0;
-  padding: 18px 22px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(139, 108, 255, 0.2);
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  transition: 0.3s ease;
-}
-
-.lp-final-price-note p {
-  margin: 0;
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.75);
-  line-height: 1.6;
-}
-
-.lp-final-price-note span {
-  color: #8b6cff;
-  font-weight: 700;
-  margin-right: 6px;
-}
-
-.lp-final-price-note:hover {
-  transform: translateY(-4px);
-  border-color: rgba(139, 108, 255, 0.4);
-  box-shadow: 0 15px 40px rgba(139, 108, 255, 0.15);
 }
 
 /* RESPONSIVE */
