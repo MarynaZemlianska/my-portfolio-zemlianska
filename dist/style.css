@@ -2570,6 +2570,44 @@ body.menu-open::before {
 }
 /* ================= TABLET ================= */
 @media (max-width: 768px) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .header-gradient,
+  .steps-gradient,
+  .why-gradient,
+  .top-right-gradient {
+    filter: blur(35px);
+    opacity: 0.65;
+  }
+  .nav-container,
+  .why-card,
+  .quote-container,
+  .lang-switch,
+  .mobile-lang-switch,
+  .nav,
+  .modal-content {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .logo-icon,
+  .logo-title,
+  .button-contact {
+    animation: none !important;
+    background-size: 100% 100%;
+  }
+  .why-card,
+  .quote-container,
+  .button-contact,
+  .lang-switch {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  }
+  .nav-container {
+    background: rgba(15, 15, 15, 0.92);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
   .section-faq {
     padding: 0 16px 32px;
   }
