@@ -1263,7 +1263,7 @@ body.menu-open::before {
 }
 /* ================= HEADER HEIGHT ================= */
 :root {
-  --header-height: 90px;
+  --header-height:120px;
 }
 
 @media (max-width: 991px) {
@@ -1318,6 +1318,7 @@ body.menu-open::before {
   flex-direction: column;
   gap: 40px;
   color: #fff;
+  max-width: 600px;
 }
 
 .top-block-items {
@@ -1331,8 +1332,12 @@ body.menu-open::before {
   line-height: 1.2;
   word-break: normal;
   overflow-wrap: normal;
-  font-size: 70px;
+  font-size: 60px;
   color: #fff;
+}
+
+.top-container-h1-home {
+  font-size: 90px;
 }
 
 .hero-subtitle {
@@ -1356,7 +1361,7 @@ body.menu-open::before {
 
 .line {
   width: 2px;
-  height: clamp(90px, 10vw, 150px);
+  height: clamp(150px, 10vw, 300px);
   background: linear-gradient(180deg, #ff00cc, #3b4cff, #00d4ff, #ff00cc);
   background-size: 300% 300%;
   animation: lineGradient 5s linear infinite;
@@ -1465,6 +1470,7 @@ body.menu-open::before {
 .top-actions {
   position: relative;
   margin-bottom: 20px;
+  margin-left: 20px;
 }
 
 .button-mobile2 {
@@ -2574,6 +2580,11 @@ body.menu-open::before {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
   }
+  .top-image {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
   .header-gradient,
   .steps-gradient,
   .why-gradient,
@@ -3088,7 +3099,7 @@ body.menu-open::before {
 .to-top-btn {
   position: fixed;
   right: 20px;
-  bottom: 15px;
+  bottom: 40px;
   width: 52px;
   height: 52px;
   display: flex;
@@ -3945,6 +3956,9 @@ body.menu-open::before {
   align-items: center;
   margin: 20px;
   font-size: 90px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .title-projects {
@@ -3991,17 +4005,6 @@ body.menu-open::before {
   transform: scale(1.15);
   box-shadow: 0 0 14px rgba(124, 102, 255, 0.7), 0 0 30px rgba(124, 102, 255, 0.45);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.container-projects-title {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.section-projects.visible .container-projects-title {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* ================= GRID ================= */
@@ -5961,12 +5964,12 @@ body.menu-open::before {
 }
 
 /* RESPONSIVE */
-@media (max-width: 460px) {
+@media (max-width: 520px) {
   .top-corporate-h1 {
-    font-size: 50px;
+    font-size: 40px;
   }
   .first-top-container-corporate {
-    margin: 0 20px;
+    margin: 0 30px;
   }
 }
 /* RESPONSIVE */
@@ -5984,7 +5987,7 @@ body.menu-open::before {
 /* RESPONSIVE */
 @media (max-width: 386px) {
   .top-container-h1-personal {
-    font-size: 40px;
+    font-size: 25px;
   }
 }
 html,

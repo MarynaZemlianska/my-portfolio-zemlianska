@@ -1,6 +1,6 @@
 /* ================= HEADER HEIGHT ================= */
 :root {
-    --header-height: 90px;
+    --header-height:120px;
 }
 
 @media (max-width: 991px) {
@@ -64,8 +64,7 @@
     flex-direction: column;
     gap: 40px;
     color: #fff;
-
-    
+    max-width: 600px;
 }
 
 .top-block-items {
@@ -80,8 +79,12 @@
     line-height: 1.2;
     word-break: normal;
     overflow-wrap: normal;
-    font-size: 70px;
+    font-size: 60px;
     color: #fff;
+}
+
+.top-container-h1-home{
+font-size: 90px;
 }
 
 .hero-subtitle {
@@ -106,7 +109,7 @@
 
 .line {
     width: 2px;
-    height: clamp(90px, 10vw, 150px);
+    height: clamp(150px, 10vw, 300px);
 
     background: linear-gradient(180deg,
             #ff00cc,
@@ -235,6 +238,7 @@
 .top-actions {
     position: relative;
     margin-bottom: 20px;
+    margin-left: 20px;
 
 }
 
@@ -1728,6 +1732,12 @@
         animation-iteration-count: 1 !important;
     }
 
+        .top-image {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
 
     .header-gradient,
     .steps-gradient,
@@ -2422,7 +2432,7 @@
 .to-top-btn {
     position: fixed;
     right: 20px;
-    bottom: 15px;
+    bottom: 40px;
 
     width: 52px;
     height: 52px;
