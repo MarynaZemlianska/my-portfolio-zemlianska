@@ -109,7 +109,7 @@
 
 .line {
     width: 2px;
-    height: clamp(150px, 10vw, 300px);
+    height: clamp(130px, 10vw, 200px);
 
     background: linear-gradient(180deg,
             #ff00cc,
@@ -127,6 +127,10 @@
         0 0 20px rgba(59, 76, 255, 0.2);
 }
 
+.line-home {
+    height: clamp(90px, 20vw, 130px);
+}
+
 /* animation */
 @keyframes lineGradient {
 
@@ -141,7 +145,7 @@
 
 .items-text {
     font-family: 'Inter', sans-serif;
-    font-size: 19px;
+    font-size: 20px;
     line-height: 1.4;
     color: #fff;
 
@@ -331,16 +335,14 @@
 @media (max-width: 1180px) {
 
 
-    .top-container-h1 {
+    .h1-small {
 
         font-size: 60px;
 
     }
 
-    .h1-small {
-
-        font-size: 60px;
-
+     .items-text {
+        font-size: 18px;
     }
 }
 
@@ -413,7 +415,6 @@
     .top-container-h1 {
         text-align: left;
         max-width: 700px;
-        font-size: 60px;
         margin-top: 30px;
     }
 
@@ -506,10 +507,8 @@
         margin-top: 20px;
     }
 
-    .top-container-h1 {
-        font-size: 60px;
-        margin-top: 20px;
-
+   .top-container-h1 {
+        font-size: 55px;
     }
 
     .top-container {
@@ -544,12 +543,9 @@
 
 @media (max-width: 481px) {
 
-    .top-container-h1 {
-        font-size: 55px;
-    }
 
     .items-text {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .top-center img {
@@ -580,9 +576,6 @@
         min-width: 0;
     }
 
-    .top-container-h1 {
-        font-size: 40px;
-    }
 
     .h1-small {
 
@@ -592,14 +585,16 @@
 
 
     .items-text {
-        font-size: 11px;
+        font-size: 12px;
     }
 
 }
 
 .section-stats {
-    margin-top: 100px;
-    z-index: 20007;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
     color: #fff;
     font-family: 'Inter', sans-serif;
 }
@@ -609,7 +604,7 @@
     justify-content: space-around;
     gap: 40px;
     max-width: 1200px;
-    margin: 20px auto 0;
+    margin: 0 20px;
     flex-wrap: wrap;
     text-align: center;
     z-index: 10000;
@@ -952,10 +947,7 @@
         z-index: 2007;
     }
 
-    .section-stats {
-        margin-top: 80px;
-    }
-
+   
     .container-steps {
         max-width: 760px;
         gap: 40px;
@@ -1936,11 +1928,11 @@
 
 .section-testimonials {
     text-align: center;
-    padding: 70px 20px;
+    padding: 40px 20px;
 }
 
 .section-title-testi {
-    font-size: 50px;
+    font-size: 60px;
     margin-bottom: 40px;
 }
 
@@ -2140,7 +2132,7 @@
 
     color: #fff;
 
-    font-size: 22px;
+    font-size: 16px;
 
     cursor: pointer;
 
@@ -2168,7 +2160,7 @@
 @media (max-width: 992px) {
 
     .section-title-testi {
-        font-size: 42px;
+        font-size: 60px;
     }
 
 
@@ -2203,7 +2195,7 @@
     }
 
     .section-title-testi {
-        font-size: 36px !important;
+        font-size: 45px !important;
         margin-bottom: 24px;
     }
 
@@ -2238,7 +2230,7 @@
 @media (max-width: 420px) {
 
     .section-title-testi {
-        font-size: 30px !important;
+        font-size: 40px !important;
     }
 
     .testimonials-wrapper {

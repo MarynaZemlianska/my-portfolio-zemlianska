@@ -3,7 +3,7 @@
 .section-services {
     position: relative;
     overflow: visible;
-    margin: 0 20px;
+    margin: 0 40px;
 }
 
 
@@ -27,7 +27,7 @@
     overflow: visible;
     margin: 20px 10px 20px 20px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 100px;
+    font-size: 90px;
     font-weight: 700;
     letter-spacing: 6px;
     color: #fff;
@@ -256,7 +256,7 @@
 
 .container-dots {
     position: absolute;
-    top: 0;
+    top: 25%;
     left: 20%;
 
     display: grid;
@@ -305,16 +305,11 @@
     position: absolute;
 
     top: 0;
-    right: 0;
+    right: 30px;
 
-    width: 52px;
-    height: 52px;
+    background: transparent;
 
-    border-radius: 50%;
-
-    background: rgba(20, 20, 30, 0.95);
-
-    border: 1px solid rgba(124, 102, 255, 0.4);
+    border: none;
 
     backdrop-filter: blur(12px);
 
@@ -331,18 +326,18 @@
 .service-link::after {
     content: "";
     position: absolute;
-    width: 10px;
-    height: 10px;
-    border-top: 2px solid #7c66ff;
-    border-right: 2px solid #7c66ff;
+    width: 15px;
+    height: 15px;
+    border-top: 2px solid var(--color-brand-light);
+    border-right: 2px solid var(--color-brand-light);
 
     transform: rotate(-5deg);
 }
 
 
 .service-link::before {
-    top: 20px;
-    left: 22px;
+    top: 19px;
+    left: 23px;
 }
 
 .service-link::after {
@@ -402,6 +397,12 @@
         font-size: 16px;
     }
 
+    .title-services::after {
+        display: none;
+
+    }
+
+
     .container-services-cards {
         gap: 22px;
     }
@@ -437,15 +438,8 @@
     }
 
     .title-services {
-        font-size: 70px;
+        font-size: 60px;
         letter-spacing: 3px;
-    }
-
-    .title-services::after {
-        right: -30px;
-        top: 30px;
-        font-size: 56px;
-
     }
 
     .services-subtitle {
@@ -513,6 +507,15 @@
 
         margin: 0 auto;
     }
+
+    .service-link::before,
+    .service-link::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+       
+    }
 }
 
 
@@ -561,6 +564,15 @@
         width: 140px;
         gap: 14px;
         opacity: 0.25;
+    }
+
+       .service-link::before,
+    .service-link::after {
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 15px;
+       
     }
 }
 
