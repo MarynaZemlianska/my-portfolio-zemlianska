@@ -311,21 +311,16 @@
     transition: 0.3s ease;
 }
 
-.lp-includes li::before {
-    content: "✔";
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-
-    color: var(--color-brand-light);
+.lp-includes li {
+    &::before {
+        content: "✓";
+        position: absolute;
+        left: 20px;
+        color: #8b6cff;
+        font-weight: bold;
+    }
 }
 
-.lp-includes li:hover {
-    transform: translateY(-3px);
-    border-color: rgba(250, 0, 255, 0.25);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-}
 
 .lp-includes p {
     margin-top: 30px;
@@ -1165,6 +1160,6 @@
 @media (max-width: 386px) {
 
     .top-container-h1-personal {
-        font-size: 25px;
+        font-size: 40px;
     }
 }

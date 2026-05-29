@@ -335,15 +335,20 @@
     }
 }
 
+@media (max-width: 380px) {
+
+
+    .about-title {
+        font-size: 45px;
+    }
+
+}
+
 @media (max-width: 360px) {
 
     .about-title-wrap {
         margin-top: 30px;
 
-    }
-
-    .about-title {
-        font-size: 50px;
     }
 
     .text-items p {

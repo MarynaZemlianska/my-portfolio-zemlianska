@@ -514,7 +514,7 @@
         position: absolute;
         width: 20px;
         height: 20px;
-       
+
     }
 }
 
@@ -523,6 +523,11 @@
    ≤ 480px (MOBILE)
 ========================= */
 @media (max-width: 480px) {
+
+    .section-services {
+
+        margin: 0 20px;
+    }
 
     .title-services {
         font-size: 50px;
@@ -566,13 +571,13 @@
         opacity: 0.25;
     }
 
-       .service-link::before,
+    .service-link::before,
     .service-link::after {
         content: "";
         position: absolute;
         width: 15px;
         height: 15px;
-       
+
     }
 }
 
