@@ -1000,7 +1000,7 @@
                     <a href="/src/html/politics-of-confident.html" target="">я погоджуюсь із політикою
                         конфіденційності.</a>
                 </p>
-                <div class="success-message" id="successMessage">
+                <div id="toast" class="toast">
                     Дякую! Ваша заявка успішно відправлена.<br>
                     Я зв'яжуся з вами найближчим часом.
                 </div>
@@ -1152,22 +1152,23 @@
 
             <form id="consultationForm">
 
-                <input type="text" name="name" placeholder="Ім’я" required>
+                <input type="text" name="name" placeholder="Введіть ваше ім’я" required>
 
-                <input type="tel" name="phone" placeholder="Телефон (+...)" required>
+                <input type="tel" name="phone" placeholder="Введіть ваш телфон" required>
 
-                <textarea name="message" placeholder="Повідомлення" rows="4" required></textarea>
+                <textarea name="message" placeholder="Введіть ваше повідомленя" rows="4" required></textarea>
 
                 <button type="submit">Надіслати</button>
 
             </form>
 
-            <div id="successMessage" class="success-message">
-                Ваше повідомлення успішно надіслано!
+            <div id="toast-success" class="toast toast-success">
+                Дякую! Ваша заявка успішно відправлена.<br>
+                Я зв'яжуся з вами найближчим часом.
             </div>
 
-            <div id="errorMessage" class="success-message">
-                Сталася помилка! Спробуйте ще.
+            <div id="toast-error" class="toast toast-error">
+                Сталася помилка! Спробуйте ще. Можливо щось некоректно введено.
             </div>
 
         </div>

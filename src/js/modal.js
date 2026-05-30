@@ -1,34 +1,37 @@
+// =========================
+// MODAL + FORM (STABLE VERSION)
+// =========================
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const modal = document.getElementById('consultationModal');
     const closeBtn = document.getElementById('modalClose');
-
     const form = document.getElementById('consultationForm');
 
-    const successMessage = document.getElementById("successMessage");
-    const errorMessage = document.getElementById("errorMessage");
+    const toastSuccess = document.getElementById("toast-success");
+    const toastError = document.getElementById("toast-error");
 
     const openBtns = document.querySelectorAll(
         '.open-modal, .quote-btn, .btn'
     );
 
-    /* =========================
-       OPEN MODAL
-    ========================= */
+    // =========================
+    // OPEN MODAL
+    // =========================
     openBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
 
-            modal.classList.remove('is-hidden');
             modal.classList.add('is-visible');
+            modal.classList.remove('is-hidden');
 
             document.body.style.overflow = 'hidden';
         });
     });
 
-    /* =========================
-       CLOSE MODAL
-    ========================= */
+    // =========================
+    // CLOSE MODAL
+    // =========================
     function closeModal() {
         modal.classList.remove('is-visible');
         modal.classList.add('is-hidden');
@@ -46,86 +49,69 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === 'Escape') closeModal();
     });
 
-    /* =========================
-       VALIDATION FUNCTION
-    ========================= */
-    function validateForm({ name, email, phone, message }) {
+    // =========================
+    // VALIDATION
+    // =========================
+    function validateForm({ name, phone, message }) {
 
         const nameRegex = /^[A-Za-zА-Яа-яІіЇїЄєҐґ\s'-]{2,40}$/;
+        const phoneRegex = /^\+?[1-9]\d{7,14}$/;
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-        // нормальный международный формат
-        const phoneRegex = /^\+?[0-9\s()-]{10,20}$/;
-
-        if (!nameRegex.test(name)) {
-            return "Введіть коректне ім’я (2–40 символів)";
-        }
-
-        if (!emailRegex.test(email)) {
-            return "Введіть коректний email";
-        }
-
-        if (!phoneRegex.test(phone)) {
-            return "Введіть коректний номер телефону (+...)";
-        }
-
-       
+        if (!nameRegex.test(name)) return "Невірне ім’я";
+        if (!phoneRegex.test(phone)) return "Невірний телефон";
+        if (!message) return "Порожнє повідомлення";
 
         return null;
     }
 
-    /* =========================
-       SHOW ERROR
-    ========================= */
-    function showError(text) {
+    // =========================
+    // TOAST
+    // =========================
+    function showToast(type) {
 
-        errorMessage.textContent = text;
-        errorMessage.classList.add("visible");
+        const el = type === "success" ? toastSuccess : toastError;
+
+        if (!el) return;
+
+        el.classList.add("show");
 
         setTimeout(() => {
-            errorMessage.classList.remove("visible");
+            el.classList.remove("show");
         }, 3000);
     }
 
-    /* =========================
-       FORM SUBMIT
-    ========================= */
-    form.addEventListener('submit', function (e) {
+    // =========================
+    // SUBMIT
+    // =========================
+    form.addEventListener('submit', (e) => {
 
         e.preventDefault();
 
-        successMessage.classList.remove("visible");
-        errorMessage.classList.remove("visible");
+        const name = form.elements.name.value.trim();
+        let phone = form.elements.phone.value.trim();
+        const message = form.elements.message.value.trim();
 
-        const name = form.name.value.trim();
-        const email = form.email.value.trim();
-        const phone = form.phone.value.trim();
-        const message = form.message.value.trim();
+        phone = phone.replace(/[^\d+]/g, '').replace(/(?!^)\+/g, '');
 
-        const error = validateForm({ name, email, phone, message });
+        const error = validateForm({ name, phone, message });
 
         if (error) {
-            showError(error);
+            showToast("error");
             return;
         }
 
-        const formData = { name, email, phone, message };
-
-        console.log("FORM DATA:", formData);
-
+        // simulate send
         setTimeout(() => {
 
-            successMessage.classList.add("visible");
+            showToast("success");
 
             form.reset();
 
             setTimeout(() => {
-                successMessage.classList.remove("visible");
                 closeModal();
-            }, 3000);
+            }, 1200);
 
-        }, 600);
+        }, 500);
     });
 
 });

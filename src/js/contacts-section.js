@@ -1,12 +1,12 @@
 // =========================
-// CONTACTS ANIMATION + FORM
+// CONTACTS ANIMATION + FORM + TOAST
 // =========================
 
 document.addEventListener('DOMContentLoaded', () => {
 
     const contactsTitle = document.querySelector('.contacts-title');
     const form = document.querySelector('.form');
-    const successMessage = document.getElementById('successMessage');
+    const toast = document.getElementById('toast');
 
     const formElements = form
         ? Array.from(
@@ -55,21 +55,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================
-    // INPUT VALIDATION
+    // INPUTS
     // =========================
 
     const nameInput = document.getElementById('user-name');
     const phoneInput = document.getElementById('user-phone');
     const messageInput = document.getElementById('user-message');
 
-    if (!form || !nameInput || !phoneInput || !messageInput || !successMessage) return;
+    if (!form || !nameInput || !phoneInput || !messageInput || !toast) return;
 
     nameInput.addEventListener('input', () => {
         nameInput.value = nameInput.value.replace(
             /[^A-Za-zА-Яа-яЁёЇїІіЄєҐґ\s'-]/g,
             ''
         );
-        nameInput.setCustomValidity('');
     });
 
     phoneInput.addEventListener('input', () => {
@@ -80,21 +79,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         phoneInput.value = value;
-        phoneInput.setCustomValidity('');
-    });
-
-    messageInput.addEventListener('input', () => {
-        messageInput.setCustomValidity('');
     });
 
     // =========================
-    // SUBMIT (FIXED)
+    // SUBMIT
     // =========================
 
     form.addEventListener('submit', (e) => {
-
-        e.preventDefault(); 
-        e.stopPropagation(); // 🔥 УБИРАЕТ "ПРЫЖОК" И СБОЙ СКРОЛЛА
+        e.preventDefault();
+        e.stopPropagation();
 
         const name = nameInput.value.trim();
         const phone = phoneInput.value.trim();
@@ -106,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const phoneRegex =
             /^\+?[0-9]{10,15}$/;
 
-        // validation
         if (!nameRegex.test(name)) {
             nameInput.focus();
             nameInput.setCustomValidity("Введіть коректне ім'я");
@@ -123,19 +115,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!message) {
             messageInput.focus();
-            messageInput.setCustomValidity("Будь ласка, введіть повідомлення");
+            messageInput.setCustomValidity("Введіть повідомлення");
             messageInput.reportValidity();
             return;
         }
 
         // =========================
-        // SUCCESS MESSAGE
+        // TOAST SHOW (ПЛАВНО)
         // =========================
 
-        successMessage.classList.add('visible');
+        toast.classList.add('show');
 
         setTimeout(() => {
-            successMessage.classList.remove('visible');
+            toast.classList.remove('show');
         }, 3000);
 
         form.reset();

@@ -385,49 +385,66 @@
     }
 }
 
-/* =========================================
-   ARCS
-========================================= */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(30px);
+    
+    background: rgba(20, 20, 20, 0.9);
+    color: #fff;
+    padding: 14px 20px;
+    border-radius: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
 
-.contacts-arcs {
-    position: absolute;
-    inset: 0;
-
+    opacity: 0;
     pointer-events: none;
 
-    z-index: 0;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 99999;
 }
 
-.arc {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(20px);
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+/* =========================
+   TOAST — MOBILE FIX
+========================= */
+
+@media (max-width: 768px) {
+    .toast {
+        width: calc(100% - 32px);
+        max-width: 420px;
+
+        left: 50%;
+        bottom: 24px;
+
+        transform: translateX(-50%) translateY(40px);
+
+        padding: 16px 18px;
+
+        font-size: 15px;
+        line-height: 1.4;
+
+        border-radius: 16px;
+
+        text-align: center;
+    }
+
+    .toast.show {
+        transform: translateX(-50%) translateY(0);
+    }
 }
 
-.arc-bottom {
-    width: 700px;
-    height: 700px;
-
-    left: -250px;
-    bottom: -320px;
-
-    background:
-        radial-gradient(circle,
-            rgba(235, 3, 255, 0.12),
-            transparent 70%);
-}
-
-.arc-top {
-    width: 500px;
-    height: 500px;
-
-    right: -150px;
-    top: -150px;
-
-    background:
-        radial-gradient(circle,
-            rgba(0, 102, 255, 0.12),
-            transparent 70%);
+@media (max-width: 480px) {
+    .toast {
+        width: calc(100% - 24px);
+        font-size: 14px;
+        padding: 14px 16px;
+    }
 }
 
 /* =========================================
