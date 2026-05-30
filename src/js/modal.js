@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // CONFIG
     // =========================
     const BOT_TOKEN = "8609215221:AAEK81koYSAezC8IlKyptB-_F9KQuMi7Du4";
-    const CHAT_ID = "593216853";
+    const CHAT_ID = "8609215221";
 
     const modal = document.getElementById('consultationModal');
     const closeBtn = document.getElementById('modalClose');
