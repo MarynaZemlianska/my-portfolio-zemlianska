@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     // =========================
-    // CONFIG (ВСТАВЬ СВОЙ НОВЫЙ ТОКЕН)
+    // CONFIG
     // =========================
-    const BOT_TOKEN = "8609215221:AAHjVahRzgjVOeafayuqZj5xVgZofmNdFYo";
-    const CHAT_ID = "PUT_CHAT_ID_HERE";
+    const BOT_TOKEN = "8609215221:AAEK81koYSAezC8IlKyptB-_F9KQuMi7Du4";
+    const CHAT_ID = "593216853";
 
     const modal = document.getElementById('consultationModal');
     const closeBtn = document.getElementById('modalClose');
@@ -72,37 +72,15 @@ document.addEventListener("DOMContentLoaded", () => {
         return phone;
     }
 
-    function isValidName(name) {
-        return name.trim().length >= 2;
-    }
-
-    function isValidPhone(phone) {
-        return /^\+?\d{10,15}$/.test(phone);
-    }
-
-    function isValidMessage(message) {
-        return message.trim().length >= 3;
-    }
-
-    function getError(name, phone, message) {
-
-        if (!isValidName(name)) {
-            return "❗ Введіть ім’я (мінімум 2 символи)";
-        }
-
-        if (!isValidPhone(phone)) {
-            return "❗ Введіть номер телефону у форматі +380XXXXXXXXX";
-        }
-
-        if (!isValidMessage(message)) {
-            return "❗ Напишіть повідомлення";
-        }
-
+    function validate(name, phone, message) {
+        if (name.trim().length < 2) return "❗ Введіть ім’я";
+        if (!/^\+?\d{10,15}$/.test(phone)) return "❗ Невірний номер телефону";
+        if (message.trim().length < 3) return "❗ Напишіть повідомлення";
         return null;
     }
 
     // =========================
-    // TELEGRAM SEND
+    // TELEGRAM SEND (FIXED FOR NETLIFY)
     // =========================
     async function sendToTelegram(name, phone, message) {
 
@@ -111,21 +89,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 👤 Ім’я: ${name}
 📞 Телефон: ${phone}
-💬 Повідомлення: ${message}
-`;
+💬 Повідомлення: ${message}`;
 
-        const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+        const url =
+`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(text)}`;
 
-        const res = await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                chat_id: CHAT_ID,
-                text: text
-            })
-        });
+        const res = await fetch(url);
 
         return res.ok;
     }
@@ -140,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let phone = cleanPhone(form.elements.phone.value.trim());
         const message = form.elements.message.value.trim();
 
-        const error = getError(name, phone, message);
+        const error = validate(name, phone, message);
 
         if (error) {
             showToast("error", error);
@@ -151,21 +120,21 @@ document.addEventListener("DOMContentLoaded", () => {
             const success = await sendToTelegram(name, phone, message);
 
             if (!success) {
-                showToast("error", "Не вдалося відправити заявку");
+                showToast("error", "Сталася помилка! Спробуйте ще. Можливо щось некоректно введено.");
                 return;
             }
 
-            showToast("success", "Дякую! Я зв'яжуся з вами найближчим часом.");
+            showToast("success", "Дякую! Ваша заявка успішно відправлена.Я зв'яжуся з вами найближчим часом.");
 
             form.reset();
 
             setTimeout(() => {
                 closeModal();
-            }, 900);
+            }, 800);
 
         } catch (err) {
             console.error(err);
-            showToast("error", "Помилка з'єднання з Telegram");
+            showToast("error", "❌ Помилка з'єднання");
         }
     });
 
