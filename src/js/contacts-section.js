@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // =========================
-        // TOAST SHOW (ПЛАВНО)
+        // TOAST SHOW 
         // =========================
 
         toast.classList.add('show');
