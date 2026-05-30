@@ -1153,14 +1153,18 @@
     }
 
     .top-container-h1-personal {
-        font-size: 50px;
+        font-size: 45px;
     }
 }
 
 /* RESPONSIVE */
 @media (max-width: 386px) {
 
+    .top-corporate-h1 {
+        font-size: 30px;
+    }
+
     .top-container-h1-personal {
-        font-size: 40px;
+        font-size: 35px;
     }
 }

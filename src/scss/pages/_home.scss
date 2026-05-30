@@ -1,6 +1,6 @@
 /* ================= HEADER HEIGHT ================= */
 :root {
-    --header-height: 120px;
+    --header-height: 95px;
 }
 
 @media (max-width: 991px) {
@@ -11,7 +11,7 @@
 
 @media (max-width: 767px) {
     :root {
-        --header-height: 100px;
+        --header-height: 80px;
     }
 }
 

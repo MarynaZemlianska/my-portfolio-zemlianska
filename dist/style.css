@@ -1263,7 +1263,7 @@ body.menu-open::before {
 }
 /* ================= HEADER HEIGHT ================= */
 :root {
-  --header-height: 120px;
+  --header-height: 95px;
 }
 
 @media (max-width: 991px) {
@@ -1273,7 +1273,7 @@ body.menu-open::before {
 }
 @media (max-width: 767px) {
   :root {
-    --header-height: 100px;
+    --header-height: 80px;
   }
 }
 .mobile-contacts {
@@ -3832,9 +3832,6 @@ body.menu-open::before {
   }
 }
 @media (max-width: 768px) {
-  .section-contacts {
-    background: #0b0b12;
-  }
   .form::before,
   .form::after {
     opacity: 0.2;
@@ -5975,13 +5972,16 @@ body.menu-open::before {
     margin: 0 20px;
   }
   .top-container-h1-personal {
-    font-size: 50px;
+    font-size: 45px;
   }
 }
 /* RESPONSIVE */
 @media (max-width: 386px) {
+  .top-corporate-h1 {
+    font-size: 30px;
+  }
   .top-container-h1-personal {
-    font-size: 40px;
+    font-size: 35px;
   }
 }
 html,
