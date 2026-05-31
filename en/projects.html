@@ -225,7 +225,7 @@
                                 </div>
 
                                 <div class="card-image">
-                                    <img src="/src/images/project-2.webp" loading="lazy" width="600" height="340"
+                                    <img src="/src/images/projects-1.png" loading="lazy" width="600" height="340"
                                         decoding="async" alt="Best Shop">
                                 </div>
 
@@ -254,7 +254,7 @@
                                 </div>
 
                                 <div class="card-image">
-                                    <img src="/src/images/project-5.webp" loading="lazy" width="600" height="340"
+                                    <img src="/src/images/projects-2.jpg" loading="lazy" width="600" height="340"
                                         decoding="async" alt="Sea Food Norway">
                                 </div>
 
@@ -282,7 +282,7 @@
                                 </div>
 
                                 <div class="card-image">
-                                    <img src="/src/images/project-1.webp" loading="lazy" width="600" height="340"
+                                    <img src="/src/images/projects-5.png" loading="lazy" width="600" height="340"
                                         decoding="async" alt="iPhone 14 Pro">
                                 </div>
 
@@ -311,7 +311,7 @@
                                 </div>
 
                                 <div class="card-image">
-                                    <img src="/src/images/project-4.webp" loading="lazy" width="600" height="340"
+                                    <img src="/src/images/projects-3.png" loading="lazy" width="600" height="340"
                                         decoding="async" alt="Leasing From D&M">
                                 </div>
 
@@ -340,7 +340,7 @@
                                 </div>
 
                                 <div class="card-image">
-                                    <img src="/src/images/project-3.webp" loading="lazy" width="600" height="340"
+                                    <img src="/src/images/projects-4.png" loading="lazy" width="600" height="340"
                                         decoding="async" alt="Beauty Zone">
                                 </div>
 
@@ -870,56 +870,6 @@
     <script src="/src/js/about-section.js" defer></script>
     <script src="/src/js/footer.js" defer></script>
     <script src="/src/js/modal.js" defer></script>
-
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                }
-            });
-        }, {
-            threshold: 0.15
-        });
-
-        document.querySelectorAll(".fade-up").forEach(el => {
-            observer.observe(el);
-        });
-        const cards = document.querySelectorAll(".lp-card");
-
-        cards.forEach(card => {
-            card.addEventListener("mousemove", (e) => {
-                const rect = card.getBoundingClientRect();
-
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = ((y - centerY) / centerY) * -8;
-                const rotateY = ((x - centerX) / centerX) * 8;
-
-                card.style.transform = `
-      perspective(1000px)
-      rotateX(${rotateX}deg)
-      rotateY(${rotateY}deg)
-      translateY(-6px)
-      scale(1.02)
-    `;
-            });
-
-            card.addEventListener("mouseleave", () => {
-                card.style.transform = `
-      perspective(1000px)
-      rotateX(0deg)
-      rotateY(0deg)
-      translateY(0px)
-      scale(1)
-    `;
-            });
-        });
-    </script>
 
 
 </body>
