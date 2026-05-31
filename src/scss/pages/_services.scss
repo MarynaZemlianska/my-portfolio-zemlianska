@@ -3,7 +3,7 @@
 .section-services {
     position: relative;
     overflow: visible;
-    margin: 0 40px;
+    margin: 0 50px;
 }
 
 
@@ -447,16 +447,6 @@
         margin-top: 6px;
     }
 
-    .container-services-cards {
-        grid-template-columns: (1fr);
-        gap: 26px;
-    }
-
-    .service-card {
-        max-width: 520px;
-        margin: 0 auto;
-        border-radius: 28px;
-    }
 
     .services-card-items {
         padding: 22px;
@@ -489,7 +479,6 @@
 
     }
 
-
     .container-services-cards {
         display: grid;
         grid-template-columns: 1fr;
@@ -497,7 +486,7 @@
         justify-items: center;
 
         width: 100%;
-        padding: 0 20px;
+       
         box-sizing: border-box;
     }
 

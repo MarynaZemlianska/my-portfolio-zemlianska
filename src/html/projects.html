@@ -662,13 +662,13 @@
                         <div class="container-form-items">
                             <label class="form-label" for="user-name">Ім’я :</label>
                             <input class="input1" type="text" id="user-name" name="user-name"
-                                placeholder="Введіть ваше ім’я..."
+                                placeholder="Введіть ваше ім’я..." maxlength="50"
                                 pattern="[A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+([\s'-][A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+)*" required />
 
-                            <label class="form-label" for="user-email">Email :</label>
-                            <input class="input2" type="email" id="user-email" name="user-email"
-                                placeholder="Введіть ваш email..."
-                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required />
+                            <label class="form-label" for="user-phone">Телефон:</label>
+                            <input class="input2" type="tel" id="user-phone" name="user-phone"
+                                placeholder="Введіть ваш телефон..." pattern="^\+?[0-9]{10,15}$" minlength="10"
+                                maxlength="16" inputmode="numeric" autocomplete="tel" required />
 
                             <label class="form-label" for="user-message">Повідомлення...</label>
                             <textarea class="input3" id="user-message" name="user-message"
@@ -681,6 +681,10 @@
                             <a href="/src/html/politics-of-confident.html" target="">я погоджуюсь із політикою
                                 конфіденційності.</a>
                         </p>
+                        <div id="toast" class="toast">
+                            Дякую! Ваша заявка успішно відправлена.<br>
+                            Я зв'яжуся з вами найближчим часом.
+                        </div>
                     </form>
                     <div class="container-dots">
                         <div class="dot"></div>
@@ -830,24 +834,23 @@
 
             <form id="consultationForm">
 
-                <input type="text" name="name" placeholder="Ім’я" required>
+                <input type="text" name="name" placeholder="Введіть ваше ім’я" required>
 
-                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="phone" placeholder="Введіть ваш телфон" required>
 
-                <input type="tel" name="phone" placeholder="Телефон (+...)" required>
-
-                <textarea name="message" placeholder="Повідомлення" rows="4" required></textarea>
+                <textarea name="message" placeholder="Введіть ваше повідомленя" rows="4" required></textarea>
 
                 <button type="submit">Надіслати</button>
 
             </form>
 
-            <div id="successMessage" class="success-message">
-                Ваше повідомлення успішно надіслано!
+            <div id="toast-success" class="toast toast-success">
+                Дякую! Ваша заявка успішно відправлена.<br>
+                Я зв'яжуся з вами найближчим часом.
             </div>
 
-            <div id="errorMessage" class="success-message">
-                Сталася помилка! Спробуйте ще.
+            <div id="toast-error" class="toast toast-error">
+                Сталася помилка! Спробуйте ще. Можливо щось некоректно введено.
             </div>
 
         </div>

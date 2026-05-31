@@ -33,6 +33,8 @@
     line-height: 1;
     letter-spacing: 4px;
     text-align: center;
+    word-break: normal;
+    overflow-wrap: normal;
 
     background: linear-gradient(90deg, #ff00cc, #3b4cff);
 
@@ -248,25 +250,6 @@
 
 }
 
-/* shine */
-.form-button::before {
-    content: "";
-
-    position: absolute;
-    top: 0;
-    left: -120%;
-
-    width: 100%;
-    height: 100%;
-
-    background:
-        linear-gradient(90deg,
-            transparent,
-            rgba(255, 255, 255, 0.35),
-            transparent);
-
-    transition: left 0.7s ease;
-}
 
 .form-button:hover::before {
     left: 120%;
@@ -531,11 +514,11 @@
 @media (max-width: 480px) {
 
     .section-contacts {
-        padding: 60px 16px;
+        padding: 30px 16px;
     }
 
     .contacts-title {
-        font-size: 35px;
+        font-size: 45px;
         line-height: 1.1;
     }
 
@@ -567,7 +550,7 @@
     .form-button {
         height: 56px;
         border-radius: 18px;
-        font-size: 17px;
+        font-size: 14px;
     }
 
     .info-form {

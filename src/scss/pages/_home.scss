@@ -341,7 +341,7 @@
 
     }
 
-     .items-text {
+    .items-text {
         font-size: 18px;
     }
 }
@@ -507,7 +507,7 @@
         margin-top: 20px;
     }
 
-   .top-container-h1 {
+    .top-container-h1 {
         font-size: 55px;
     }
 
@@ -608,7 +608,7 @@
     margin: 0 20px;
     flex-wrap: wrap;
     text-align: center;
-  
+
 
 }
 
@@ -948,7 +948,7 @@
         z-index: 2007;
     }
 
-   
+
     .container-steps {
         max-width: 760px;
         gap: 40px;
@@ -982,7 +982,7 @@
     }
 
     .title-dots {
-        right: -80px;
+
         top: 18px;
         gap: 12px;
     }
@@ -1850,7 +1850,7 @@
     }
 
     .faq-title {
-        font-size: 34px;
+        font-size: 40px;
         margin-bottom: 18px;
     }
 
@@ -1899,9 +1899,6 @@
 
 @media (max-width: 390px) {
 
-    .faq-title {
-        font-size: 28px;
-    }
 
     .faq-subtitle {
         font-size: 13px;
@@ -1929,7 +1926,7 @@
 
 .section-testimonials {
     text-align: center;
-    padding: 40px 20px;
+
 }
 
 .section-title-testi {
@@ -2191,12 +2188,9 @@
 
 @media (max-width: 600px) {
 
-    .section-testimonials {
-        padding: 50px 16px;
-    }
 
     .section-title-testi {
-        font-size: 45px !important;
+        font-size: 45px ;
         margin-bottom: 24px;
     }
 
@@ -2230,9 +2224,7 @@
 
 @media (max-width: 420px) {
 
-    .section-title-testi {
-        font-size: 40px !important;
-    }
+
 
     .testimonials-wrapper {
         padding: 0 45px;
@@ -2251,6 +2243,11 @@
         height: 34px;
 
         font-size: 16px;
+    }
+
+    .quote-btn {
+        padding: 18px 20px;
+        font-size: 14px;
     }
 }
 
@@ -2281,14 +2278,14 @@
 }
 
 .quote-section {
-    padding: 60px 20px;
+    padding: 30px 20px;
     display: flex;
     justify-content: center;
     font-family: 'Montserrat', sans-serif;
 
     opacity: 0;
-    transform: translateY(60px);
-    transition: all 0.9s ease;
+    transform: translateY(30px);
+    transition: all 0.3s ease;
 }
 
 .quote-section.visible {
@@ -2300,7 +2297,7 @@
     position: relative;
     max-width: 900px;
     width: 100%;
-    padding: 50px;
+    padding: 20px;
     border-radius: 24px;
     color: #fff;
     text-align: center;
@@ -2385,6 +2382,7 @@
     display: inline-flex;
     padding: 14px 22px;
     border-radius: 50px;
+    font-size: 18px;
 
     border: 2px solid transparent;
 

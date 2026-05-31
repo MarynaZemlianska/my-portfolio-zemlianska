@@ -202,6 +202,11 @@
 
 @media (max-width: 1180px) {
 
+    .section-about {
+        margin: 0 20px;
+    }
+
+
     .container-about {
         gap: 40px;
     }
@@ -256,7 +261,7 @@
 
 
     .about-title {
-        font-size: 60px;
+        font-size: 50px;
         text-align: center;
     }
 
@@ -313,6 +318,7 @@
         filter: none !important;
         transition: none !important;
     }
+    
 }
 
 @media (max-width: 480px) {
@@ -339,7 +345,7 @@
 
 
     .about-title {
-        font-size: 45px;
+        font-size: 40px;
     }
 
 }

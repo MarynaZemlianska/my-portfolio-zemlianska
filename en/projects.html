@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Web{LAB} Zemlianska - frontend developer portfolio, website development and UI/UX projects.">
+    <title>Projects - Web{LAB} Zemlianska - Website Development</title>
+    <link rel="icon" href="/src/images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/dist/style.css">
+    <link rel="preload" href="/src/fonts/Inter_18pt-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" as="image" href="/src/images/top-image.webp">
+</head>
+
+<body>
+    <div class="header-gradient"></div>
+
+    <header class="header scrolled">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="/en/index.html" class="logo">
+                    <span class="logo-icon">W</span>
+                    <span class="logo-text">
+                        <span class="logo-title">eb{LAB}</span>
+                        <span class="logo-subtitle">ZEMLIANSKA</span>
+                    </span>
+                </a>
+
+                <nav class="nav nav hidden">
+                    <div class="mobile-lang-switch">
+                        <button class="lang-btn active" data-lang-btn="en">EN</button>
+                        <button class="lang-btn" data-lang-btn="ua">UA</button>
+                    </div>
+
+                    <ul class="nav-item-links">
+                        <li><a class="nav-link" href="/en/index.html" aria-label="View home page">HOME</a></li>
+
+                        <li class="nav-item" aria-label="View services and prices">
+                            <a class="nav-link nav-link--dropdown" href="#">
+                                <span class="nav-text">SERVICES & PRICES</span>
+                                <span class="nav-arrow"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/en/landing-site.html" aria-label="View landing site">Landing page</a></li>
+                                <li><a href="/en/business-site.html" aria-label="View business site">Business card site</a></li>
+                                <li><a href="/en/corporate-site.html" aria-label="View corporate site">Corporate site</a></li>
+                                <li><a href="/en/personal-site.html" aria-label="View personal site">Personal site</a></li>
+                                <li><a href="/en/e-commerce-site.html" aria-label="View e-commerce site">E-commerce</a></li>
+                                <li><a href="/en/other-services.html" aria-label="View other services">Additional services</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a class="nav-link" href="/en/projects.html" aria-label="View projects">PROJECTS</a></li>
+
+                        <li>
+                            <a class="nav-link link-contacts" href="#contacts" aria-label="View contacts">CONTACTS</a>
+                        </li>
+
+                        <div class="mobile-contacts">
+                            <ul class="contacts-ul mobile-contacts-ul">
+                                <li>
+                                    <a href="mailto:mv.zemlianska@gmail.com" target="_blank" class="icon-footer-link"
+                                        aria-label="Send email">
+                                        <svg class="icon-footer" viewBox="0 0 24 24">
+                                            <use href="/src/images/sprite.svg#icon-mail"></use>
+                                        </svg>
+                                        mv.zemlianska@gmail.com
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="https://t.me/zemlianska_dev" target="_blank" class="icon-footer-link"
+                                        aria-label="Telegram contact">
+                                        <svg class="icon-footer" viewBox="0 0 24 24">
+                                            <use href="/src/images/sprite.svg#icon-telegram"></use>
+                                        </svg>
+                                        Telegram
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="viber://chat?number=%2B380637657506" target="_blank"
+                                        class="icon-footer-link" aria-label="Viber chat">
+                                        <svg class="icon-footer" viewBox="0 0 24 24">
+                                            <use href="/src/images/sprite.svg#icon-viber"></use>
+                                        </svg>
+                                        Viber
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="icon-footer-link" aria-label="Schedule">
+                                        <svg class="icon-footer" viewBox="0 0 24 24">
+                                            <use href="/src/images/sprite.svg#icon-clock"></use>
+                                        </svg>
+                                        Working hours: Mon–Fri 9:00–18:00
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="nav-item">
+                <div class="lang-switch">
+                    <button class="lang-btn active" data-lang-btn="en">EN</button>
+                    <button class="lang-btn" data-lang-btn="ua">UA</button>
+                </div>
+
+                <button class="burger" id="burger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <button class="button-contact button-desktop" id="openModal">
+                    Free consultation
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="first-top-container projects-first-top-container">
+                <div class="top-container projects-top-container">
+
+                    <div class="top-left">
+                        <h1 class="top-container-h1 top-container-h1-projects">
+                            <p class="hero-subtitle">
+                                Modern websites that sell
+                            </p>
+                            PROJECTS
+                        </h1>
+
+                        <div class="top-text-items">
+                            <div>
+                                <div class="top-block-items">
+                                    <div class="line"></div>
+                                    <div class="items-text">
+                                        Each case is created with a focus on usability, speed, and effective user
+                                        interaction.
+                                        A selection of works combining modern design and thoughtful user experience.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="top-center top-center-projects">
+                        <img src="/src/images/ellipse-photo.webp" fetchpriority="high" loading="eager" width="400"
+                            height="200" alt="Illustration" class="top-image top-imageprojects">
+                    </div>
+
+                    <div class="top-actions">
+                        <button class="button-contact button-mobile2 open-modal">
+                            Free consultation
+                        </button>
+
+                        <div class="top-right icons-container">
+                            <a href="https://www.instagram.com/zemlianska_maryna/" target="_blank">
+                                <svg class="icon">
+                                    <use href="/src/images/sprite.svg#icon-instagram"></use>
+                                </svg>
+                            </a>
+
+                            <a href="https://t.me/zemlianska_dev" target="_blank">
+                                <svg class="icon" width="45px" height="65px">
+                                    <use href="/src/images/sprite.svg#icon-telegram"></use>
+                                </svg>
+                            </a>
+
+                            <a href="viber://chat?number=%2B380637657506" target="_blank">
+                                <svg class="icon" width="50" height="65">
+                                    <use href="/src/images/sprite.svg#icon-viber"></use>
+                                </svg>
+                            </a>
+
+                            <a href="mailto:mv.zemlianska@gmail.com" target="_blank">
+                                <svg class="icon" width="50px" height="65px">
+                                    <use href="/src/images/sprite.svg#icon-mail"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="top-right-gradient"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="section-projects">
+            <div class="section-projects-gradient"></div>
+
+            <div class="container-projects">
+
+                <div class="container-projects-title">
+                    <h2 class="title-projects">
+                        Completed Work
+                        <span class="title-arrow"></span>
+                    </h2>
+                    <span class="projects-subtitle">Click to view project</span>
+                </div>
+
+                <section class="projects-page">
+
+                    <!-- FILTERS -->
+                    <div class="projects-filters">
+                        <button class="active" data-filter="all">All</button>
+                        <button data-filter="landing">Landing Pages</button>
+                        <button data-filter="ecommerce">E-commerce</button>
+                        <button data-filter="corporate">Corporate</button>
+                    </div>
+
+                    <div class="container-cards">
+
+                        <div class="card" data-type="ecommerce">
+                            <a href="https://best-shopsuit.netlify.app/" target="_blank">
+
+                                <div class="card-mobile-title">
+                                    <span class="card-hover-title-bottom">Best Shop</span>
+                                </div>
+
+                                <div class="card-image">
+                                    <img src="/src/images/project-2.webp" loading="lazy" width="600" height="340"
+                                        decoding="async" alt="Best Shop">
+                                </div>
+
+                                <div class="card-hover-content">
+                                    <p class="card-hover-text_name">E-commerce store for suitcases</p>
+
+                                    <p class="card-hover-text"><strong>Goal:</strong> create a modern e-commerce with a
+                                        focus on product cards and UX.</p>
+
+                                    <p class="card-hover-text"><strong>Result:</strong> convenient catalog structure,
+                                        fast product browsing, responsive design.</p>
+
+                                    <p class="card-hover-text"><strong>Tools:</strong> HTML, CSS, JS</p>
+
+                                    <span class="card-hover-arrow"></span>
+                                </div>
+
+                            </a>
+                        </div>
+
+                        <div class="card" data-type="corporate">
+                            <a href="https://seafoodone.netlify.app/" target="_blank">
+
+                                <div class="card-mobile-title">
+                                    <span class="card-hover-title-bottom">Sea Food Norway</span>
+                                </div>
+
+                                <div class="card-image">
+                                    <img src="/src/images/project-5.webp" loading="lazy" width="600" height="340"
+                                        decoding="async" alt="Sea Food Norway">
+                                </div>
+
+                                <div class="card-hover-content">
+                                    <p class="card-hover-text_name">Corporate website for seafood store</p>
+
+                                    <p class="card-hover-text"><strong>Goal:</strong> create a brand presentation
+                                        website with premium visual design.</p>
+
+                                    <p class="card-hover-text"><strong>Result:</strong> elegant corporate style with
+                                        focus on trust and visual experience.</p>
+
+                                    <p class="card-hover-text"><strong>Tools:</strong> HTML, CSS, JS</p>
+
+                                    <span class="card-hover-arrow"></span>
+                                </div>
+
+                            </a>
+                        </div>
+                        <div class="card" data-type="landing">
+                            <a href="https://iphones14pro.netlify.app/" target="_blank">
+
+                                <div class="card-mobile-title">
+                                    <span class="card-hover-title-bottom">iPhone 14 Pro</span>
+                                </div>
+
+                                <div class="card-image">
+                                    <img src="/src/images/project-1.webp" loading="lazy" width="600" height="340"
+                                        decoding="async" alt="iPhone 14 Pro">
+                                </div>
+
+                                <div class="card-hover-content">
+                                    <p class="card-hover-text_name">Landing page for an Apple-like product</p>
+
+                                    <p class="card-hover-text"><strong>Goal:</strong> create a selling landing page
+                                        focused on product presentation and animations.</p>
+
+                                    <p class="card-hover-text"><strong>Result:</strong> dynamic product presentation
+                                        with smooth transitions and strong visual focus.</p>
+
+                                    <p class="card-hover-text"><strong>Tools:</strong> HTML, CSS, JS</p>
+
+                                    <span class="card-hover-arrow"></span>
+                                </div>
+
+                            </a>
+                        </div>
+
+                        <div class="card" data-type="landing">
+                            <a href="https://lease-carss.netlify.app/" target="_blank">
+
+                                <div class="card-mobile-title">
+                                    <span class="card-hover-title-bottom">Leasing From D&M</span>
+                                </div>
+
+                                <div class="card-image">
+                                    <img src="/src/images/project-4.webp" loading="lazy" width="600" height="340"
+                                        decoding="async" alt="Leasing From D&M">
+                                </div>
+
+                                <div class="card-hover-content">
+                                    <p class="card-hover-text_name">Car leasing website</p>
+
+                                    <p class="card-hover-text"><strong>Goal:</strong> create a clear landing page for
+                                        car leasing services.</p>
+
+                                    <p class="card-hover-text"><strong>Result:</strong> clean UI, logical structure, and
+                                        simple user navigation.</p>
+
+                                    <p class="card-hover-text"><strong>Tools:</strong> HTML, CSS, JS</p>
+
+                                    <span class="card-hover-arrow"></span>
+                                </div>
+
+                            </a>
+                        </div>
+
+                        <div class="card" data-type="corporate">
+                            <a href="https://beauty-zones.netlify.app/" target="_blank">
+
+                                <div class="card-mobile-title">
+                                    <span class="card-hover-title-bottom">Beauty Zone</span>
+                                </div>
+
+                                <div class="card-image">
+                                    <img src="/src/images/project-3.webp" loading="lazy" width="600" height="340"
+                                        decoding="async" alt="Beauty Zone">
+                                </div>
+
+                                <div class="card-hover-content">
+                                    <p class="card-hover-text_name">Beauty salon website</p>
+
+                                    <p class="card-hover-text"><strong>Goal:</strong> create an aesthetic website for
+                                        the beauty industry.</p>
+
+                                    <p class="card-hover-text"><strong>Result:</strong> soft visual style and improved
+                                        brand trust.</p>
+
+                                    <p class="card-hover-text"><strong>Tools:</strong> HTML, CSS, JS</p>
+
+                                    <span class="card-hover-arrow"></span>
+                                </div>
+
+                            </a>
+                        </div>
+
+                        <!-- CTA CARD -->
+                        <div class="card card-cta">
+                            <a href="#services">
+
+                                <div class="card-mobile-title">
+                                    <span class="card-hover-title-bottom">
+                                        Let’s create your project together.
+                                    </span>
+                                </div>
+
+                                <div class="card-image card-image-cta">
+
+                                    <div class="cta-glass">
+
+                                        <p class="card-hover-text-own-site">
+                                            Your future website
+                                        </p>
+
+                                        <span class="card-hover-arrow"></span>
+                                    </div>
+
+                                </div>
+
+                                <div class="card-hover-content">
+                                    <p class="card-hover-text"><strong>Goal:</strong> create an effective web product
+                                        for your business.</p>
+
+                                    <p class="card-hover-text"><strong>Result:</strong> modern design, responsiveness,
+                                        and SEO readiness.</p>
+
+                                    <p class="card-hover-text"><strong>Tools:</strong> HTML, CSS, JS, UX/UI</p>
+                                </div>
+
+                            </a>
+                        </div>
+                        <!-- DOTS -->
+                        <div class="container-dots-projects">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+
+                </section>
+                <section class="section-steps">
+                    <div class="steps-gradient"></div>
+
+                    <div class="container-steps">
+
+                        <h2 class="title-steps">
+                            Development <br>stages
+
+                            <span class="title-graphic"></span>
+
+                            <span class="title-dots">
+                                <i></i><i></i><i></i>
+                                <i></i><i></i><i></i>
+                                <i></i><i></i><i></i>
+                            </span>
+                        </h2>
+
+                        <div class="list-steps">
+                            <ol class="list-items">
+
+                                <li class="step">
+                                    <div class="step-circle">1</div>
+                                    <div class="step-content">
+                                        <h3>Brief filling and cost estimation</h3>
+                                        <p>
+                                            You fill out a brief to estimate the project, after which I provide the
+                                            cost.
+                                            The agreed price remains unchanged throughout the entire development
+                                            process.
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li class="step">
+                                    <div class="step-circle">2</div>
+                                    <div class="step-content">
+                                        <h3>Technical specification and contract signing</h3>
+                                        <p>
+                                            A technical specification for the project is created, defining key website
+                                            functions
+                                            and stages of work. At this stage, a contract is signed.
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li class="step">
+                                    <div class="step-circle">3</div>
+                                    <div class="step-content">
+                                        <h3>Project scheduling and booking</h3>
+                                        <p>
+                                            We define the start date and project timeline.
+                                            A 20% prepayment is required to reserve the slot.
+                                            The remaining balance is paid after completion.
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li class="step">
+                                    <div class="step-circle">4</div>
+                                    <div class="step-content">
+                                        <h3>Design</h3>
+                                        <p>
+                                            A layout and design of the website are created according to requirements.
+                                            At this stage, functionality and unique features are planned.
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li class="step">
+                                    <div class="step-circle">5</div>
+                                    <div class="step-content">
+                                        <h3>Website development</h3>
+                                        <p>
+                                            First, the desktop version is developed, functionality is implemented,
+                                            and revisions are made. Then the site is adapted for mobile devices.
+                                        </p>
+                                    </div>
+                                </li>
+                </section>
+
+                <section class="quote-section">
+
+                    <div class="quote-container">
+
+                        <h2 class="quote-title">
+                            Website Cost Estimation Request
+                        </h2>
+
+                        <p class="quote-text">
+                            Planning to create a website? I develop modern, fast, and effective websites
+                            tailored to your business goals and brand style.
+                        </p>
+
+                        <div class="quote-info">
+                            <p>✔ Project evaluation</p>
+                            <p>✔ Clear development plan</p>
+                            <p>✔ Transparent cost and deadlines</p>
+                        </div>
+
+                        <button class="quote-btn" id="openQuoteModal">
+                            Get a free estimate
+                        </button>
+
+                        <div class="quote-socials">
+
+                            <a href="https://www.instagram.com/zemlianska_maryna/" target="_blank"
+                                class="social instagram" aria-label="Instagram profile">Instagram</a>
+                            <a href="https://www.facebook.com/share/1CuLmCxB2N/?mibextid=wwXIfr" target="_blank"
+                                class="social facebook" aria-label="Facebook profile">Facebook</a>
+                            <a href="mailto:mv.zemlianska@gmail.com" class="social email"
+                                aria-label="Send email">Email</a>
+                            <a href="tel:+380637657506" class="social phone" aria-label="Phone">Phone</a>
+                            <a href="https://t.me/zemlianska_dev" target="_blank" class="social telegram"
+                                aria-label="Telegram contact">Telegram</a>
+                            <a href="viber://chat?number=%2B380637657506" target="_blank" class="social viber"
+                                aria-label="Viber chat">Viber</a>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section class="section-faq">
+                    <h2 class="faq-title">
+                        FAQs
+                        <span class="faq-subtitle">Most frequently asked questions</span>
+                    </h2>
+
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                How to order a website?
+                                <span class="faq-arrow"></span>
+                            </button>
+                            <div class="faq-answer">
+                                To get started, simply contact me via the contact form or messenger.
+                                We will discuss your goals, type of website and deadlines.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Is a deposit required?
+                                <span class="faq-arrow"></span>
+                            </button>
+                            <div class="faq-answer">
+                                Only a 20% deposit is required before starting the work.
+                                This guarantees booking your time and starting the development.
+
+                                Then the website is developed. After completion, you pay the remaining amount, and I
+                                provide
+                                all access
+                                and detailed video instructions.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                How to use the website after development?
+                                <span class="faq-arrow"></span>
+                            </button>
+                            <div class="faq-answer">
+                                After the website is completed, you pay the remaining amount, and I provide all access
+                                to the
+                                website
+                                and detailed instructions.
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                What information is required?
+                                <span class="faq-arrow"></span>
+                            </button>
+                            <div class="faq-answer">
+                                Usually this is basic information: contacts, company description,
+                                page structure and photos (if needed).
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                What are the stages of website creation?
+                                <span class="faq-arrow"></span>
+                            </button>
+                            <div class="faq-answer">
+                                <p><strong>1. Briefing and cost estimation (20% deposit)</strong><br>
+                                    We discuss the requirements and calculate the final project cost. A 20% deposit is
+                                    required
+                                    to start.</p>
+
+                                <p><strong>2. Filling out and signing documents</strong><br>
+                                    A brief, technical specification and contract are prepared.</p>
+
+                                <p><strong>3. Gathering information</strong><br>
+                                    You provide materials: texts, images and business information.</p>
+
+                                <p><strong>4. Domain and hosting setup</strong><br>
+                                    Assistance with domain and hosting connection.</p>
+
+                                <p><strong>5. Website development and functionality setup</strong><br>
+                                    Full website development and configuration.</p>
+
+                                <p><strong>6. Revisions and final adjustments</strong><br>
+                                    You review the website and can request changes.</p>
+
+                                <p><strong>7. Final approval and project delivery</strong><br>
+                                    You receive all access, passwords and instructions.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+                <section class="section-contacts">
+                    <div class="contacts-arcs">
+                        <div class="arc-container"><span class="arc arc-top"></span></div>
+                        <div class="arc-container"><span class="arc arc-bottom"></span></div>
+                    </div>
+
+                    <div class="container-top-contacts">
+                        <h2 class="contacts-title">Зв’яжіться зі мною</h2>
+                    </div>
+
+                    <form class="form" autocomplete="off">
+                        <div class="container-form-items">
+
+                            <label class="form-label" for="user-name">Ім’я :</label>
+                            <input class="input1" type="text" id="user-name" name="user-name"
+                                placeholder="Введіть ваше ім’я..." maxlength="50"
+                                pattern="[A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+([\s'-][A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+)*" required />
+
+                            <label class="form-label" for="user-phone">Телефон:</label>
+                            <input class="input2" type="tel" id="user-phone" name="user-phone"
+                                placeholder="Введіть ваш телефон..." pattern="^\+?[0-9]{10,15}$" minlength="10"
+                                maxlength="16" inputmode="numeric" autocomplete="tel" required />
+
+                            <label class="form-label" for="user-message">Повідомлення...</label>
+                            <textarea class="input3" id="user-message" name="user-message"
+                                placeholder="Введіть ваше повідомлення..." rows="5" required></textarea>
+
+                        </div>
+
+                        <button type="submit" class="form-button">
+                            Отримати безкоштовну консультацію
+                        </button>
+
+                        <p class="info-form">
+                            Натискаючи кнопку, <br>
+                            <a href="/src/html/politics-of-confident.html" target="">
+                                я погоджуюсь із політикою конфіденційності.
+                            </a>
+                        </p>
+
+                        <div id="toast" class="toast">
+                            Дякую! Ваша заявка успішно відправлена.<br>
+                            Я зв'яжуся з вами найближчим часом.
+                        </div>
+                    </form>
+                </section>
+                <div class="container-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+        </section>
+        <section class="section-testimonials">
+            <h2 class="section-title-testi">Client reviews</h2>
+
+            <div class="testimonials-wrapper">
+                <button class="slider-btn slider-prev">&#10094;</button>
+
+                <div class="testimonials-slider">
+                    <div class="testimonial-card">
+                        <p>“Maryna created a wonderful website for our business. The process was fast and comfortable.”
+                        </p>
+                        <span>— Oksana Kharytonova</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>“The website exceeded our expectations. Highly recommend her services!”</p>
+                        <span>— Denys Chekmarov</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>“Professional approach and excellent communication. Very satisfied with the result.”</p>
+                        <span>— Mykhailo Borysenko</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>“An amazing experience! Maryna implemented exactly what we wanted and even more.”</p>
+                        <span>— Sofiia Lemacheva</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>“Creative solutions, fast delivery and great support. Highly recommended!”</p>
+                        <span>— Danyil Kurelenko</span>
+                    </div>
+                </div>
+
+                <button class="slider-btn slider-next">&#10095;</button>
+            </div>
+        </section>
+
+    </main>
+    <footer class="footer">
+        <div class="footer-container" id="contacts">
+            <div class="footer-logo-item">
+                <a href="/en/index.html" class="footer-logo">
+                    <span class="footer-logo-icon">W</span>
+                    <span class="footer-logo-text">
+                        <span class="footer-logo-title">eb {LAB}</span>
+                        <span class="footer-logo-subtitle">ZEMLIANSKA</span>
+                    </span>
+                </a>
+                <p class="subtitle-footer">Website development</p>
+            </div>
+
+            <nav class="footer-nav">
+                <h3 class="footer-h3">MENU</h3>
+                <ul class="footer-menu">
+                    <li class="footer-link"><a href="/en/index.html">Home</a></li>
+                    <li class="footer-link"><a href="/en/services.html">Services & pricing</a></li>
+                    <li class="footer-link"><a href="/en/projects.html">Projects</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-contacts">
+                <h3 class="footer-h3">CONTACTS</h3>
+                <ul class="contacts-ul">
+                    <li>
+                        <a href="mailto:mv.zemlianska@gmail.com" target="_blank" class="icon-footer-link"
+                            aria-label="Send email">
+                            <svg class="icon-footer" viewBox="0 0 24 24">
+                                <use href="/src/images/sprite.svg#icon-mail"></use>
+                            </svg>
+                            mv.zemlianska@gmail.com
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://t.me/zemlianska_dev" target="_blank" class="icon-footer-link"
+                            aria-label="Telegram contact">
+                            <svg class="icon-footer" viewBox="0 0 24 24">
+                                <use href="/src/images/sprite.svg#icon-telegram"></use>
+                            </svg>
+                            Telegram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="viber://chat?number=%2B380637657506" target="_blank" class="icon-footer-link"
+                            aria-label="Viber chat">
+                            <svg class="icon-footer" viewBox="0 0 24 24">
+                                <use href="/src/images/sprite.svg#icon-viber"></use>
+                            </svg>
+                            Viber
+                        </a>
+                    </li>
+                    <li>
+                        <a class="icon-footer-link" aria-label="Schedule">
+                            <svg class="icon-footer" viewBox="0 0 24 24">
+                                <use href="/src/images/sprite.svg#icon-clock"></use>
+                            </svg>
+                            Working hours: Mon–Fri 9:00–18:00
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-info">
+                <a class="info-item" href="/src/html/politics-of-confident.html" target="">Privacy policy</a>
+                <a href="https://www.figma.com/community/file/1335196687351078757/my-personal-portfolio"
+                    target="_blank">
+                    <p class="info-design">Design: Rohan Patil</p>
+                </a>
+                <p class="info-safety">© 2026 Maryna Zemlianska. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Modal -->
+    <div class="modal is-hidden" id="consultationModal">
+
+        <div class="modal-content">
+
+            <span class="modal-close" id="modalClose">&times;</span>
+
+            <h2>Free consultation</h2>
+            <p>Fill out the form below and I will contact you as soon as possible.</p>
+
+            <form id="consultationForm">
+
+                <input type="text" name="name" placeholder="Enter your name" required>
+
+                <input type="tel" name="phone" placeholder="Enter your phone number" required>
+
+                <textarea name="message" placeholder="Enter your message" rows="4" required></textarea>
+
+                <button type="submit">Send</button>
+
+            </form>
+
+            <div id="toast-success" class="toast toast-success">
+                Thank you! Your request has been successfully sent.<br>
+                I will contact you soon.
+            </div>
+
+            <div id="toast-error" class="toast toast-error">
+                An error occurred! Please try again. Something may be incorrect.
+            </div>
+
+        </div>
+
+    </div>
+    <button class="to-top-btn" id="toTopBtn" aria-label="Повернутися вгору">
+        <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 19V5" />
+            <path d="M5 12L12 5L19 12" />
+        </svg>
+    </button>
+    <script src="/src/js/header.js" defer></script>
+    <script src="/src/js/home-page.js" defer></script>
+    <script src="/src/js/projects-section.js" defer></script>
+    <script src="/src/js/steps-section.js" defer></script>
+    <script src="/src/js/contacts-section.js" defer></script>
+    <script src="/src/js/services-section.js" defer></script>
+    <script src="/src/js/about-section.js" defer></script>
+    <script src="/src/js/footer.js" defer></script>
+    <script src="/src/js/modal.js" defer></script>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        document.querySelectorAll(".fade-up").forEach(el => {
+            observer.observe(el);
+        });
+        const cards = document.querySelectorAll(".lp-card");
+
+        cards.forEach(card => {
+            card.addEventListener("mousemove", (e) => {
+                const rect = card.getBoundingClientRect();
+
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = ((y - centerY) / centerY) * -8;
+                const rotateY = ((x - centerX) / centerX) * 8;
+
+                card.style.transform = `
+      perspective(1000px)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+      translateY(-6px)
+      scale(1.02)
+    `;
+            });
+
+            card.addEventListener("mouseleave", () => {
+                card.style.transform = `
+      perspective(1000px)
+      rotateX(0deg)
+      rotateY(0deg)
+      translateY(0px)
+      scale(1)
+    `;
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
