@@ -1,0 +1,10 @@
+# Secrets (local only)
+src/js/config.js
+.env
+
+# Dependencies & build output
+node_modules/
+_site/
+
+# OS / editor
+.DS_Store

@@ -1,0 +1,4 @@
+{"scripts": {
+    "dev": "sass src/scss/main.scss dist/style.css --watch"
+    }
+}
