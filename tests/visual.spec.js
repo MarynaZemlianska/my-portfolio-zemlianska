@@ -6,7 +6,7 @@ import { mockTelegram } from "./helpers.js";
 const PAGES = ["/", "/en/", "/projects/", "/services/landing-page/", "/en/services/corporate-website/", "/privacy/"];
 
 test.describe("visual", () => {
-    test.skip(() => test.info().project.name !== "chromium", "baselines are kept for desktop Chromium only");
+    test.skip(() => !["chromium", "mobile-chrome"].includes(test.info().project.name), "baselines are kept for desktop and phone Chromium");
     for (const path of PAGES) {
         test(`first screen ${path}`, async ({ page }) => {
             await mockTelegram(page);
