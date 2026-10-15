@@ -1,47 +1,24 @@
-@import "./abstracts/variables";
-@import "./abstracts/mixins";
-@import "./base/fonts";
-@import "./base/_reset";
-@import "./components/buttons";
-@import "./components/forms";
-@import "./layouts/header";
-@import "./layouts/footer";
-@import "./layouts/modal";
-@import "./pages/_home";
-@import "./pages/_about";
-@import "./pages/contacts";
-@import "./pages/projects";
-@import "./pages/services";
-@import "./pages/politics-of-confident.scss";
-@import "./pages/subpages.scss";
-@import "./pages/prices.scss";
-
-
-
-html,
-body {
-    width: 100%;
-    scroll-behavior: smooth;
-}
-
-// Decorative glows are clipped per section with `overflow-x: clip`
-// (.hero, .section-projects, .section-contacts, .lp-cta).
-// Safari < 16 has no `clip`; fall back to `hidden` on the same sections only.
-@supports not (overflow: clip) {
-    .hero,
-    .section-projects,
-    .section-contacts,
-    .lp-cta {
-        overflow-x: hidden;
-    }
-}
-
-a {
-    text-decoration: none;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px; 
-}
+// Entry point. Order matters: it is the cascade order of the compiled CSS.
+@use "abstracts/tokens";
+@use "base/fonts";
+@use "base/reset";
+@use "components/buttons";
+@use "components/forms";
+@use "layout/header";
+@use "layout/footer";
+@use "components/modal";
+@use "sections/hero";
+@use "sections/stats";
+@use "sections/steps";
+@use "sections/why";
+@use "sections/faq";
+@use "sections/testimonials";
+@use "sections/quote";
+@use "sections/to-top";
+@use "sections/about";
+@use "sections/contacts";
+@use "sections/projects";
+@use "sections/services";
+@use "pages/privacy";
+@use "pages/service-page";
+@use "base/globals";

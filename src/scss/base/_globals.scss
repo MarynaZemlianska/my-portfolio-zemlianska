@@ -1,0 +1,28 @@
+// Global element rules (previously at the end of main.scss; kept last for cascade order).
+html,
+body {
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+// Decorative glows are clipped per section with `overflow-x: clip`
+// (.hero, .section-projects, .section-contacts, .lp-cta).
+// Safari < 16 has no `clip`; fall back to `hidden` on the same sections only.
+@supports not (overflow: clip) {
+    .hero,
+    .section-projects,
+    .section-contacts,
+    .lp-cta {
+        overflow-x: hidden;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; 
+}
