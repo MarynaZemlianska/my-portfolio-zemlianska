@@ -1,0 +1,35 @@
+{#- Shared by the mobile menu and the footer. Expects `t` and `listClass`. -#}
+<ul class="{{ listClass }}">
+    <li>
+        <a href="mailto:{{ site.email }}" target="_blank" class="icon-footer-link">
+            <svg class="icon-footer" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="/assets/images/sprite.svg#icon-mail"></use>
+            </svg>
+            {{ site.email }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ site.telegram }}" target="_blank" class="icon-footer-link">
+            <svg class="icon-footer" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="/assets/images/sprite.svg#icon-telegram"></use>
+            </svg>
+            Telegram
+        </a>
+    </li>
+    <li>
+        <a href="{{ site.viber }}" target="_blank" class="icon-footer-link">
+            <svg class="icon-footer" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="/assets/images/sprite.svg#icon-viber"></use>
+            </svg>
+            Viber
+        </a>
+    </li>
+    <li>
+        <span class="icon-footer-link">
+            <svg class="icon-footer" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="/assets/images/sprite.svg#icon-clock"></use>
+            </svg>
+            {{ t.workingHours }}
+        </span>
+    </li>
+</ul>

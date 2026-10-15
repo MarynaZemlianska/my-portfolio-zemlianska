@@ -1,0 +1,60 @@
+{%- macro langButtons() -%}
+{%- for l in site.switcherOrder %}
+<button class="lang-btn{% if l == lang %} active{% endif %}" data-lang-btn="{{ 'ua' if l == 'uk' else l }}"
+    data-url="{{ routes[key][l] }}">{{ i18n[l].langLabel }}</button>
+{%- endfor %}
+{%- endmacro -%}
+
+<div class="header-gradient"></div>
+<header class="header scrolled">
+    <div class="nav-container">
+        <div class="nav-left">
+            <a href="{{ routes.home[lang] }}" class="logo">
+                <span class="logo-icon">W</span>
+                <span class="logo-text">
+                    <span class="logo-title">eb{LAB}</span>
+                    <span class="logo-subtitle">ZEMLIANSKA</span>
+                </span>
+            </a>
+            <nav class="nav nav hidden">
+                <div class="mobile-lang-switch">
+                    {{ langButtons() }}
+                </div>
+                <ul class="nav-item-links">
+                    <li><a class="nav-link" href="{{ routes.home[lang] }}">{{ t.nav.home }}</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link--dropdown" href="#">
+                            {{ t.nav.services }}
+                            <span class="nav-arrow"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            {%- for s in ["landing", "business", "corporate", "personal", "ecommerce", "other"] %}
+                            <li><a href="{{ routes[s][lang] }}">{{ t.services[s] }}</a></li>
+                            {%- endfor %}
+                        </ul>
+                    </li>
+                    <li><a class="nav-link" href="{{ routes.projects[lang] }}">{{ t.nav.projects }}</a></li>
+                    <li><a class="nav-link link-contacts" href="#contacts">{{ t.nav.contacts }}</a></li>
+                </ul>
+                <div class="mobile-contacts">
+                    {% set listClass = "contacts-ul mobile-contacts-ul" %}
+                    {% include "partials/contact-list.njk" %}
+                </div>
+            </nav>
+        </div>
+
+        <div class="nav-item">
+            <div class="lang-switch">
+                {{ langButtons() }}
+            </div>
+            <button class="burger" id="burger" aria-label="{{ t.menu }}">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <button class="button-contact button-desktop open-modal">
+                {{ t.consultation }}
+            </button>
+        </div>
+    </div>
+</header>

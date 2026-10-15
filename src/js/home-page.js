@@ -14,12 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ================= Active link =================
 const links = document.querySelectorAll(".nav-link");
-const currentPage = window.location.pathname.split("/").pop();
 
 links.forEach(link => {
-    const linkPage = link.getAttribute("href").split("/").pop();
-
-    if (linkPage === currentPage) {
+    if (!link.getAttribute("href").startsWith("#") && link.pathname === window.location.pathname) {
         link.classList.add("active");
     }
 });

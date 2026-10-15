@@ -1,0 +1,54 @@
+{%- set t = i18n[lang] -%}
+<!DOCTYPE html>
+<html lang="{{ t.htmlLang }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - {{ t.siteSuffix }}</title>
+    <meta name="description" content="{{ description }}">
+    {%- if site.url %}
+    <link rel="canonical" href="{{ site.url }}{{ routes[key][lang] }}">
+    {%- for l in site.languages %}
+    <link rel="alternate" hreflang="{{ i18n[l].htmlLang }}" href="{{ site.url }}{{ routes[key][l] }}">
+    {%- endfor %}
+    <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ routes[key][site.languages[0]] }}">
+    {%- endif %}
+    <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="preload" as="font" href="/assets/fonts/Inter_18pt-Regular.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="/assets/fonts/Montserrat-ExtraBold.woff2" type="font/woff2" crossorigin>
+    {%- if preloadImage %}
+    <link rel="preload" as="image" href="{{ preloadImage }}">
+    {%- endif %}
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+    {% include "partials/header.njk" %}
+
+    {{ content | safe }}
+
+    {% include "partials/footer.njk" %}
+    {%- if floatingBoxes %}
+    <ul class="floating-boxes" aria-hidden="true">
+        {%- for i in range(10) %}
+        <li></li>
+        {%- endfor %}
+    </ul>
+    {%- endif %}
+
+    {% include "partials/modal.njk" %}
+
+    <button class="to-top-btn" id="toTopBtn" aria-label="{{ t.toTop }}">
+        <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 19V5" />
+            <path d="M5 12L12 5L19 12" />
+        </svg>
+    </button>
+
+    {%- for script in scripts.concat(extraScripts or []) %}
+    <script src="/assets/js/{{ script }}.js" defer></script>
+    {%- endfor %}
+</body>
+
+</html>

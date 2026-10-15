@@ -1,0 +1,19 @@
+# Old URLs -> new clean URLs (Netlify format)
+/index.html                          /                               301
+/en/index.html                       /en/                            301
+/src/html/projects.html              /projects/                      301
+/en/projects.html                    /en/projects/                   301
+/src/html/landing-site.html          /services/landing-page/         301
+/en/landing-site.html                /en/services/landing-page/      301
+/src/html/business-site.html         /services/business-website/     301
+/en/business-site.html               /en/services/business-website/  301
+/src/html/corporate-site.html        /services/corporate-website/    301
+/en/corporate-site.html              /en/services/corporate-website/ 301
+/src/html/personal-site.html         /services/personal-website/     301
+/en/personal-site.html               /en/services/personal-website/  301
+/src/html/e-commerce-site.html       /services/e-commerce/           301
+/en/e-commerce-site.html             /en/services/e-commerce/        301
+/src/html/other-services.html        /services/additional/           301
+/en/other-services.html              /en/services/additional/        301
+/src/html/politics-of-confident.html /privacy/                       301
+/en/politics-of-confidient.html      /en/privacy/                    301

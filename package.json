@@ -1,4 +1,14 @@
-{"scripts": {
-    "dev": "sass src/scss/main.scss dist/style.css --watch"
+{
+    "name": "zemlianska-portfolio",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "eleventy --serve",
+        "build": "eleventy"
+    },
+    "devDependencies": {
+        "@11ty/eleventy": "^3.1.6",
+        "playwright": "^1.64.1",
+        "sass": "^1.105.1"
     }
 }
