@@ -5,12 +5,15 @@
     "scripts": {
         "dev": "eleventy --serve",
         "build": "eleventy",
-        "validate": "npm run build && html-validate \"_site/**/index.html\""
+        "validate": "npm run build && html-validate \"_site/**/index.html\"",
+        "test": "playwright test",
+        "test:update-visual": "playwright test tests/visual.spec.js --update-snapshots"
     },
     "devDependencies": {
         "@11ty/eleventy": "^3.1.6",
         "@11ty/eleventy-img": "^7.0.0",
         "@axe-core/playwright": "^4.13.0",
+        "@playwright/test": "^1.64.1",
         "html-validate": "^11.16.2",
         "playwright": "^1.64.1",
         "sass": "^1.105.1"
