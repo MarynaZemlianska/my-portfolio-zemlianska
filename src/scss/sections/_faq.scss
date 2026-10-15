@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 .section-faq {
     margin-top: 60px;
     padding: 0 20px 50px;
@@ -142,7 +144,7 @@
 
 /* ================= FAQ ADAPTIVE ================= */
 
-@media (max-width: 991px) {
+@include down(991px) {
 
     .section-faq {
         margin-top: 40px;
@@ -180,7 +182,7 @@
 
 /* ================= TABLET ================= */
 
-@media (max-width: 768px) {
+@include down(md) {
 
     * {
         animation-duration: 0.001ms !important;
@@ -296,7 +298,7 @@
 
 /* ================= MOBILE ================= */
 
-@media (max-width: 576px) {
+@include down(576px) {
 
     .section-faq {
         margin-top: 20px;
@@ -351,7 +353,7 @@
 
 /* ================= SMALL MOBILE ================= */
 
-@media (max-width: 390px) {
+@include down(390px) {
 
 
     .faq-subtitle {

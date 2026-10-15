@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 .policy-container {
     display: flex;
     flex-direction: column;
@@ -89,7 +91,7 @@
     font-size: 60px;
     margin-bottom: 24px;
 }
-@media (max-width: 1200px) {
+@include down(xl) {
 
 
     .top-container-h1-policy {
@@ -98,7 +100,7 @@
 
 }
 
-@media (max-width: 768px) {
+@include down(md) {
     .policy-container {
         padding: 20px 15px;
         margin: 0  30px;
@@ -109,7 +111,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@include down(sm) {
     .policy-container {
         padding: 20px 15px;
         margin: 0  30px;

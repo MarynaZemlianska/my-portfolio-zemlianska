@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 /* ===== FOOTER ===== */
 .footer {
     display: flex;
@@ -160,7 +162,7 @@ font-size: 17px;
 
 /* ===== RESPONSIVE ===== */
 
-@media (max-width: 1071px) {
+@include down(1071px) {
     
     .footer-logo-icon {
         font-size: 65px;
@@ -177,13 +179,13 @@ font-size: 17px;
 
 
 }
-@media (max-width: 1024px) {
+@include down(lg) {
     .footer-container {
         gap: 20px;
     }
 }
 
-@media (max-width: 768px) {
+@include down(md) {
     .footer-container {
         flex-direction: column;
         align-items: center;

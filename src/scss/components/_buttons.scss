@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 .container-btn{
     width: 340px;
 }
@@ -45,7 +47,7 @@
     opacity: 0.95;
 }
 
-@media (max-width: 767px) {
+@include down(767px) {
     .container-btn{
     width: 240px;
 }

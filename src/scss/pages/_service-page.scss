@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 .top-text {
     max-width: 900px;
     margin-bottom: 40px;
@@ -546,11 +548,7 @@
 }
 
 .lp-extra {
-    padding: 60px 20px 0px 20px;
     margin-bottom: 20px;
-    background: #0b0b12;
-    color: #fff;
-    text-align: center;
 
     h2 {
         font-size: 45px;
@@ -658,7 +656,7 @@
 /* =========================
    LARGE DESKTOP
 ========================= */
-@media (max-width: 1400px) {
+@include down(xxl) {
 
     .lp-for h2,
     .lp-includes h2,
@@ -683,7 +681,7 @@
 /* =========================
    LAPTOP
 ========================= */
-@media (max-width: 1200px) {
+@include down(xl) {
 
     .top-text,
     .lp-for,
@@ -718,7 +716,7 @@
 /* =========================
    TABLET
 ========================= */
-@media (max-width: 992px) {
+@include down(992px) {
 
     .top-text,
     .lp-for,
@@ -775,7 +773,7 @@
 /* =========================
    MOBILE
 ========================= */
-@media (max-width: 768px) {
+@include down(md) {
 
     .top-text,
     .lp-for,
@@ -882,7 +880,7 @@
 /* =========================
    SMALL MOBILE
 ========================= */
-@media (max-width: 480px) {
+@include down(sm) {
 
     .top-text,
     .lp-for,
@@ -1081,7 +1079,7 @@
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
+@include down(md) {
 
 
     .extra-item {
@@ -1121,7 +1119,7 @@
 
 
 /* RESPONSIVE */
-@media (max-width: 520px) {
+@include down(520px) {
     .top-corporate-h1 {
         font-size: 40px;
     }
@@ -1132,7 +1130,7 @@
 }
 
 /* RESPONSIVE */
-@media (max-width: 460px) {
+@include down(460px) {
     .top-corporate-h1 {
         font-size: 40px;
     }
@@ -1147,7 +1145,7 @@
 }
 
 /* RESPONSIVE */
-@media (max-width: 386px) {
+@include down(386px) {
 
     .top-corporate-h1 {
         font-size: 30px;

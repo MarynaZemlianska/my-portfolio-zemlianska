@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 /* =========================================
    CONTACTS SECTION — MODERN UI
 ========================================= */
@@ -380,7 +382,7 @@
    TOAST — MOBILE FIX
 ========================= */
 
-@media (max-width: 768px) {
+@include down(md) {
     .toast {
         width: calc(100% - 32px);
         max-width: 420px;
@@ -405,7 +407,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@include down(sm) {
     .toast {
         width: calc(100% - 24px);
         font-size: 14px;
@@ -417,7 +419,7 @@
    ≤ 1200px
 ========================================= */
 
-@media (max-width: 1200px) {
+@include down(xl) {
 
     .form {
         max-width: 680px;
@@ -432,7 +434,7 @@
    ≤ 992px
 ========================================= */
 
-@media (max-width: 992px) {
+@include down(992px) {
 
     .section-contacts {
         padding: 100px 20px;
@@ -456,7 +458,7 @@
    ≤ 768px
 ========================================= */
 
-@media (max-width: 768px) {
+@include down(md) {
 
     .section-contacts {
         padding: 80px 20px;
@@ -494,7 +496,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@include down(md) {
 
     .form::before,
     .form::after {
@@ -507,7 +509,7 @@
    ≤ 480px
 ========================================= */
 
-@media (max-width: 480px) {
+@include down(sm) {
 
     .section-contacts {
         padding: 30px 16px;
@@ -558,7 +560,7 @@
    TOUCH DEVICES
 ========================================= */
 
-@media (hover: none) {
+@include touch {
 
     .form-button:hover {
         transform: none;

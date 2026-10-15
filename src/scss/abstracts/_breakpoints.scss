@@ -1,0 +1,26 @@
+// Breakpoints (desktop-first: styles apply at and below the width).
+// Named sizes are the shared system; one-off values are passed as numbers,
+// e.g. `@include down(991px)`, and are candidates for future consolidation.
+@use "sass:map";
+
+$breakpoints: (
+    xs: 360px,
+    sm: 480px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1200px,
+    xxl: 1400px,
+);
+
+@mixin down($bp) {
+    @if map.has-key($breakpoints, $bp) {
+        @media (max-width: map.get($breakpoints, $bp)) { @content; }
+    } @else {
+        @media (max-width: $bp) { @content; }
+    }
+}
+
+// Devices without hover (touch screens)
+@mixin touch {
+    @media (hover: none) { @content; }
+}

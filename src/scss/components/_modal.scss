@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 
 .modal {
     display: flex;
@@ -184,7 +186,7 @@
    TABLET
 ========================================= */
 
-@media (max-width: 768px) {
+@include down(md) {
 
     .modal-content {
 
@@ -225,7 +227,7 @@
    MOBILE
 ========================================= */
 
-@media (max-width: 480px) {
+@include down(sm) {
 
     .modal {
 
@@ -284,7 +286,7 @@
    SMALL MOBILE
 ========================================= */
 
-@media (max-width: 350px) {
+@include down(350px) {
 
     .modal-content {
 

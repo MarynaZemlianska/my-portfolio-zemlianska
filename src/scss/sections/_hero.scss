@@ -1,15 +1,17 @@
+@use "../abstracts" as *;
+
 /* ================= HEADER HEIGHT ================= */
 :root {
     --header-height: 95px;
 }
 
-@media (max-width: 991px) {
+@include down(991px) {
     :root {
         --header-height: 90px;
     }
 }
 
-@media (max-width: 767px) {
+@include down(767px) {
     :root {
         --header-height: 80px;
     }
@@ -256,7 +258,6 @@
     color: #fff;
     font-size: 18px;
     cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
     align-self: center;
 
 }
@@ -308,7 +309,7 @@
 
 /* ===== ADAPTIVE ===== */
 
-@media (max-width: 1180px) {
+@include down(1180px) {
 
     .items-text {
         font-size: 18px;
@@ -316,7 +317,7 @@
 }
 
 
-@media (max-width: 1034px) {
+@include down(1034px) {
 
 
     .mobile-contacts {
@@ -422,7 +423,7 @@
 }
 
 
-@media (max-width: 991px) {
+@include down(991px) {
     .button-mobile2 {
         width: 100%;
         max-width: 280px;
@@ -430,7 +431,7 @@
     }
 }
 
-@media (max-width: 900px) {
+@include down(900px) {
 
     .top-right-gradient {
         z-index: -3;
@@ -439,7 +440,7 @@
 }
 
 
-@media (max-width: 891px) {
+@include down(891px) {
 
     .items-text {
         max-width: 420px;
@@ -459,7 +460,7 @@
 }
 
 
-@media (max-width: 767px) {
+@include down(767px) {
 
     .first-top-container {
         margin-top: 20px;
@@ -502,7 +503,7 @@
 }
 
 
-@media (max-width: 481px) {
+@include down(481px) {
 
 
     .items-text {
@@ -529,9 +530,9 @@
 }
 
 
-@media (max-width: 360px) {
+@include down(xs) {
 
-    .top-left {}
+
 
     .nav-container {
         min-width: 0;

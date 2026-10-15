@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 .top-center-projects {
     max-width: 420px;
     width: 100%;
@@ -381,7 +383,7 @@
 
 /* ================= TABLET ================= */
 
-@media (max-width: 1034px) {
+@include down(1034px) {
 
     .projects-top-container {
         display: grid;
@@ -412,7 +414,7 @@
 }
 
 /* ================= MOBILE ================= */
-@media (max-width: 768px) {
+@include down(md) {
 
     /* ===== GRID ===== */
     .container-cards {
@@ -466,7 +468,7 @@
 
 /* ================= SMALL ================= */
 
-@media (max-width: 488px) {
+@include down(488px) {
 
     .title-projects {
         font-size: 50px;

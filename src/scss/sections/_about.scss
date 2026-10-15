@@ -1,3 +1,5 @@
+@use "../abstracts" as *;
+
 .section-about {
     position: relative;
     display: flex;
@@ -200,7 +202,7 @@
     transition-delay: 0.5s;
 }
 
-@media (max-width: 1180px) {
+@include down(1180px) {
 
     .section-about {
         margin: 0 20px;
@@ -227,7 +229,7 @@
     }
 }
 
-@media (max-width: 1024px) {
+@include down(lg) {
 
     .section-about {
         gap: 50px;
@@ -242,7 +244,7 @@
     }
 }
 
-@media (max-width: 812px) {
+@include down(812px) {
 
     .section-about {
         flex-direction: column;
@@ -292,7 +294,7 @@
 
 }
 
-@media (max-width: 950px) {
+@include down(950px) {
 
     .container-about {
         flex-direction: column;
@@ -318,7 +320,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@include down(md) {
 
     .ellipse-photo {
         opacity: 1 !important;
@@ -329,7 +331,7 @@
     
 }
 
-@media (max-width: 480px) {
+@include down(sm) {
 
 
     .about-title-arrow {
@@ -349,7 +351,7 @@
     }
 }
 
-@media (max-width: 380px) {
+@include down(380px) {
 
 
     .about-title {
@@ -358,7 +360,7 @@
 
 }
 
-@media (max-width: 360px) {
+@include down(xs) {
 
     .about-title-wrap {
         margin-top: 30px;

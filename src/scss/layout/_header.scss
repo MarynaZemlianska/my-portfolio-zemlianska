@@ -1,7 +1,6 @@
-.header {
-    position: relative;
-    z-index: 10000;
-}
+@use "../abstracts" as *;
+
+
 
 .header-gradient,
 .section-projects-gradient,
@@ -526,7 +525,7 @@ ul {
 
 
     /* MOBILE */
-    @media (max-width: 768px) {
+    @include down(md) {
 
 
         .lang-btn {
@@ -535,7 +534,7 @@ ul {
         }
     }
 
-    @media (max-width: 1180px) {
+    @include down(1180px) {
         .button-contact {
             width: 170px;
             height: 48px;
@@ -549,7 +548,7 @@ ul {
     }
 
 
-    @media (max-width: 1095px) {
+    @include down(1095px) {
         .nav-left {
             display: flex;
             align-items: center;
@@ -557,7 +556,7 @@ ul {
         }
     }
 
-    @media (max-width: 1060px) {
+    @include down(1060px) {
         .button-contact {
             width: 160px;
             height: 48px;
@@ -572,7 +571,7 @@ ul {
         }
     }
 
-    @media (max-width: 1050px) {
+    @include down(1050px) {
         .button-contact {
             width: 150px;
             height: 48px;
@@ -581,7 +580,7 @@ ul {
         }
     }
 
-    @media (max-width: 1045px) {
+    @include down(1045px) {
         .lang-switch {
 
             padding: 2px;
@@ -591,7 +590,7 @@ ul {
 
     /* ================= TABLET ================= */
 
-    @media (max-width: 1034px) {
+    @include down(1034px) {
 
         .nav-item-links {
             display: flex;
@@ -777,7 +776,7 @@ ul {
 
     /* ================= 991px ================= */
 
-    @media (max-width: 991px) {
+    @include down(991px) {
 
         .nav-container {
             height: 75px;
@@ -807,7 +806,7 @@ ul {
 
     /* ================= MOBILE ================= */
 
-    @media (max-width: 632px) {
+    @include down(632px) {
 
         header {
             top: 0;
@@ -853,7 +852,7 @@ ul {
 
     /* ================= SMALL MOBILE ================= */
 
-    @media (max-width: 415px) {
+    @include down(415px) {
 
         .logo-icon {
             font-size: 50px;
@@ -869,7 +868,7 @@ ul {
         }
     }
 
-    @media (max-width: 360px) {
+    @include down(xs) {
 
         .nav-container {
             justify-content: center;
@@ -889,7 +888,7 @@ ul {
 
     }
 
-    @media (max-width: 349px) {
+    @include down(349px) {
 
         .nav-container {
             width: 100%;
