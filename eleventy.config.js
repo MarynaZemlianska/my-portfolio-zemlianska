@@ -3,7 +3,7 @@ import path from "node:path";
 import * as sass from "sass";
 
 const CSS_IN = "src/scss/main.scss";
-const CSS_OUT = "_site/assets/css/style.css";
+const CSS_OUT = "assets/css/style.css"; // relative to the build output directory
 
 export default function (eleventyConfig) {
     // ===== STATIC ASSETS =====
@@ -24,10 +24,11 @@ export default function (eleventyConfig) {
     // ===== SCSS =====
     // Compiled before every build (and on every watch rebuild).
     eleventyConfig.addWatchTarget("src/scss/");
-    eleventyConfig.on("eleventy.before", () => {
+    eleventyConfig.on("eleventy.before", ({ directories }) => {
+        const out = path.join(directories.output, CSS_OUT);
         const { css } = sass.compile(CSS_IN, { style: "compressed" });
-        fs.mkdirSync(path.dirname(CSS_OUT), { recursive: true });
-        fs.writeFileSync(CSS_OUT, css);
+        fs.mkdirSync(path.dirname(out), { recursive: true });
+        fs.writeFileSync(out, css);
     });
 
     return {
