@@ -81,7 +81,8 @@
 /* ===== CARDS GRID ===== */
 .container-services-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    // minmax(0, …): Safari sized 1fr columns from the cards' aspect-ratio and overflowed
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 30px;
 }
 
@@ -272,7 +273,7 @@
 @include down(xl) {
 
     .container-services-cards {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 24px;
     }
 
