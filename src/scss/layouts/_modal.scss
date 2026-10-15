@@ -4,11 +4,12 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7); 
+    inset: 0;
+    // scrollable, so the form stays reachable with the mobile keyboard open / in landscape
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 16px 0;
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 10000;
     opacity: 0;
     pointer-events: none;
@@ -27,6 +28,8 @@
     padding: 30px;
     width: 90%;
     max-width: 500px;
+    // auto margins centre the dialog but let it scroll from the top when taller than the screen
+    margin: auto;
     text-align: center;
     font-family: 'Inter', sans-serif;
     color: #fff;
@@ -300,4 +303,11 @@
         font-size: 13px;
     }
 
+}
+/* iOS Safari zooms the page when a focused field is below 16px */
+@media (hover: none) and (pointer: coarse) {
+    #consultationForm input,
+    #consultationForm textarea {
+        font-size: 16px;
+    }
 }

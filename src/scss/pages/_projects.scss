@@ -22,8 +22,10 @@
     position: relative;
     margin-top: clamp(30px, 10vw, 80px);
     font-family: 'Inter', sans-serif;
-    margin-left: 30px;
-    margin-right: 30px;
+    // full-width box with inner padding (was 30px side margins) so the
+    // decorative glow is clipped exactly at the viewport edge
+    padding-inline: 30px;
+    overflow-x: clip;
 }
 
 /* ================= GRADIENT ================= */

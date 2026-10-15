@@ -743,6 +743,9 @@ ul {
             width: 100%;
             max-width: 360px;
             height: 100vh;
+            height: 100dvh; // follows the mobile browser toolbar
+            overflow-y: auto; // landscape phones: menu taller than the screen
+            overscroll-behavior: contain;
 
             padding: 40px 40px 40px;
 
@@ -972,10 +975,6 @@ ul {
             left: 0;
             width: 100%;
             padding: 0;
-        }
-
-        body {
-            overflow-x: hidden;
         }
     }
 

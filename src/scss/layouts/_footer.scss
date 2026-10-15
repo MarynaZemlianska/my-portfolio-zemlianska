@@ -207,3 +207,18 @@ font-size: 17px;
         align-items: center;
     }
 }
+
+/* ===== TAP TARGETS (WCAG 2.5.8: min 24×24) =====
+   Larger hit area without changing the visual spacing. */
+.icon-footer-link {
+    padding-block: 4px;
+    margin-block: -4px;
+}
+
+.footer-link a,
+.info-item,
+.footer-info a {
+    display: inline-block;
+    padding-block: 5px;
+    margin-block: -5px;
+}

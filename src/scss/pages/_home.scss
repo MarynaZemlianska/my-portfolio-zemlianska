@@ -26,6 +26,8 @@
 
 .hero {
     position: relative;
+    // decorative .top-right-gradient extends past the edges; clip it here, not on <body>
+    overflow-x: clip;
     padding-top: var(--header-height);
     display: flex;
     align-items: flex-start;
@@ -509,7 +511,13 @@
     }
 
     .top-container-h1 {
-        font-size: 55px;
+        // longest word ("development") must fit narrow phones
+        font-size: min(55px, 12vw);
+        overflow-wrap: break-word;
+    }
+
+    .first-top-container {
+        margin-inline: clamp(16px, 5vw, 40px);
     }
 
     .top-container {
@@ -1108,7 +1116,7 @@
     }
 
     .title-steps {
-        font-size: 50px;
+        font-size: min(50px, 12vw);
     }
 
 
@@ -1133,7 +1141,7 @@
 
 @media (max-width: 345px) {
     .title-steps {
-        font-size: 40px;
+        font-size: min(40px, 12vw);
     }
 
 }

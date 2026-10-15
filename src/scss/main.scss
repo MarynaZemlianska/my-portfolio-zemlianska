@@ -21,8 +21,19 @@
 html,
 body {
     width: 100%;
-    overflow-x: hidden;
     scroll-behavior: smooth;
+}
+
+// Decorative glows are clipped per section with `overflow-x: clip`
+// (.hero, .section-projects, .section-contacts, .lp-cta).
+// Safari < 16 has no `clip`; fall back to `hidden` on the same sections only.
+@supports not (overflow: clip) {
+    .hero,
+    .section-projects,
+    .section-contacts,
+    .lp-cta {
+        overflow-x: hidden;
+    }
 }
 
 a {

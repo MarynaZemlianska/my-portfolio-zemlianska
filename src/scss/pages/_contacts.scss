@@ -4,6 +4,8 @@
 
 .section-contacts {
     position: relative;
+    // decorative glows (.form::before/::after) reach past the screen edge
+    overflow-x: clip;
 
     padding: 70px 20px;
 
