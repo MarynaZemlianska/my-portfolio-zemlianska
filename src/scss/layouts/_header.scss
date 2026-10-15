@@ -170,14 +170,6 @@
     font-family: 'Inter', sans-serif;
 }
 
-.logo-subtitle2 {
-    margin-top: 5px;
-
-    letter-spacing: 3px;
-
-    color: rgba(255, 255, 255, 0.3);
-}
-
 @keyframes logoGradientMove {
 
     0% {
@@ -238,32 +230,6 @@ ul {
 .nav-link.active {
     opacity: 1;
     color: var(--color-brand-light);
-}
-
-/* TEXT */
-
-.nav-text {
-    position: relative;
-}
-
-.nav-text::after {
-    content: '';
-
-    font-family: 'Inter', sans-serif;
-    position: absolute;
-    left: 0;
-    bottom: 0px;
-
-    width: 0;
-    height: 2px;
-
-    background-color: var(--color-brand-light);
-
-    transition: width 0.3s ease;
-}
-
-.nav-item:hover .nav-text::after {
-    width: 100%;
 }
 
 
@@ -489,13 +455,6 @@ ul {
         transform: translateY(50%) rotate(-45deg);
     }
 
-
-    /* ================= MOBILE BUTTON ================= */
-
-    .button-mobile {
-        display: none;
-    }
-
     .lang-switch {
         display: flex;
         align-items: center;
@@ -566,10 +525,8 @@ ul {
     }
 
 
-
     /* MOBILE */
     @media (max-width: 768px) {
-
 
 
         .lang-btn {
@@ -806,15 +763,6 @@ ul {
             display: none;
         }
 
-        .button-mobile {
-            display: block;
-
-            width: 100%;
-            max-width: 300px;
-
-            margin-top: 20px;
-        }
-
         .nav-item {
             flex-direction: column;
             align-items: flex-start;
@@ -939,23 +887,6 @@ ul {
             min-width: 0;
         }
 
-
-        .mobile-menu-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding: 20px;
-        }
-
-        .close-menu {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 28px;
-            cursor: pointer;
-        }
-
     }
 
     @media (max-width: 349px) {
@@ -976,39 +907,4 @@ ul {
             width: 100%;
             padding: 0;
         }
-    }
-
-
-    /* ================= MODAL ================= */
-
-    .modal.is-hidden {
-        display: none;
-    }
-
-    .modal {
-        position: fixed;
-        inset: 0;
-
-        display: none;
-        align-items: center;
-        justify-content: center;
-
-        background: rgba(0, 0, 0, 0.6);
-
-        z-index: 10000;
-    }
-
-    .modal.active {
-        display: flex;
-    }
-
-    .modal-content {
-        width: 90%;
-        max-width: 420px;
-
-        padding: 30px;
-
-        background: #111;
-
-        border-radius: 20px;
     }

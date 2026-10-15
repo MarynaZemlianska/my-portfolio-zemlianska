@@ -89,33 +89,6 @@
     font-size: 60px;
     margin-bottom: 24px;
 }
-
-.policy-subtitle {
-    color: #FA00FF;
-    font-size: 1.8rem;
-    margin-top: 32px;
-    margin-bottom: 16px;
-}
-
-.policy-paragraph {
-    color: #ffffff;
-    font-size: 1rem;
-    margin-bottom: 16px;
-}
-
-.policy-list {
-    padding-left: 20px;
-    margin-bottom: 16px;
-}
-
-.policy-list li {
-    margin-bottom: 8px;
-}
-
-.policy-link {
-    color: #FA00FF;
-    text-decoration: underline;
-}
 @media (max-width: 1200px) {
 
 
@@ -134,10 +107,6 @@
     .top-container-h1-policy {
         font-size: 40px;
     }
-
-    .policy-subtitle {
-        font-size: 1.5rem;
-    }
 }
 
 @media (max-width: 480px) {
@@ -148,10 +117,6 @@
 
     .top-container-h1-policy{
         font-size: min(30px, 8.5vw);
-    }
-
-    .policy-subtitle {
-        font-size: 1.5rem;
     }
 }
 .policy-title {

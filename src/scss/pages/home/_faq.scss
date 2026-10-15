@@ -1,0 +1,377 @@
+.section-faq {
+    margin-top: 60px;
+    padding: 0 20px 50px;
+    color: var(--color-primary-light);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.faq-title {
+    text-align: center;
+    font-size: 72px;
+    font-weight: 700;
+    margin-bottom: 40px;
+
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.3s ease-out;
+}
+
+.faq-subtitle {
+    display: block;
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+
+.faq-list {
+    max-width: 780px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+.faq-item {
+    border: 1px solid rgba(194, 19, 255, 0.4);
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.25);
+
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease-out;
+}
+
+
+.faq-question {
+    width: 100%;
+    padding: 24px 30px;
+
+    background: none;
+    border: none;
+    color: #fff;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+
+.faq-arrow {
+    width: 10px;
+    height: 10px;
+
+    border-right: 2px solid var(--color-brand-light);
+    border-bottom: 2px solid var(--color-brand-light);
+    transform: rotate(45deg);
+
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+
+    padding: 0 30px;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+
+.faq-item.active .faq-answer {
+    max-height: 2000px;
+    padding: 0 30px 24px;
+    opacity: 0.6;
+}
+
+.faq-answer p {
+    white-space: normal;
+    word-break: break-word;
+    margin: 0 0 16px;
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+.faq-item.active .faq-arrow {
+    transform: rotate(-135deg);
+}
+
+/* ===== SCROLL ANIMATION ===== */
+.section-faq.visible .faq-title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-faq.visible .faq-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.section-faq.visible .faq-item:nth-child(1) {
+    transition-delay: 0.2s;
+}
+
+.section-faq.visible .faq-item:nth-child(2) {
+    transition-delay: 0.35s;
+}
+
+.section-faq.visible .faq-item:nth-child(3) {
+    transition-delay: 0.5s;
+}
+
+.section-faq.visible .faq-item:nth-child(4) {
+    transition-delay: 0.65s;
+}
+
+
+/* ================= FAQ ADAPTIVE ================= */
+
+@media (max-width: 991px) {
+
+    .section-faq {
+        margin-top: 40px;
+        padding: 0 20px 40px;
+    }
+
+    .faq-title {
+        font-size: 58px;
+        margin-bottom: 32px;
+    }
+
+    .faq-subtitle {
+        font-size: 17px;
+    }
+
+    .faq-question {
+        padding: 22px 24px;
+        font-size: 18px;
+    }
+
+    .faq-answer {
+        padding: 0 24px;
+        font-size: 17px;
+    }
+
+    .faq-answer p {
+        font-size: 17px;
+    }
+
+    .faq-item.active .faq-answer {
+        padding: 0 24px 22px;
+    }
+}
+
+
+/* ================= TABLET ================= */
+
+@media (max-width: 768px) {
+
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+    .top-image {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+
+    .header-gradient,
+    .steps-gradient,
+    .why-gradient,
+    .top-right-gradient {
+
+        filter: blur(35px);
+
+        opacity: 0.65;
+    }
+
+    .nav-container,
+    .why-card,
+    .quote-container,
+    .lang-switch,
+    .mobile-lang-switch,
+    .nav,
+    .modal-content {
+
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+    }
+
+    .logo-icon,
+    .logo-title,
+    .button-contact {
+
+        animation: none !important;
+
+        background-size: 100% 100%;
+    }
+
+    .why-card,
+    .quote-container,
+    .button-contact,
+    .lang-switch {
+
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    }
+
+    .nav-container {
+
+        background: rgba(15, 15, 15, 0.92);
+
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .section-faq {
+        padding: 0 16px 32px;
+    }
+
+    .faq-title {
+        font-size: 46px;
+        line-height: 1.1;
+        margin-bottom: 24px;
+    }
+
+    .faq-subtitle {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .faq-list {
+        gap: 18px;
+    }
+
+    .faq-item {
+        border-radius: 18px;
+    }
+
+    .faq-question {
+        padding: 20px;
+        font-size: 17px;
+        gap: 16px;
+        text-align: left;
+    }
+
+    .faq-answer {
+        padding: 0 20px;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .faq-answer p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .faq-item.active .faq-answer {
+        padding: 0 20px 20px;
+    }
+
+    .faq-arrow {
+        width: 9px;
+        height: 9px;
+        flex-shrink: 0;
+    }
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 576px) {
+
+    .section-faq {
+        margin-top: 20px;
+        padding: 0 14px 28px;
+    }
+
+    .faq-title {
+        font-size: 40px;
+        margin-bottom: 18px;
+    }
+
+    .faq-subtitle {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .faq-list {
+        gap: 14px;
+    }
+
+    .faq-item {
+        border-radius: 16px;
+    }
+
+    .faq-question {
+        padding: 18px 16px;
+        font-size: 15px;
+        line-height: 1.4;
+    }
+
+    .faq-answer {
+        padding: 0 16px;
+        font-size: 14px;
+    }
+
+    .faq-answer p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 12px;
+    }
+
+    .faq-item.active .faq-answer {
+        padding: 0 16px 18px;
+    }
+
+    .faq-arrow {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 390px) {
+
+
+    .faq-subtitle {
+        font-size: 13px;
+    }
+
+    .faq-question {
+        font-size: 14px;
+        padding: 16px 14px;
+    }
+
+    .faq-answer {
+        padding: 0 14px;
+    }
+
+    .faq-answer p {
+        font-size: 13px;
+    }
+
+    .faq-item.active .faq-answer {
+        padding: 0 14px 16px;
+    }
+}

@@ -1,0 +1,62 @@
+.section-stats {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+
+}
+
+.stats-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 20px;
+    flex-wrap: wrap;
+    text-align: center;
+
+
+}
+
+.stat-card {
+    flex: 1;
+    min-width: 180px;
+}
+
+.stat-number {
+    font-size: 64px;
+    color: #ff00cc;
+    margin-bottom: 10px;
+    position: relative;
+    font-weight: 400;
+}
+
+
+.stat-text {
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+.stat-bar {
+    width: 50%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    margin: 12px auto 18px;
+    overflow: hidden;
+    position: relative;
+}
+
+.stat-bar span {
+    display: block;
+    height: 100%;
+    width: 0%;
+
+    background: linear-gradient(90deg, #ff00cc, #3b4cff);
+
+    border-radius: 50px;
+
+    transition: width 1.2s ease;
+}

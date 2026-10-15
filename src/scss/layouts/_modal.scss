@@ -16,6 +16,10 @@
     transition: opacity 0.4s ease;
 }
 
+.modal.is-hidden {
+    display: none; // keeps the closed dialog out of the tab order
+}
+
 .modal.is-visible {
     opacity: 1;
     pointer-events: all;

@@ -170,11 +170,6 @@
     justify-content: center;
 }
 
-.lp-card-content {
-    position: relative;
-    transform: translateZ(20px);
-}
-
 
 .lp-card::after {
     content: "";
@@ -720,7 +715,6 @@
 }
 
 
-
 /* =========================
    TABLET
 ========================= */
@@ -824,10 +818,6 @@
         font-size: 14px;
     }
 
-    .lp-card-content {
-        transform: none;
-    }
-
     .lp-note {
         text-align: center;
         font-size: 14px;
@@ -907,7 +897,6 @@
     .top-description {
         font-size: 13px;
     }
-
 
 
     .lp-card {
@@ -1129,7 +1118,6 @@
     font-weight: 700;
     margin-right: 6px;
 }
-
 
 
 /* RESPONSIVE */

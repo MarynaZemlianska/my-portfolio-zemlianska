@@ -3,19 +3,6 @@
     width: 100%;
 }
 
-.top-image-projects {
-    width: 100%;
-    max-width: 420px;
-    height: auto;
-
-    margin-top: 30px;
-    margin-bottom: 30px;
-
-    transition: 0.3s ease;
-
-    display: block;
-}
-
 /* ================= SECTION ================= */
 
 .section-projects {
@@ -55,16 +42,6 @@
     margin-top: 80px 30px 0 30px;
 
 }
-
-.projects-hero .projects-top-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-}
-
-
 
 
 .section-projects.visible .container-projects {
@@ -302,35 +279,6 @@
         0 0 26px rgba(124, 102, 255, 0.45);
 }
 
-/* ================= CTA CARD ================= */
-
-.card a:has(.always-visible) {
-    position: relative;
-}
-
-.card a:has(.always-visible) .always-visible {
-    width: 100%;
-    margin-top: -24px;
-
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(18px);
-
-    border-radius: 0 0 30px 30px;
-    padding: 28px 20px 30px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-}
-
-.card a:has(.always-visible) .card-hover-arrow {
-    margin-left: auto;
-    margin-right: auto;
-}
-
 /* ================= CTA IMAGE FAKE ================= */
 
 .card-image-cta {
@@ -340,7 +288,6 @@
     aspect-ratio: 3 / 2;
     width: 100%;
 }
-
 
 
 .card-image-cta::after {
@@ -393,30 +340,6 @@
 }
 
 
-
-/* ================= CTA GLASS ================= */
-
-.card-cta .always-visible {
-    margin-top: -28px;
-    width: 100%;
-
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(22px);
-
-    border-radius: 0 0 30px 30px;
-
-    padding: 26px 22px 30px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.45);
-}
-
-
 /* ================= DOTS ================= */
 
 .container-dots-projects {
@@ -456,8 +379,6 @@
 }
 
 
-
-
 /* ================= TABLET ================= */
 
 @media (max-width: 1034px) {
@@ -467,22 +388,6 @@
         grid-template-columns: 1fr;
         justify-items: center;
         text-align: center;
-    }
-
-    .projects-hero .projects-first-top-container {
-        flex-direction: column;
-        display: flex;
-        justify-content: center !important;
-        align-items: center !important;
-    }
-
-
-    .top-items-projects {
-        display: flex;
-        flex-direction: column;
-        align-items: center !important;
-        justify-content: center !important;
-
     }
 
     .card img {
