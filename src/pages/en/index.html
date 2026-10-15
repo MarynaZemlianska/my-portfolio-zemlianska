@@ -5,7 +5,7 @@ title: "Home"
 description: "Maryna Zemlianska, web developer: modern websites that sell. Landing pages, business card, corporate, personal and e-commerce websites."
 floatingBoxes: true
 ---
-<main>
+<main id="main" tabindex="-1">
         <section class="hero">
             <div class="first-top-container">
                 <div class="top-container">
@@ -126,6 +126,8 @@ floatingBoxes: true
                                 <p class="card-hover-text">
                                     E-commerce concept focused on product cards.
                                 </p>
+
+                                <span class="card-hover-arrow"></span>
                             </div>
 
                         </a>
@@ -844,10 +846,10 @@ floatingBoxes: true
                 <h2 class="contacts-title">Get in touch with me</h2>
             </div>
 
-            <form class="form" autocomplete="off">
+            <form class="form" novalidate>
                 <div class="container-form-items">
                     <label class="form-label" for="user-name">Name:</label>
-                    <input class="input1" type="text" id="user-name" name="user-name" placeholder="Enter your name..."
+                    <input class="input1" type="text" id="user-name" name="user-name" autocomplete="name" placeholder="Enter your name..."
                         maxlength="50" pattern="[A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+([\s'-][A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+)*" required />
 
                     <label class="form-label" for="user-phone">Phone:</label>
@@ -873,7 +875,7 @@ floatingBoxes: true
                 </p>
             </form>
 
-            <div id="toast" class="toast">
+            <div id="toast" class="toast" role="status" aria-live="polite">
                     Thank you! Your request has been successfully sent.<br>
                     I will contact you as soon as possible.
                 </div>
@@ -911,7 +913,7 @@ floatingBoxes: true
             <div class="testimonials-wrapper">
                 <button type="button" class="slider-btn slider-prev" aria-label="Previous">&#10094;</button>
 
-                <div class="testimonials-slider">
+                <section class="testimonials-slider" tabindex="0" aria-label="Client testimonials">
                     <div class="testimonial-card">
                         <p>“Maryna created an excellent website for our business. The process was fast
                             and comfortable.”</p>
@@ -941,7 +943,7 @@ floatingBoxes: true
                         </p>
                         <span>— Danyil Kurelenko</span>
                     </div>
-                </div>
+                </section>
 
                 <button type="button" class="slider-btn slider-next" aria-label="Next">&#10095;</button>
             </div>

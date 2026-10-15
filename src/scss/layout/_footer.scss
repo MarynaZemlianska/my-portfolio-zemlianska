@@ -73,7 +73,7 @@
 .subtitle-footer{
     margin: 0 auto;
     margin-top: 20px;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.46); // was 0.4 (3.75:1)
 
 }
 
@@ -138,7 +138,7 @@
 .info-design,
 .info-safety {
     font-size: 12px;
-    color: #747272;
+    color: #7b7979; // was #747272 (4.07:1)
     font-family: 'Inter', sans-serif;
 }
 

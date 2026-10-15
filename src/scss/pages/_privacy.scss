@@ -124,3 +124,10 @@
 .policy-title {
     font-size: 2em;
 }
+
+// Links inside the policy text were unstyled browser blue (#0000ee, 2:1 on the dark background)
+.policy-container a {
+    color: var(--color-brand-light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}

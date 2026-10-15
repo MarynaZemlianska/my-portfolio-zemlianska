@@ -96,7 +96,7 @@
     display: block;
     font-family: 'Inter', sans-serif;
     font-size: 18px;
-    opacity: 0.4;
+    opacity: 0.46; // was 0.4 (3.75:1) -> 4.6:1
     max-width: 350px;
     word-break: normal;
     overflow-wrap: normal;

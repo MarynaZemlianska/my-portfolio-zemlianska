@@ -4,7 +4,7 @@ lang: "uk"
 title: "Проєкти"
 description: "Проєкти Марини Землянської: добірка робіт, у яких поєднано сучасний дизайн і продуманий користувацький досвід, зручність і швидкість."
 ---
-<main>
+<main id="main" tabindex="-1">
         <section class="hero">
             <div class="first-top-container projects-first-top-container">
                 <div class="top-container  projects-top-container">
@@ -547,10 +547,10 @@ description: "Проєкти Марини Землянської: добірка
                         <h2 class="contacts-title">Зв’яжіться зі мною</h2>
                     </div>
 
-                    <form class="form" autocomplete="off">
+                    <form class="form" novalidate>
                         <div class="container-form-items">
                             <label class="form-label" for="user-name">Ім’я :</label>
-                            <input class="input1" type="text" id="user-name" name="user-name"
+                            <input class="input1" type="text" id="user-name" name="user-name" autocomplete="name"
                                 placeholder="Введіть ваше ім’я..." maxlength="50"
                                 pattern="[A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+([\s'-][A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+)*" required />
 
@@ -572,7 +572,7 @@ description: "Проєкти Марини Землянської: добірка
                         </p>
                     </form>
 
-                    <div id="toast" class="toast">
+                    <div id="toast" class="toast" role="status" aria-live="polite">
                             Дякую! Ваша заявка успішно відправлена.<br>
                             Я зв'яжуся з вами найближчим часом.
                         </div>
@@ -610,7 +610,7 @@ description: "Проєкти Марини Землянської: добірка
                     <div class="testimonials-wrapper">
                         <button type="button" class="slider-btn slider-prev" aria-label="Попередній">&#10094;</button>
 
-                        <div class="testimonials-slider">
+                        <section class="testimonials-slider" tabindex="0" aria-label="Відгуки клієнтів">
                             <div class="testimonial-card">
                                 <p>“Марина створила чудовий сайт для нашого бізнесу. Процес був швидким і комфортним.”
                                 </p>
@@ -632,7 +632,7 @@ description: "Проєкти Марини Землянської: добірка
                                 <p>“Креативні рішення, швидке виконання та чудова підтримка. Щиро рекомендую!”</p>
                                 <span>— Даніїл Куреленко</span>
                             </div>
-                        </div>
+                        </section>
 
                         <button type="button" class="slider-btn slider-next" aria-label="Наступний">&#10095;</button>
                     </div>

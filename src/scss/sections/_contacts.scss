@@ -286,7 +286,8 @@
 
 .info-form a {
     color: rgba(255, 255, 255, 0.75);
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 3px;
     transition: 0.3s ease;
 }
 

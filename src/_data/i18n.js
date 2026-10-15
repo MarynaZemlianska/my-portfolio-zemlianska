@@ -4,6 +4,8 @@ export default {
     uk: {
         htmlLang: "uk",
         ogLocale: "uk_UA",
+        skipLink: "Перейти до вмісту",
+        testimonials: "Відгуки клієнтів",
         jobTitle: "Веброзробниця",
         langLabel: "UA",
         siteSuffix: "Web{LAB} Zemlianska - Розробка сайтів",
@@ -51,6 +53,8 @@ export default {
     en: {
         htmlLang: "en",
         ogLocale: "en_US",
+        skipLink: "Skip to content",
+        testimonials: "Client testimonials",
         jobTitle: "Web Developer",
         langLabel: "EN",
         siteSuffix: "Web{LAB} Zemlianska - Website Development",

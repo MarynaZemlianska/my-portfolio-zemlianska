@@ -26,3 +26,57 @@ a {
     margin: 0 auto;
     padding: 0 20px; 
 }
+
+/* ===== ACCESSIBILITY ===== */
+
+// Visible keyboard focus (WCAG 2.4.7 / 2.4.11). Only shown for keyboard
+// navigation, so mouse and touch users see the design unchanged.
+:focus-visible {
+    outline: 2px solid #ff00cc;
+    outline-offset: 3px;
+}
+
+// "Skip to content" link: off-screen until it receives keyboard focus (WCAG 2.4.1)
+.skip-link {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 100000;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: #ff00cc;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    transform: translateY(-200%);
+}
+
+.skip-link:focus {
+    transform: none;
+}
+
+// Services dropdown opens for keyboard users too (hover-only before)
+.nav-item.active .dropdown-menu,
+.nav-item:focus-within .dropdown-menu {
+    display: block;
+}
+
+// Respect the OS "reduce motion" setting for smooth scrolling and transitions
+@media (prefers-reduced-motion: reduce) {
+    html,
+    body {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+// Target of the skip link receives focus programmatically; no ring needed there
+#main:focus {
+    outline: none;
+}

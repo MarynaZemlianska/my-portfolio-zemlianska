@@ -6,15 +6,15 @@
         <h2 id="consultationTitle">{{ t.modal.title }}</h2>
         <p>{{ t.modal.text }}</p>
 
-        <form id="consultationForm">
-            <input type="text" name="name" placeholder="{{ t.modal.name }}" required>
-            <input type="tel" name="phone" placeholder="{{ t.modal.phone }}" required>
-            <textarea name="message" placeholder="{{ t.modal.message }}" rows="4" required></textarea>
+        <form id="consultationForm" novalidate>
+            <input type="text" name="name" placeholder="{{ t.modal.name }}" aria-label="{{ t.modal.name }}" autocomplete="name" required>
+            <input type="tel" name="phone" placeholder="{{ t.modal.phone }}" aria-label="{{ t.modal.phone }}" autocomplete="tel" required>
+            <textarea name="message" placeholder="{{ t.modal.message }}" aria-label="{{ t.modal.message }}" rows="4" required></textarea>
             <button type="submit">{{ t.modal.send }}</button>
         </form>
 
-        <div id="toast-success" class="toast toast-success">{{ t.modal.success | safe }}</div>
-        <div id="toast-error" class="toast toast-error">{{ t.modal.error }}</div>
+        <div id="toast-success" class="toast toast-success" role="status" aria-live="polite">{{ t.modal.success | safe }}</div>
+        <div id="toast-error" class="toast toast-error" role="alert">{{ t.modal.error }}</div>
 
     </div>
 </div>

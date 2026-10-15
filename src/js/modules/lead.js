@@ -21,7 +21,8 @@ const MESSAGES = {
 
 export const leadText = MESSAGES[pageLang()];
 
-const NAME_RE = /^[A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+([\s'’-][A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+)*$/;
+// at least 2 letters, words separated by space / apostrophe / hyphen
+const NAME_RE = /^(?=.{2,})[A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+([\s'’-][A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+)*$/;
 const PHONE_RE = /^\+?\d{10,15}$/;
 
 export const cleanPhone = (value) =>

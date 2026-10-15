@@ -4,7 +4,7 @@ lang: "uk"
 title: "Розробка лендінгу"
 description: "Розробка лендінгу: дизайн та розробка landing page для брендів, бізнесу та сучасних продуктів з продуманою структурою та UX."
 ---
-<main>
+<main id="main" tabindex="-1">
         <section class="hero">
             <div class="first-top-container projects-first-top-container">
                 <div class="top-container  projects-top-container">
@@ -454,10 +454,10 @@ description: "Розробка лендінгу: дизайн та розроб�
                 <h2 class="contacts-title">Зв’яжіться зі мною</h2>
             </div>
 
-            <form class="form" autocomplete="off">
+            <form class="form" novalidate>
                 <div class="container-form-items">
                     <label class="form-label" for="user-name">Ім’я :</label>
-                    <input class="input1" type="text" id="user-name" name="user-name" placeholder="Введіть ваше ім’я..."
+                    <input class="input1" type="text" id="user-name" name="user-name" autocomplete="name" placeholder="Введіть ваше ім’я..."
                         maxlength="50" pattern="[A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+([\s'-][A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+)*" required />
 
                     <label class="form-label" for="user-phone">Телефон:</label>
@@ -478,7 +478,7 @@ description: "Розробка лендінгу: дизайн та розроб�
                 </p>
             </form>
 
-            <div id="toast" class="toast">
+            <div id="toast" class="toast" role="status" aria-live="polite">
                     Дякую! Ваша заявка успішно відправлена.<br>
                     Я зв'яжуся з вами найближчим часом.
                 </div>
@@ -604,7 +604,7 @@ description: "Розробка лендінгу: дизайн та розроб�
             <div class="testimonials-wrapper">
                 <button type="button" class="slider-btn slider-prev" aria-label="Попередній">&#10094;</button>
 
-                <div class="testimonials-slider">
+                <section class="testimonials-slider" tabindex="0" aria-label="Відгуки клієнтів">
                     <div class="testimonial-card">
                         <p>“Марина створила чудовий сайт для нашого бізнесу. Процес був швидким і комфортним.”
                         </p>
@@ -626,7 +626,7 @@ description: "Розробка лендінгу: дизайн та розроб�
                         <p>“Креативні рішення, швидке виконання та чудова підтримка. Щиро рекомендую!”</p>
                         <span>— Даніїл Куреленко</span>
                     </div>
-                </div>
+                </section>
 
                 <button type="button" class="slider-btn slider-next" aria-label="Наступний">&#10095;</button>
             </div>

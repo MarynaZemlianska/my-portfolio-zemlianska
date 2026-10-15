@@ -4,7 +4,7 @@ lang: "en"
 title: "Landing page development"
 description: "Landing page development: design and development of landing pages for brands, business and modern products, with thoughtful structure and UX."
 ---
-<main>
+<main id="main" tabindex="-1">
         <section class="hero">
             <div class="first-top-container projects-first-top-container">
                 <div class="top-container projects-top-container">
@@ -510,13 +510,13 @@ description: "Landing page development: design and development of landing pages 
 
 </div>
 
-<form class="form" autocomplete="off">
+<form class="form" novalidate>
 
     <div class="container-form-items">
 
         <label class="form-label" for="user-name">Name:</label>
 
-        <input class="input1" type="text" id="user-name" name="user-name"
+        <input class="input1" type="text" id="user-name" name="user-name" autocomplete="name"
             placeholder="Enter your name..."
             maxlength="50"
             pattern="[A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+([\s'-][A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+)*"
@@ -552,7 +552,7 @@ description: "Landing page development: design and development of landing pages 
     </p>
 </form>
 
-<div id="toast" class="toast">
+<div id="toast" class="toast" role="status" aria-live="polite">
         Thank you! Your request has been successfully sent.<br>
         I will contact you as soon as possible.
     </div>
@@ -682,7 +682,7 @@ description: "Landing page development: design and development of landing pages 
     <div class="testimonials-wrapper">
         <button type="button" class="slider-btn slider-prev" aria-label="Previous">&#10094;</button>
 
-        <div class="testimonials-slider">
+        <section class="testimonials-slider" tabindex="0" aria-label="Client testimonials">
             <div class="testimonial-card">
                 <p>“Maryna created an amazing website for our business. The process was fast and smooth.”</p>
                 <span>— Oksana Kharytonova</span>
@@ -707,7 +707,7 @@ description: "Landing page development: design and development of landing pages 
                 <p>“Creative solutions, fast delivery, and great support. Highly recommend!”</p>
                 <span>— Danyil Kurelenko</span>
             </div>
-        </div>
+        </section>
 
         <button type="button" class="slider-btn slider-next" aria-label="Next">&#10095;</button>
     </div>
