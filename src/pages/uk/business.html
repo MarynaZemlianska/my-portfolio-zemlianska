@@ -3,7 +3,6 @@ key: "business"
 lang: "uk"
 title: "Розробка сайту-візитки"
 description: "Web{LAB} Zemlianska - frontend developer portfolio, website development and UI/UX projects."
-extraScripts: ["subpage-effects"]
 ---
 <main>
         <section class="hero">
@@ -12,9 +11,9 @@ extraScripts: ["subpage-effects"]
                     <div class="top-left">
 
                         <h1 class="top-container-h1 top-container-h1-projects">
-                            <p class="hero-subtitle">
-                                Cучасні вебсайти, що продають
-                            </p>Розробка <br>сайту-візитки
+                            <span class="hero-subtitle">
+                                Сучасні вебсайти, що продають
+                            </span>Розробка <br>сайту-візитки
                         </h1>
                         <div class="top-text-items">
                             <div>
@@ -39,27 +38,27 @@ extraScripts: ["subpage-effects"]
 
                     <div class="top-actions">
                         <!-- MOBILE -->
-                        <button class="button-contact button-mobile2 open-modal">
+                        <button type="button" class="button-contact button-mobile2 open-modal">
                             Безкоштовна консультація
                         </button>
                         <div class="top-right icons-container">
-                            <a href="https://www.instagram.com/zemlianska_maryna/" target="_blank">
-                                <svg class="icon">
+                            <a href="https://www.instagram.com/zemlianska_maryna/" target="_blank" aria-label="Instagram">
+                                <svg aria-hidden="true" class="icon">
                                     <use href="/assets/images/sprite.svg#icon-instagram"></use>
                                 </svg>
                             </a>
-                            <a href="https://t.me/zemlianska_dev" target="_blank">
-                                <svg class="icon" width="45px" height="65px">
+                            <a href="https://t.me/zemlianska_dev" target="_blank" aria-label="Telegram">
+                                <svg aria-hidden="true" class="icon" width="45px" height="65px">
                                     <use href="/assets/images/sprite.svg#icon-telegram"></use>
                                 </svg>
                             </a>
-                            <a href="viber://chat?number=%2B380637657506" target="_blank">
-                                <svg class="icon" width="50" height="65">
+                            <a href="viber://chat?number=%2B380637657506" target="_blank" aria-label="Viber">
+                                <svg aria-hidden="true" class="icon" width="50" height="65">
                                     <use href="/assets/images/sprite.svg#icon-viber"></use>
                                 </svg>
                             </a>
-                            <a href="mailto:mv.zemlianska@gmail.com" target="_blank">
-                                <svg class="icon" width="50px" height="65px">
+                            <a href="mailto:mv.zemlianska@gmail.com" target="_blank" aria-label="Email">
+                                <svg aria-hidden="true" class="icon" width="50px" height="65px">
                                     <use href="/assets/images/sprite.svg#icon-mail"></use>
                                 </svg>
                             </a>
@@ -182,7 +181,6 @@ extraScripts: ["subpage-effects"]
                 </button>
             </div>
         </div>
-        </section>
 
         <section class="section-steps">
             <div class="steps-gradient"></div>
@@ -484,7 +482,7 @@ extraScripts: ["subpage-effects"]
                 <button type="submit" class="form-button">Отримати безкоштовну консультацію</button>
                 <p class="info-form">
                     Натискаючи кнопку, <br>
-                    <a href="/privacy/" target="">я погоджуюсь із політикою
+                    <a href="/privacy/">я погоджуюсь із політикою
                         конфіденційності.</a>
                 </p>
                 <div id="toast" class="toast">
@@ -527,7 +525,7 @@ extraScripts: ["subpage-effects"]
 
             <div class="faq-list">
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button type="button" class="faq-question">
                         Як замовити сайт?
                         <span class="faq-arrow"></span>
                     </button>
@@ -538,7 +536,7 @@ extraScripts: ["subpage-effects"]
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button type="button" class="faq-question">
                         Чи потрібна передоплата?
                         <span class="faq-arrow"></span>
                     </button>
@@ -553,7 +551,7 @@ extraScripts: ["subpage-effects"]
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button type="button" class="faq-question">
                         Як користуватися сайтом після розробки?
                         <span class="faq-arrow"></span>
                     </button>
@@ -565,7 +563,7 @@ extraScripts: ["subpage-effects"]
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button type="button" class="faq-question">
                         Яку інформацію потрібно надати?
                         <span class="faq-arrow"></span>
                     </button>
@@ -576,7 +574,7 @@ extraScripts: ["subpage-effects"]
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button type="button" class="faq-question">
                         Які етапи створення сайту?
                         <span class="faq-arrow"></span>
                     </button>
@@ -612,7 +610,7 @@ extraScripts: ["subpage-effects"]
             <h2 class="section-title-testi">Відгуки клієнтів</h2>
 
             <div class="testimonials-wrapper">
-                <button class="slider-btn slider-prev">&#10094;</button>
+                <button type="button" class="slider-btn slider-prev" aria-label="Попередній">&#10094;</button>
 
                 <div class="testimonials-slider">
                     <div class="testimonial-card">
@@ -638,7 +636,7 @@ extraScripts: ["subpage-effects"]
                     </div>
                 </div>
 
-                <button class="slider-btn slider-next">&#10095;</button>
+                <button type="button" class="slider-btn slider-next" aria-label="Наступний">&#10095;</button>
             </div>
         </section>
 

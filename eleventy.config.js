@@ -9,7 +9,9 @@ export default function (eleventyConfig) {
     // ===== STATIC ASSETS =====
     eleventyConfig.addPassthroughCopy({
         "src/images": "assets/images",
-        "src/js": "assets/js",
+        "src/js/main.js": "assets/js/main.js",
+        "src/js/modules": "assets/js/modules",
+        "src/js/config.js": "assets/js/config.js",
         "src/fonts": "assets/fonts",
         "src/_redirects": "_redirects",
     });

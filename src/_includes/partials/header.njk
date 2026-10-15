@@ -1,6 +1,6 @@
 {%- macro langButtons() -%}
 {%- for l in site.switcherOrder %}
-<button class="lang-btn{% if l == lang %} active{% endif %}" data-lang-btn="{{ 'ua' if l == 'uk' else l }}"
+<button type="button" class="lang-btn{% if l == lang %} active{% endif %}" data-lang-btn="{{ 'ua' if l == 'uk' else l }}"
     data-url="{{ routes[key][l] }}">{{ i18n[l].langLabel }}</button>
 {%- endfor %}
 {%- endmacro -%}
@@ -16,7 +16,7 @@
                     <span class="logo-subtitle">ZEMLIANSKA</span>
                 </span>
             </a>
-            <nav class="nav nav hidden">
+            <nav class="nav hidden" aria-label="{{ t.menu }}">
                 <div class="mobile-lang-switch">
                     {{ langButtons() }}
                 </div>
@@ -47,12 +47,12 @@
             <div class="lang-switch">
                 {{ langButtons() }}
             </div>
-            <button class="burger" id="burger" aria-label="{{ t.menu }}">
+            <button type="button" class="burger" id="burger" aria-label="{{ t.menu }}">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <button class="button-contact button-desktop open-modal">
+            <button type="button" class="button-contact button-desktop open-modal">
                 {{ t.consultation }}
             </button>
         </div>

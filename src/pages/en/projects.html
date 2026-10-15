@@ -11,9 +11,9 @@ description: "Web{LAB} Zemlianska - frontend developer portfolio, website develo
 
                     <div class="top-left">
                         <h1 class="top-container-h1 top-container-h1-projects">
-                            <p class="hero-subtitle">
+                            <span class="hero-subtitle">
                                 Modern websites that sell
-                            </p>
+                            </span>
                             PROJECTS
                         </h1>
 
@@ -37,31 +37,31 @@ description: "Web{LAB} Zemlianska - frontend developer portfolio, website develo
                     </div>
 
                     <div class="top-actions">
-                        <button class="button-contact button-mobile2 open-modal">
+                        <button type="button" class="button-contact button-mobile2 open-modal">
                             Free consultation
                         </button>
 
                         <div class="top-right icons-container">
-                            <a href="https://www.instagram.com/zemlianska_maryna/" target="_blank">
-                                <svg class="icon">
+                            <a href="https://www.instagram.com/zemlianska_maryna/" target="_blank" aria-label="Instagram">
+                                <svg aria-hidden="true" class="icon">
                                     <use href="/assets/images/sprite.svg#icon-instagram"></use>
                                 </svg>
                             </a>
 
-                            <a href="https://t.me/zemlianska_dev" target="_blank">
-                                <svg class="icon" width="45px" height="65px">
+                            <a href="https://t.me/zemlianska_dev" target="_blank" aria-label="Telegram">
+                                <svg aria-hidden="true" class="icon" width="45px" height="65px">
                                     <use href="/assets/images/sprite.svg#icon-telegram"></use>
                                 </svg>
                             </a>
 
-                            <a href="viber://chat?number=%2B380637657506" target="_blank">
-                                <svg class="icon" width="50" height="65">
+                            <a href="viber://chat?number=%2B380637657506" target="_blank" aria-label="Viber">
+                                <svg aria-hidden="true" class="icon" width="50" height="65">
                                     <use href="/assets/images/sprite.svg#icon-viber"></use>
                                 </svg>
                             </a>
 
-                            <a href="mailto:mv.zemlianska@gmail.com" target="_blank">
-                                <svg class="icon" width="50px" height="65px">
+                            <a href="mailto:mv.zemlianska@gmail.com" target="_blank" aria-label="Email">
+                                <svg aria-hidden="true" class="icon" width="50px" height="65px">
                                     <use href="/assets/images/sprite.svg#icon-mail"></use>
                                 </svg>
                             </a>
@@ -91,10 +91,10 @@ description: "Web{LAB} Zemlianska - frontend developer portfolio, website develo
 
                     <!-- FILTERS -->
                     <div class="projects-filters">
-                        <button class="active" data-filter="all">All</button>
-                        <button data-filter="landing">Landing Pages</button>
-                        <button data-filter="ecommerce">E-commerce</button>
-                        <button data-filter="corporate">Corporate</button>
+                        <button type="button" class="active" data-filter="all">All</button>
+                        <button type="button" data-filter="landing">Landing Pages</button>
+                        <button type="button" data-filter="ecommerce">E-commerce</button>
+                        <button type="button" data-filter="corporate">Corporate</button>
                     </div>
 
                     <div class="container-cards">
@@ -189,7 +189,7 @@ description: "Web{LAB} Zemlianska - frontend developer portfolio, website develo
                             <a href="https://lease-carss.netlify.app/" target="_blank">
 
                                 <div class="card-mobile-title">
-                                    <span class="card-hover-title-bottom">Leasing From D&M</span>
+                                    <span class="card-hover-title-bottom">Leasing From D&amp;M</span>
                                 </div>
 
                                 <div class="card-image">
@@ -278,8 +278,10 @@ description: "Web{LAB} Zemlianska - frontend developer portfolio, website develo
 
                             </a>
                         </div>
-                        <!-- DOTS -->
-                        <div class="container-dots-projects">
+                    </div>
+
+                    <!-- DOTS -->
+                    <div class="container-dots-projects">
                             <div class="dot"></div>
                             <div class="dot"></div>
                             <div class="dot"></div>
@@ -307,6 +309,9 @@ description: "Web{LAB} Zemlianska - frontend developer portfolio, website develo
                         </div>
 
                 </section>
+            </div>
+        </section>
+
                 <section class="section-steps">
                     <div class="steps-gradient"></div>
 
@@ -385,6 +390,9 @@ description: "Web{LAB} Zemlianska - frontend developer portfolio, website develo
                                         </p>
                                     </div>
                                 </li>
+                            </ol>
+                        </div>
+                    </div>
                 </section>
 
                 <section class="quote-section">
@@ -406,7 +414,7 @@ description: "Web{LAB} Zemlianska - frontend developer portfolio, website develo
                             <p>✔ Transparent cost and deadlines</p>
                         </div>
 
-                        <button class="quote-btn" id="openQuoteModal">
+                        <button type="button" class="quote-btn" id="openQuoteModal">
                             Get a free estimate
                         </button>
 
@@ -438,7 +446,7 @@ description: "Web{LAB} Zemlianska - frontend developer portfolio, website develo
 
                     <div class="faq-list">
                         <div class="faq-item">
-                            <button class="faq-question">
+                            <button type="button" class="faq-question">
                                 How to order a website?
                                 <span class="faq-arrow"></span>
                             </button>
@@ -449,7 +457,7 @@ description: "Web{LAB} Zemlianska - frontend developer portfolio, website develo
                         </div>
 
                         <div class="faq-item">
-                            <button class="faq-question">
+                            <button type="button" class="faq-question">
                                 Is a deposit required?
                                 <span class="faq-arrow"></span>
                             </button>
@@ -465,7 +473,7 @@ description: "Web{LAB} Zemlianska - frontend developer portfolio, website develo
                         </div>
 
                         <div class="faq-item">
-                            <button class="faq-question">
+                            <button type="button" class="faq-question">
                                 How to use the website after development?
                                 <span class="faq-arrow"></span>
                             </button>
@@ -478,7 +486,7 @@ description: "Web{LAB} Zemlianska - frontend developer portfolio, website develo
                         </div>
 
                         <div class="faq-item">
-                            <button class="faq-question">
+                            <button type="button" class="faq-question">
                                 What information is required?
                                 <span class="faq-arrow"></span>
                             </button>
@@ -489,7 +497,7 @@ description: "Web{LAB} Zemlianska - frontend developer portfolio, website develo
                         </div>
 
                         <div class="faq-item">
-                            <button class="faq-question">
+                            <button type="button" class="faq-question">
                                 What are the stages of website creation?
                                 <span class="faq-arrow"></span>
                             </button>
@@ -529,42 +537,43 @@ description: "Web{LAB} Zemlianska - frontend developer portfolio, website develo
                     </div>
 
                     <div class="container-top-contacts">
-                        <h2 class="contacts-title">Зв’яжіться зі мною</h2>
+                        <h2 class="contacts-title">Get in touch</h2>
                     </div>
 
                     <form class="form" autocomplete="off">
                         <div class="container-form-items">
 
-                            <label class="form-label" for="user-name">Ім’я :</label>
+                            <label class="form-label" for="user-name">Name:</label>
                             <input class="input1" type="text" id="user-name" name="user-name"
-                                placeholder="Введіть ваше ім’я..." maxlength="50"
+                                placeholder="Enter your name..." maxlength="50"
                                 pattern="[A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+([\s'-][A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+)*" required />
 
-                            <label class="form-label" for="user-phone">Телефон:</label>
+                            <label class="form-label" for="user-phone">Phone:</label>
                             <input class="input2" type="tel" id="user-phone" name="user-phone"
-                                placeholder="Введіть ваш телефон..." pattern="^\+?[0-9]{10,15}$" minlength="10"
+                                placeholder="Enter your phone number..." pattern="^\+?[0-9]{10,15}$" minlength="10"
                                 maxlength="16" inputmode="numeric" autocomplete="tel" required />
 
-                            <label class="form-label" for="user-message">Повідомлення...</label>
+                            <label class="form-label" for="user-message">Message:</label>
                             <textarea class="input3" id="user-message" name="user-message"
-                                placeholder="Введіть ваше повідомлення..." rows="5" required></textarea>
+                                placeholder="Enter your message..." rows="5" required></textarea>
 
                         </div>
 
                         <button type="submit" class="form-button">
-                            Отримати безкоштовну консультацію
+                            Get a free consultation
                         </button>
 
                         <p class="info-form">
-                            Натискаючи кнопку, <br>
-                            <a href="/en/privacy/" target="">
-                                я погоджуюсь із політикою конфіденційності.
+                            By clicking the button, <br>
+                            I agree with the
+                            <a href="/en/privacy/">
+                                privacy policy
                             </a>
                         </p>
 
                         <div id="toast" class="toast">
-                            Дякую! Ваша заявка успішно відправлена.<br>
-                            Я зв'яжуся з вами найближчим часом.
+                            Thank you! Your request has been successfully sent.<br>
+                            I will contact you as soon as possible.
                         </div>
                     </form>
                 </section>
@@ -594,12 +603,12 @@ description: "Web{LAB} Zemlianska - frontend developer portfolio, website develo
                     <div class="dot"></div>
                     <div class="dot"></div>
                 </div>
-        </section>
+
         <section class="section-testimonials">
             <h2 class="section-title-testi">Client reviews</h2>
 
             <div class="testimonials-wrapper">
-                <button class="slider-btn slider-prev">&#10094;</button>
+                <button type="button" class="slider-btn slider-prev" aria-label="Previous">&#10094;</button>
 
                 <div class="testimonials-slider">
                     <div class="testimonial-card">
@@ -625,7 +634,7 @@ description: "Web{LAB} Zemlianska - frontend developer portfolio, website develo
                     </div>
                 </div>
 
-                <button class="slider-btn slider-next">&#10095;</button>
+                <button type="button" class="slider-btn slider-next" aria-label="Next">&#10095;</button>
             </div>
         </section>
 

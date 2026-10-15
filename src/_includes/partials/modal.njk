@@ -1,9 +1,9 @@
 <div class="modal is-hidden" id="consultationModal">
-    <div class="modal-content">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="consultationTitle">
 
-        <span class="modal-close" id="modalClose">&times;</span>
+        <button type="button" class="modal-close" id="modalClose" aria-label="{{ t.modal.close }}">&times;</button>
 
-        <h2>{{ t.modal.title }}</h2>
+        <h2 id="consultationTitle">{{ t.modal.title }}</h2>
         <p>{{ t.modal.text }}</p>
 
         <form id="consultationForm">

@@ -39,16 +39,15 @@
 
     {% include "partials/modal.njk" %}
 
-    <button class="to-top-btn" id="toTopBtn" aria-label="{{ t.toTop }}">
+    <button type="button" class="to-top-btn" id="toTopBtn" aria-label="{{ t.toTop }}">
         <svg viewBox="0 0 24 24" fill="none">
             <path d="M12 19V5" />
             <path d="M5 12L12 5L19 12" />
         </svg>
     </button>
 
-    {%- for script in scripts.concat(extraScripts or []) %}
-    <script src="/assets/js/{{ script }}.js" defer></script>
-    {%- endfor %}
+    <script src="/assets/js/config.js" defer></script>
+    <script src="/assets/js/main.js" type="module"></script>
 </body>
 
 </html>
