@@ -3,6 +3,8 @@
 export default {
     uk: {
         htmlLang: "uk",
+        ogLocale: "uk_UA",
+        jobTitle: "Веброзробниця",
         langLabel: "UA",
         siteSuffix: "Web{LAB} Zemlianska - Розробка сайтів",
         nav: {
@@ -48,6 +50,8 @@ export default {
     },
     en: {
         htmlLang: "en",
+        ogLocale: "en_US",
+        jobTitle: "Web Developer",
         langLabel: "EN",
         siteSuffix: "Web{LAB} Zemlianska - Website Development",
         nav: {

@@ -7,3 +7,9 @@
     box-sizing: border-box; 
 }
 
+
+// Responsive images are wrapped in <picture> at build time; keep the <img>
+// laid out exactly as if it were the direct child (no extra box).
+picture {
+    display: contents;
+}

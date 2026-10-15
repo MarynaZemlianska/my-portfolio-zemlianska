@@ -3,9 +3,9 @@
 import { reveal, revealGroup } from "./utils.js";
 
 export function initReveals() {
-    // Hero, FAQ, testimonials, quote
-    reveal(`.top-container-h1, .items-text, .top-image, .top-right a, .button-mobile2,
-            .section-testimonials, .section-faq, .quote-section`, {
+    // Hero entrance is pure CSS (sections/_hero.scss) so the LCP image never waits for JS.
+    // FAQ, testimonials, quote
+    reveal(".button-mobile2, .section-testimonials, .section-faq, .quote-section", {
         threshold: 0.25,
         rootMargin: "0px 0px -10% 0px",
     });

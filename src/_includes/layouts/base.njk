@@ -13,14 +13,56 @@
     <link rel="alternate" hreflang="{{ i18n[l].htmlLang }}" href="{{ site.url }}{{ routes[key][l] }}">
     {%- endfor %}
     <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ routes[key][site.languages[0]] }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site.name }}">
+    <meta property="og:title" content="{{ title }} - {{ t.siteSuffix }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:url" content="{{ site.url }}{{ routes[key][lang] }}">
+    <meta property="og:image" content="{{ site.url }}/assets/images/og/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="{{ t.ogLocale }}">
+    {%- for l in site.languages %}{% if l != lang %}
+    <meta property="og:locale:alternate" content="{{ i18n[l].ogLocale }}">
+    {%- endif %}{% endfor %}
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">{{ {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": site.url + "/#person",
+                "name": site.name,
+                "jobTitle": t.jobTitle,
+                "url": site.url + routes.home[lang],
+                "email": "mailto:" + site.email,
+                "sameAs": site.profiles
+            },
+            {
+                "@type": "WebSite",
+                "@id": site.url + "/#website",
+                "url": site.url + "/",
+                "name": site.name,
+                "inLanguage": ["uk", "en"],
+                "publisher": { "@id": site.url + "/#person" }
+            },
+            {
+                "@type": "WebPage",
+                "url": site.url + routes[key][lang],
+                "name": title,
+                "description": description,
+                "inLanguage": t.htmlLang,
+                "isPartOf": { "@id": site.url + "/#website" }
+            }
+        ]
+    } | dump | safe }}</script>
     {%- endif %}
     <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
     <link rel="preload" as="font" href="/assets/fonts/Inter_18pt-Regular.woff2" type="font/woff2" crossorigin>
     <link rel="preload" as="font" href="/assets/fonts/Montserrat-ExtraBold.woff2" type="font/woff2" crossorigin>
-    {%- if preloadImage %}
-    <link rel="preload" as="image" href="{{ preloadImage }}">
-    {%- endif %}
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="{{ cssUrl }}">
 </head>
 
 <body>

@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../abstracts" as *;
 
 /* ================= HEADER HEIGHT ================= */
@@ -543,4 +544,62 @@
         font-size: 12px;
     }
 
+}
+
+/* ================= HERO ENTRANCE (CSS-only) =================
+   Same motion as before (0.7s ease-out, rise 50px/40px, scale .95 -> 1,
+   staggered delays), but it starts on first render instead of waiting for
+   JS to add .visible — so the LCP image is painted without a JS round trip.
+   Delays are built into the keyframes because `.hero *` forces
+   animation-delay: 0 (see top of file).
+   .button-mobile2 keeps the JS reveal: it is also .button-contact, whose
+   border animation is switched off with !important on phones. */
+$hero-duration: 0.7s;
+
+@function hero-anim-name($delay, $rise) {
+    @return hero-in-#{math.round(math.div($delay, 0.1s))}-#{math.div($rise, 1px)};
+}
+
+@each $delay, $rise in (0s 50px, 0.2s 50px, 0.4s 50px, 0.5s 50px, 0.6s 50px, 0.7s 50px) {
+    @keyframes #{hero-anim-name($delay, $rise)} {
+        0%,
+        #{math.percentage(math.div($delay, $delay + $hero-duration))} {
+            opacity: 0;
+            transform: translateY($rise) scale(0.95);
+            animation-timing-function: ease-out;
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+}
+
+@mixin hero-enter($delay, $rise: 50px) {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    animation: hero-anim-name($delay, $rise) ($delay + $hero-duration) linear;
+}
+
+.hero .top-container-h1 { @include hero-enter(0s); }
+.hero .items-text { @include hero-enter(0.2s); }
+.hero .top-image { @include hero-enter(0.4s); }
+.hero .top-right a:nth-child(1) { @include hero-enter(0.5s); }
+.hero .top-right a:nth-child(2) { @include hero-enter(0.6s); }
+.hero .top-right a:nth-child(3) { @include hero-enter(0.7s); }
+.hero .top-right a:nth-child(n + 4) { @include hero-enter(0s); } // had no stagger delay before either
+
+@media (prefers-reduced-motion: reduce) {
+    .hero .top-container-h1,
+    .hero .items-text,
+    .hero .top-image,
+    .hero .top-right a {
+        animation: none;
+    }
+}
+
+// The hero image used to be capped by its HTML width="400" attribute.
+.top-imageprojects {
+    width: 400px;
 }
