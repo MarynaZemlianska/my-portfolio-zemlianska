@@ -40,3 +40,24 @@ test("all internal links resolve", async ({ page, request }) => {
         expect(res.status(), link).toBe(200);
     }
 });
+
+// The home hero must fill the first screen: nothing of "Projects" before scrolling.
+const FOLD_SIZES = [[320, 640], [375, 667], [390, 844], [768, 1024], [1024, 768], [1440, 900], [1920, 1080]];
+for (const path of ["/", "/en/"]) {
+    test(`home ${path}: first screen is the hero only`, async ({ page }) => {
+        test.skip(test.info().project.name !== "chromium", "viewport sizes are set explicitly; one engine is enough");
+        for (const [width, height] of FOLD_SIZES) {
+            await page.setViewportSize({ width, height });
+            await page.goto(path);
+            const r = await page.evaluate(() => {
+                const hero = document.querySelector(".hero-home").getBoundingClientRect();
+                const projects = document.querySelector(".section-projects").getBoundingClientRect();
+                return { vh: innerHeight, heroBottom: hero.bottom, projectsTop: projects.top,
+                    overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth };
+            });
+            expect(r.heroBottom, `${width}x${height}: hero reaches the bottom of the screen`).toBeGreaterThanOrEqual(r.vh - 1);
+            expect(r.projectsTop, `${width}x${height}: Projects starts below the fold`).toBeGreaterThanOrEqual(r.vh);
+            expect(r.overflow, `${width}x${height}: no horizontal scroll`).toBeLessThanOrEqual(0);
+        }
+    });
+}

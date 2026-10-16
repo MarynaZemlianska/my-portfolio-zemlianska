@@ -609,6 +609,15 @@ $hero-duration: 0.7s;
    first screen is title -> description -> CTA, with the illustration and the
    social icons beside it. The CTA reuses the existing .button-contact style. */
 .hero-home {
+    // The home hero fills the first screen (the fixed header sits over its
+    // padding-top), so nothing of the next section shows before scrolling.
+    // svh = viewport height with the mobile browser bars shown; vh is the fallback.
+    min-height: 100vh;
+    min-height: 100svh;
+    // keep the composition centred in the space below the header when the
+    // screen is taller than the content (large desktops)
+    align-items: center;
+
     // side-by-side layout only: fixed column proportions so the illustration
     // is the same size in UA and EN (stacks below 1035px as before)
     @media (min-width: 1035px) {
@@ -684,4 +693,11 @@ $hero-duration: 0.7s;
             max-width: none;
         }
     }
+}
+
+// The projects glow (.section-projects-gradient, top: -90px, blur 110px) used to
+// spill upwards; on the home page that area is now the first screen, so the
+// section clips it at its own top edge.
+.hero-home + .section-projects {
+    overflow: clip;
 }
