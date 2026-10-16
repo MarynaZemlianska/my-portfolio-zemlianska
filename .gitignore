@@ -1,6 +1,10 @@
 # Secrets (local only)
+# legacy client-side config (no longer used; kept ignored for safety)
 src/js/config.js
 .env
+.env.*
+!.env.example
+.netlify/
 
 # Dependencies & build output
 node_modules/

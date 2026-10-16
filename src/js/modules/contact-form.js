@@ -44,6 +44,7 @@ export function initContactForm() {
             phone: fields.phone.value.trim(),
             message: fields.message.value.trim(),
             source: "Contact form",
+            website: form.elements.website?.value ?? "",
         };
 
         const invalid = validateLead(lead);

@@ -82,3 +82,13 @@ a {
 #main:focus {
     outline: none;
 }
+
+// Anti-spam honeypot field in the lead forms: invisible to people and screen readers
+.hp-field {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+}

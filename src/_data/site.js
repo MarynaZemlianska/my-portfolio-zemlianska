@@ -1,8 +1,10 @@
 export default {
     name: "Maryna Zemlianska",
-    // Production origin without trailing slash, e.g. "https://zemlianska.dev".
-    // canonical / hreflang / Open Graph URLs are only emitted once this is set.
-    url: process.env.SITE_URL || "",
+    // Production origin without trailing slash. canonical / hreflang / Open Graph /
+    // sitemap are only emitted when it is known: SITE_URL if set, otherwise the
+    // primary site URL Netlify provides for production builds (CONTEXT=production).
+    // Deploy previews and local builds get no absolute URLs (nothing made up).
+    url: (process.env.SITE_URL || (process.env.CONTEXT === "production" ? process.env.URL : "") || "").replace(/\/$/, ""),
     email: "mv.zemlianska@gmail.com",
     telegram: "https://t.me/zemlianska_dev",
     viber: "viber://chat?number=%2B380637657506",

@@ -76,6 +76,7 @@ export function initModal() {
             phone: cleanPhone(form.elements.phone.value.trim()),
             message: form.elements.message.value.trim(),
             source: "Modal",
+            website: form.elements.website?.value ?? "",
         };
 
         const invalid = validateLead(lead);

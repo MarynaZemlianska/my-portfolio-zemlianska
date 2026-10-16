@@ -1,5 +1,4 @@
 // Lead submission (both the modal form and the contact section form).
-// Credentials come from the local, gitignored config.js (window.APP_CONFIG).
 import { pageLang } from "./utils.js";
 
 const MESSAGES = {
@@ -36,28 +35,20 @@ export function validateLead({ name, phone, message }) {
     return null;
 }
 
-/** Sends a lead to Telegram. Resolves true on success. */
-export async function sendLead({ name, phone, message, source }) {
-    const { botToken, chatId } = window.APP_CONFIG?.telegram ?? {};
-    if (!botToken || !chatId) {
-        console.error("Lead form: Telegram config is missing (src/js/config.js).");
-        return false;
-    }
-
-    const text =
-`📩 Нова заявка
-
-👤 Ім’я: ${name}
-📞 Телефон: ${phone}
-💬 Повідомлення: ${message}
-
-📍 ${source} · ${window.location.pathname}`;
-
-    const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
-
+/**
+ * Sends a lead to the serverless endpoint (netlify/functions/lead.mjs), which
+ * forwards it to Telegram. No credentials exist in the browser.
+ * Resolves true on success.
+ */
+export async function sendLead({ name, phone, message, source, website = "" }) {
     try {
-        const res = await fetch(url);
-        return res.ok;
+        const res = await fetch("/api/lead", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, phone, message, source, website, page: window.location.pathname }),
+        });
+        const body = await res.json().catch(() => ({}));
+        return res.ok && body.ok === true;
     } catch (err) {
         console.error("Lead form: network error", err);
         return false;

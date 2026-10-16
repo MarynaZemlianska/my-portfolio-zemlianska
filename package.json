@@ -4,10 +4,11 @@
     "type": "module",
     "scripts": {
         "dev": "eleventy --serve",
-        "build": "eleventy",
+        "build": "npm run clean && eleventy",
         "validate": "npm run build && html-validate \"_site/**/index.html\"",
         "test": "playwright test",
-        "test:update-visual": "playwright test tests/visual.spec.js --update-snapshots"
+        "test:update-visual": "playwright test tests/visual.spec.js --update-snapshots",
+        "clean": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true})\""
     },
     "devDependencies": {
         "@11ty/eleventy": "^3.1.6",

@@ -14,7 +14,6 @@ export default function (eleventyConfig) {
         "src/images/og": "assets/images/og",
         "src/js/main.js": "assets/js/main.js",
         "src/js/modules": "assets/js/modules",
-        "src/js/config.js": "assets/js/config.js",
         "src/fonts": "assets/fonts",
         "src/_redirects": "_redirects",
         "src/_headers": "_headers",
@@ -40,9 +39,6 @@ export default function (eleventyConfig) {
             pictureAttributes: {},
         },
     });
-
-    // Legacy pre-11ty pages, kept for reference only.
-    eleventyConfig.ignores.add("src/html/**");
 
     eleventyConfig.addFilter("year", () => new Date().getFullYear());
 
