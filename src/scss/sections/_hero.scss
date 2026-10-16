@@ -603,3 +603,85 @@ $hero-duration: 0.7s;
 .top-imageprojects {
     width: 400px;
 }
+
+/* ================= HOME HERO COMPOSITION =================
+   Home page only (.hero-home). The stats block moved below "About", so the
+   first screen is title -> description -> CTA, with the illustration and the
+   social icons beside it. The CTA reuses the existing .button-contact style. */
+.hero-home {
+    // side-by-side layout only: fixed column proportions so the illustration
+    // is the same size in UA and EN (stacks below 1035px as before)
+    @media (min-width: 1035px) {
+        .top-left {
+            flex: 0 1 600px;
+            min-width: 0;
+        }
+
+        .top-center {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+    }
+
+    .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .hero-cta {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        min-width: 260px;
+        margin: 0;
+    }
+
+    // secondary action: same pill shape, quiet outline (like the project filters)
+    .hero-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 48px;
+        padding: 0 28px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 50px;
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        font-size: 18px;
+        // same entrance as the CTA next to it (JS adds .visible)
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+        transition: opacity 0.7s ease-out, transform 0.7s ease-out, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .hero-link.visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    .hero-link:hover {
+        color: var(--color-brand-light);
+        border-color: var(--color-brand-light);
+    }
+
+    // phones: two equal-width buttons, one under the other
+    @include down(767px) {
+        .hero-actions {
+            flex-direction: column;
+            align-items: stretch;
+            width: 100%;
+            max-width: 340px;
+            gap: 12px;
+        }
+
+        .hero-cta,
+        .hero-link {
+            justify-content: center;
+            width: 100%;
+            min-width: 0;
+            max-width: none;
+        }
+    }
+}

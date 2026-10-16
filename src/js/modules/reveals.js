@@ -5,7 +5,7 @@ import { reveal, revealGroup } from "./utils.js";
 export function initReveals() {
     // Hero entrance is pure CSS (sections/_hero.scss) so the LCP image never waits for JS.
     // FAQ, testimonials, quote
-    reveal(".button-mobile2, .section-testimonials, .section-faq, .quote-section", {
+    reveal(".button-mobile2, .hero-link, .section-testimonials, .section-faq, .quote-section", {
         threshold: 0.25,
         rootMargin: "0px 0px -10% 0px",
     });
