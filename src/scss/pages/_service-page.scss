@@ -72,13 +72,11 @@
     cursor: default;
 }
 
-
 .top-badges span:hover {
     transform: translateY(-3px);
     border-color: var(--color-brand-light);
     box-shadow: 0 0 18px rgba(250, 0, 255, 0.25);
 }
-
 
 .fade-up {
     opacity: 0;
@@ -86,7 +84,6 @@
     transition: all 0.8s ease;
     will-change: opacity, transform;
 }
-
 
 .fade-up.show {
     opacity: 1;
@@ -116,7 +113,6 @@
     overflow: hidden;
 }
 
-
 .lp-for::before {
     content: "";
     position: absolute;
@@ -136,14 +132,12 @@
     text-shadow: 0 0 18px rgba(250, 0, 255, 0.25);
 }
 
-
 .lp-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-content: center;
     gap: 18px;
 }
-
 
 /* CARD */
 .lp-card {
@@ -171,7 +165,6 @@
     align-items: center;
     justify-content: center;
 }
-
 
 .lp-card::after {
     content: "";
@@ -317,7 +310,6 @@
     }
 }
 
-
 .lp-includes p {
     margin-top: 30px;
     text-align: center;
@@ -334,88 +326,6 @@
     border: 1px solid rgb(250 0 255);
 
     border-radius: 999px;
-}
-
-.lp-pricing {
-    padding: 50px 20px;
-    text-align: center;
-    background: #0f0f17;
-    color: #fff;
-
-    h2 {
-        font-size: 60px;
-        margin-bottom: 50px;
-        font-weight: 700;
-        letter-spacing: 1px;
-    }
-
-    .lp-price-grid {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        flex-wrap: wrap;
-    }
-
-    .price-card {
-        width: 320px;
-        padding: 35px 25px;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        transition: 0.3s ease;
-        position: relative;
-        overflow: hidden;
-
-        h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
-
-        .price {
-            font-size: 32px;
-            font-weight: 700;
-            color: #7c5cff;
-            margin-bottom: 15px;
-        }
-
-        p {
-            font-size: 15px;
-            opacity: 0.81; // was 0.8 (2.98:1)
-            line-height: 1.5;
-        }
-
-        &:hover {
-            transform: translateY(-10px);
-            border-color: rgba(124, 92, 255, 0.6);
-            box-shadow: 0 15px 40px rgba(124, 92, 255, 0.2);
-        }
-    }
-
-    .price-card.highlight {
-        background: linear-gradient(135deg, #7c5cff, #b14cff);
-        border: none;
-        transform: scale(1.05);
-
-        .price {
-            color: #fff;
-        }
-
-        span {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 6px 12px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        &:hover {
-            transform: scale(1.08);
-            box-shadow: 0 20px 60px rgba(177, 76, 255, 0.35);
-        }
-    }
 }
 
 .lp-packages {
@@ -493,7 +403,6 @@
                 margin-bottom: 8px;
                 padding-left: 18px;
                 position: relative;
-
 
                 &::before {
                     content: "✓";
@@ -620,7 +529,6 @@
     // 500px decorative glow is wider than phones; clip sideways only
     overflow-x: clip;
 
-
     &::before {
         content: "";
         position: absolute;
@@ -662,18 +570,15 @@
     .lp-includes h2,
     .lp-packages h2,
     .lp-extra h2,
-    .lp-pricing h2,
     .lp-cta h2 {
         font-size: 50px;
     }
 
-    .lp-packages .lp-package-grid,
-    .lp-pricing .lp-price-grid {
+    .lp-packages .lp-package-grid {
         gap: 24px;
     }
 
-    .package-card,
-    .price-card {
+    .package-card {
         width: 300px !important;
     }
 }
@@ -697,7 +602,6 @@
     .lp-includes h2,
     .lp-packages h2,
     .lp-extra h2,
-    .lp-pricing h2,
     .lp-cta h2 {
         font-size: 45px;
     }
@@ -712,7 +616,6 @@
     }
 }
 
-
 /* =========================
    TABLET
 ========================= */
@@ -721,7 +624,6 @@
     .top-text,
     .lp-for,
     .lp-includes,
-    .lp-pricing,
     .lp-packages,
     .lp-extra,
     .lp-cta {
@@ -750,12 +652,10 @@
         grid-template-columns: 1fr;
     }
 
-    .lp-pricing .lp-price-grid,
     .lp-packages .lp-package-grid {
         justify-content: center;
     }
 
-    .price-card,
     .package-card {
         width: 100% !important;
         max-width: 500px;
@@ -803,7 +703,6 @@
 
     .lp-for h2,
     .lp-includes h2,
-    .lp-pricing h2,
     .lp-packages h2,
     .lp-extra h2,
     .lp-cta h2 {
@@ -832,13 +731,11 @@
         border-radius: 18px;
     }
 
-    .price-card,
     .package-card {
         padding: 26px 20px !important;
         border-radius: 18px;
     }
 
-    .price-card .price,
     .package-card .price {
         font-size: 26px !important;
     }
@@ -870,7 +767,6 @@
     }
 
     .lp-cta .btn,
-    .price-card .btn,
     .package-card .btn {
         height: 48px;
         font-size: 15px;
@@ -896,7 +792,6 @@
         font-size: 13px;
     }
 
-
     .lp-card {
         min-height: auto;
         padding: 16px;
@@ -916,17 +811,14 @@
         font-size: 13px;
     }
 
-    .price-card,
     .package-card {
         padding: 22px 18px !important;
     }
 
-    .price-card h3,
     .package-card h3 {
         font-size: 20px;
     }
 
-    .price-card .price,
     .package-card .price {
         font-size: 24px !important;
     }
@@ -944,7 +836,6 @@
     }
 
     .lp-cta .btn,
-    .price-card .btn,
     .package-card .btn {
         width: 100%;
     }
@@ -1081,7 +972,6 @@
 /* RESPONSIVE */
 @include down(md) {
 
-
     .extra-item {
         padding: 18px;
     }
@@ -1116,7 +1006,6 @@
     font-weight: 700;
     margin-right: 6px;
 }
-
 
 /* RESPONSIVE */
 @include down(520px) {

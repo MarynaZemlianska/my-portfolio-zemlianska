@@ -61,3 +61,28 @@ for (const path of ["/", "/en/"]) {
         }
     });
 }
+
+// Home testimonials come from src/_data/testimonials.js
+for (const [path, label] of [["/", "Оцінка: "], ["/en/", "Rating: "]]) {
+    test(`home ${path}: testimonials show rating, text and author`, async ({ page }) => {
+        await page.goto(path);
+        const cards = page.locator(".review-card");
+        await expect(cards).toHaveCount(5);
+        for (const card of await cards.all()) {
+            await expect(card.locator(".review-text p")).not.toBeEmpty();
+            await expect(card.locator(".review-name")).not.toBeEmpty();
+            const rating = card.locator(".review-rating");
+            if (await rating.count()) {
+                await expect(rating).toHaveAttribute("aria-label", new RegExp(`^${label}[1-5] `));
+            }
+        }
+
+        // keyboard: ArrowRight moves the slider when it overflows
+        const slider = page.locator(".reviews-slider");
+        await slider.scrollIntoViewIfNeeded();
+        await slider.focus();
+        await page.keyboard.press("ArrowRight");
+        await expect.poll(() => slider.evaluate((el) => el.scrollLeft)).toBeGreaterThan(0);
+        await expect(page.locator(".reviews-prev")).toHaveAttribute("aria-disabled", "false");
+    });
+}

@@ -3,6 +3,7 @@
 // and the language switcher are all derived from this map.
 export default {
     home: { uk: "/", en: "/en/" },
+    services: { uk: "/services/", en: "/en/services/" },
     projects: { uk: "/projects/", en: "/en/projects/" },
     landing: { uk: "/services/landing-page/", en: "/en/services/landing-page/" },
     business: { uk: "/services/business-website/", en: "/en/services/business-website/" },

@@ -30,7 +30,7 @@ test("services dropdown reaches every service page", async ({ page, isMobile }) 
     for (const s of SERVICES) {
         await page.goto("/en/");
         if (isMobile) await page.click("#burger");
-        await page.click(".nav-link--dropdown");
+        await page.click(".nav-dropdown-toggle");
         await page.click(`.dropdown-menu a[href="/en/services/${s}/"]`);
         await expect(page).toHaveURL(`/en/services/${s}/`);
     }
@@ -51,3 +51,19 @@ test("back-to-top button appears after scrolling", async ({ page }) => {
     await page.evaluate(() => window.scrollTo({ top: 2000, behavior: "instant" }));
     await expect(page.locator("#toTopBtn")).toHaveClass(/show/);
 });
+
+// "Services & Prices" leads to the services page; the arrow opens the list
+for (const [path, target] of [["/", "/services/"], ["/en/", "/en/services/"]]) {
+    test(`menu ${path}: services link opens ${target}`, async ({ page, isMobile }) => {
+        await page.goto(path);
+        if (isMobile) await page.locator("#burger").click();
+        const toggle = page.locator(".nav-dropdown-toggle");
+        await toggle.click();
+        await expect(toggle).toHaveAttribute("aria-expanded", "true");
+        await expect(page.locator("#services-menu a")).toHaveCount(6);
+        await page.locator(`.nav-dropdown-head a[href="${target}"]`).click();
+        await expect(page).toHaveURL(target);
+        await expect(page.locator(".service-card")).toHaveCount(6);
+        await expect(page.locator(".lp-pricing")).toHaveCount(0);
+    });
+}

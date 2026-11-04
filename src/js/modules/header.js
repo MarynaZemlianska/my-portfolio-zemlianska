@@ -55,23 +55,26 @@ export function initHeader() {
         });
     }
 
-    // ===== SERVICES DROPDOWN (tap / keyboard; hover still works on desktop) =====
-    document.querySelectorAll(".nav-link--dropdown").forEach((toggle) => {
+    // ===== SERVICES DROPDOWN =====
+    // The label is a link to the services page; the arrow button opens the list
+    // (tap / keyboard; hover still works on desktop).
+    document.querySelectorAll(".nav-dropdown-toggle").forEach((toggle) => {
         const item = toggle.closest(".nav-item");
         if (!item) return;
-
-        toggle.setAttribute("role", "button");
-        toggle.setAttribute("aria-haspopup", "true");
-        toggle.setAttribute("aria-expanded", "false");
 
         const set = (open) => {
             item.classList.toggle("active", open);
             toggle.setAttribute("aria-expanded", String(open));
         };
 
-        toggle.addEventListener("click", (e) => {
-            e.preventDefault();
-            set(!item.classList.contains("active"));
+        toggle.addEventListener("click", () => set(!item.classList.contains("active")));
+
+        item.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && item.classList.contains("active")) {
+                e.stopPropagation();
+                set(false);
+                toggle.focus();
+            }
         });
 
         document.addEventListener("click", (e) => {

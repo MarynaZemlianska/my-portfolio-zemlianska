@@ -1,0 +1,44 @@
+{#- Testimonials (every page). Content: src/_data/testimonials.js -#}
+{%- set tl = testimonials.labels[lang] -%}
+<section class="section-testimonials reviews">
+    <h2 class="section-title-testi">{{ tl.title }}</h2>
+
+    <div class="reviews-wrapper">
+        <section class="reviews-slider" tabindex="0" aria-label="{{ tl.region }}">
+            <ul class="reviews-list">
+                {%- for item in testimonials.items %}
+                <li class="review-card">
+                    <figure class="review">
+                        {%- if item.rating %}
+                        <div class="review-rating" role="img" aria-label="{{ tl.rating | replace('{n}', item.rating) }}">
+                            {%- for i in range(1, 6) -%}
+                            <span class="star{% if i > item.rating %} star-empty{% endif %}" aria-hidden="true">★</span>
+                            {%- endfor -%}
+                        </div>
+                        {%- endif %}
+                        <blockquote class="review-text">
+                            <p>{{ item.text[lang] }}</p>
+                        </blockquote>
+                        {%- set name = item.name[lang] if item.name else "" %}
+                        {%- set company = item.company[lang] if item.company else "" %}
+                        {%- if name or company %}
+                        <figcaption class="review-author">
+                            <span class="review-initial" aria-hidden="true">{{ (name or company)[0] | upper }}</span>
+                            <span class="review-who">
+                                {%- if name %}<span class="review-name">{{ name }}</span>{% endif %}
+                                {%- if company %}<span class="review-company">{{ company }}</span>{% endif -%}
+                            </span>
+                        </figcaption>
+                        {%- endif %}
+                    </figure>
+                </li>
+                {%- endfor %}
+            </ul>
+        </section>
+
+        <div class="reviews-controls">
+            <button type="button" class="reviews-btn reviews-prev" aria-label="{{ tl.prev }}">&#10094;</button>
+            <button type="button" class="reviews-btn reviews-next" aria-label="{{ tl.next }}">&#10095;</button>
+        </div>
+    </div>
+</section>

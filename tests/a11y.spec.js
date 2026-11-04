@@ -30,7 +30,8 @@ test("keyboard: skip link, focus ring, dropdown", async ({ page, isMobile }) => 
     await page.keyboard.press("Enter");
     await expect(page.locator("#main")).toBeFocused();
 
-    await page.locator(".nav-link--dropdown").focus();
+    await page.locator(".nav-dropdown-toggle").focus();
+    await page.keyboard.press("Enter");
     await expect(page.locator(".dropdown-menu a").first()).toBeVisible();
 });
 

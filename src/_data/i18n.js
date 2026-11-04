@@ -12,6 +12,7 @@ export default {
         nav: {
             home: "ГОЛОВНА",
             services: "ПОСЛУГИ ТА ЦІНИ",
+            servicesMenu: "Список послуг",
             projects: "ПРОЄКТИ",
             contacts: "КОНТАКТИ",
         },
@@ -61,6 +62,7 @@ export default {
         nav: {
             home: "HOME",
             services: "SERVICES & PRICES",
+            servicesMenu: "Services list",
             projects: "PROJECTS",
             contacts: "CONTACTS",
         },

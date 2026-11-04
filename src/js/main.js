@@ -3,7 +3,7 @@ import { initReveals } from "./modules/reveals.js";
 import { initCounters } from "./modules/counters.js";
 import {
     initFaq,
-    initSlider,
+    initReviews,
     initProjectFilters,
     initLangSwitch,
     initAboutParallax,
@@ -16,7 +16,7 @@ initHeader();
 initReveals();
 initCounters();
 initFaq();
-initSlider();
+initReviews();
 initProjectFilters();
 initLangSwitch();
 initAboutParallax();
