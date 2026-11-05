@@ -46,7 +46,7 @@ a {
     border-radius: 10px;
     background: #ff00cc;
     color: #fff;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     transform: translateY(-200%);
 }
 

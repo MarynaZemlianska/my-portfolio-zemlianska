@@ -1,7 +1,7 @@
 {#- Testimonials (every page). Content: src/_data/testimonials.js -#}
 {%- set tl = testimonials.labels[lang] -%}
 <section class="section-testimonials reviews">
-    <h2 class="section-title-testi">{{ tl.title }}</h2>
+    <h2 class="section-title-testi">{{ tl.title | accentLast | safe }}</h2>
 
     {#- The list is rendered twice for a seamless loop; the copy is hidden from screen readers. #}
     <div class="reviews-wrapper">

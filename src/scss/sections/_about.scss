@@ -88,7 +88,7 @@
     text-align: center;
 
     font-size: 100px;
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.05;
 
     color: var(--color-primary-light);
@@ -142,7 +142,7 @@
 }
 
 .text-items p {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     font-size: 20px;
     font-weight: 500;
     line-height: 35px;
@@ -362,8 +362,7 @@
 }
 
 /* ================= ABOUT TEXT, EDITORIAL STYLE =================
-   Large light sans with key phrases in an italic serif and the site
-   gradient. Words light up one by one as the text scrolls through the
+   Large light sans with key phrases in .accent-serif (base/_typography.scss). Words light up one by one as the text scrolls through the
    screen (js/modules/about-words.js); without JS or with reduced motion
    the text is simply fully visible. */
 
@@ -372,7 +371,7 @@
 }
 
 .text-items p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-sans);
     font-size: clamp(20px, 1.9vw, 27px);
     font-weight: 400;
     line-height: 1.35;
@@ -385,26 +384,8 @@
     transition: none;
 }
 
-.about-serif {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-style: italic;
-    font-weight: 500;
-    font-size: 1.12em;
-    letter-spacing: 0;
-    line-height: 1;
-
-    background: linear-gradient(90deg, #ff3fd8, #b26bff 50%, #5b7cff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    // keeps the gradient continuous when the phrase wraps
-    -webkit-box-decoration-break: slice;
-    box-decoration-break: slice;
-    padding-right: 0.06em; // italic overhang
-}
-
 .about-q {
-    font-weight: 700;
+    font-weight: 800;
     color: #fff;
 }
 

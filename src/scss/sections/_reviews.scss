@@ -164,7 +164,7 @@
 .review-text p {
     margin: 0;
 
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     font-size: 16px;
     line-height: 1.55;
 
@@ -201,7 +201,7 @@
         linear-gradient(135deg, #ff00cc, #8103ff, #3b4cff) border-box;
     box-shadow: 0 0 16px rgba(235, 3, 255, 0.35);
 
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-sans);
     font-size: 15px;
     font-weight: 800;
     letter-spacing: 0.02em;
@@ -235,7 +235,7 @@
 }
 
 .review-name {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-sans);
     font-size: 15px;
     font-weight: 600;
 
@@ -243,7 +243,7 @@
 }
 
 .review-company {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     font-size: 14px;
 
     color: rgba(255, 255, 255, 0.65);
@@ -279,7 +279,7 @@
 // date sits right under the stars
 .review-date {
     margin: -4px 0 12px;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     font-size: 13px;
     color: rgba(255, 255, 255, 0.55);
 }

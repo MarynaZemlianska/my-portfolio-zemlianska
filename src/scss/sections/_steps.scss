@@ -56,8 +56,8 @@
     flex-direction: column;
     align-items: center;
     gap: 24px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
+    font-family: var(--font-sans);
+    font-weight: 800;
     font-size: clamp(42px, 6.5vw, 100px);
     line-height: 1.1;
     color: var(--color-primary-light);
@@ -212,7 +212,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     font-size: 20px;
     font-weight: 700;
     color: var(--color-primary-light);
@@ -240,9 +240,9 @@
 
 /* STEP CONTENT */
 .step-content h3 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-sans);
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 800;
     margin: 0 0 10px 0;
     color: var(--color-brand-light);
 
@@ -252,7 +252,7 @@
 }
 
 .step-content p {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     font-size: 16px;
     line-height: 1.6;
     color: var(--color-primary-light);

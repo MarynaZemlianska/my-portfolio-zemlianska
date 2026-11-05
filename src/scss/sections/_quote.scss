@@ -2,7 +2,7 @@
     padding: 30px 20px;
     display: flex;
     justify-content: center;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-sans);
 }
 
 // home page: right after the service cards it needs more room than the 30px padding
@@ -58,7 +58,7 @@
 .quote-title {
 
     font-size: 40px;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 15px;
 
     background: linear-gradient(90deg, #ff00cc, #3b4cff);

@@ -106,7 +106,7 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     transition: transform 0.3s ease;
 }
 
@@ -152,7 +152,7 @@
 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
 }
 
 .logo-subtitle {
@@ -166,7 +166,7 @@
     color: #ff00cc;
 
     white-space: nowrap;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
 }
 
 @keyframes logoGradientMove {
@@ -213,7 +213,7 @@ ul {
 
     text-decoration: none;
 
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
 
     color: var(--color-primary-light);
 
@@ -319,7 +319,7 @@ ul {
 
     .dropdown-menu li {
         padding: 10px 20px;
-        font-family: 'Inter', sans-serif;
+        font-family: var(--font-sans);
     }
 
     .dropdown-menu a {
@@ -362,7 +362,7 @@ ul {
 
         color: var(--color-primary-light);
 
-        font-family: 'Inter', sans-serif;
+        font-family: var(--font-sans);
         font-size: 15px;
         font-weight: 400;
         padding: 0 10px 0 10px;
@@ -512,7 +512,7 @@ ul {
 
         color: rgba(255, 255, 255, 0.72);
 
-        font-family: 'Montserrat', sans-serif;
+        font-family: var(--font-sans);
         font-size: 10px;
         font-weight: 400;
         letter-spacing: 0.5px;
@@ -661,7 +661,7 @@ ul {
 
             color: rgba(255, 255, 255, 0.72);
 
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-sans);
             font-size: 10px;
             font-weight: 400;
             letter-spacing: 0.5px;

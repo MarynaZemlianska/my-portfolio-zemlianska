@@ -43,6 +43,18 @@ export default function (eleventyConfig) {
 
     eleventyConfig.addFilter("year", () => new Date().getFullYear());
 
+    // Heading accent (base/_typography.scss): the last word — or the last two
+    // when the last one is short ("me") — in the italic serif gradient.
+    // Same rule as the static headings in src/pages. Returns HTML: use with `| safe`.
+    eleventyConfig.addFilter("accentLast", (text) => {
+        const escape = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        const words = String(text).trim().split(/\s+/);
+        if (words.length < 2) return escape(text);
+        const short = words.at(-1).replace(/[^\p{L}\p{N}]/gu, "").length <= 3;
+        const k = short && words.length > 2 ? 2 : 1;
+        return `${escape(words.slice(0, -k).join(" "))} <em class="accent-serif">${escape(words.slice(-k).join(" "))}</em>`;
+    });
+
     // ===== SCSS =====
     // Compiled before every build (and on every watch rebuild).
     eleventyConfig.addWatchTarget("src/scss/");

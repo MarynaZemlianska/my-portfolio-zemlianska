@@ -31,7 +31,7 @@
 }
 
 .contacts-title {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     font-size: 70px;
     font-weight: 700;
     line-height: 1;
@@ -140,7 +140,7 @@
 ========================================= */
 
 .form-label {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-sans);
     font-size: 18px;
     font-weight: 500;
 
@@ -170,7 +170,7 @@
 
     color: var(--color-primary-light);
 
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
 
     transition:
         border 0.3s ease,
@@ -271,7 +271,7 @@
 ========================================= */
 
 .info-form {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     font-size: 14px;
     line-height: 1.6;
 
@@ -364,7 +364,7 @@
     color: #fff;
     padding: 14px 20px;
     border-radius: 14px;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     font-size: 14px;
 
     opacity: 0;

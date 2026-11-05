@@ -24,14 +24,14 @@
 .footer-logo-item{
     display: flex;
     flex-direction: column;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
 }
 
 .footer-logo{
     display: flex;
     align-items: center;
     text-decoration: none;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     transition: transform 0.3s ease;
 }
 
@@ -95,7 +95,7 @@
 .info-safety {
     color: #b9b7b7;
     text-decoration: none;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     transition: color 0.3s;
 }
 
@@ -139,7 +139,7 @@
 .info-safety {
     font-size: 12px;
     color: #7b7979; // was #747272 (4.07:1)
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
 }
 
 /* ===== APPEARANCE ANIMATION ===== */

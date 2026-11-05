@@ -60,8 +60,10 @@
     } | dump | safe }}</script>
     {%- endif %}
     <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
-    <link rel="preload" as="font" href="/assets/fonts/Inter_18pt-Regular.woff2" type="font/woff2" crossorigin>
-    <link rel="preload" as="font" href="/assets/fonts/Montserrat-ExtraBold.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="/assets/fonts/Montserrat-Variable-latin.woff2" type="font/woff2" crossorigin>
+    {%- if lang == "uk" %}
+    <link rel="preload" as="font" href="/assets/fonts/Montserrat-Variable-cyrillic.woff2" type="font/woff2" crossorigin>
+    {%- endif %}
     <link rel="stylesheet" href="{{ cssUrl }}">
 </head>
 

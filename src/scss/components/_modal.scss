@@ -37,7 +37,7 @@
     // auto margins centre the dialog but let it scroll from the top when taller than the screen
     margin: auto;
     text-align: center;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     color: #fff;
     position: relative;
     box-shadow: 0 0 40px rgba(235,3,255,0.5);
@@ -75,7 +75,7 @@
 }
 
 .modal-content h2 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-sans);
     font-size: 32px;
     margin-bottom: 20px;
     background: linear-gradient(90deg, #ff00cc, #3b4cff);
@@ -98,7 +98,7 @@
     border: 1px solid rgba(194,19,255,0.5);
     background: rgba(0,0,0,0.25);
     color: #fff;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
 }
 
 .modal-content input::placeholder,
@@ -147,7 +147,7 @@
     padding: 14px 18px;
     border-radius: 14px;
 
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
     font-size: 14px;
 
     opacity: 0;
