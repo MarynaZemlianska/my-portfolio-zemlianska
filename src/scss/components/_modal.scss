@@ -106,7 +106,8 @@
     color: rgba(255,255,255,0.6);
 }
 
-.modal-content button {
+// submit only — a bare `button` selector also restyled the close (×) button
+.modal-content button[type="submit"] {
     width: 100%;
     background: linear-gradient(90deg, #ff00cc, #3b4cff);
     color: #fff;
@@ -118,7 +119,7 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.modal-content button:hover {
+.modal-content button[type="submit"]:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(235,3,255,0.5);
 }
@@ -214,7 +215,7 @@
         padding: 12px 14px;
     }
 
-    .modal-content button {
+    .modal-content button[type="submit"] {
 
         width: 100%;
         font-size: 16px;
@@ -267,7 +268,7 @@
         min-height: 120px;
     }
 
-    .modal-content button {
+    .modal-content button[type="submit"] {
 
         height: 52px;
         font-size: 15px;

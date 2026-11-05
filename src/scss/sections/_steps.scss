@@ -133,6 +133,8 @@
     opacity: 1;
     transform: none;
     filter: none;
+    // behind the letters: in EN "Development" is wide enough to reach the dots
+    z-index: -1;
 }
 
 
