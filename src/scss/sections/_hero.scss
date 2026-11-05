@@ -622,13 +622,33 @@ $hero-duration: 0.7s;
     // is the same size in UA and EN (stacks below 1035px as before)
     @media (min-width: 1035px) {
         .top-left {
-            flex: 0 1 600px;
+            // as wide as the UA text needs, so the illustration gets the rest
+            flex: 0 1 540px;
             min-width: 0;
         }
 
+        // the illustration sits close to the text instead of centred in its column
         .top-center {
             flex: 1 1 0;
             min-width: 0;
+            justify-content: flex-start;
+            margin: 0 16px;
+            // level with the heading rather than centred on the whole text column
+            align-self: flex-start;
+        }
+
+        // the illustration reaches left into the empty space under the heading:
+        // bigger than its column and right next to the text
+        .top-image {
+            width: calc(100% + 120px);
+            max-width: none;
+            margin: 40px 0 0 -120px;
+        }
+
+        // "development" is wider than the column at 90px and would run under the
+        // illustration; this size keeps the word inside the column
+        html[lang="en"] & .top-container-h1-home {
+            font-size: 76px;
         }
     }
 
@@ -698,6 +718,10 @@ $hero-duration: 0.7s;
 // The projects glow (.section-projects-gradient, top: -90px, blur 110px) used to
 // spill upwards; on the home page that area is now the first screen, so the
 // section clips it at its own top edge.
+// The gap above the section is padding instead of margin, so the glow starts
+// above the "Projects" heading rather than at the same height.
 .hero-home + .section-projects {
     overflow: clip;
+    margin-top: 0;
+    padding-top: clamp(30px, 10vw, 80px);
 }

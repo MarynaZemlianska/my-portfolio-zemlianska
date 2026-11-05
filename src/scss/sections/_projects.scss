@@ -159,8 +159,6 @@
     height: 100%;
     object-fit: cover;
     display: block;
-
-    transition: transform 0.5s ease;
 }
 
 .card-image::after {
@@ -175,10 +173,6 @@
 
 .card-image:hover::after {
     opacity: 0;
-}
-
-.card-image:hover img {
-    transform: scale(1.06);
 }
 
 

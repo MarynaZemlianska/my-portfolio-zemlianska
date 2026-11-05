@@ -24,11 +24,12 @@ export default function (eleventyConfig) {
     // real width/height. Author attributes (loading, fetchpriority, alt, class) are kept.
     eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
         formats: ["avif", "webp", "auto"],
-        widths: [400, 800, 1200],
+        widths: [400, 800, 1200, 1600],
         urlPath: "/assets/img/",
         outputDir: path.join(eleventyConfig.directories.output, "assets/img/"),
-        sharpAvifOptions: { quality: 62 },
-        sharpWebpOptions: { quality: 82 },
+        // project screenshots carry small UI text, which blurs at lower quality
+        sharpAvifOptions: { quality: 80 },
+        sharpWebpOptions: { quality: 90 },
         htmlOptions: {
             imgAttributes: {
                 loading: "lazy",
