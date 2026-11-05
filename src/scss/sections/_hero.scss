@@ -740,3 +740,75 @@ $hero-duration: 0.7s;
         display: none;
     }
 }
+
+/* ================= HOME HERO: TABLET & PHONE ================= */
+.hero-home {
+    // tablet: keep the illustration beside the heading instead of stacking it;
+    // the heading scales so that its longest word fits half the width
+    @media (min-width: 768px) and (max-width: 1034px) {
+        .top-container {
+            flex-flow: row wrap;
+            align-items: center;
+            column-gap: 24px;
+        }
+
+        .top-left {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+
+        // level with the big heading (below its small subtitle line)
+        .top-center {
+            flex: 1 1 0;
+            min-width: 0;
+            align-self: flex-start;
+            margin-top: 70px;
+            transform: none;
+        }
+
+        .top-image {
+            margin-top: 0;
+        }
+
+        // social icons stay as a row under both columns
+        .top-actions {
+            flex-basis: 100%;
+        }
+
+        .top-container-h1-home {
+            font-size: min(90px, calc(9.2vw - 8px));
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1034px) {
+        html[lang="en"] & .top-container-h1-home {
+            font-size: min(76px, calc(6.9vw - 5px));
+        }
+    }
+
+    // phone: heading -> intro text -> illustration -> buttons -> social icons.
+    // .top-left is flattened so its children can be ordered around the image.
+    @include down(767px) {
+        .top-container {
+            row-gap: 40px;
+        }
+
+        .top-left {
+            display: contents;
+        }
+
+        .top-container-h1 { order: 1; }
+        .top-text-items { order: 2; }
+        .top-center { order: 3; transform: none; }
+        .hero-actions { order: 4; align-self: center; }
+        .top-actions { order: 5; }
+
+        .top-container-h1 {
+            margin-bottom: -10px; // the column gap used to be 40px in .top-left too
+        }
+
+        .top-image {
+            margin-top: 0;
+        }
+    }
+}

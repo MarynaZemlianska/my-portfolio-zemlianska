@@ -18,67 +18,104 @@
     margin-bottom: 40px;
 }
 
-/* ================= WRAPPER ================= */
+/* ================= MARQUEE =================
+   The cards drift left -> right in an endless loop and run past the screen
+   edges. The list holds two copies of the cards; it moves by half its width,
+   so the copy takes the place of the original seamlessly.
+   Hover / keyboard focus pauses it; with reduced motion it becomes a plain
+   horizontally scrollable row. */
 
 .reviews-wrapper {
+    --card-w: 400px;
+    --card-gap: 24px;
+
     position: relative;
-
     width: 100%;
-    max-width: 1120px;
+    overflow: hidden;
 
-    margin: 0 auto;
-
-    padding: 0 70px;
+    // soft fade where the cards leave the screen
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
-
-/* ================= SLIDER ================= */
 
 .reviews-slider {
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-
-    -webkit-overflow-scrolling: touch;
-
-    scrollbar-width: none;
-
     margin-top: 30px;
-
-    border-radius: 20px;
-}
-
-.reviews-slider::-webkit-scrollbar {
-    display: none;
+    padding: 6px 0;
 }
 
 .reviews-slider:focus-visible {
     outline: 2px solid var(--color-brand-light);
-    outline-offset: 4px;
+    outline-offset: -2px;
 }
 
 .reviews-list {
     display: flex;
     align-items: stretch;
-
-    gap: 24px;
+    width: max-content;
+    gap: 0; // spacing comes from .review-card margins only (see below)
 
     margin: 0;
     padding: 0;
-
     list-style: none;
+
+    // ~9s per card keeps the speed the same whatever the number of reviews
+    animation: reviews-marquee calc(var(--reviews-count, 6) * 9s) linear infinite;
+}
+
+// _faq.scss switches off every animation below md with `*` + !important;
+// the review loop is the one that should keep running on phones and tablets
+@include down(md) {
+    .reviews-list {
+        animation-duration: calc(var(--reviews-count, 6) * 8s) !important;
+        animation-iteration-count: infinite !important;
+    }
+}
+
+.reviews-slider:hover .reviews-list,
+.reviews-slider:focus-within .reviews-list {
+    animation-play-state: paused;
+}
+
+@keyframes reviews-marquee {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reviews-wrapper {
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+    .reviews-slider {
+        overflow-x: auto;
+        scrollbar-width: thin;
+        padding-inline: 20px;
+    }
+
+    .reviews-list {
+        animation: none;
+    }
+
+    // the duplicate is only needed for the loop
+    .review-card[aria-hidden="true"] {
+        display: none;
+    }
 }
 
 /* ================= CARD ================= */
 
 .review-card {
-    flex: 0 0 calc((100% - 48px) / 3);
-    min-width: 0;
+    flex: 0 0 var(--card-w);
+    // spacing as a margin (not gap) so both copies are exactly the same width
+    margin-right: var(--card-gap);
 
     display: flex;
-
-    scroll-snap-align: start;
 }
 
 .review {
@@ -88,7 +125,7 @@
     width: 100%;
 
     margin: 0;
-    padding: 32px 28px;
+    padding: 22px 24px;
 
     text-align: left;
 
@@ -104,9 +141,9 @@
     display: flex;
     gap: 4px;
 
-    margin-bottom: 18px;
+    margin-bottom: 12px;
 
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1;
 
     color: var(--star-color);
@@ -128,8 +165,8 @@
     margin: 0;
 
     font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    line-height: 1.65;
+    font-size: 16px;
+    line-height: 1.55;
 
     color: var(--color-primary-light);
 
@@ -143,28 +180,51 @@
     align-items: center;
     gap: 12px;
 
-    margin-top: 24px;
+    margin-top: 16px;
 }
 
+// avatar: gradient ring in the site colours, the fill changes from card to card
 .review-initial {
-    flex: 0 0 40px;
+    flex: 0 0 48px;
 
     display: grid;
     place-items: center;
 
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
 
     border-radius: 50%;
-    border: 1px solid rgba(250, 0, 255, 0.5);
+    border: 2px solid transparent;
 
-    background: rgba(250, 0, 255, 0.15);
+    background:
+        linear-gradient(145deg, #3a1a78, #1a0d3d) padding-box,
+        linear-gradient(135deg, #ff00cc, #8103ff, #3b4cff) border-box;
+    box-shadow: 0 0 16px rgba(235, 3, 255, 0.35);
 
     font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
 
-    color: var(--color-primary-light);
+    color: #fff;
+}
+
+.review-card:nth-child(3n + 2) .review-initial {
+    background:
+        linear-gradient(145deg, #7a0f8c, #2a0b45) padding-box,
+        linear-gradient(135deg, #ff00cc, #8103ff, #3b4cff) border-box;
+}
+
+.review-card:nth-child(3n) .review-initial {
+    background:
+        linear-gradient(145deg, #1f3aa8, #120d3d) padding-box,
+        linear-gradient(135deg, #ff00cc, #8103ff, #3b4cff) border-box;
+}
+
+// a real photo keeps the ring
+.review-photo {
+    object-fit: cover;
+    padding: 0;
 }
 
 .review-who {
@@ -189,78 +249,6 @@
     color: rgba(255, 255, 255, 0.65);
 }
 
-/* ================= ARROWS ================= */
-
-.reviews-btn {
-    position: absolute;
-
-    top: 50%;
-    transform: translateY(-50%);
-
-    width: 50px;
-    height: 50px;
-
-    border-radius: 50%;
-
-    border: none;
-
-    background: rgba(255, 0, 204, 0.85);
-
-    color: #fff;
-
-    font-size: 16px;
-
-    cursor: pointer;
-
-    z-index: 20;
-
-    backdrop-filter: blur(10px);
-
-    transition: 0.3s ease;
-}
-
-.reviews-btn:hover {
-    background: rgba(255, 0, 204, 1);
-}
-
-.reviews-btn:focus-visible {
-    outline: 2px solid var(--color-primary-light);
-    outline-offset: 3px;
-}
-
-.reviews-btn[aria-disabled="true"] {
-    opacity: 0.35;
-    cursor: default;
-}
-
-.reviews-prev {
-    left: 0;
-}
-
-.reviews-next {
-    right: 0;
-}
-
-/* ================= TABLET ================= */
-
-@include down(992px) {
-
-    .reviews-wrapper {
-        max-width: 760px;
-    }
-
-    .review-card {
-        flex-basis: calc((100% - 24px) / 2);
-    }
-
-    .reviews-btn {
-        width: 46px;
-        height: 46px;
-
-        font-size: 20px;
-    }
-}
-
 /* ================= MOBILE ================= */
 
 @include down(600px) {
@@ -275,61 +263,23 @@
     }
 
     .reviews-wrapper {
-        padding: 0 20px;
-    }
-
-    .reviews-list {
-        gap: 16px;
-    }
-
-    .review-card {
-        flex-basis: 100%;
+        --card-w: 290px;
+        --card-gap: 16px;
     }
 
     .review {
-        padding: 26px 22px;
+        padding: 18px 18px;
     }
 
     .review-text p {
-        font-size: 17px;
-    }
-
-    // arrows move under the cards so the text gets the full width
-    .reviews-controls {
-        display: flex;
-        justify-content: center;
-        gap: 16px;
-
-        margin-top: 20px;
-    }
-
-    .reviews-btn {
-        position: static;
-        transform: none;
-
-        width: 44px;
-        height: 44px;
-
-        font-size: 18px;
+        font-size: 15px;
     }
 }
 
-@include down(370px) {
-
-    .reviews-wrapper {
-        padding: 0 16px;
-    }
-
-    .review {
-        padding: 22px 18px;
-    }
-}
-
-/* ================= TOUCH DEVICES ================= */
-
-@include touch {
-
-    .reviews-btn:hover {
-        background: rgba(255, 0, 204, 0.85);
-    }
+// date sits right under the stars
+.review-date {
+    margin: -4px 0 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
 }

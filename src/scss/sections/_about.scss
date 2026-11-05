@@ -12,6 +12,11 @@
     padding: 20px 10px 70px 10px;
 }
 
+// home page: room between the quote card above and the "About" title
+.quote-section + .section-about {
+    margin-top: clamp(50px, 8vw, 110px);
+}
+
 .section-about::before {
     content: '';
     position: absolute;
@@ -151,22 +156,6 @@
 }
 
 /* ===== ACCENTS ===== */
-.accent-name {
-    color: var(--color-brand-light);
-    font-weight: 700;
-}
-
-.accent-title {
-    color: var(--color-brand-light);
-    font-weight: 700;
-    margin-right: 6px;
-}
-
-.accent {
-    color: var(--color-brand-light);
-    font-weight: 600;
-}
-
 .about-title.visible {
     opacity: 1;
     transform: translateY(0);
@@ -371,3 +360,68 @@
         font-size: 14px;
     }
 }
+
+/* ================= ABOUT TEXT, EDITORIAL STYLE =================
+   Large light sans with key phrases in an italic serif and the site
+   gradient. Words light up one by one as the text scrolls through the
+   screen (js/modules/about-words.js); without JS or with reduced motion
+   the text is simply fully visible. */
+
+.text-items {
+    gap: 28px;
+}
+
+.text-items p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(20px, 1.9vw, 27px);
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: #fff;
+
+    // the old per-paragraph slide-in is replaced by the word reveal
+    opacity: 1;
+    transform: none;
+    transition: none;
+}
+
+.about-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.12em;
+    letter-spacing: 0;
+    line-height: 1;
+
+    background: linear-gradient(90deg, #ff3fd8, #b26bff 50%, #5b7cff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    // keeps the gradient continuous when the phrase wraps
+    -webkit-box-decoration-break: slice;
+    box-decoration-break: slice;
+    padding-right: 0.06em; // italic overhang
+}
+
+.about-q {
+    font-weight: 700;
+    color: #fff;
+}
+
+// word reveal: JS wraps words in .about-w and sets .is-lit
+.about-w {
+    opacity: 0.16;
+    transition: opacity 0.35s ease;
+}
+
+.about-w.is-lit {
+    opacity: 1;
+}
+
+@include down(1180px) {
+    .text-items p {
+        font-size: 19px;
+        line-height: 1.4;
+    }
+}
+

@@ -500,3 +500,80 @@
         transition-duration: 0.35s;
     }
 }
+
+/* ================= SNAKE LINE (js/modules/steps-path.js) =================
+   The SVG sits behind the steps; its gradient line is drawn as the page
+   scrolls. Desktop: steps alternate sides so the line can snake between
+   them. Phones keep one column with a straight line. */
+
+.list-steps::before {
+    display: none; // replaced by the SVG line
+}
+
+.steps-path {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.steps-path path {
+    fill: none;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.steps-path-track {
+    stroke: rgba(124, 102, 255, 0.14);
+}
+
+.steps-path-line {
+    filter: drop-shadow(0 0 6px rgba(235, 3, 255, 0.6));
+}
+
+.list-items li {
+    position: relative;
+    z-index: 1; // circles and text above the line
+}
+
+.step-circle {
+    // solid fill so the line passing "into" the circle is hidden behind it
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .list-steps {
+        padding-inline: 40px;
+        padding-bottom: 50px; // the last crossing line runs below the last step
+    }
+
+    .list-items {
+        gap: 70px; // room for the crossing line between the rows
+    }
+
+    // even steps: circle on the right, text right-aligned next to it
+    .list-items li:nth-child(even) {
+        flex-direction: row-reverse;
+        text-align: right;
+    }
+
+    .list-items li:nth-child(even) .step-content h3,
+    .list-items li:nth-child(even) .step-content p {
+        transform: translateX(20px);
+    }
+
+    .list-items li:nth-child(even).visible .step-content h3,
+    .list-items li:nth-child(even).visible .step-content p {
+        transform: translateX(0);
+    }
+}
+
+@include down(md) {
+    .steps-path path {
+        stroke-width: 3;
+    }
+}

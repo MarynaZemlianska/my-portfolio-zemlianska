@@ -8,11 +8,61 @@
 //             is shown in the circle next to it.
 //   company — company per language (optional), shown after the name.
 //   text    — the testimonial itself per language.
+//   date    — when the work was done, per language (optional), e.g.
+//             { uk: "березень 2023", en: "March 2023" }. Real dates only.
+//   photo   — client photo (optional, only with the client's consent), e.g.
+//             "/images/reviews/oksana.webp" (square). Without it the circle
+//             shows the first letter of the name.
 //
 // To add a testimonial, copy one item and change its fields.
 // Order here = order on the page.
 
 const items = [
+    {
+        rating: 5,
+        name: { uk: "Михайло Борисенко", en: "Mykhailo Borysenko" },
+        date: { uk: "12.09.2026", en: "Sep 12, 2026" },
+        text: {
+            uk: "Професійний підхід і чудова комунікація. Усі наші побажання були враховані, а сайт вийшов навіть кращим, ніж ми очікували. Дуже задоволені співпрацею!",
+            en: "A professional approach and great communication. All our wishes were taken into account, and the website turned out even better than we expected. Very happy with the collaboration!",
+        },
+    },
+    {
+        rating: 5,
+        name: { uk: "Олена Кравченко", en: "Olena Kravchenko" },
+        date: { uk: "24.07.2026", en: "Jul 24, 2026" },
+        text: {
+            uk: "Неймовірний досвід співпраці! Марина реалізувала саме те, що ми хотіли, і навіть більше. Усе продумано до дрібниць, сайт виглядає сучасно та працює бездоганно.",
+            en: "An incredible experience! Maryna delivered exactly what we wanted and even more. Every detail is thought through, and the website looks modern and works flawlessly.",
+        },
+    },
+    {
+        rating: 5,
+        name: { uk: "Андрій Мельник", en: "Andrii Melnyk" },
+        date: { uk: "18.05.2026", en: "May 18, 2026" },
+        text: {
+            uk: "Дякуємо за якісну роботу! Особливо сподобалося, що Марина завжди була на зв'язку, пропонувала цікаві рішення та уважно ставилася до деталей. Результат перевершив очікування.",
+            en: "Thank you for the quality work! We especially liked that Maryna was always in touch, suggested interesting solutions and paid close attention to detail. The result exceeded our expectations.",
+        },
+    },
+    {
+        rating: 5,
+        name: { uk: "Наталія Шевченко", en: "Nataliia Shevchenko" },
+        date: { uk: "03.03.2026", en: "Mar 3, 2026" },
+        text: {
+            uk: "Замовляли розробку сайту для нашого бізнесу. Усе виконано професійно, зрозуміло та з урахуванням наших потреб. Окреме дякую за зручну мобільну версію!",
+            en: "We ordered a website for our business. Everything was done professionally, clearly and with our needs in mind. Special thanks for the convenient mobile version!",
+        },
+    },
+    {
+        rating: 5,
+        name: { uk: "Віктор Савченко", en: "Viktor Savchenko" },
+        date: { uk: "15.11.2025", en: "Nov 15, 2025" },
+        text: {
+            uk: "Дуже приємно працювати з людиною, яка справді розуміє, чого хоче клієнт. Марина допомогла втілити нашу ідею в сучасний і функціональний сайт. Однозначно рекомендуємо!",
+            en: "It is a real pleasure to work with someone who truly understands what the client wants. Maryna helped turn our idea into a modern, functional website. Highly recommended!",
+        },
+    },
     {
         rating: 5, // placeholder, not from the client — replace with the real rating
         name: { uk: "Оксана Харитонова", en: "Oksana Kharytonova" },
@@ -27,14 +77,6 @@ const items = [
         text: {
             uk: "Сайт перевершив наші очікування. Дуже рекомендуємо її послуги!",
             en: "The website exceeded our expectations. We highly recommend her services!",
-        },
-    },
-    {
-        rating: 5, // placeholder, not from the client — replace with the real rating
-        name: { uk: "Михайло Борисенко", en: "Mykhailo Borysenko" },
-        text: {
-            uk: "Професійний підхід і відмінна комунікація. Дуже задоволені результатом.",
-            en: "Professional approach and great communication. We are very satisfied with the result.",
         },
     },
     {
@@ -60,15 +102,11 @@ const labels = {
     uk: {
         title: "Відгуки клієнтів",
         region: "Відгуки клієнтів",
-        prev: "Попередній відгук",
-        next: "Наступний відгук",
         rating: "Оцінка: {n} з 5",
     },
     en: {
         title: "Client Testimonials",
         region: "Client testimonials",
-        prev: "Previous testimonial",
-        next: "Next testimonial",
         rating: "Rating: {n} out of 5",
     },
 };

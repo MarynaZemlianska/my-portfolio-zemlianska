@@ -13,48 +13,6 @@ export function initFaq() {
     });
 }
 
-// ===== TESTIMONIALS SLIDER =====
-export function initReviews() {
-    const slider = document.querySelector(".reviews-slider");
-    const list = document.querySelector(".reviews-list");
-    const next = document.querySelector(".reviews-next");
-    const prev = document.querySelector(".reviews-prev");
-    if (!slider || !list || !next || !prev) return;
-
-    const step = () => {
-        const card = list.querySelector(".review-card");
-        const gap = parseFloat(getComputedStyle(list).columnGap) || 0;
-        return (card?.offsetWidth || 0) + gap;
-    };
-    const behavior = () => (prefersReducedMotion() ? "auto" : "smooth");
-    const go = (dir) => slider.scrollBy({ left: dir * step(), behavior: behavior() });
-
-    next.addEventListener("click", () => go(1));
-    prev.addEventListener("click", () => go(-1));
-
-    // Arrow keys move one card at a time while the slider has focus
-    slider.addEventListener("keydown", (e) => {
-        const keys = { ArrowRight: 1, ArrowLeft: -1 };
-        if (e.key in keys) {
-            e.preventDefault();
-            go(keys[e.key]);
-        } else if (e.key === "Home" || e.key === "End") {
-            e.preventDefault();
-            slider.scrollTo({ left: e.key === "Home" ? 0 : slider.scrollWidth, behavior: behavior() });
-        }
-    });
-
-    // Arrows are dimmed at the ends; aria-disabled (not disabled) keeps focus on the button
-    const update = rafThrottle(() => {
-        const max = slider.scrollWidth - slider.clientWidth - 2;
-        prev.setAttribute("aria-disabled", String(slider.scrollLeft <= 2));
-        next.setAttribute("aria-disabled", String(slider.scrollLeft >= max));
-    });
-    slider.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    update();
-}
-
 // ===== PROJECT FILTERS =====
 export function initProjectFilters() {
     const buttons = document.querySelectorAll(".projects-filters button");

@@ -3,15 +3,11 @@
     display: flex;
     justify-content: center;
     font-family: 'Montserrat', sans-serif;
-
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.3s ease;
 }
 
-.quote-section.visible {
-    opacity: 1;
-    transform: translateY(0);
+// home page: right after the service cards it needs more room than the 30px padding
+.section-services + .quote-section {
+    margin-top: clamp(50px, 8vw, 110px);
 }
 
 .quote-container {
@@ -22,16 +18,16 @@
     border-radius: 24px;
     color: #fff;
     text-align: center;
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
-
     background: rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+    overflow: hidden; // keeps the entrance light sweep inside the card
 
     z-index: 1;
 }
 
-/* ANIMATED BORDER */
+/* GRADIENT BORDER */
 .quote-container::before {
     content: "";
     position: absolute;
@@ -45,9 +41,6 @@
             #00ffe1,
             #ff00cc);
 
-    background-size: 300% 300%;
-
-
     -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
@@ -57,7 +50,7 @@
     pointer-events: none;
 }
 
-.quote-container:hover {
+.quote-section.visible .quote-container:hover {
     transform: translateY(-5px);
 }
 
@@ -149,4 +142,124 @@
     transform: translateY(-3px);
     border-color: #ff00cc;
     box-shadow: 0 0 12px rgba(255, 0, 204, 0.25);
+}
+
+/* ================= ENTRANCE =================
+   js/modules/reveals.js adds .visible when the section scrolls into view.
+   1. the card rises out of a blur and grows to full size, its glow fading in;
+   2. a light sweep crosses it once;
+   3. the content follows in sequence: the title is wiped in from the left,
+      then text, checklist, button and contact chips rise out of a blur.
+   Transitions (not keyframes) so the global "no animations below md" rule
+   in _faq.scss does not cancel it on phones. */
+
+$quote-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+.quote-container {
+    opacity: 0;
+    transform: translateY(48px) scale(0.94);
+    filter: blur(14px);
+    transition:
+        opacity 0.8s $quote-ease,
+        transform 0.9s $quote-ease,
+        filter 0.8s $quote-ease,
+        box-shadow 1.2s ease 0.3s;
+}
+
+.quote-section.visible .quote-container {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.5),
+        0 0 60px rgba(235, 3, 255, 0.22);
+}
+
+// light sweep
+.quote-container::after {
+    content: "";
+    position: absolute;
+    inset: -20% auto -20% 0;
+    width: 40%;
+    background: linear-gradient(100deg,
+            transparent,
+            rgba(255, 255, 255, 0.10) 45%,
+            rgba(255, 0, 204, 0.12) 55%,
+            transparent);
+    transform: translateX(-150%) skewX(-12deg);
+    pointer-events: none;
+}
+
+.quote-section.visible .quote-container::after {
+    transform: translateX(320%) skewX(-12deg);
+    transition: transform 1.6s $quote-ease 0.45s;
+}
+
+// content
+.quote-title,
+.quote-text,
+.quote-info p,
+.quote-btn,
+.quote-socials .social {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
+    transition:
+        opacity 0.7s $quote-ease,
+        transform 0.7s $quote-ease,
+        filter 0.7s $quote-ease,
+        clip-path 0.9s $quote-ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.quote-title {
+    clip-path: inset(0 100% 0 0);
+}
+
+.quote-section.visible {
+    .quote-title,
+    .quote-text,
+    .quote-info p,
+    .quote-btn,
+    .quote-socials .social {
+        opacity: 1;
+        transform: none;
+        filter: none;
+    }
+
+    .quote-title {
+        clip-path: inset(0 0 0 0);
+        transition-delay: 0.25s;
+    }
+
+    .quote-text { transition-delay: 0.4s; }
+    .quote-info p:nth-child(1) { transition-delay: 0.52s; }
+    .quote-info p:nth-child(2) { transition-delay: 0.6s; }
+    .quote-info p:nth-child(3) { transition-delay: 0.68s; }
+
+    .quote-btn {
+        transition-delay: 0.8s;
+        box-shadow: 0 0 26px rgba(255, 0, 204, 0.45);
+    }
+
+    @for $i from 1 through 8 {
+        .quote-socials .social:nth-child(#{$i}) {
+            transition-delay: #{0.9 + $i * 0.06}s;
+        }
+    }
+
+    // hover reacts at once (the delays above are for the entrance only)
+    .quote-btn:hover,
+    .quote-socials .social:hover {
+        transition-delay: 0s;
+    }
+
+    .quote-btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .quote-socials .social:hover {
+        transform: translateY(-3px);
+    }
 }

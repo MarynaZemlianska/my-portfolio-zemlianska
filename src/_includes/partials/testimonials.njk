@@ -3,11 +3,13 @@
 <section class="section-testimonials reviews">
     <h2 class="section-title-testi">{{ tl.title }}</h2>
 
+    {#- The list is rendered twice for a seamless loop; the copy is hidden from screen readers. #}
     <div class="reviews-wrapper">
         <section class="reviews-slider" tabindex="0" aria-label="{{ tl.region }}">
-            <ul class="reviews-list">
+            <ul class="reviews-list" style="--reviews-count: {{ testimonials.items | length }}">
+                {%- for copy in [false, true] %}
                 {%- for item in testimonials.items %}
-                <li class="review-card">
+                <li class="review-card"{% if copy %} aria-hidden="true"{% endif %}>
                     <figure class="review">
                         {%- if item.rating %}
                         <div class="review-rating" role="img" aria-label="{{ tl.rating | replace('{n}', item.rating) }}">
@@ -16,6 +18,9 @@
                             {%- endfor -%}
                         </div>
                         {%- endif %}
+                        {%- if item.date %}
+                        <p class="review-date">{{ item.date[lang] }}</p>
+                        {%- endif %}
                         <blockquote class="review-text">
                             <p>{{ item.text[lang] }}</p>
                         </blockquote>
@@ -23,7 +28,12 @@
                         {%- set company = item.company[lang] if item.company else "" %}
                         {%- if name or company %}
                         <figcaption class="review-author">
-                            <span class="review-initial" aria-hidden="true">{{ (name or company)[0] | upper }}</span>
+                            {%- if item.photo %}
+                            <img class="review-initial review-photo" src="{{ item.photo }}" alt="" width="48" height="48" loading="lazy" decoding="async">
+                            {%- else %}
+                            {%- set words = (name or company).split(" ") %}
+                            <span class="review-initial" aria-hidden="true">{{ words[0][0] | upper }}{{ words[1][0] | upper if words[1] }}</span>
+                            {%- endif %}
                             <span class="review-who">
                                 {%- if name %}<span class="review-name">{{ name }}</span>{% endif %}
                                 {%- if company %}<span class="review-company">{{ company }}</span>{% endif -%}
@@ -33,12 +43,8 @@
                     </figure>
                 </li>
                 {%- endfor %}
+                {%- endfor %}
             </ul>
         </section>
-
-        <div class="reviews-controls">
-            <button type="button" class="reviews-btn reviews-prev" aria-label="{{ tl.prev }}">&#10094;</button>
-            <button type="button" class="reviews-btn reviews-next" aria-label="{{ tl.next }}">&#10095;</button>
-        </div>
     </div>
 </section>
