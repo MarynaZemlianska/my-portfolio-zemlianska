@@ -30,12 +30,15 @@ function setup(box) {
             </linearGradient>
         </defs>
         <path class="steps-path-track"/>
+        <path class="steps-path-glow" stroke="url(#${id})"/>
         <path class="steps-path-line" stroke="url(#${id})"/>`;
     box.prepend(svg);
 
     const grad = svg.querySelector("linearGradient");
     const track = svg.querySelector(".steps-path-track");
-    const line = svg.querySelector(".steps-path-line");
+    // the glow (phones) follows the line: same shape, same dash
+    const lines = [svg.querySelector(".steps-path-glow"), svg.querySelector(".steps-path-line")];
+    const [, line] = lines;
     let length = 0;
 
     const build = () => {
@@ -57,9 +60,9 @@ function setup(box) {
 
         const d = snake(pts, w, h);
         track.setAttribute("d", d);
-        line.setAttribute("d", d);
+        lines.forEach((l) => l.setAttribute("d", d));
         length = line.getTotalLength();
-        line.style.strokeDasharray = `${length}`;
+        lines.forEach((l) => (l.style.strokeDasharray = `${length}`));
         update();
     };
 
@@ -67,7 +70,7 @@ function setup(box) {
     // complete when its bottom reaches 60%
     const update = rafThrottle(() => {
         if (prefersReducedMotion()) {
-            line.style.strokeDashoffset = "0";
+            lines.forEach((l) => (l.style.strokeDashoffset = "0"));
             return;
         }
         const r = box.getBoundingClientRect();
@@ -75,7 +78,7 @@ function setup(box) {
         const start = vh * 0.75;
         const end = vh * 0.6;
         const p = Math.min(1, Math.max(0, (start - r.top) / (r.height + start - end)));
-        line.style.strokeDashoffset = `${length * (1 - p)}`;
+        lines.forEach((l) => (l.style.strokeDashoffset = `${length * (1 - p)}`));
     });
 
     build();

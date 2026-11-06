@@ -1,98 +1,216 @@
 @use "../abstracts" as *;
 
 // ===== MOBILE SCROLL EFFECTS (home page) =====
-// Scroll-scrubbed: --p / --cover are written by js/modules/scroll-fx.js on
-// every scroll frame, so nothing here has a transition: the motion follows
-// the finger both ways. html.fx-scroll is only set on phones without
-// "reduce motion"; without it (or without JS) the regular entrance
-// animations of each section run. Loaded after base/motion, so these rules
-// replace the one-shot reveals of the same elements.
+// Scroll-scrubbed: the motion follows the finger both ways. Native CSS
+// scroll-driven animations (animation-timeline: view()), so the browser runs
+// them off the main thread — no JS per frame, smooth on cheap phones too.
+// Only transform / opacity (and two small clip-paths) are animated.
+// Phones only, not for "reduce motion"; browsers without scroll timelines
+// keep the regular one-shot entrance of each section. Loaded after
+// base/motion, so these rules replace those entrances where they apply.
+// The stacked "why me" cards need the position of the next card, so their
+// --cover comes from js/modules/scroll-fx.js (html.fx-scroll).
 
+@media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+
+        /* ----- projects: the poster opens like a window, screenshot settles ----- */
+        .section-projects .card {
+            opacity: 1;
+            filter: none;
+            transform: none;
+            transition: none;
+        }
+
+        .section-projects .card-poster {
+            view-timeline: --poster block;
+            animation: fx-window linear both;
+            animation-timeline: --poster;
+            animation-range: entry 0% cover 45%;
+        }
+
+        .section-projects .poster-title {
+            animation: fx-rise linear both;
+            animation-timeline: --poster;
+            animation-range: entry 0% cover 45%;
+        }
+
+        .section-projects .poster-laptop {
+            animation: fx-laptop linear both;
+            animation-timeline: --poster;
+            animation-range: entry 0% cover 45%;
+        }
+
+        .section-projects .poster-lid img {
+            animation: fx-zoom linear both;
+            animation-timeline: --poster;
+            animation-range: entry 0% cover 45%;
+            will-change: transform;
+        }
+
+        /* ----- services: cards tip up from lying back and grow to full size ----- */
+        // translate / rotate / scale (not transform) and the inner box's
+        // opacity: the global `.visible` rule pins transform and opacity
+        // with !important (sections/_contacts.scss)
+        .section-services .container-services-cards {
+            perspective: 900px;
+        }
+
+        .section-services .service-card {
+            transform-origin: 50% 100%;
+            transition: none;
+            will-change: transform;
+            view-timeline: --service block;
+            animation: fx-tip linear both;
+            animation-timeline: --service;
+            animation-range: entry 0% cover 40%;
+        }
+
+        .section-services .service-card-inner {
+            will-change: opacity;
+            animation: fx-fade-in linear both;
+            animation-timeline: --service;
+            animation-range: entry 0% cover 30%;
+        }
+
+        /* ----- development steps: each step glides in from its own side ----- */
+        // clip, not hidden: hidden makes the section a scroll container and
+        // the steps' view timelines would never move
+        .section-steps {
+            overflow: clip;
+        }
+
+        // the li stays put: steps-path.js draws the line through the circles
+        .section-steps .list-items li {
+            opacity: 1;
+            transform: none;
+            transition: none;
+            view-timeline: --step block;
+        }
+
+        .section-steps .step-content {
+            will-change: transform, opacity;
+            animation: fx-from-left linear both;
+            animation-timeline: --step;
+            animation-range: entry 5% cover 40%;
+        }
+
+        .section-steps .list-items li:nth-child(even) .step-content {
+            animation-name: fx-from-right;
+        }
+
+        .section-steps .list-items li .step-circle {
+            will-change: transform;
+            animation: fx-spin-in linear both;
+            animation-timeline: --step;
+            animation-range: entry 5% cover 35%;
+        }
+
+        /* ----- about: the photo opens from a circle and zooms out ----- */
+        .section-about .about-photo-container {
+            view-timeline: --photo block;
+        }
+
+        .section-about .ellipse-photo {
+            transition: none;
+            animation: fx-circle linear both;
+            animation-timeline: --photo;
+            animation-range: entry 0% cover 50%;
+        }
+
+        /* ----- FAQ: questions slide in from alternating sides ----- */
+        // the ones still waiting off to the right must not widen the page
+        .section-faq {
+            overflow-x: clip;
+        }
+
+        .section-faq .faq-item {
+            transition: none;
+            animation: fx-from-left-short linear both;
+            animation-timeline: view();
+            animation-range: entry 0% cover 25%;
+        }
+
+        .section-faq .faq-item:nth-child(even) {
+            animation-name: fx-from-right-short;
+        }
+    }
+}
+
+@keyframes fx-window {
+    from { clip-path: inset(38% 9% 0 9% round 30px); }
+    to { clip-path: inset(0 0 0 0 round 30px); }
+}
+
+@keyframes fx-rise {
+    from { opacity: 0.15; transform: translateY(60px); }
+    to { opacity: 1; transform: none; }
+}
+
+// keeps the laptop's own perspective tilt (sections/_projects.scss)
+@keyframes fx-laptop {
+    from { translate: 0 22%; }
+    to { translate: 0 0; }
+}
+
+@keyframes fx-zoom {
+    from { transform: scale(1.35); }
+    to { transform: none; }
+}
+
+@keyframes fx-tip {
+    from { translate: 0 60px; rotate: x 28deg; scale: 0.86; }
+    to { translate: 0 0; rotate: x 0deg; scale: 1; }
+}
+
+@keyframes fx-fade-in {
+    from { opacity: 0.2; }
+    to { opacity: 1; }
+}
+
+@keyframes fx-from-left {
+    from { opacity: 0; transform: translateX(-70px); }
+    70% { opacity: 1; }
+    to { opacity: 1; transform: none; }
+}
+
+@keyframes fx-from-right {
+    from { opacity: 0; transform: translateX(70px); }
+    70% { opacity: 1; }
+    to { opacity: 1; transform: none; }
+}
+
+@keyframes fx-from-left-short {
+    from { opacity: 0; transform: translateX(-48px); }
+    to { opacity: 1; transform: none; }
+}
+
+@keyframes fx-from-right-short {
+    from { opacity: 0; transform: translateX(48px); }
+    to { opacity: 1; transform: none; }
+}
+
+@keyframes fx-spin-in {
+    from { opacity: 0; transform: scale(0.4) rotate(-180deg); }
+    to { opacity: 1; transform: none; }
+}
+
+@keyframes fx-circle {
+    // scale, not transform: _about.scss pins the photo's transform on phones
+    from { scale: 1.18; clip-path: circle(28% at 50% 50%); }
+    to { scale: 1; clip-path: circle(78% at 50% 50%); }
+}
+
+.steps-path-glow {
+    display: none; // phones only, see below
+}
+
+/* ----- why me: stacked cards sink back as the next one slides over ----- */
 @include down(md) {
-
-    /* ----- projects: the poster opens like a window, screenshot settles ----- */
-    .fx-scroll .section-projects .card {
-        opacity: 1;
-        filter: none;
-        transform: none;
-        transition: none;
-    }
-
-    .fx-scroll .section-projects .card-poster {
-        --q: calc(1 - var(--p, 1));
-        clip-path: inset(calc(var(--q) * 38%) calc(var(--q) * 9%) 0 calc(var(--q) * 9%) round 30px);
-        will-change: clip-path;
-    }
-
-    .fx-scroll .section-projects .poster-title {
-        translate: 0 calc(var(--q) * 60px);
-        opacity: calc(0.15 + var(--p, 1) * 0.85);
-    }
-
-    .fx-scroll .section-projects .poster-laptop {
-        translate: 0 calc(var(--q) * 22%);
-    }
-
-    // the screenshot zoom replaces the view()-timeline "settle" from base/motion
-    .fx-scroll .section-projects .poster-lid img {
-        animation: none;
-        scale: calc(1 + var(--q) * 0.35);
-    }
-
-    /* ----- services: cards tip up from lying back and grow to full size ----- */
-    .fx-scroll .section-services .service-card {
-        --q: calc(1 - var(--p, 1));
-        opacity: calc(0.2 + var(--p, 1) * 0.8);
-        transform:
-            perspective(900px)
-            translateY(calc(var(--q) * 60px))
-            rotateX(calc(var(--q) * 28deg))
-            scale(calc(1 - var(--q) * 0.14));
-        transform-origin: 50% 100%;
-        transition: none;
-    }
-
-    .fx-scroll .section-services .services-photo img {
-        scale: calc(1 + (1 - var(--p, 1)) * 0.3);
-    }
-
-    /* ----- development steps: each step glides in from its own side ----- */
-    // the li itself stays put: steps-path.js draws the line through the circles
-    .fx-scroll .section-steps .list-items li {
-        --q: calc(1 - var(--p, 1));
-        opacity: 1;
-        transform: none;
-        transition: none;
-    }
-
-    .fx-scroll .section-steps .step-content {
-        opacity: calc(var(--p, 1) * 1.4 - 0.2);
-        translate: calc(var(--q) * -70px) 0;
-    }
-
-    .fx-scroll .section-steps .list-items li:nth-child(even) .step-content {
-        translate: calc(var(--q) * 70px) 0;
-    }
-
-    .fx-scroll .section-steps .list-items li .step-circle {
-        scale: calc(0.4 + var(--p, 1) * 0.6);
-        rotate: calc(var(--q) * -180deg);
-    }
-
-    /* ----- about: the photo opens from a circle and zooms out ----- */
-    .fx-scroll .section-about .ellipse-photo {
-        --q: calc(1 - var(--p, 1));
-        opacity: 1;
-        transform: none;
-        transition: none;
-        clip-path: circle(calc(28% + var(--p, 1) * 50%) at 50% 50%);
-        scale: calc(1 + var(--q) * 0.18);
-    }
-
-    /* ----- why me: stacked cards sink back as the next one slides over ----- */
     .fx-scroll .why-card {
         transform-origin: 50% 0;
         scale: calc(1 - var(--cover, 0) * 0.1);
+        will-change: scale;
     }
 
     .fx-scroll .why-card::after {
@@ -104,16 +222,18 @@
         background: #07020d;
         opacity: calc(var(--cover, 0) * 0.6);
         pointer-events: none;
+        will-change: opacity;
     }
 
-    /* ----- FAQ: questions slide in from alternating sides ----- */
-    .fx-scroll .section-faq .faq-item {
-        opacity: calc(var(--p, 1) * 1.3 - 0.1);
-        transform: translateX(calc((1 - var(--p, 1)) * -48px));
-        transition: none;
+    /* the snake line's glow: a wide soft stroke instead of a drop-shadow
+       filter, which had to be re-blurred over the whole section every frame */
+    .steps-path-line {
+        filter: none;
     }
 
-    .fx-scroll .section-faq .faq-item:nth-child(even) {
-        transform: translateX(calc((1 - var(--p, 1)) * 48px));
+    .steps-path .steps-path-glow {
+        display: block;
+        stroke-width: 12;
+        opacity: 0.28;
     }
 }
