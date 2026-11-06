@@ -1,81 +1,42 @@
 @use "../abstracts" as *;
 
-.top-text {
-    max-width: 900px;
-    margin-bottom: 40px;
-    padding: 60px 40px;
+/* =========================================
+   SERVICE PAGES (business, corporate, ecommerce, landing, personal, other)
+   Everything between the hero and the brief form. Same visual language as
+   the brief: one page background, left-aligned editorial titles, calm glass
+   cards, brand magenta → blue as the only accent.
+========================================= */
 
-    background: linear-gradient(145deg,
-            rgba(28, 37, 255, 0.08),
-            rgba(250, 0, 255, 0.06));
+$lp-pink: #ff00cc;
+$lp-blue: #3b4cff;
+$lp-gradient: linear-gradient(90deg, $lp-pink, $lp-blue);
+$lp-hairline: rgba(255, 255, 255, 0.08);
+$lp-glass: rgba(255, 255, 255, 0.035);
+$lp-text: rgba(255, 255, 255, 0.72);
 
-    border: 1px solid rgba(250, 0, 255, 0.15);
-    border-radius: 24px;
-
-    backdrop-filter: blur(12px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-
-    position: relative;
-    overflow: hidden;
+// section title, matches .brief-title
+@mixin lp-title {
+    font-family: var(--font-sans);
+    font-size: clamp(34px, 4.4vw, 58px);
+    font-weight: 800;
+    line-height: var(--lh-display);
+    letter-spacing: -0.01em;
+    color: var(--color-primary-light);
+    text-shadow: none;
 }
 
-.top-text::before {
+// gradient check mark used by every list on the page
+@mixin lp-check {
     content: "";
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle,
-            rgba(250, 0, 255, 0.12),
-            transparent 60%);
-    transform: rotate(25deg);
-    pointer-events: none;
-}
-
-.top-title {
-    font-size: 40px;
-    font-weight: 800;
-    color: var(--color-primary-light);
-    margin-bottom: 20px;
-    letter-spacing: 0.5px;
-
-    text-shadow: 0 0 20px rgba(250, 0, 255, 0.25);
-}
-
-.top-description {
-    font-size: 16px;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.75);
-    margin-bottom: 16px;
-}
-
-/* badges */
-.top-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 30px;
-}
-
-.top-badges span {
-    padding: 10px 14px;
-    font-size: 13px;
-
-    color: var(--color-primary-light);
-    background: rgba(18, 7, 32, 0.6);
-
-    border: 1px solid rgba(250, 0, 255, 0.2);
-    border-radius: 999px;
-
-    transition: 0.3s ease;
-    cursor: default;
-}
-
-.top-badges span:hover {
-    transform: translateY(-3px);
-    border-color: var(--color-brand-light);
-    box-shadow: 0 0 18px rgba(250, 0, 255, 0.25);
+    left: 0;
+    top: 0.32em;
+    width: 18px;
+    height: 18px;
+    border-radius: 6px;
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8'%3E%3Cpath d='M1 4l2.6 2.6L9 1' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 10px 8px no-repeat,
+        linear-gradient(135deg, rgba(255, 0, 204, 0.55), rgba(59, 76, 255, 0.55));
 }
 
 .fade-up {
@@ -90,496 +51,568 @@
     transform: translateY(0);
 }
 
-.lp-details {
-    display: flex;
-}
+/* ================= WRAPPER ================= */
 
 .lp-for {
-    max-width: 1000px;
-    margin: 50px auto 0;
-    padding: 60px 40px;
-
-    background: linear-gradient(145deg,
-            rgba(28, 37, 255, 0.06),
-            rgba(250, 0, 255, 0.05));
-
-    border: 1px solid rgba(250, 0, 255, 0.15);
-    border-radius: 24px;
-
-    backdrop-filter: blur(12px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-
     position: relative;
-    overflow: hidden;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 100px 20px 40px;
 }
 
-.lp-for::before {
-    content: "";
-    position: absolute;
-    inset: -50%;
-    background: radial-gradient(circle,
-            rgba(250, 0, 255, 0.10),
-            transparent 60%);
-    transform: rotate(20deg);
-    pointer-events: none;
+.lp-for > h2,
+.lp-includes h2,
+.lp-packages h2,
+.lp-extra h2,
+.lp-cta h2 {
+    @include lp-title;
 }
 
-.lp-for h2 {
-    font-size: 34px;
-    color: var(--color-primary-light);
-    margin-bottom: 40px;
-    text-align: center;
-    text-shadow: 0 0 18px rgba(250, 0, 255, 0.25);
+/* ================= INTRO ================= */
+// title on the left, text + feature chips on the right
+
+.top-text {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    column-gap: 64px;
+    align-items: start;
+
+    padding: 0 0 100px;
+    margin-bottom: 100px;
+    border-bottom: 1px solid $lp-hairline;
+
+    > * {
+        grid-column: 2;
+    }
+}
+
+.top-title {
+    @include lp-title;
+    grid-column: 1;
+    grid-row: 1 / span 4;
+    margin: 0;
+
+    background: $lp-gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.top-description {
+    margin: 0 0 16px;
+    font-size: 18px;
+    line-height: var(--lh-body);
+    color: $lp-text;
+}
+
+.top-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+
+    span {
+        padding: 9px 16px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.85);
+        cursor: default;
+        transition: border-color 0.3s ease, background 0.3s ease;
+
+        &:hover {
+            border-color: rgba(250, 0, 255, 0.5);
+            background: rgba(250, 0, 255, 0.08);
+        }
+    }
+}
+
+/* ================= FOR WHO ================= */
+
+.lp-for > h2 {
+    margin: 0 0 40px;
 }
 
 .lp-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    justify-content: center;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 18px;
 }
 
-/* CARD */
 .lp-card {
-    padding: 20px 18px;
-    gap: 12px;
-    border-radius: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    min-height: 170px;
+    padding: 26px 24px;
+    overflow: hidden;
 
-    background: rgba(18, 7, 32, 0.6);
-    border: 1px solid rgba(250, 0, 255, 0.15);
+    border-radius: 24px;
+    border: 1px solid $lp-hairline;
+    background: $lp-glass;
 
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 15px;
-
-    transition: 0.3s ease;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: var(--lh-heading);
+    color: var(--color-primary-light);
     cursor: default;
 
-    position: relative;
-    overflow: hidden;
-    transform-style: preserve-3d;
-    perspective: 1000px;
-    will-change: transform;
-    text-align: center;
+    transition: border-color 0.35s ease, background 0.35s ease, transform 0.35s ease;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    // pointer spotlight (--x/--y set by the motion layer)
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(250, 0, 255, 0.12), transparent 60%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
 
-.lp-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at center,
-            rgba(250, 0, 255, 0.15),
-            transparent 70%);
-    opacity: 0;
-    transition: 0.3s ease;
-}
+    &:hover {
+        border-color: rgba(250, 0, 255, 0.35);
+        background: rgba(255, 255, 255, 0.05);
 
-.lp-card:hover {
+        &::before {
+            opacity: 1;
+        }
+    }
 
-    border-color: var(--color-brand-light);
-    box-shadow: 0 10px 25px rgba(250, 0, 255, 0.15);
-    transform: translateY(-6px) scale(1.02);
-}
+    // icon chip, same as the brief step numbers
+    .icon {
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        border: 1px solid rgba(250, 0, 255, 0.4);
+        background: linear-gradient(135deg, rgba(250, 0, 255, 0.25), rgba(59, 76, 255, 0.25));
+        color: var(--color-primary-light);
+    }
 
-.lp-card:hover::after {
-    opacity: 1;
-}
+    .icon svg {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+    }
 
-.lp-card.fade-up {
-    opacity: 0;
-    transform: translateY(25px);
-    transition: 0.6s ease;
-}
-
-.lp-card.fade-up.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.lp-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
-            rgba(250, 0, 255, 0.15),
-            transparent 60%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-.lp-card:hover::before {
-    opacity: 1;
-}
-
-.lp-card .icon {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: var(--color-brand-light);
-    filter: drop-shadow(0 0 10px rgba(250, 0, 255, 0.25));
-}
-
-.lp-card .icon svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-}
-
-.lp-card:hover .icon {
-    transform: translateY(-2px) scale(1.1);
-    transition: 0.3s ease;
-    color: #ffffff;
+    > span:last-child {
+        margin-top: auto;
+    }
 }
 
 .lp-note {
-    margin: 20px auto;
-    color: #fff;
+    margin: 22px 0 0;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.55);
+
+    .highlight {
+        color: var(--color-primary-light);
+        font-weight: 600;
+    }
 }
 
-.lp-note .highlight {
-    color: var(--color-brand-light);
-    font-weight: 600;
+/* ================= WHAT'S INCLUDED ================= */
+// one glass card like the brief form: title + timeline left, checklist right
+
+.lp-details {
+    margin-top: 100px;
 }
 
 .lp-includes {
-
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 60px 50px;
-
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(250, 0, 255, 0.12);
-
-    border-radius: 24px;
-
-    backdrop-filter: blur(10px);
-
-    position: relative;
-}
-
-.lp-includes h2 {
-    font-size: 34px;
-    text-align: center;
-    color: var(--color-primary-light);
-    margin-bottom: 40px;
-
-    letter-spacing: 0.5px;
-}
-
-.lp-includes ul {
-
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
     display: grid;
-    justify-content: center;
-    gap: 14px 30px;
-}
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-rows: auto 1fr;
+    column-gap: 64px;
+    padding: 56px;
 
-.lp-includes li {
-    position: relative;
+    border-radius: 32px;
+    border: 1px solid rgba(255, 0, 204, 0.22);
+    background: rgba(255, 255, 255, 0.04);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    box-shadow:
+        0 0 80px rgba(0, 0, 0, 0.3),
+        -20px 20px 80px rgba(255, 0, 204, 0.1),
+        20px -20px 80px rgba(59, 76, 255, 0.1);
 
-    padding: 14px 16px 14px 42px;
+    h2 {
+        grid-column: 1;
+        grid-row: 1;
+        margin: 0;
+        font-size: clamp(30px, 3.4vw, 44px);
+    }
 
-    background: rgba(18, 7, 32, 0.5);
-    border: 1px solid rgba(250, 0, 255, 0.1);
+    ul {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 32px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
 
-    border-radius: 14px;
+    li {
+        position: relative;
+        padding: 16px 0 16px 32px;
+        border-bottom: 1px solid $lp-hairline;
 
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 15px;
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.85);
 
-    transition: 0.3s ease;
-}
+        &::before {
+            @include lp-check;
+            top: calc(16px + 0.2em);
+        }
+    }
 
-.lp-includes li {
-    &::before {
-        content: "✓";
-        position: absolute;
-        left: 20px;
-        color: #8b6cff;
-        font-weight: bold;
+    // delivery time
+    p {
+        grid-column: 1;
+        grid-row: 2;
+        align-self: end;
+        justify-self: start;
+        margin: 32px 0 0;
+        padding: 12px 20px;
+
+        border-radius: 999px;
+        border: 1px solid rgba(250, 0, 255, 0.45);
+        background: rgba(250, 0, 255, 0.08);
+
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--color-primary-light);
     }
 }
 
-.lp-includes p {
-    margin-top: 30px;
-    text-align: center;
+/* ================= CTA ================= */
 
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.8);
+.lp-cta {
+    position: relative;
+    max-width: 1200px;
+    margin: 60px auto 40px;
+    padding: 80px 30px;
+    overflow: hidden;
 
-    padding: 12px 18px;
-
-    display: inline-block;
-    width: 100%;
-
-    background: rgba(250, 0, 255, 0.06);
-    border: 1px solid rgb(250 0 255);
-
-    border-radius: 999px;
-}
-
-.lp-packages {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
-    background: #0b0b12;
-    color: #fff;
-    text-align: center;
+    color: var(--color-primary-light);
+
+    border-radius: 32px;
+    border: 1px solid rgba(255, 0, 204, 0.25);
+    background:
+        radial-gradient(ellipse 60% 90% at 50% 0%, rgba(255, 0, 204, 0.28), transparent 70%),
+        radial-gradient(ellipse 50% 80% at 100% 100%, rgba(59, 76, 255, 0.22), transparent 70%),
+        rgba(255, 255, 255, 0.03);
 
     h2 {
-        font-size: 60px;
-        margin-bottom: 60px;
-        font-weight: 800;
+        position: relative;
+        margin: 0 0 18px;
+    }
+
+    p {
+        position: relative;
+        max-width: 560px;
+        margin: 0 auto 12px;
+        font-size: 18px;
+        color: $lp-text;
+    }
+}
+
+/* ================= PACKAGES ================= */
+
+.lp-packages {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 100px 20px 0;
+    text-align: center;
+    color: var(--color-primary-light);
+
+    h2 {
+        margin: 0 0 56px;
     }
 
     .lp-package-grid {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 24px;
+        text-align: left;
     }
 
     .package-card {
+        position: relative;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-        width: 340px;
-        padding: 30px 25px;
-        border-radius: 22px;
+        padding: 36px 32px 32px;
 
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(12px);
+        border-radius: 28px;
+        border: 1px solid $lp-hairline;
+        background: $lp-glass;
 
-        text-align: left;
-        transition: 0.35s ease;
-        position: relative;
-        overflow: hidden;
+        transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
 
         h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
+            margin: 0 0 18px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
         }
 
         .price {
-            font-size: 28px;
-            font-weight: 700;
-            color: #8b6cff;
-            margin-bottom: 10px;
+            margin: 0 0 14px;
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 1;
+            color: var(--color-primary-light);
         }
 
         .desc {
-            font-size: 14px;
-            opacity: 0.8;
-            margin-bottom: 15px;
-            line-height: 1.5;
+            min-height: 3em;
+            margin: 0 0 26px;
+            padding-bottom: 26px;
+            border-bottom: 1px solid $lp-hairline;
+
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.6);
         }
 
         ul {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px 15px;
-            list-style: none;
+            gap: 14px;
+            margin: 0 0 32px;
             padding: 0;
-            margin: 0 0 15px;
+            list-style: none;
+        }
 
-            li {
-                font-size: 13px;
-                opacity: 0.85;
-                margin-bottom: 8px;
-                padding-left: 18px;
-                position: relative;
+        li {
+            position: relative;
+            padding-left: 30px;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.85);
 
-                &::before {
-                    content: "✓";
-                    position: absolute;
-                    left: 0;
-                    color: #8b6cff;
-                    font-weight: bold;
-                }
+            &::before {
+                @include lp-check;
+                top: 0.12em;
             }
         }
 
+        .btn {
+            margin-top: auto;
+        }
+
+        // "For a start" / "Premium" chip, top right
         .tag,
         .badge {
-            display: inline-block;
-            font-size: 11px;
+            position: absolute;
+            top: 30px;
+            right: 28px;
             padding: 6px 12px;
+
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.08);
-            margin-top: 10px;
-        }
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.05);
 
-        &:hover {
-            transform: translateY(-10px);
-            border-color: rgba(139, 108, 255, 0.5);
-            box-shadow: 0 20px 60px rgba(139, 108, 255, 0.15);
-        }
-    }
-
-    .package-card.highlight {
-        background: linear-gradient(135deg, #7c5cff, #b14cff);
-        transform: scale(1.05);
-        border: none;
-
-        .price {
-            color: #fff;
-        }
-
-        ul li::before {
-            color: #fff;
-        }
-
-        .badge {
-            background: rgba(255, 255, 255, 0.2);
+            font-size: 12px;
             font-weight: 600;
-        }
-
-        &:hover {
-            transform: scale(1.08);
-            box-shadow: 0 25px 70px rgba(177, 76, 255, 0.35);
-        }
-    }
-}
-
-.lp-extra {
-    margin-bottom: 20px;
-
-    h2 {
-        font-size: 45px;
-        margin-bottom: 50px;
-        font-weight: 800;
-    }
-
-    .lp-extra-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
-        gap: 18px;
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-
-    .extra-item {
-        padding: 18px 20px;
-        border-radius: 16px;
-
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(10px);
-
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        transition: 0.3s ease;
-
-        .title {
-            font-size: 14px;
-            opacity: 0.9;
-            text-align: left;
-        }
-
-        .price {
-            font-size: 13px;
-            font-weight: 600;
-            color: #8b6cff;
-            white-space: nowrap;
+            line-height: var(--lh-ui);
+            color: rgba(255, 255, 255, 0.75);
         }
 
         &:hover {
             transform: translateY(-6px);
-            border-color: rgba(139, 108, 255, 0.4);
-            box-shadow: 0 15px 40px rgba(139, 108, 255, 0.15);
+            border-color: rgba(250, 0, 255, 0.35);
         }
     }
 
-    .extra-item.highlight {
-        background: linear-gradient(135deg, #7c5cff, #b14cff);
+    // most popular: gradient border + glow instead of a flat fill
+    .package-card.highlight {
+        border: 1px solid transparent;
+        background:
+            linear-gradient(180deg, rgba(42, 10, 62, 0.96), rgba(22, 9, 48, 0.96)) padding-box,
+            linear-gradient(135deg, $lp-pink, $lp-blue) border-box;
+        box-shadow:
+            -20px 20px 80px rgba(255, 0, 204, 0.16),
+            20px -20px 80px rgba(59, 76, 255, 0.16);
 
-        .price {
+        .badge {
+            border: none;
+            background: $lp-gradient;
             color: #fff;
+        }
+
+        &:hover {
+            box-shadow:
+                -20px 20px 90px rgba(255, 0, 204, 0.26),
+                20px -20px 90px rgba(59, 76, 255, 0.26);
         }
     }
 }
 
-.lp-cta {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 30px;
-    background: radial-gradient(circle at top, rgb(220 70 255 / 64%), transparent 60%), #0b0b12;
-    color: #fff;
+.lp-final-price-note {
+    max-width: 1200px;
+    margin: 28px auto 0;
+    padding: 0 20px;
     text-align: center;
+
+    p {
+        margin: 0;
+        font-size: 15px;
+        line-height: var(--lh-body);
+        color: rgba(255, 255, 255, 0.55);
+    }
+
+    span {
+        margin-right: 6px;
+        font-weight: 700;
+        color: var(--color-primary-light);
+    }
+}
+
+/* ================= EXTRAS ================= */
+// a price list: name on the left, price on the right
+
+.lp-extra {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 100px 20px 20px;
+    text-align: center;
+    color: var(--color-primary-light);
+
+    h2 {
+        margin: 0 0 20px;
+    }
+
+    .top-description {
+        max-width: 640px;
+        margin: 0 auto;
+        font-size: 18px;
+    }
+}
+
+.lp-extra-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 48px;
+    text-align: left;
+}
+
+.extra-item {
     position: relative;
-    // 500px decorative glow is wider than phones; clip sideways only
-    overflow-x: clip;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 22px;
+    overflow: hidden;
+
+    border-radius: 18px;
+    border: 1px solid $lp-hairline;
+    background: $lp-glass;
+
+    transition: border-color 0.3s ease, background 0.3s ease;
 
     &::before {
         content: "";
         position: absolute;
-        top: -100px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 500px;
-        height: 500px;
-        background: radial-gradient(circle, rgba(139, 108, 255, 0.25), transparent 70%);
-        filter: blur(40px);
-        z-index: -1000;
+        inset: 0;
+        background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(250, 0, 255, 0.12), transparent 60%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
     }
 
-    h2 {
-        font-size: 42px;
-        font-weight: 800;
-        margin-bottom: 20px;
-        position: relative;
-        z-index: 1;
+    &:hover {
+        border-color: rgba(250, 0, 255, 0.35);
+
+        &::before {
+            opacity: 1;
+        }
     }
 
-    p {
-        max-width: 600px;
-        margin: 0 auto 35px;
+    .title {
         font-size: 16px;
-        line-height: 1.6;
-        opacity: 0.8;
-        position: relative;
-        z-index: 1;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .price {
+        flex-shrink: 0;
+        padding: 5px 12px;
+        border-radius: 999px;
+        background: rgba(250, 0, 255, 0.1);
+
+        font-size: 14px;
+        font-weight: 700;
+        white-space: nowrap;
+        color: #ff6ae6;
+    }
+
+    // "Other" page: title + price row, description, button
+    .extra-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+        width: 100%;
+    }
+
+    .desc {
+        margin: 0;
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    // outlined, so nine cards don't shout; the rush card keeps the gradient
+    .btn {
+        height: 44px;
+        margin-top: auto;
+        font-size: 15px;
+        border: 1px solid rgba(250, 0, 255, 0.45);
+        background: rgba(250, 0, 255, 0.06);
+
+        &:hover {
+            background: $lp-gradient;
+            border-color: transparent;
+        }
+    }
+
+    &.highlight .btn {
+        border-color: transparent;
+        background: $lp-gradient;
     }
 }
 
-/* =========================
-   LARGE DESKTOP
-========================= */
-@include down(xxl) {
+.extra-item:has(.extra-header) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 26px 24px 24px;
+    border-radius: 24px;
+}
 
-    .lp-for h2,
-    .lp-includes h2,
-    .lp-packages h2,
-    .lp-extra h2,
-    .lp-cta h2 {
-        font-size: 50px;
-    }
+// rush order
+.extra-item.highlight {
+    border: 1px solid transparent;
+    background:
+        linear-gradient(rgba(34, 10, 56, 0.96), rgba(34, 10, 56, 0.96)) padding-box,
+        linear-gradient(135deg, $lp-pink, $lp-blue) border-box;
 
-    .lp-packages .lp-package-grid {
-        gap: 24px;
-    }
-
-    .package-card {
-        width: 300px !important;
+    .price {
+        background: $lp-gradient;
+        color: #fff;
     }
 }
 
@@ -587,32 +620,22 @@
    LAPTOP
 ========================= */
 @include down(xl) {
-
-    .top-text,
-    .lp-for,
-    .lp-includes {
-        padding: 50px 35px;
-    }
-
-    .top-title {
-        font-size: 36px;
-    }
-
-    .lp-for h2,
-    .lp-includes h2,
-    .lp-packages h2,
-    .lp-extra h2,
-    .lp-cta h2 {
-        font-size: 45px;
-    }
-
     .lp-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .lp-details {
-        flex-direction: column;
-        gap: 20px;
+    .lp-card {
+        min-height: 0;
+        flex-direction: row;
+        align-items: center;
+
+        > span:last-child {
+            margin-top: 0;
+        }
+    }
+
+    .lp-packages .package-card {
+        padding: 32px 24px 28px;
     }
 }
 
@@ -620,53 +643,74 @@
    TABLET
 ========================= */
 @include down(992px) {
+    .lp-for {
+        padding-top: 72px;
+    }
 
-    .top-text,
-    .lp-for,
-    .lp-includes,
-    .lp-packages,
-    .lp-extra,
-    .lp-cta {
-        padding-left: 24px;
-        padding-right: 24px;
+    .top-text {
+        grid-template-columns: 1fr;
+        padding-bottom: 72px;
+        margin-bottom: 72px;
+
+        > * {
+            grid-column: 1;
+        }
     }
 
     .top-title {
-        font-size: 32px;
-        line-height: 1.2;
+        grid-row: auto;
+        margin-bottom: 24px;
     }
 
-    .top-description {
-        font-size: 15px;
+    .lp-details {
+        margin-top: 72px;
     }
 
-    .lp-grid {
+    .lp-includes {
         grid-template-columns: 1fr;
+        grid-template-rows: none;
+        padding: 40px 32px;
+
+        h2,
+        ul,
+        p {
+            grid-column: 1;
+            grid-row: auto;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-top: 28px;
+        }
     }
 
-    .lp-card {
-        min-height: 90px;
+    .lp-packages {
+        padding-top: 72px;
+
+        .lp-package-grid {
+            grid-template-columns: minmax(0, 520px);
+            justify-content: center;
+        }
+
+        .package-card .desc {
+            min-height: 0;
+        }
     }
 
-    .lp-includes ul {
-        grid-template-columns: 1fr;
+    .lp-extra {
+        padding-top: 72px;
     }
 
-    .lp-packages .lp-package-grid {
-        justify-content: center;
+    .lp-extra-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .package-card {
-        width: 100% !important;
-        max-width: 500px;
-    }
-
-    .lp-extra .lp-extra-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .lp-cta h2 {
-        font-size: 36px;
+    .lp-cta {
+        margin-left: 20px;
+        margin-right: 20px;
     }
 }
 
@@ -674,96 +718,91 @@
    MOBILE
 ========================= */
 @include down(md) {
-
-    .top-text,
-    .lp-for,
-    .lp-includes {
-        padding: 40px 20px;
-        border-radius: 20px;
-    }
-
-    .top-title {
-        font-size: 28px;
-        margin-bottom: 16px;
-    }
-
-    .top-description {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-
-    .top-badges {
-        gap: 10px;
-    }
-
-    .top-badges span {
-        font-size: 12px;
-        padding: 8px 12px;
-    }
-
-    .lp-for h2,
+    .lp-for > h2,
     .lp-includes h2,
     .lp-packages h2,
     .lp-extra h2,
-    .lp-cta h2 {
-        font-size: min(40px, 8.6vw); // long UA words ("Корпоративний") on phones
-        margin-bottom: 50px;
+    .lp-cta h2,
+    .top-title {
+        font-size: min(36px, 8.6vw); // long UA words ("Корпоративний") on phones
+    }
+
+    .lp-for > h2 {
+        margin-bottom: 28px;
+    }
+
+    .lp-packages h2 {
+        margin-bottom: 36px;
+    }
+
+    .top-description,
+    .lp-cta p,
+    .lp-extra .top-description {
+        font-size: 16px;
+    }
+
+    .lp-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
     }
 
     .lp-card {
-        padding: 18px 16px;
-        font-size: 14px;
+        gap: 16px;
+        padding: 18px;
+        border-radius: 20px;
+        font-size: 16px;
+
+        .icon {
+            width: 44px;
+            height: 44px;
+        }
     }
 
-    .lp-note {
-        text-align: center;
-        font-size: 14px;
-        line-height: 1.6;
-    }
+    .lp-includes {
+        padding: 32px 20px;
+        border-radius: 24px;
 
-    .lp-includes li {
-        font-size: 14px;
-        padding: 14px 14px 14px 40px;
-    }
+        ul {
+            grid-template-columns: 1fr;
+        }
 
-    .lp-includes p {
-        font-size: 14px;
-        border-radius: 18px;
-    }
+        li {
+            padding: 14px 0 14px 32px;
 
-    .package-card {
-        padding: 26px 20px !important;
-        border-radius: 18px;
-    }
+            &::before {
+                top: calc(14px + 0.2em);
+            }
+        }
 
-    .package-card .price {
-        font-size: 26px !important;
-    }
-
-    .package-card ul li {
-        font-size: 13px;
-    }
-
-    .lp-extra .lp-extra-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .extra-item {
-        flex-direction: column;
-        align-items: flex-start !important;
-        gap: 10px;
-    }
-
-    .extra-item .price {
-        font-size: 14px !important;
+        p {
+            justify-self: stretch;
+            text-align: center;
+        }
     }
 
     .lp-cta {
-        padding: 80px 20px;
+        padding: 56px 20px;
+        border-radius: 24px;
     }
 
-    .lp-cta p {
-        font-size: 15px;
+    .lp-packages .package-card {
+        padding: 28px 20px 24px;
+        border-radius: 24px;
+
+        .price {
+            font-size: 34px;
+        }
+
+        .tag,
+        .badge {
+            top: 24px;
+            right: 18px;
+        }
+    }
+
+    .lp-extra-grid {
+        grid-template-columns: 1fr;
+        margin-top: 32px;
     }
 
     .lp-cta .btn,
@@ -777,234 +816,13 @@
    SMALL MOBILE
 ========================= */
 @include down(sm) {
-
-    .top-text,
-    .lp-for,
-    .lp-includes {
-        padding: 32px 16px;
-    }
-
-    .top-title {
-        font-size: 24px;
-    }
-
-    .top-description {
-        font-size: 13px;
-    }
-
-    .lp-card {
-        min-height: auto;
-        padding: 16px;
-    }
-
-    .lp-card .icon {
-        width: 18px;
-        height: 18px;
-    }
-
-    .lp-card .icon svg {
-        width: 18px;
-        height: 18px;
-    }
-
-    .lp-includes li {
-        font-size: 13px;
-    }
-
-    .package-card {
-        padding: 22px 18px !important;
-    }
-
-    .package-card h3 {
-        font-size: 20px;
-    }
-
-    .package-card .price {
-        font-size: 24px !important;
-    }
-
-    .lp-cta {
-        padding: 70px 16px;
-    }
-
-    .lp-cta h2 {
-        line-height: 1.2;
-    }
-
-    .lp-cta p {
-        font-size: 14px;
-    }
-
-    .lp-cta .btn,
-    .package-card .btn {
+    .lp-cta .container-btn {
         width: 100%;
     }
-}
-
-.lp-extra {
-    padding: 60px 20px 0 20px;
-    background: #0b0b12;
-    color: #fff;
-    text-align: center;
-}
-
-.lp-extra h2 {
-    font-size: 45px;
-    margin-bottom: 50px;
-    font-weight: 800;
-}
-
-.lp-extra .top-description {
-    max-width: 700px;
-    margin: 0 auto 50px;
-    font-size: 15px;
-    line-height: 1.6;
-    opacity: 0.75;
-}
-
-/* GRID */
-.lp-extra-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
-    gap: 18px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-/* CARD */
-.extra-item {
-    position: relative;
-    padding: 20px;
-    border-radius: 18px;
-
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    text-align: left;
-
-    transition: 0.35s ease;
-    overflow: hidden;
-}
-
-/* hover glow */
-.extra-item::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%),
-            rgba(139, 108, 255, 0.18),
-            transparent 60%);
-    opacity: 0;
-    transition: 0.3s ease;
-}
-
-.extra-item:hover::before {
-    opacity: 1;
-}
-
-.extra-item:hover {
-    transform: translateY(-6px);
-    border-color: rgba(139, 108, 255, 0.35);
-    box-shadow: 0 15px 40px rgba(139, 108, 255, 0.15);
-}
-
-/* TITLE */
-.extra-item .title {
-    font-size: 15px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-/* DESC */
-.extra-item .desc {
-    font-size: 13px;
-    line-height: 1.5;
-    opacity: 0.7;
-}
-
-/* PRICE */
-.extra-item .price {
-    font-size: 13px;
-    font-weight: 600;
-    color: #8b6cff;
-}
-
-/* BUTTON */
-.extra-item .btn {
-    margin-top: 8px;
-    padding: 10px 14px;
-
-    border-radius: 50px;
-    background: linear-gradient(90deg, #ff00cc, #3b4cff);
-    color: #fff;
-
-    font-size: 13px;
-    cursor: pointer;
-
-    transition: 0.3s ease;
-}
-
-.extra-item .btn:hover {
-    background: rgba(139, 108, 255, 0.15);
-    transform: translateY(-2px);
-}
-
-/* HIGHLIGHT CARD */
-.extra-item.highlight {
-    background: linear-gradient(135deg, #7c5cff, #b14cff);
-    border: none;
-}
-
-.extra-item.highlight .price {
-    color: #fff;
-}
-
-.extra-item.highlight .btn {
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    background: rgba(255, 255, 255, 0.15);
-}
-
-/* RESPONSIVE */
-@include down(md) {
 
     .extra-item {
-        padding: 18px;
+        padding: 16px 18px;
     }
-}
-
-.lp-final-price-note {
-    max-width: 900px;
-
-    padding: 18px 22px;
-    margin: 20px auto;
-
-    border: 1px solid rgba(139, 108, 255, 0.2);
-    border-radius: 16px;
-
-    backdrop-filter: blur(10px);
-
-    text-align: center;
-
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    transition: 0.3s ease;
-}
-
-.lp-final-price-note p {
-    margin: 0;
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.75);
-    line-height: 1.6;
-}
-
-.lp-final-price-note span {
-    color: #8b6cff;
-    font-weight: 700;
-    margin-right: 6px;
 }
 
 /* RESPONSIVE */
