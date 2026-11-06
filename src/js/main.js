@@ -17,6 +17,7 @@ import { initQuoteLift } from "./modules/quote-lift.js";
 import { initHeroScene } from "./modules/hero-scene.js";
 import { initHeroWave } from "./modules/hero-wave.js";
 import { initParticleField } from "./modules/particle-field.js";
+import { initScrollFx } from "./modules/scroll-fx.js";
 
 initHeader();
 initReveals();
@@ -35,3 +36,4 @@ initQuoteLift();
 initHeroScene();
 initHeroWave();
 initParticleField();
+initScrollFx();
