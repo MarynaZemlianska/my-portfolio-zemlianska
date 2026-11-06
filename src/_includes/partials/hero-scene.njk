@@ -1,0 +1,115 @@
+{#- Home hero illustration, built from layers in 3D space (styles: scss/sections/_hero-scene.scss,
+    scroll/pointer motion: js/modules/hero-scene.js). Replaces hero-home-{en,uk}.webp. -#}
+{%- set uk = lang == "uk" -%}
+<div class="top-image hero-scene" role="img"
+    aria-label="{{ 'Дизайн сайту в браузері, код і мобільна версія' if uk else 'Website design in a browser, its code and the mobile version' }}">
+    <div class="hs-stage">
+        <div class="hs-dots hs-dots-a"></div>
+        <div class="hs-dots hs-dots-b"></div>
+
+        <div class="hs-layer hs-browser">
+            <div class="hs-card hs-browser-card">
+                <div class="hs-bar">
+                    <i class="hs-dot"></i><i class="hs-dot"></i><i class="hs-dot"></i>
+                    <span class="hs-url"><i></i>yourbrand.com</span>
+                </div>
+                <div class="hs-site">
+                    <div class="hs-nav">
+                        <span class="hs-logo"><i></i>{{ 'Бренд' if uk else 'Brand' }}</span>
+                        <span class="hs-nav-links"><i></i><i></i><i></i><i></i></span>
+                        <span class="hs-nav-btn"></span>
+                    </div>
+                    <div class="hs-main">
+                        <div class="hs-copy">
+                            <i class="hs-accent-bar"></i>
+                            <p class="hs-title">{{ 'Ваша ідея' if uk else 'Your idea,' }}<br><em>{{ 'онлайн' if uk else 'online' }}</em></p>
+                            <i class="hs-line"></i><i class="hs-line hs-line-s"></i><i class="hs-line hs-line-m"></i>
+                            <div class="hs-ctas">
+                                <span class="hs-cta">{{ 'Почати' if uk else 'Get started' }}</span>
+                                <span class="hs-cta-ghost"></span>
+                                <span class="hs-cursor"></span>
+                            </div>
+                        </div>
+                        <div class="hs-visual"></div>
+                    </div>
+                    <div class="hs-features">
+                        <span><i></i><b></b></span><span><i></i><b></b></span><span><i></i><b></b></span>
+                    </div>
+                </div>
+            </div>
+            {#- the planet leaves the screen and floats in front of it -#}
+            <div class="hs-planet">
+                <span class="hs-sphere"></span>
+                <span class="hs-ring"><span class="hs-orbit"></span></span>
+            </div>
+        </div>
+
+        <div class="hs-layer hs-code">
+            <div class="hs-card">
+                <div class="hs-tabs">
+                    <i class="hs-dot"></i><i class="hs-dot"></i><i class="hs-dot"></i>
+                    <span class="hs-tab hs-tab-on">index.html</span><span class="hs-tab">style.scss</span>
+                </div>
+                <pre class="hs-src"><span class="n">1</span><span class="p">&lt;</span><span class="k">section</span> <span class="a">class</span>=<span class="s">"hero"</span><span class="p">&gt;</span>
+<span class="n">2</span>  <span class="p">&lt;</span><span class="k">h1</span><span class="p">&gt;</span>{{ 'Ваша ідея' if uk else 'Your idea,' }} <span class="p">&lt;</span><span class="k">em</span><span class="p">&gt;</span>{{ 'онлайн' if uk else 'online' }}<span class="p">&lt;/</span><span class="k">em</span><span class="p">&gt;&lt;/</span><span class="k">h1</span><span class="p">&gt;</span>
+<span class="n">3</span>  <span class="p">&lt;</span><span class="k">a</span> <span class="a">class</span>=<span class="s">"cta"</span> <span class="a">href</span>=<span class="s">"#start"</span><span class="p">&gt;</span>
+<span class="n">4</span>    {{ 'Почати' if uk else 'Get started' }}
+<span class="n">5</span>  <span class="p">&lt;/</span><span class="k">a</span><span class="p">&gt;</span>
+<span class="n">6</span><span class="p">&lt;/</span><span class="k">section</span><span class="p">&gt;</span>
+<span class="n">7</span>
+<span class="n">8</span><span class="a">.cta</span> {
+<span class="n">9</span>  <span class="a">background</span>: <span class="v">$gradient</span>;<span class="hs-caret"></span>
+<span class="n">10</span>}</pre>
+            </div>
+        </div>
+
+        <div class="hs-layer hs-phone">
+            <div class="hs-card hs-phone-card">
+                <i class="hs-notch"></i>
+                <div class="hs-phone-top"><i class="hs-logo-sq"></i><i class="hs-burger"></i></div>
+                <p class="hs-title">{{ 'Ваша ідея' if uk else 'Your idea,' }}<br><em>{{ 'онлайн' if uk else 'online' }}</em></p>
+                <i class="hs-line"></i><i class="hs-line hs-line-s"></i>
+                <i class="hs-phone-btn"></i>
+                <div class="hs-phone-visual"><span class="hs-ball"></span></div>
+                <div class="hs-tiles"><i></i><i></i><i></i></div>
+            </div>
+        </div>
+
+        <div class="hs-layer hs-conv">
+            <div class="hs-card">
+                <span class="hs-label">{{ 'Конверсія' if uk else 'Conversion' }}</span>
+                <span class="hs-big">+240%</span>
+                <svg class="hs-chart" viewBox="0 0 200 70" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="hs-chart-stroke" x1="0" x2="1">
+                            <stop offset="0" stop-color="#ff2bd6" /><stop offset="1" stop-color="#8a5cff" />
+                        </linearGradient>
+                        <linearGradient id="hs-chart-fill" x1="0" x2="0" y1="0" y2="1">
+                            <stop offset="0" stop-color="#b13cff" stop-opacity=".55" /><stop offset="1" stop-color="#b13cff" stop-opacity="0" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M0 62 L22 56 L48 55 L70 45 L92 45 L114 36 L136 32 L160 22 L182 15 L200 4 L200 70 L0 70 Z" fill="url(#hs-chart-fill)" />
+                    <path class="hs-chart-line" d="M0 62 L22 56 L48 55 L70 45 L92 45 L114 36 L136 32 L160 22 L182 15 L200 4" fill="none" stroke="url(#hs-chart-stroke)" stroke-width="3" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="hs-layer hs-speed">
+            <div class="hs-card">
+                <span class="hs-score">100</span>
+                <span class="hs-speed-text"><small>Pagespeed</small>{{ 'Швидкість' if uk else 'Performance' }}</span>
+            </div>
+        </div>
+
+        <div class="hs-layer hs-chip hs-chip-trend">
+            <svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6" /></svg>
+        </div>
+        <div class="hs-layer hs-chip hs-chip-bolt">
+            <svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z" /></svg>
+        </div>
+        <div class="hs-layer hs-web">&lt;/web&gt;</div>
+        <div class="hs-layer hs-palette">
+            <i></i><i></i><i></i><i></i>
+        </div>
+    </div>
+</div>

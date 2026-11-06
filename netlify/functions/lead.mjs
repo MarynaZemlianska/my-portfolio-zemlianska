@@ -1,4 +1,4 @@
-// Lead form endpoint: POST /api/lead  { name, phone, message, source, page, website }
+// Lead form endpoint: POST /api/lead  { name, phone, message, source, page, website, budget?, service?, referral? }
 // Sends the lead to Telegram. The bot token and chat id come from Netlify
 // environment variables (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID) and never reach the browser.
 
@@ -29,6 +29,10 @@ export default async (req) => {
         message: clean(data.message, 2000),
         source: clean(data.source, 40) || "Form",
         page: clean(data.page, 200),
+        // optional selects of the contacts-page brief form
+        budget: clean(data.budget, 40),
+        service: clean(data.service, 60),
+        referral: clean(data.referral, 40),
     };
 
     if (!NAME_RE.test(lead.name) || !PHONE_RE.test(lead.phone) || lead.message.length < 3) {
@@ -42,14 +46,20 @@ export default async (req) => {
         return json({ ok: false, error: "not_configured" }, 500);
     }
 
-    // Same message format as before the move to a serverless function.
+    const extra = [
+        lead.service && `🧩 Тип сайту: ${lead.service}`,
+        lead.budget && `💰 Бюджет: ${lead.budget}`,
+        lead.referral && `🔎 Звідки дізнались: ${lead.referral}`,
+    ].filter(Boolean).join("\n");
+
+    // Same message format as before the move to a serverless function (extra lines only when filled).
     const text =
 `📩 Нова заявка
 
 👤 Ім’я: ${lead.name}
 📞 Телефон: ${lead.phone}
 💬 Повідомлення: ${lead.message}
-
+${extra ? `${extra}\n` : ""}
 📍 ${lead.source} · ${lead.page}`;
 
     // TELEGRAM_API_BASE exists only so tests can point the function at a local stub.

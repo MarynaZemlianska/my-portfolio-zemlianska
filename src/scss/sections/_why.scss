@@ -54,6 +54,7 @@
 
 .why-title {
 
+    padding-top: clamp(70px, 8vw, 130px); // below the glow in the section's top corner
     font-family: var(--font-sans);
     font-size: clamp(42px, 6vw, 90px);
     font-weight: 800;
@@ -379,4 +380,34 @@
 
         font-size: 24px;
     }
+}
+
+/* =========================================
+   MOBILE: CARDS STACK ON SCROLL
+   Each card sticks under the header, the next one slides up over it.
+   `overflow: clip` instead of hidden: hidden makes the section a scroll
+   container and sticky stops working. Cards get an opaque background so the
+   one underneath doesn't show through.
+========================================= */
+
+@include down(md) {
+
+    .why-section {
+        overflow: clip;
+    }
+
+    .why-cards {
+        gap: 24px;
+    }
+
+    .why-card {
+        position: sticky;
+        top: 96px; // below the fixed header
+        background: linear-gradient(160deg, #1e0b30, #120720);
+        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    // each next card stops a little lower, so the edges of the ones below stay visible
+    .why-card:nth-child(2) { top: 110px; }
+    .why-card:nth-child(3) { top: 124px; }
 }

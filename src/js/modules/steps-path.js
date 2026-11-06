@@ -1,8 +1,8 @@
 // ===== DEVELOPMENT STEPS: SNAKE LINE =====
 // Draws an SVG path through the step circles and reveals it with the scroll.
-// Desktop (steps alternate sides): the line comes in from the edge, runs into
-// the circle, drops below the text, crosses to the other side, turns down and
-// enters the next circle from that side. Phones: a straight vertical line.
+// The steps alternate sides; the line comes in from the edge, runs into the
+// circle, drops below the text, crosses to the other side, turns down and
+// enters the next circle from that side. Same on every screen width.
 import { prefersReducedMotion, rafThrottle } from "./utils.js";
 
 const SVG_NS = "http://www.w3.org/2000/svg";
@@ -36,7 +36,6 @@ function setup(box) {
     const grad = svg.querySelector("linearGradient");
     const track = svg.querySelector(".steps-path-track");
     const line = svg.querySelector(".steps-path-line");
-    const wide = window.matchMedia("(min-width: 768px)");
     let length = 0;
 
     const build = () => {
@@ -56,7 +55,7 @@ function setup(box) {
             };
         });
 
-        const d = wide.matches ? snake(pts, w, h) : straight(pts, h);
+        const d = snake(pts, w, h);
         track.setAttribute("d", d);
         line.setAttribute("d", d);
         length = line.getTotalLength();
@@ -81,12 +80,11 @@ function setup(box) {
 
     build();
     new ResizeObserver(build).observe(box);
-    wide.addEventListener("change", build);
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
 }
 
-// Desktop snake. Steps alternate: even index = circle on the left.
+// Steps alternate: even index = circle on the left.
 function snake(pts, w, h) {
     const left = 6;
     const right = w - 6;
@@ -118,9 +116,4 @@ function snake(pts, w, h) {
         d += `Q ${other} ${next.y} ${other - dir * R} ${next.y} `;
     });
     return d.trim();
-}
-
-function straight(pts, h) {
-    const x = pts[0].x;
-    return `M ${x} ${Math.max(0, pts[0].y - 30)} V ${Math.min(h, pts[pts.length - 1].y + 30)}`;
 }

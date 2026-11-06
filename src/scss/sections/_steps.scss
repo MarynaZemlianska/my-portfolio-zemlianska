@@ -287,11 +287,6 @@
 
 @include down(lg) {
 
-    .section-stats {
-        z-index: 2007;
-    }
-
-
     .container-steps {
         max-width: 760px;
         gap: 40px;
@@ -344,11 +339,6 @@
         opacity: 1 !important;
         transform: none !important;
         filter: none !important;
-        transition: none !important;
-    }
-
-    .stat-bar span {
-        width: 100% !important;
         transition: none !important;
     }
 
@@ -545,30 +535,45 @@
     position: relative;
 }
 
-@media (min-width: 768px) {
+// steps alternate sides on every screen width so the line can snake
+.list-steps {
+    padding-inline: 40px;
+    padding-bottom: 50px; // the last crossing line runs below the last step
+}
+
+.list-items {
+    gap: 70px; // room for the crossing line between the rows
+}
+
+// even steps: circle on the right, text right-aligned next to it
+.list-items li:nth-child(even) {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.list-items li:nth-child(even) .step-content h3,
+.list-items li:nth-child(even) .step-content p {
+    transform: translateX(20px);
+}
+
+.list-items li:nth-child(even).visible .step-content h3,
+.list-items li:nth-child(even).visible .step-content p {
+    transform: translateX(0);
+}
+
+// phones: narrower side margins for the line, a bit less space between steps
+@include down(md) {
     .list-steps {
-        padding-inline: 40px;
-        padding-bottom: 50px; // the last crossing line runs below the last step
+        padding-inline: 22px;
+        padding-bottom: 44px;
     }
 
     .list-items {
-        gap: 70px; // room for the crossing line between the rows
+        gap: 60px;
     }
 
-    // even steps: circle on the right, text right-aligned next to it
-    .list-items li:nth-child(even) {
-        flex-direction: row-reverse;
-        text-align: right;
-    }
-
-    .list-items li:nth-child(even) .step-content h3,
-    .list-items li:nth-child(even) .step-content p {
-        transform: translateX(20px);
-    }
-
-    .list-items li:nth-child(even).visible .step-content h3,
-    .list-items li:nth-child(even).visible .step-content p {
-        transform: translateX(0);
+    .list-items li {
+        gap: 14px;
     }
 }
 

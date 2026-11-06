@@ -3,11 +3,9 @@
     display: flex;
     justify-content: center;
     font-family: var(--font-sans);
-}
-
-// home page: right after the service cards it needs more room than the 30px padding
-.section-services + .quote-section {
-    margin-top: clamp(50px, 8vw, 110px);
+    perspective: 1400px; // for the card standing up (see LIFT below)
+    // the tilted card is wider than the screen on phones; no sideways scroll
+    overflow-x: clip;
 }
 
 .quote-container {
@@ -51,7 +49,7 @@
 }
 
 .quote-section.visible .quote-container:hover {
-    transform: translateY(-5px);
+    translate: 0 -5px; // `translate`, so it doesn't fight the scroll-driven transform
 }
 
 /* TITLE */
@@ -79,7 +77,7 @@
 /* INFO */
 .quote-info p {
 
-    background: linear-gradient(90deg, #ff00cc, #3b4cff);
+    background: var(--gradient-accent); // small text: needs 4.5:1, the old blue end had ~3.5
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 10px 0;
@@ -146,7 +144,8 @@
 
 /* ================= ENTRANCE =================
    js/modules/reveals.js adds .visible when the section scrolls into view.
-   1. the card rises out of a blur and grows to full size, its glow fading in;
+   1. the card fades in out of a blur, its glow following (its tilt is
+      scroll-driven, see LIFT below);
    2. a light sweep crosses it once;
    3. the content follows in sequence: the title is wiped in from the left,
       then text, checklist, button and contact chips rise out of a blur.
@@ -155,20 +154,28 @@
 
 $quote-ease: cubic-bezier(0.16, 1, 0.3, 1);
 
+/* LIFT: js/modules/quote-lift.js sets --lay from the scroll position
+   (1 = the card lies flat, tipped away from the viewer; 0 = upright).
+   No transition on transform, so it follows the scroll exactly. */
 .quote-container {
+    --lay: 0;
+    transform-origin: 50% 40%;
+    transform:
+        translateY(calc(var(--lay) * 40px))
+        rotateX(calc(var(--lay) * 62deg))
+        scale(calc(1 - var(--lay) * 0.06));
     opacity: 0;
-    transform: translateY(48px) scale(0.94);
-    filter: blur(14px);
+    filter: blur(8px);
     transition:
         opacity 0.8s $quote-ease,
-        transform 0.9s $quote-ease,
         filter 0.8s $quote-ease,
+        translate 0.3s ease,
         box-shadow 1.2s ease 0.3s;
+    will-change: transform;
 }
 
 .quote-section.visible .quote-container {
     opacity: 1;
-    transform: none;
     filter: none;
     box-shadow:
         0 25px 70px rgba(0, 0, 0, 0.5),

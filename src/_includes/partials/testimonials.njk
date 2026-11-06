@@ -6,7 +6,7 @@
     {#- The list is rendered twice for a seamless loop; the copy is hidden from screen readers. #}
     <div class="reviews-wrapper">
         <section class="reviews-slider" tabindex="0" aria-label="{{ tl.region }}">
-            <ul class="reviews-list" style="--reviews-count: {{ testimonials.items | length }}">
+            <ul class="reviews-list">
                 {%- for copy in [false, true] %}
                 {%- for item in testimonials.items %}
                 <li class="review-card"{% if copy %} aria-hidden="true"{% endif %}>

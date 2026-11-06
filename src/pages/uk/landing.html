@@ -69,6 +69,7 @@ description: "Розробка лендінгу: дизайн та розроб�
                 </div>
 
             </div>
+        {% include "partials/hero-wave.njk" %}
         </section>
         <div class="lp-for fade-up">
 
@@ -419,71 +420,7 @@ description: "Розробка лендінгу: дизайн та розроб�
 
             </div>
         </section>
-        <section class="section-contacts">
-            <div class="contacts-arcs">
-                <div class="arc-container"><span class="arc arc-top"></span></div>
-                <div class="arc-container"><span class="arc arc-bottom"></span></div>
-            </div>
-            <div class="container-top-contacts">
-                <h2 class="contacts-title">Зв’яжіться зі <em class="accent-serif">мною</em></h2>
-            </div>
-
-            <form class="form" novalidate>
-                <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-                <div class="container-form-items">
-                    <label class="form-label" for="user-name">Ім’я:</label>
-                    <input class="input1" type="text" id="user-name" name="user-name" autocomplete="name" placeholder="Введіть ваше ім’я..."
-                        maxlength="50" pattern="[A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+([\s'-][A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+)*" required />
-
-                    <label class="form-label" for="user-phone">Телефон:</label>
-                    <input class="input2" type="tel" id="user-phone" name="user-phone"
-                        placeholder="Введіть ваш телефон..." pattern="^\+?[0-9]{10,15}$" minlength="10" maxlength="16"
-                        inputmode="numeric" autocomplete="tel" required />
-
-                    <label class="form-label" for="user-message">Повідомлення...</label>
-                    <textarea class="input3" id="user-message" name="user-message"
-                        placeholder="Введіть ваше повідомлення..." rows="5" required></textarea>
-                </div>
-
-                <button type="submit" class="form-button">Отримати безкоштовну консультацію</button>
-                <p class="info-form">
-                    Натискаючи кнопку, <br>
-                    <a href="/privacy/">я погоджуюсь із політикою
-                        конфіденційності.</a>
-                </p>
-            </form>
-
-            <div id="toast" class="toast" role="status" aria-live="polite">
-                    Дякую! Ваша заявка успішно відправлена.<br>
-                    Я зв'яжуся з вами найближчим часом.
-                </div>
-            <div class="container-dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-        </section>
+        {% include "partials/brief.njk" %}
         <section class="section-faq">
             <h2 class="faq-title">
                 FAQs

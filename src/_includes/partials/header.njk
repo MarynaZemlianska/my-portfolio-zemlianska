@@ -37,7 +37,7 @@
                         </ul>
                     </li>
                     <li><a class="nav-link" href="{{ routes.projects[lang] }}">{{ t.nav.projects }}</a></li>
-                    <li><a class="nav-link link-contacts" href="#contacts">{{ t.nav.contacts }}</a></li>
+                    <li><a class="nav-link link-contacts" href="{{ routes.contacts[lang] }}">{{ t.nav.contacts }}</a></li>
                 </ul>
                 <div class="mobile-contacts">
                     {% set listClass = "contacts-ul mobile-contacts-ul" %}
@@ -51,7 +51,6 @@
                 {{ langButtons() }}
             </div>
             <button type="button" class="burger" id="burger" aria-label="{{ t.menu }}">
-                <span></span>
                 <span></span>
                 <span></span>
             </button>

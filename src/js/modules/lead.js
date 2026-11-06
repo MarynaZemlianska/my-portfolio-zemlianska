@@ -6,6 +6,7 @@ const MESSAGES = {
         name: "Введіть коректне ім'я",
         phone: "Введіть коректний номер телефону (10–15 цифр)",
         message: "Напишіть повідомлення",
+        consent: "Підтвердьте згоду з політикою конфіденційності",
         success: "Дякую! Ваша заявка успішно відправлена. Я зв'яжуся з вами найближчим часом.",
         error: "Сталася помилка! Спробуйте ще раз або напишіть мені в Telegram.",
     },
@@ -13,6 +14,7 @@ const MESSAGES = {
         name: "Please enter a valid name",
         phone: "Please enter a valid phone number (10–15 digits)",
         message: "Please write a message",
+        consent: "Please accept the privacy policy",
         success: "Thank you! Your request has been sent. I will get back to you as soon as possible.",
         error: "Something went wrong. Please try again or message me on Telegram.",
     },
@@ -40,12 +42,15 @@ export function validateLead({ name, phone, message }) {
  * forwards it to Telegram. No credentials exist in the browser.
  * Resolves true on success.
  */
-export async function sendLead({ name, phone, message, source, website = "" }) {
+export async function sendLead({ name, phone, message, source, website = "", budget = "", service = "", referral = "" }) {
     try {
         const res = await fetch("/api/lead", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, phone, message, source, website, page: window.location.pathname }),
+            body: JSON.stringify({
+                name, phone, message, source, website, budget, service, referral,
+                page: window.location.pathname,
+            }),
         });
         const body = await res.json().catch(() => ({}));
         return res.ok && body.ok === true;

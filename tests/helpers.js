@@ -1,7 +1,7 @@
 export const SERVICES = ["landing-page", "business-website", "corporate-website", "personal-website", "e-commerce", "additional"];
 
 export const PAGES = [
-    "/", "/en/", "/services/", "/en/services/", "/projects/", "/en/projects/", "/privacy/", "/en/privacy/",
+    "/", "/en/", "/services/", "/en/services/", "/projects/", "/en/projects/", "/contacts/", "/en/contacts/", "/privacy/", "/en/privacy/",
     ...SERVICES.flatMap((s) => [`/services/${s}/`, `/en/services/${s}/`]),
 ];
 

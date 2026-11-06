@@ -1,13 +1,18 @@
 @use "../abstracts" as *;
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER =====
+   subtitle | menu | contacts
+   ----------------------------------
+   privacy                     © year
+   W E B  { L A B }   (rises from below)  */
 .footer {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: 56px 20px;
+    padding: 56px 20px 0;
     border-top: 0.5px solid #cccccc13;
     color: var(--color-primary-light);
+    overflow: hidden;
 }
 
 .footer-container {
@@ -20,67 +25,43 @@
     font-size: 16px;
 }
 
-/* ===== LOGO ===== */
-.footer-logo-item{
+/* ===== SUBTITLE ===== */
+.footer-logo-item {
     display: flex;
     flex-direction: column;
+    max-width: 380px;
     font-family: var(--font-logo);
 }
 
-.footer-logo{
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    font-family: var(--font-logo);
-    transition: transform 0.3s ease;
-}
-
-.footer-logo:hover {
-    transform: scale(1.03);
-    transition: 0.3s ease;
-}
-
-.footer-logo-icon {
-    font-size: 70px;
-    line-height: 1;
-    font-weight:500;
-    background: linear-gradient(90deg, #ff00cc, #3b4cff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.footer-logo-text{
-    margin-top: 0px;
-}
-
-.footer-logo-title {
-    font-size: 27px;
-    letter-spacing: 0px;
-    background: linear-gradient(90deg, #ff00cc, #3b4cff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.footer-logo-subtitle {
-    font-size: 10px;
-    display: block;
-    white-space: nowrap;
-    line-height: 1;
-    letter-spacing: 4px;
-    color: #ff00cc;
-}
-
-
-.subtitle-footer{
-    margin: 0 auto;
-    margin-top: 20px;
+.subtitle-footer {
     color: rgba(255, 255, 255, 0.46); // was 0.4 (3.75:1)
-
 }
 
-/* ===== MENU & CONTACTS & INFO ===== */
+/* short statement under the subtitle */
+.footer-lead {
+    margin-top: 20px;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: var(--lh-body, 1.6);
+    color: var(--color-primary-light);
+}
+
+.footer-text {
+    margin-top: 12px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: var(--lh-body, 1.6);
+    color: #b9b7b7;
+}
+
+/* ===== MENU & CONTACTS ===== */
+.footer-h3 {
+    padding-bottom: 20px;
+    font-size: 17px;
+}
+
 .footer-menu,
-.contacts-ul,
-.footer-info {
+.contacts-ul {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -101,8 +82,7 @@
 
 .footer-link a:hover,
 .footer-contacts a:hover,
-.info-item:hover,
-.info-design:hover {
+.info-item:hover {
     color: var(--color-brand-light);
 }
 
@@ -126,59 +106,120 @@
     flex-shrink: 0;
     fill: var(--color-brand-light);
     vertical-align: middle;
-    display: block; 
+    display: block;
     object-fit: contain;
 }
 
-/* ===== INFO TEXT ===== */
+/* ===== BOTTOM BAR: privacy · design · copyright ===== */
+.footer-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 32px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .info-item {
     font-size: 14px;
 }
 
-.info-design,
 .info-safety {
     font-size: 12px;
     color: #7b7979; // was #747272 (4.07:1)
     font-family: var(--font-sans);
 }
 
+.info-safety {
+    margin-left: auto;
+}
+
 /* ===== APPEARANCE ANIMATION ===== */
-.footer-container > * {
+.footer-container > *,
+.footer-info {
     opacity: 0;
     transform: translateY(50px) scale(0.95);
     transition: all 0.6s ease-out;
 }
 
-.footer-container > *.visible {
+.footer-container > *.visible,
+.footer-info.visible {
     opacity: 1;
     transform: translateY(0) scale(1);
 }
 
-.footer-h3{
-padding-bottom: 20px;
-font-size: 17px;
-    
+/* ===== WORDMARK =====
+   "Web {LAB}" on one line at the very bottom, scaled with the viewport width.
+   The letters rise out of the bottom edge when the footer scrolls into view
+   (js/modules/reveals.js adds .visible). */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-family: var(--font-logo);
+}
+
+.footer-wordmark {
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin-top: 48px;
+    padding-bottom: 24px;
+    font-size: 12vw;
+    line-height: 1;
+    overflow: hidden; // the letters start below this edge
+}
+
+.footer-wordmark .footer-logo-icon,
+.footer-wordmark .footer-logo-text {
+    transform: translateY(110%);
+    transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-wordmark .footer-logo-text {
+    transition-delay: 0.12s;
+}
+
+.footer-wordmark.visible .footer-logo-icon,
+.footer-wordmark.visible .footer-logo-text {
+    transform: none;
+}
+
+.footer-logo-icon {
+    font-size: 1em;
+    line-height: 1;
+    font-weight: 500;
+    background: linear-gradient(90deg, #ff00cc, #3b4cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-logo-title {
+    display: block;
+    white-space: nowrap;
+    font-size: 1em;
+    line-height: 1;
+    letter-spacing: 0px;
+    background: linear-gradient(90deg, #ff00cc, #3b4cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-logo-subtitle {
+    display: block;
+    margin-top: 0.4em;
+    font-size: max(0.08em, 9px);
+    white-space: nowrap;
+    line-height: 1;
+    letter-spacing: 0.9em;
+    text-align: right;
+    color: #ff00cc;
 }
 
 /* ===== RESPONSIVE ===== */
-
-@include down(1071px) {
-    
-    .footer-logo-icon {
-        font-size: 65px;
-    }
-
-    .footer-logo-title {
-        font-size: 25px;
-    }
-
-     .footer-logo-subtitle {
-        letter-spacing: 6px;
-        font-size: 7px;
-    }
-
-
-}
 @include down(lg) {
     .footer-container {
         gap: 20px;
@@ -198,9 +239,26 @@ font-size: 17px;
     }
 
     .footer-menu,
-    .contacts-ul,
-    .footer-info {
+    .contacts-ul {
         align-items: center;
+    }
+
+    .footer-info {
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 48px;
+    }
+
+    .info-safety {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+// nearly edge to edge on phones
+@include down(sm) {
+    .footer-wordmark {
+        font-size: 17vw;
     }
 }
 

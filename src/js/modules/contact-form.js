@@ -1,9 +1,9 @@
-// Contact section form. Previously only showed a "sent" toast without
-// sending anything — now it uses the same lead pipeline as the modal.
+// Brief form (partials/brief.njk, on every page except privacy).
+// Uses the same lead pipeline as the modal.
 import { cleanPhone, validateLead, sendLead, leadText } from "./lead.js";
 
 export function initContactForm() {
-    const form = document.querySelector(".section-contacts .form");
+    const form = document.querySelector(".brief-form");
     const toast = document.getElementById("toast");
     if (!form || !toast) return;
 
@@ -13,6 +13,10 @@ export function initContactForm() {
         message: document.getElementById("user-message"),
     };
     if (!fields.name || !fields.phone || !fields.message) return;
+
+    const consent = form.elements.consent;
+    if (!consent) return;
+    const optional = (name) => form.elements[name]?.value ?? "";
 
     const submitBtn = form.querySelector('[type="submit"]');
 
@@ -25,7 +29,7 @@ export function initContactForm() {
     });
 
     // a custom validity message must be cleared, or the field stays invalid forever
-    Object.values(fields).forEach((field) =>
+    [...Object.values(fields), consent].forEach((field) =>
         field.addEventListener("input", () => field.setCustomValidity(""))
     );
 
@@ -43,8 +47,11 @@ export function initContactForm() {
             name: fields.name.value.trim(),
             phone: fields.phone.value.trim(),
             message: fields.message.value.trim(),
-            source: "Contact form",
+            source: "Brief form",
             website: form.elements.website?.value ?? "",
+            budget: optional("budget"),
+            service: optional("service"),
+            referral: optional("referral"),
         };
 
         const invalid = validateLead(lead);
@@ -53,6 +60,12 @@ export function initContactForm() {
             field.setCustomValidity(leadText[invalid]);
             field.reportValidity();
             field.focus();
+            return;
+        }
+
+        if (!consent.checked) {
+            consent.setCustomValidity(leadText.consent);
+            consent.reportValidity();
             return;
         }
 

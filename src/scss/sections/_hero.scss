@@ -99,13 +99,13 @@
     font-size: 13px;
     font-weight: 600;
     line-height: 1.4;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.6); // 6.3:1 on the hero background
     max-width: none;
     word-break: normal;
     overflow-wrap: normal;
-    margin-bottom: 22px;
+    margin-bottom: 32px;
 }
 
 
@@ -479,7 +479,7 @@
     }
 
     .first-top-container {
-        margin-inline: clamp(16px, 5vw, 40px);
+        margin-inline: clamp(24px, 7vw, 40px);
     }
 
     .top-container {
@@ -532,7 +532,8 @@
 
     .hero-subtitle {
         font-size: 11px;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.06em;
+        margin-bottom: 24px;
     }
 }
 
@@ -560,7 +561,7 @@
    animation-delay: 0 (see top of file).
    .button-mobile2 keeps the JS reveal: it is also .button-contact, whose
    border animation is switched off with !important on phones. */
-$hero-duration: 0.7s;
+$hero-duration: 0.9s;
 
 @function hero-anim-name($delay, $rise) {
     @return hero-in-#{math.round(math.div($delay, 0.1s))}-#{math.div($rise, 1px)};
@@ -572,12 +573,14 @@ $hero-duration: 0.7s;
         #{math.percentage(math.div($delay, $delay + $hero-duration))} {
             opacity: 0;
             transform: translateY($rise) scale(0.95);
-            animation-timing-function: ease-out;
+            filter: blur(10px);
+            animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         100% {
             opacity: 1;
             transform: translateY(0) scale(1);
+            filter: blur(0);
         }
     }
 }
@@ -611,8 +614,7 @@ $hero-duration: 0.7s;
 }
 
 /* ================= HOME HERO COMPOSITION =================
-   Home page only (.hero-home). The stats block moved below "About", so the
-   first screen is title -> description -> CTA, with the illustration and the
+   Home page only (.hero-home). The first screen is title -> description -> CTA, with the illustration and the
    social icons beside it. The CTA reuses the existing .button-contact style. */
 .hero-home {
     // The home hero fills the first screen (the fixed header sits over its
@@ -627,34 +629,52 @@ $hero-duration: 0.7s;
     // side-by-side layout only: fixed column proportions so the illustration
     // is the same size in UA and EN (stacks below 1035px as before)
     @media (min-width: 1035px) {
-        .top-left {
-            // as wide as the UA text needs, so the illustration gets the rest
-            flex: 0 1 540px;
-            min-width: 0;
+        // same width as the header bar (1150px) and the other pages' heroes
+        .top-container {
+            column-gap: 40px;
         }
 
-        // the illustration sits close to the text instead of centred in its column
+        .top-left {
+            // as wide as the longest heading word needs, so the illustration gets the rest
+            flex: 0 0 480px;
+            max-width: none;
+            min-width: 0;
+
+            @include down(1279px) {
+                flex-basis: 400px;
+            }
+        }
+
+        @include down(1279px) {
+            .top-container-h1-home {
+                font-size: 76px;
+            }
+        }
+
+        // the illustration fills everything between the text and the social icons
+        // and never runs under the text
         .top-center {
             flex: 1 1 0;
             min-width: 0;
-            justify-content: flex-start;
-            margin: 0 16px;
+            justify-content: center;
             // level with the heading rather than centred on the whole text column
             align-self: flex-start;
         }
 
-        // the illustration reaches left into the empty space under the heading:
-        // bigger than its column and right next to the text
         .top-image {
-            width: calc(100% + 120px);
+            width: 100%;
             max-width: none;
-            margin: 40px 0 0 -120px;
+            margin: 40px 0 0;
         }
 
         // "development" is wider than the column at 90px and would run under the
         // illustration; this size keeps the word inside the column
         html[lang="en"] & .top-container-h1-home {
             font-size: 76px;
+
+            @include down(1279px) {
+                font-size: 64px;
+            }
         }
     }
 
@@ -724,12 +744,9 @@ $hero-duration: 0.7s;
 // The projects glow (.section-projects-gradient, top: -90px, blur 110px) used to
 // spill upwards; on the home page that area is now the first screen, so the
 // section clips it at its own top edge.
-// The gap above the section is padding instead of margin, so the glow starts
-// above the "Projects" heading rather than at the same height.
+// spacing above the section: layout/_sections.scss
 .hero-home + .section-projects {
     overflow: clip;
-    margin-top: 0;
-    padding-top: clamp(30px, 10vw, 80px);
 }
 
 // EN home: decorative dots behind the heading. .container-dots keeps the grid
@@ -816,5 +833,12 @@ $hero-duration: 0.7s;
         .top-image {
             margin-top: 0;
         }
+    }
+}
+
+// home hero: the "Free consultation" / "View projects" buttons only on phones
+@media (min-width: 768px) {
+    .hero-home .hero-actions {
+        display: none;
     }
 }

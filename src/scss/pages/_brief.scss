@@ -1,0 +1,399 @@
+@use "../abstracts" as *;
+
+/* =========================================
+   CONTACTS PAGE — BRIEF FORM
+   Two columns: intro + steps on the left, glass form card on the right.
+========================================= */
+
+.section-brief {
+    position: relative;
+    overflow-x: clip;
+    padding: 100px 20px 120px;
+}
+
+.brief {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    align-items: start;
+    gap: 64px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ================= INTRO ================= */
+
+.brief-intro {
+    position: sticky;
+    top: 120px;
+}
+
+.brief-tag {
+    display: inline-block;
+    padding: 6px 14px;
+
+    border-radius: 999px;
+    border: 1px solid rgba(250, 0, 255, 0.45);
+    background: rgba(250, 0, 255, 0.08);
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-primary-light);
+}
+
+.brief-title {
+    margin-top: 22px;
+
+    font-family: var(--font-sans);
+    font-size: clamp(34px, 4.4vw, 58px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-primary-light);
+
+    .accent-serif {
+        background: linear-gradient(90deg, #ff00cc, #6b86ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+.brief-text {
+    margin-top: 22px;
+    max-width: 520px;
+
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.brief-steps {
+    display: grid;
+    gap: 14px;
+    margin-top: 36px;
+    padding: 0;
+    list-style: none;
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding: 16px 20px;
+
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.45;
+    }
+}
+
+.brief-step-num {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(250, 0, 255, 0.25), rgba(59, 76, 255, 0.25));
+    border: 1px solid rgba(250, 0, 255, 0.4);
+
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--color-primary-light);
+}
+
+/* ================= CARD ================= */
+
+.brief-card {
+    position: relative;
+    padding: 40px;
+
+    border-radius: 32px;
+    border: 1px solid rgba(255, 0, 204, 0.22);
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    box-shadow:
+        0 0 80px rgba(0, 0, 0, 0.3),
+        -20px 20px 80px rgba(255, 0, 204, 0.12),
+        20px -20px 80px rgba(59, 76, 255, 0.12);
+}
+
+.brief-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.brief-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.brief-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.brief-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.brief-optional {
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.brief-input {
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 18px;
+
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.04);
+
+    font-family: var(--font-sans);
+    font-size: 16px;
+    color: var(--color-primary-light);
+
+    transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+
+    &::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    &:hover {
+        border-color: rgba(250, 0, 255, 0.4);
+    }
+
+    &:focus {
+        outline: none;
+        border-color: var(--color-brand-light);
+        background: rgba(255, 255, 255, 0.06);
+        box-shadow: 0 0 0 4px rgba(250, 0, 255, 0.15);
+    }
+}
+
+.brief-select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 44px;
+    cursor: pointer;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23FA00FF' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+
+    // placeholder option looks like a placeholder
+    &:has(option[value=""]:checked) {
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    // the native dropdown list is drawn by the OS: give it the site background
+    option {
+        background: var(--color-brand);
+        color: var(--color-primary-light);
+    }
+}
+
+.brief-textarea {
+    min-height: 140px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+/* ================= CONSENT ================= */
+
+.brief-consent {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+
+    input {
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        margin: 0;
+        opacity: 0;
+    }
+
+    a {
+        color: var(--color-primary-light);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+}
+
+.brief-check {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.04);
+    transition: background 0.2s ease, border-color 0.2s ease;
+
+    &::after {
+        content: "";
+        width: 10px;
+        height: 6px;
+        margin-top: -2px;
+        border-left: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        transform: rotate(-45deg) scale(0);
+        transition: transform 0.2s ease;
+    }
+}
+
+.brief-consent input:checked + .brief-check {
+    border-color: var(--color-brand-light);
+    background: linear-gradient(135deg, #ff00cc, #3b4cff);
+
+    &::after {
+        transform: rotate(-45deg) scale(1);
+    }
+}
+
+.brief-consent input:focus-visible + .brief-check {
+    box-shadow: 0 0 0 4px rgba(250, 0, 255, 0.25);
+}
+
+.brief-note {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ================= BUTTON ================= */
+
+.brief-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 58px;
+    padding: 0 28px;
+
+    border: none;
+    border-radius: 18px;
+    background: linear-gradient(90deg, #ff00cc, #3b4cff);
+
+    font-family: var(--font-sans);
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 32px rgba(250, 0, 255, 0.35);
+    }
+
+    &:hover .brief-button-arrow {
+        transform: translateX(5px);
+    }
+
+    &:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 3px;
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: wait;
+        transform: none;
+    }
+}
+
+.brief-button-arrow {
+    transition: transform 0.3s ease;
+}
+
+/* ================= SCROLL REVEAL =================
+   .visible is added by js/modules/reveals.js (at once for "reduce motion"). */
+
+.brief-steps li,
+.brief-card {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@include down(lg) {
+    .brief {
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+
+    .brief-intro {
+        position: static;
+    }
+}
+
+@include down(sm) {
+    .section-brief {
+        padding: 60px 16px 80px;
+    }
+
+    .brief-card {
+        padding: 24px 18px;
+        border-radius: 24px;
+    }
+
+    .brief-row {
+        grid-template-columns: 1fr;
+    }
+
+    .brief-text {
+        font-size: 16px;
+    }
+
+    .brief-steps li {
+        padding: 14px 16px;
+    }
+}
+
+@include touch {
+    .brief-button:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .brief-input,
+    .brief-button,
+    .brief-button-arrow,
+    .brief-check,
+    .brief-check::after,
+    .brief-steps li,
+    .brief-card {
+        transition: none;
+    }
+}

@@ -1,0 +1,228 @@
+@use "../abstracts" as *;
+
+/* =========================================
+   CONTACTS PAGE
+========================================= */
+
+.contact-methods {
+    position: relative;
+    padding: 40px 20px 100px;
+    overflow-x: clip;
+}
+
+.contact-methods-gradient {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 520px;
+    height: 520px;
+
+    background:
+        radial-gradient(circle at top right, rgba(255, 0, 204, 0.2), transparent 45%),
+        radial-gradient(circle at bottom left, rgba(59, 76, 255, 0.2), transparent 50%);
+    filter: blur(40px);
+
+    pointer-events: none;
+}
+
+.contact-methods-container {
+    position: relative;
+    z-index: 1;
+
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-methods-head {
+    margin-bottom: 48px;
+}
+
+.contact-methods-title {
+    font-family: var(--font-sans);
+    font-size: clamp(34px, 5vw, 64px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-primary-light);
+}
+
+.contact-methods-subtitle {
+    margin-top: 14px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.contact-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+
+    list-style: none;
+    padding: 0;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    padding: 34px 28px;
+
+    border-radius: 28px;
+    border: 1px solid rgba(255, 0, 204, 0.22);
+    background: rgba(255, 255, 255, 0.04);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+
+    color: var(--color-primary-light);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+
+    &:hover,
+    &:focus-visible {
+        transform: translateY(-6px);
+        border-color: rgba(250, 0, 255, 0.6);
+        box-shadow: 0 0 40px rgba(250, 0, 255, 0.25);
+    }
+
+    &:hover .contact-card-arrow,
+    &:focus-visible .contact-card-arrow {
+        transform: translateX(6px);
+    }
+}
+
+.contact-card-icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 10px;
+
+    border-radius: 20px;
+    border: 1px solid rgba(250, 0, 255, 0.45);
+    background: linear-gradient(135deg, rgba(250, 0, 255, 0.18), rgba(59, 76, 255, 0.18));
+    box-shadow: 0 0 24px rgba(250, 0, 255, 0.25);
+
+    svg {
+        width: 30px;
+        height: 30px;
+        fill: currentColor;
+        color: var(--color-primary-light);
+    }
+}
+
+.contact-card-label {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.contact-card-value {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    overflow-wrap: anywhere;
+}
+
+.contact-card-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 14px;
+
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: var(--color-brand-light);
+}
+
+.contact-card-arrow {
+    transition: transform 0.3s ease;
+}
+
+.contact-hours {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-top: 24px;
+    padding: 24px 28px;
+
+    border-radius: 28px;
+    border: 1px solid rgba(59, 76, 255, 0.35);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--color-primary-light);
+
+    .contact-card-icon {
+        margin-bottom: 0;
+    }
+}
+
+.contact-hours-title {
+    font-size: 18px;
+}
+
+.contact-hours-note {
+    margin-top: 4px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+@include down(lg) {
+    .contact-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@include down(sm) {
+    .contact-methods {
+        padding: 20px 20px 70px;
+    }
+
+    .contact-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    // icon on the left, text on the right: four cards stay short on phones
+    .contact-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 18px;
+        row-gap: 4px;
+        padding: 20px;
+        border-radius: 24px;
+    }
+
+    .contact-card-icon {
+        grid-row: span 3;
+        width: 56px;
+        height: 56px;
+        margin-bottom: 0;
+    }
+
+    .contact-card-action {
+        padding-top: 6px;
+    }
+
+    .contact-hours {
+        align-items: flex-start;
+        padding: 22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contact-card,
+    .contact-card-arrow {
+        transition: none;
+    }
+}
+
+/* ================= HERO PHOTO =================
+   A rectangular photo instead of the round illustration other pages use:
+   rounded corners and a soft pink/blue glow in the site's accent colours. */
+.top-image-photo {
+    width: 360px;
+    border-radius: 28px;
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        -20px 20px 70px rgba(255, 0, 204, 0.22),
+        20px -20px 70px rgba(59, 76, 255, 0.22);
+}

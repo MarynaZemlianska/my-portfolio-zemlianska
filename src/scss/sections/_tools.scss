@@ -1,0 +1,213 @@
+@use "../abstracts" as *;
+
+// Tools strip on the home page, right after the hero
+// (partials/tools.njk, content in src/_data/tools.js).
+
+/* ================= SECTION ================= */
+
+.section-tools {
+    padding: 80px 0 60px;
+
+    color: #fff;
+    font-family: var(--font-sans);
+    text-align: center;
+}
+
+.tools-head {
+    margin: 0 20px 40px;
+}
+
+.tools-eyebrow {
+    margin-bottom: 12px;
+
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--color-brand-light);
+}
+
+.tools-title {
+    font-size: 60px;
+    font-weight: 800;
+    line-height: var(--lh-display);
+}
+
+.tools-text {
+    max-width: 640px;
+    margin: 40px auto 0;
+    padding: 0 20px;
+
+    font-size: 18px;
+    line-height: var(--lh-body);
+    opacity: 0.7;
+}
+
+/* ================= MARQUEE =================
+   Each row holds two copies of the list and moves by half its width, so the
+   copy takes the place of the original seamlessly. Rows run in opposite
+   directions. Hover pauses both; with reduced motion they become a static,
+   wrapped grid of the first row only. */
+
+.tools-marquee {
+    --tool-gap: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--tool-gap);
+
+    overflow: hidden;
+
+    // soft fade where the logos leave the screen
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.tools-row {
+    display: flex;
+    width: max-content;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    animation: tools-marquee 45s linear infinite;
+}
+
+.tools-row-b {
+    animation-direction: reverse;
+    animation-duration: 55s;
+}
+
+.tools-marquee:hover .tools-row {
+    animation-play-state: paused;
+}
+
+// _faq.scss switches off every animation below md with `*` + !important;
+// this loop should keep running on phones and tablets
+@include down(md) {
+    .tools-row {
+        animation-duration: 35s !important;
+        animation-iteration-count: infinite !important;
+    }
+
+    .tools-row-b {
+        animation-duration: 42s !important;
+    }
+}
+
+@keyframes tools-marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tools-marquee {
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+    .tools-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: auto;
+        padding: 0 20px;
+        gap: var(--tool-gap);
+
+        animation: none !important;
+    }
+
+    .tools-row-b,
+    .tools-row .tool[aria-hidden="true"] {
+        display: none;
+    }
+
+    .tools-row .tool {
+        margin-right: 0;
+    }
+}
+
+/* ================= ITEM ================= */
+
+.tool {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    // spacing as a margin (not gap) so both copies are exactly the same width
+    margin-right: var(--tool-gap);
+    padding: 16px 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.04);
+
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.tool-logo {
+    flex: none;
+    width: 32px;
+    height: 32px;
+
+    fill: currentColor;
+    opacity: 0.85;
+
+    transition: fill 0.3s ease, opacity 0.3s ease;
+}
+
+.tool-name {
+    font-size: 20px;
+    line-height: var(--lh-ui);
+    white-space: nowrap;
+}
+
+@media (hover: hover) {
+    .tool:hover {
+        border-color: var(--color-brand-light);
+        background: rgba(250, 0, 255, 0.08);
+    }
+
+    .tool:hover .tool-logo {
+        fill: var(--color-brand-light);
+        opacity: 1;
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@include down(md) {
+    .section-tools {
+        padding: 50px 0 40px;
+    }
+
+    .tools-title {
+        font-size: 32px;
+    }
+
+    .tools-text {
+        font-size: 16px;
+    }
+
+    .tools-marquee {
+        --tool-gap: 12px;
+    }
+
+    .tool {
+        gap: 10px;
+        padding: 12px 20px;
+    }
+
+    .tool-logo {
+        width: 24px;
+        height: 24px;
+    }
+
+    .tool-name {
+        font-size: 16px;
+    }
+}

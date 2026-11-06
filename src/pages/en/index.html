@@ -63,8 +63,7 @@ floatingBoxes: true
                     </div>
 
                     <div class="top-center">
-                        <img src="/images/top-image.webp" fetchpriority="high" loading="eager"
-                            alt="Website design example on a laptop and smartphone" class="top-image">
+                        {% include "partials/hero-scene.njk" %}
                     </div>
 
                     <div class="top-actions">
@@ -95,7 +94,9 @@ floatingBoxes: true
 
                 </div>
             </div>
+        {% include "partials/hero-wave.njk" %}
         </section>
+        {% include "partials/tools.njk" %}
 
         <section class="section-projects" id="projects">
             <div class="section-projects-gradient"></div>
@@ -113,15 +114,18 @@ floatingBoxes: true
                 <div class="container-cards">
 
                     <div class="card">
-                        <a href="https://best-shopsuit.netlify.app/" target="_blank">
+                        <a href="https://best-shopsuit.netlify.app/" target="_blank" rel="noopener">
 
-                            <div class="card-mobile-title">
-                                <span class="card-hover-title-bottom">Best Shop</span>
-                            </div>
-
-                            <div class="card-image">
-                                <img src="/images/projects-1.png" sizes="(max-width: 768px) 100vw, calc(50vw - 46px)" loading="lazy"
-                                    decoding="async" alt="Best Shop — website preview">
+                            <div class="card-poster card-poster--best-shop">
+                                <div class="poster-meta"><span>WebLab</span><span>E-commerce</span></div>
+                                <h3 class="poster-title">Best <em>Shop</em></h3>
+                                <div class="poster-laptop">
+                                    <div class="poster-lid">
+                                        <img src="/images/shot-best-shop.webp" sizes="(max-width: 768px) 75vw, 480px" loading="lazy"
+                                            decoding="async" alt="Best Shop — website home page">
+                                    </div>
+                                    <div class="poster-base"></div>
+                                </div>
                             </div>
 
                             <div class="card-hover-content">
@@ -139,15 +143,18 @@ floatingBoxes: true
                     </div>
 
                     <div class="card">
-                        <a href="https://seafoodone.netlify.app/" target="_blank">
+                        <a href="https://seafoodone.netlify.app/" target="_blank" rel="noopener">
 
-                            <div class="card-mobile-title">
-                                <span class="card-hover-title-bottom">Sea Food Norway</span>
-                            </div>
-
-                            <div class="card-image">
-                                <img src="/images/projects-2.jpg" sizes="(max-width: 768px) 100vw, calc(50vw - 46px)" loading="lazy"
-                                    decoding="async" alt="Sea Food Norway — website preview">
+                            <div class="card-poster card-poster--sea-food">
+                                <div class="poster-meta"><span>WebLab</span><span>Corporate website</span></div>
+                                <h3 class="poster-title">Sea Food <em>Norway</em></h3>
+                                <div class="poster-laptop">
+                                    <div class="poster-lid">
+                                        <img src="/images/shot-sea-food.webp" sizes="(max-width: 768px) 75vw, 480px" loading="lazy"
+                                            decoding="async" alt="Sea Food Norway — website home page">
+                                    </div>
+                                    <div class="poster-base"></div>
+                                </div>
                             </div>
 
                             <div class="card-hover-content">
@@ -165,15 +172,18 @@ floatingBoxes: true
                     </div>
 
                     <div class="card">
-                        <a href="https://iphones14pro.netlify.app/" target="_blank">
+                        <a href="https://iphones14pro.netlify.app/" target="_blank" rel="noopener">
 
-                            <div class="card-mobile-title">
-                                <span class="card-hover-title-bottom">iPhone 14 Pro</span>
-                            </div>
-
-                            <div class="card-image">
-                                <img src="/images/projects-5.png" sizes="(max-width: 768px) 100vw, calc(50vw - 46px)" loading="lazy"
-                                    decoding="async" alt="iPhone 14 Pro — website preview">
+                            <div class="card-poster card-poster--iphone">
+                                <div class="poster-meta"><span>WebLab</span><span>Landing page</span></div>
+                                <h3 class="poster-title">iPhone <em>14&nbsp;Pro</em></h3>
+                                <div class="poster-laptop">
+                                    <div class="poster-lid">
+                                        <img src="/images/shot-iphone.webp" sizes="(max-width: 768px) 75vw, 480px" loading="lazy"
+                                            decoding="async" alt="iPhone 14 Pro — website home page">
+                                    </div>
+                                    <div class="poster-base"></div>
+                                </div>
                             </div>
 
                             <div class="card-hover-content">
@@ -191,15 +201,18 @@ floatingBoxes: true
                     </div>
 
                     <div class="card">
-                        <a href="https://lease-carss.netlify.app/" target="_blank">
+                        <a href="https://lease-carss.netlify.app/" target="_blank" rel="noopener">
 
-                            <div class="card-mobile-title">
-                                <span class="card-hover-title-bottom">Leasing From D&amp;M</span>
-                            </div>
-
-                            <div class="card-image">
-                                <img src="/images/projects-3.png" sizes="(max-width: 768px) 100vw, calc(50vw - 46px)" loading="lazy"
-                                    decoding="async" alt="Leasing From D&M — website preview">
+                            <div class="card-poster card-poster--leasing">
+                                <div class="poster-meta"><span>WebLab</span><span>Landing page</span></div>
+                                <h3 class="poster-title">Leasing <em>D&amp;M</em></h3>
+                                <div class="poster-laptop">
+                                    <div class="poster-lid">
+                                        <img src="/images/shot-leasing.webp" sizes="(max-width: 768px) 75vw, 480px" loading="lazy"
+                                            decoding="async" alt="Leasing From D&amp;M — website home page">
+                                    </div>
+                                    <div class="poster-base"></div>
+                                </div>
                             </div>
 
                             <div class="card-hover-content">
@@ -217,15 +230,18 @@ floatingBoxes: true
                     </div>
 
                     <div class="card">
-                        <a href="https://beauty-zones.netlify.app/" target="_blank">
+                        <a href="https://beauty-zones.netlify.app/" target="_blank" rel="noopener">
 
-                            <div class="card-mobile-title">
-                                <span class="card-hover-title-bottom">Beauty Zone</span>
-                            </div>
-
-                            <div class="card-image">
-                                <img src="/images/projects-4.png" sizes="(max-width: 768px) 100vw, calc(50vw - 46px)" loading="lazy"
-                                    decoding="async" alt="Beauty Zone — website preview">
+                            <div class="card-poster card-poster--beauty-zone">
+                                <div class="poster-meta"><span>WebLab</span><span>Corporate website</span></div>
+                                <h3 class="poster-title">Beauty <em>Zone</em></h3>
+                                <div class="poster-laptop">
+                                    <div class="poster-lid">
+                                        <img src="/images/shot-beauty-zone.webp" sizes="(max-width: 768px) 75vw, 480px" loading="lazy"
+                                            decoding="async" alt="Beauty Zone — website home page">
+                                    </div>
+                                    <div class="poster-base"></div>
+                                </div>
                             </div>
 
                             <div class="card-hover-content">
@@ -430,7 +446,7 @@ floatingBoxes: true
                             </p>
                         </div>
                     </div>
-                    <a href="/en/services/landing-page/" class="service-link" aria-label="Go to service"></a>
+                    <a href="/en/services/landing-page/" class="service-link" aria-label="Landing page — learn more"></a>
                 </div>
 
                 <div class="service-card">
@@ -454,7 +470,7 @@ floatingBoxes: true
 
                     </div>
 
-                    <a href="/en/services/business-website/" class="service-link" aria-label="Go to service"></a>
+                    <a href="/en/services/business-website/" class="service-link" aria-label="Business card website — learn more"></a>
 
                 </div>
 
@@ -479,7 +495,7 @@ floatingBoxes: true
 
                     </div>
 
-                    <a href="/en/services/corporate-website/" class="service-link" aria-label="Go to service"></a>
+                    <a href="/en/services/corporate-website/" class="service-link" aria-label="Corporate website — learn more"></a>
 
                 </div>
 
@@ -504,7 +520,7 @@ floatingBoxes: true
 
                     </div>
 
-                    <a href="/en/services/e-commerce/" class="service-link" aria-label="Go to service"></a>
+                    <a href="/en/services/e-commerce/" class="service-link" aria-label="E-commerce website — learn more"></a>
 
                 </div>
 
@@ -529,7 +545,7 @@ floatingBoxes: true
 
                     </div>
 
-                    <a href="/en/services/personal-website/" class="service-link" aria-label="Go to service"></a>
+                    <a href="/en/services/personal-website/" class="service-link" aria-label="Personal website — learn more"></a>
 
                 </div>
 
@@ -554,7 +570,7 @@ floatingBoxes: true
 
                     </div>
 
-                    <a href="/en/services/additional/" class="service-link" aria-label="Go to service"></a>
+                    <a href="/en/services/additional/" class="service-link" aria-label="Other services — learn more"></a>
 
                 </div>
 
@@ -632,20 +648,17 @@ floatingBoxes: true
 
         <section class="section-about">
             <div class="container-about">
-
-                <div class="about-photo-container">
-                    <img class="ellipse-photo" src="/images/my-photo-portfolio.webp"
-                        loading="lazy" decoding="async" alt="Maryna Zemlianska">
-                </div>
-
-                <div class="about-title-wrap">
-
+                <div class="about-head">
                     <h2 class="about-title">
                         About<br>the <em class="accent-serif">developer</em>
                     </h2>
-
                     <div class="about-title-arrow"></div>
-
+                </div>
+                <div class="about-photo-container">
+                    <img class="ellipse-photo" src="/images/about-photo.webp"
+                        loading="lazy" decoding="async" alt="Maryna Zemlianska">
+                </div>
+                <div class="about-title-wrap">
                     <div class="about-content">
 
                         <div class="about-text">
@@ -674,30 +687,6 @@ floatingBoxes: true
 
                 </div>
 
-            </div>
-        </section>
-
-        <section class="section-stats">
-
-            <div class="stats-cards">
-
-                <div class="stat-card">
-                    <h2 class="stat-number" data-target="30" data-suffix="+">0</h2>
-                    <div class="stat-bar"><span></span></div>
-                    <p class="stat-text">Completed websites</p>
-                </div>
-
-                <div class="stat-card">
-                    <h2 class="stat-number" data-target="5" data-suffix="+">0</h2>
-                    <div class="stat-bar"><span></span></div>
-                    <p class="stat-text">Years in IT</p>
-                </div>
-
-                <div class="stat-card">
-                    <h2 class="stat-number" data-target="100" data-suffix="%">0</h2>
-                    <div class="stat-bar"><span></span></div>
-                    <p class="stat-text">Satisfied clients</p>
-                </div>
             </div>
         </section>
 
@@ -807,7 +796,7 @@ floatingBoxes: true
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item active">
                     <button type="button" class="faq-question">
                         Is a prepayment required?
                         <span class="faq-arrow"></span>
@@ -881,77 +870,7 @@ floatingBoxes: true
         </section>
 
 
-        <section class="section-contacts">
-            <div class="contacts-arcs">
-                <div class="arc-container"><span class="arc arc-top"></span></div>
-                <div class="arc-container"><span class="arc arc-bottom"></span></div>
-            </div>
-
-            <div class="container-top-contacts">
-                <h2 class="contacts-title">Get in touch <em class="accent-serif">with me</em></h2>
-            </div>
-
-            <form class="form" novalidate>
-                <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-                <div class="container-form-items">
-                    <label class="form-label" for="user-name">Name:</label>
-                    <input class="input1" type="text" id="user-name" name="user-name" autocomplete="name" placeholder="Enter your name..."
-                        maxlength="50" pattern="[A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+([\s'-][A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+)*" required />
-
-                    <label class="form-label" for="user-phone">Phone:</label>
-                    <input class="input2" type="tel" id="user-phone" name="user-phone"
-                        placeholder="Enter your phone number..." pattern="^\+?[0-9]{10,15}$" minlength="10"
-                        maxlength="16" inputmode="numeric" autocomplete="tel" required />
-
-                    <label class="form-label" for="user-message">Message</label>
-                    <textarea class="input3" id="user-message" name="user-message" placeholder="Enter your message..."
-                        rows="5" required></textarea>
-                </div>
-
-                <button type="submit" class="form-button">
-                    Get a free consultation
-                </button>
-
-                <p class="info-form">
-                    By clicking the button, <br>
-                    I agree with the
-                    <a href="/en/privacy/">
-                        privacy policy
-                    </a>.
-                </p>
-            </form>
-
-            <div id="toast" class="toast" role="status" aria-live="polite">
-                    Thank you! Your request has been successfully sent.<br>
-                    I will contact you as soon as possible.
-                </div>
-            <div class="container-dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-        </section>
+        {% include "partials/brief.njk" %}
 
         {% include "partials/testimonials.njk" %}
 

@@ -19,18 +19,22 @@
 
 /* ================= GRADIENT ================= */
 
+// A soft glow drawn by the gradient itself (no filter: blur): it fades to
+// transparent before the box edges, so the section's clip leaves no hard line,
+// and it is cheaper to paint than a 110px blur.
 .section-projects-gradient {
     position: absolute;
-    top: -90px;
-    left: -90px;
-    width: 420px;
-    height: 420px;
-    background: radial-gradient(circle at top left,
-            rgba(235, 3, 255, 0.6) 0%,
-            rgba(129, 3, 255, 0.4) 40%,
-            rgba(3, 44, 255, 0.2) 65%,
+    top: 0;
+    left: 0;
+    width: min(1100px, 100%);
+    height: 900px;
+    background:
+        radial-gradient(ellipse closest-side at 22% 50%,
+            rgba(235, 3, 255, 0.42) 0%,
+            rgba(129, 3, 255, 0.26) 35%,
+            rgba(3, 44, 255, 0.1) 65%,
             rgba(3, 44, 255, 0) 100%);
-    filter: blur(110px);
+    pointer-events: none;
     z-index: -1;
 }
 
@@ -88,6 +92,39 @@
     opacity: 0.7;
     font-family: var(--font-sans);
     color: #fff;
+}
+
+
+// Title and subtitle slide in on scroll, like the other section titles
+// (class added by reveals.js); the subtitle follows a moment later.
+.title-projects,
+.projects-subtitle {
+    transform: translateY(50px);
+    transition:
+        opacity 0.9s ease-out,
+        transform 0.9s ease-out;
+}
+
+.title-projects {
+    opacity: 0;
+}
+
+// dimmed with the text colour, not opacity: a global `.visible` rule
+// (sections/_contacts.scss) forces opacity: 1 !important once revealed
+.projects-subtitle {
+    opacity: 0;
+    color: rgba(255, 255, 255, 0.7);
+    transition-delay: 0.25s;
+}
+
+.title-projects.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.projects-subtitle.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 
@@ -173,6 +210,204 @@
 
 .card-image:hover::after {
     opacity: 0;
+}
+
+
+/* ================= POSTER CARD =================
+   Each project is a poster in the project's own colours: big title, a small
+   label row and a laptop (drawn in CSS) with a screenshot of the site.
+   Colours per project: the --poster-* variables at the end of this block. */
+
+.card-poster {
+    --poster-bg: linear-gradient(160deg, #f6f2ec, #e9e2d8);
+    --poster-ink: #24211f;
+    --poster-accent: #a3204f;
+    --poster-glow: rgba(163, 32, 79, 0.22);
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    container-type: inline-size;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    border-radius: 30px;
+    background: var(--poster-bg);
+    color: var(--poster-ink);
+}
+
+// soft light of the project's accent behind the laptop
+.card-poster::before {
+    content: "";
+    position: absolute;
+    right: -20%;
+    top: 22%;
+    z-index: -1;
+    width: 85%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, var(--poster-glow), transparent);
+}
+
+.poster-meta {
+    position: absolute;
+    inset: 5.5cqi 6cqi auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: max(11px, 1.7cqi);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+.poster-title {
+    position: absolute;
+    top: 12cqi;
+    left: 6cqi;
+    right: 6cqi;
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 12.5cqi;
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--poster-ink);
+}
+
+// the second word on its own line, in the site's italic serif and the project colour
+.poster-title em {
+    display: block;
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: -0.01em;
+    color: var(--poster-accent);
+}
+
+/* ----- laptop ----- */
+.poster-laptop {
+    position: absolute;
+    left: 24%;
+    right: 8%;
+    bottom: 11%;
+    transform: perspective(1400px) rotateX(6deg) rotateY(-16deg) rotateZ(2deg);
+    transform-origin: 50% 100%;
+    transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+// shadow on the "table"
+.poster-laptop::after {
+    content: "";
+    position: absolute;
+    left: -4%;
+    right: -4%;
+    bottom: -7%;
+    z-index: -1;
+    height: 9%;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(0, 0, 0, 0.3), transparent);
+}
+
+.poster-lid {
+    position: relative;
+    padding: 2.4% 2.4% 3.2%;
+    border-radius: 18px 18px 5px 5px;
+    background: #0e0e11;
+    box-shadow:
+        inset 0 0 0 2px #34343a,
+        0 40px 80px -20px rgba(0, 0, 0, 0.45);
+}
+
+// camera notch
+.poster-lid::before {
+    content: "";
+    position: absolute;
+    top: 2.4%;
+    left: 50%;
+    z-index: 2;
+    width: 11%;
+    height: 3.2%;
+    transform: translateX(-50%);
+    border-radius: 0 0 8px 8px;
+    background: #0e0e11;
+}
+
+// glare on the glass
+.poster-lid::after {
+    content: "";
+    position: absolute;
+    inset: 2.4% 2.4% 3.2%;
+    border-radius: 4px;
+    background: linear-gradient(115deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0) 38%);
+    pointer-events: none;
+}
+
+// .card-poster in front: the tablet rule `.card img` (aspect 16/11) comes later
+.card-poster .poster-lid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 4px;
+}
+
+.poster-base {
+    position: relative;
+    height: max(8px, 2.4cqi);
+    margin: 0 -7%;
+    border-radius: 2px 2px 20px 20px;
+    background: linear-gradient(#d9dade, #9c9da3 55%, #6d6e74);
+}
+
+// thumb groove
+.poster-base::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 42%;
+    width: 16%;
+    height: 40%;
+    border-radius: 0 0 8px 8px;
+    background: #8a8b91;
+}
+
+// hover: the laptop turns towards the viewer
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .card a:hover .poster-laptop {
+        transform: perspective(1400px) rotateX(3deg) rotateY(-8deg) rotateZ(1deg) translateY(-8px);
+    }
+}
+
+/* ----- colours of each project (taken from the project's own site) ----- */
+.card-poster--sea-food {
+    --poster-bg: linear-gradient(160deg, #eef5fb, #d3e4f2);
+    --poster-ink: #0e2a5c;
+    --poster-accent: #1d5fae;
+    --poster-glow: rgba(29, 95, 174, 0.25);
+}
+
+.card-poster--iphone {
+    --poster-bg: linear-gradient(160deg, #f5f4f7, #e2deea);
+    --poster-ink: #1d1d1f;
+    --poster-accent: #4b1d7a;
+    --poster-glow: rgba(75, 29, 122, 0.22);
+}
+
+.card-poster--leasing {
+    --poster-bg: linear-gradient(160deg, #f3ece4, #dccbb8);
+    --poster-ink: #161616;
+    --poster-accent: #7a4a26;
+    --poster-glow: rgba(122, 74, 38, 0.25);
+}
+
+.card-poster--beauty-zone {
+    --poster-bg: linear-gradient(160deg, #f4f7ff, #dce7fd);
+    --poster-ink: #14213d;
+    --poster-accent: #1f66d6;
+    --poster-glow: rgba(31, 102, 214, 0.22);
 }
 
 
@@ -279,11 +514,18 @@
    Illustration of a site being built, with a dark spot in the middle so the
    gradient title and the round arrow button read clearly on top of it. */
 
+// project cards have their title inside the poster, so the CTA title moves
+// under its card too and the cards in a row line up at the top
+.card-cta .card-mobile-title {
+    order: 1;
+    margin: 18px 6px 0;
+}
+
 .card-image-cta {
     position: relative;
     overflow: hidden;
     border-radius: 30px;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 1 / 1; // same as the project posters
     width: 100%;
     border: 1.5px solid rgba(194, 19, 255, 0.55);
     box-shadow: 0 0 40px rgba(235, 3, 255, 0.15);
@@ -330,7 +572,7 @@
     font-size: clamp(30px, 3.4vw, 52px);
     line-height: 1.1;
     opacity: 1;
-    background: linear-gradient(90deg, #ff00cc, #8b5cff 55%, #3b4cff);
+    background: linear-gradient(90deg, #ff00cc, #8b5cff 55%, #6b86ff); // lighter blue end for contrast
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

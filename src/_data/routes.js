@@ -11,5 +11,6 @@ export default {
     personal: { uk: "/services/personal-website/", en: "/en/services/personal-website/" },
     ecommerce: { uk: "/services/e-commerce/", en: "/en/services/e-commerce/" },
     other: { uk: "/services/additional/", en: "/en/services/additional/" },
+    contacts: { uk: "/contacts/", en: "/en/contacts/" },
     privacy: { uk: "/privacy/", en: "/en/privacy/" },
 };

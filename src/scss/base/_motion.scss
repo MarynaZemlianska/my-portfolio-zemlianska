@@ -1,0 +1,146 @@
+@use "../abstracts" as *;
+
+// ===== MOTION LAYER =====
+// A few quiet, modern effects on top of the existing section animations.
+// Pointer effects (spotlight, magnetic buttons, hero parallax) are wired in
+// js/modules/motion.js; everything here is CSS-only. All of it is switched
+// off for "reduce motion". Loaded after base/globals.
+
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+/* ----- smooth crossfade between pages (EN <-> UK, service pages) ----- */
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.35s;
+}
+
+/* ----- reading progress: a thin brand line under the top edge ----- */
+@supports (animation-timeline: scroll()) {
+    body:has(.hero-home)::after {
+        content: "";
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 1001;
+        height: 2px;
+        background: linear-gradient(90deg, #ff00cc, #3b4cff);
+        transform-origin: 0 50%;
+        pointer-events: none;
+        animation: motion-progress linear both;
+        animation-timeline: scroll(root);
+    }
+
+    @keyframes motion-progress {
+        from { transform: scaleX(0); }
+        to { transform: scaleX(1); }
+    }
+
+    /* project screenshots settle from a slight zoom as they scroll in */
+    .section-projects .card-image img {
+        animation: motion-settle linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 45%;
+    }
+
+    @keyframes motion-settle {
+        from { scale: 1.12; }
+        to { scale: 1; }
+    }
+}
+
+/* ----- project cards: slide in from both sides out of a soft blur ----- */
+/* left column comes from the left, right column from the right */
+.section-projects .card {
+    filter: blur(8px);
+    transform: translateX(-90px);
+    transition:
+        opacity 1.6s $ease-out-expo,
+        transform 1.6s $ease-out-expo,
+        filter 1.6s $ease-out-expo;
+}
+
+.section-projects .card:nth-child(even) {
+    transform: translateX(90px);
+}
+
+@include down(md) {
+    .section-projects .card {
+        transform: translateX(-50px);
+    }
+
+    .section-projects .card:nth-child(even) {
+        transform: translateX(50px);
+    }
+}
+
+.section-projects .card.visible {
+    filter: none;
+    transform: none;
+}
+
+/* ----- section headings: rise slowly out of a soft blur ----- */
+/* .heading-reveal is added by js/modules/reveals.js (no JS = headings just show).
+   Overrides each section's own, quicker title entrance. */
+$heading-reveal-time: 1.8s;
+
+h2.heading-reveal {
+    transition:
+        opacity $heading-reveal-time $ease-out-expo,
+        transform $heading-reveal-time $ease-out-expo,
+        filter $heading-reveal-time $ease-out-expo !important;
+}
+
+h2.heading-reveal:not(.visible) {
+    opacity: 0 !important;
+    transform: translateY(36px) !important;
+    filter: blur(10px) !important;
+}
+
+h2.heading-reveal.visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+}
+
+/* ----- cursor spotlight on project screenshots (vars set in motion.js) ----- */
+.card-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: radial-gradient(320px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+            rgba(235, 3, 255, 0.22),
+            transparent 65%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+@media (hover: hover) {
+    .card-image:hover::before {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body:has(.hero-home)::after,
+    .section-projects .card-image img {
+        animation: none !important;
+    }
+
+    body:has(.hero-home)::after {
+        display: none;
+    }
+
+    .section-projects .card {
+        filter: none;
+    }
+
+    h2.heading-reveal {
+        transition: none !important;
+    }
+}

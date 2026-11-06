@@ -58,15 +58,18 @@
     padding: 0;
     list-style: none;
 
-    // ~9s per card keeps the speed the same whatever the number of reviews
-    animation: reviews-marquee calc(var(--reviews-count, 6) * 9s) linear infinite;
+    // no-JS fallback loop (js/modules/reviews-marquee.js drives it otherwise).
+    // ~9s per card; --reviews-count = number of reviews in _data/testimonials.js
+    // (set here, not inline: the CSP blocks style attributes)
+    --reviews-count: 9;
+    animation: reviews-marquee calc(var(--reviews-count) * 9s) linear infinite;
 }
 
 // _faq.scss switches off every animation below md with `*` + !important;
 // the review loop is the one that should keep running on phones and tablets
 @include down(md) {
     .reviews-list {
-        animation-duration: calc(var(--reviews-count, 6) * 8s) !important;
+        animation-duration: calc(var(--reviews-count) * 8s) !important;
         animation-iteration-count: infinite !important;
     }
 }
@@ -74,6 +77,22 @@
 .reviews-slider:hover .reviews-list,
 .reviews-slider:focus-within .reviews-list {
     animation-play-state: paused;
+}
+
+// JS drives the drift and the swipe (js/modules/reviews-marquee.js)
+.reviews-list.is-js {
+    animation: none !important;
+    will-change: transform;
+}
+
+.reviews-slider:has(.is-js) {
+    cursor: grab;
+    touch-action: pan-y; // vertical page scroll stays native, horizontal goes to the swipe
+}
+
+.reviews-slider.is-dragging {
+    cursor: grabbing;
+    user-select: none;
 }
 
 @keyframes reviews-marquee {

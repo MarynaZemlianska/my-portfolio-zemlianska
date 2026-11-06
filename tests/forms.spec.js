@@ -35,20 +35,21 @@ test("modal: lead goes browser -> /api/lead -> Telegram, once (EN)", async ({ pa
     expect(page.directTelegram, "browser never calls Telegram directly").toEqual([]);
 });
 
-test("contact section form sends the lead (UA)", async ({ page, request }) => {
+test("brief form on the home page sends the lead (UA)", async ({ page, request }) => {
     const calls = await mockTelegram(page);
     const m = marker();
     await page.goto("/");
     await page.fill("#user-name", "Марина");
     await page.fill("#user-phone", "+380630000000");
     await page.fill("#user-message", `Перевірка ${m}`);
-    await page.click(".section-contacts .form-button");
+    await page.check(".brief-consent input");
+    await page.click(".brief-button");
     await expect(page.locator("#toast")).toHaveClass(/show/);
     await expect(page.locator("#toast")).toContainText("Дякую");
     expect(calls).toHaveLength(1);
     const sent = await telegramLog(request, m);
     expect(sent).toHaveLength(1);
-    expect(sent[0].text).toContain("Contact form · /");
+    expect(sent[0].text).toContain("Brief form · /");
     await expect(page.locator("#user-name")).toHaveValue("");
 });
 
@@ -64,13 +65,14 @@ test("modal: network failure keeps data and shows an error (UA)", async ({ page 
     await expect(page.locator("#consultationForm [type=submit]")).toBeEnabled();
 });
 
-test("contact form: Telegram error is reported to the user, data kept", async ({ page }) => {
+test("brief form: Telegram error is reported to the user, data kept", async ({ page }) => {
     await mockTelegram(page);
     await page.goto("/en/");
     await page.fill("#user-name", "Test");
     await page.fill("#user-phone", "+380630000000");
     await page.fill("#user-message", "SIMULATE_TELEGRAM_ERROR please");
-    await page.click(".section-contacts .form-button");
+    await page.check(".brief-consent input");
+    await page.click(".brief-button");
     await expect(page.locator("#toast")).toHaveClass(/show/);
     await expect(page.locator("#toast")).toContainText("Something went wrong");
     await expect(page.locator("#user-message")).toHaveValue("SIMULATE_TELEGRAM_ERROR please");
@@ -93,7 +95,8 @@ test("contact form: validation message is in the page language", async ({ page }
     await page.fill("#user-name", "Test");
     await page.fill("#user-phone", "12");
     await page.fill("#user-message", "Hi there");
-    await page.click(".section-contacts .form-button");
+    await page.check(".brief-consent input");
+    await page.click(".brief-button");
     const msg = await page.evaluate(() => document.getElementById("user-phone").validationMessage);
     expect(msg).toMatch(/phone/i);
     expect(calls).toHaveLength(0);
@@ -141,4 +144,30 @@ test("no Telegram credentials or API calls in the shipped site", async ({ reques
         expect(text, asset).not.toContain("APP_CONFIG");
     }
     expect((await request.get("/assets/js/config.js")).status()).toBe(404);
+});
+
+test("contacts page brief form sends selects and requires consent (EN)", async ({ page, request }) => {
+    const calls = await mockTelegram(page);
+    const m = marker();
+    await page.goto("/en/contacts/");
+    await page.fill("#user-name", "Test User");
+    await page.fill("#user-phone", "+380630000000");
+    await page.selectOption("#user-budget", "$600–1000");
+    await page.selectOption("#user-service", "Online store");
+    await page.selectOption("#user-referral", "Google");
+    await page.fill("#user-message", `Brief ${m}`);
+
+    await page.click(".brief-button");
+    expect(calls, "no request without consent").toHaveLength(0);
+
+    await page.check(".brief-consent input");
+    await page.click(".brief-button");
+    await expect(page.locator("#toast")).toHaveClass(/show/);
+    expect(calls).toHaveLength(1);
+    const sent = await telegramLog(request, m);
+    expect(sent).toHaveLength(1);
+    expect(sent[0].text).toContain("Online store");
+    expect(sent[0].text).toContain("$600–1000");
+    expect(sent[0].text).toContain("Google");
+    expect(sent[0].text).toContain("Brief form · /en/contacts/");
 });

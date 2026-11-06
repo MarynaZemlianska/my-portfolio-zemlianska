@@ -29,13 +29,15 @@ export default {
         menu: "Меню",
         footer: {
             subtitle: "Розробка вебсайтів",
+            lead: ["Створюю перше враження. Будую причину залишитися.", "Сайти, повз які неможливо пройти."],
+            text: "Нічого випадкового, кожна деталь продумана. Я приходжу з власним баченням і відповідаю за нього, бо сильний результат потребує сміливості.",
             menu: "МЕНЮ",
             contacts: "КОНТАКТИ",
             home: "Головна",
             services: "Послуги та ціни",
             projects: "Проєкти",
+            contactsPage: "Контакти",
             privacy: "Політика конфіденційності",
-            design: "Дизайн: Rohan Patil",
             rights: "Усі права захищені.",
         },
         modal: {
@@ -79,13 +81,15 @@ export default {
         menu: "Menu",
         footer: {
             subtitle: "Website Development",
+            lead: ["I design the first impression. I build the reason to stay.", "Websites people can't scroll past."],
+            text: "Nothing is left to chance and every detail is thought through. I bring a clear point of view and stand behind it, because strong work takes conviction.",
             menu: "MENU",
             contacts: "CONTACTS",
             home: "Home",
             services: "Services & Pricing",
             projects: "Projects",
+            contactsPage: "Contacts",
             privacy: "Privacy Policy",
-            design: "Design: Rohan Patil",
             rights: "All rights reserved.",
         },
         modal: {

@@ -1,0 +1,201 @@
+{#- Lead form section ("brief"): on every page except privacy. Language comes from the page's `lang`.
+    Logic: js/modules/contact-form.js, styles: scss/pages/_brief.scss. -#}
+{% if lang == "en" %}
+<section class="section-brief" id="brief">
+    <canvas class="particle-field" aria-hidden="true"></canvas>
+
+    <div class="brief">
+        <div class="brief-intro">
+            <span class="brief-tag">Brief</span>
+            <h2 class="brief-title">Share your idea, <em class="accent-serif">I'll find the shape.</em></h2>
+            <p class="brief-text">
+                You don't need a technical spec. Tell me what your business does and what
+                the website should change for it — more requests, more sales, a clearer image.
+                I'll suggest the format, the timeline and the price.
+            </p>
+
+            <ol class="brief-steps">
+                <li><span class="brief-step-num">01</span><span>I read your brief and reply within one working day.</span></li>
+                <li><span class="brief-step-num">02</span><span>A short call or chat to clarify the details.</span></li>
+                <li><span class="brief-step-num">03</span><span>You get a plan with a clear price and deadline.</span></li>
+            </ol>
+        </div>
+
+        <div class="brief-card">
+            <form class="brief-form" novalidate>
+                <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                <div class="brief-row">
+                    <div class="brief-field">
+                        <label class="brief-label" for="user-name">Name</label>
+                        <input class="brief-input" type="text" id="user-name" name="user-name" autocomplete="name"
+                            placeholder="Your name..." maxlength="50" required />
+                    </div>
+                    <div class="brief-field">
+                        <label class="brief-label" for="user-phone">Phone</label>
+                        <input class="brief-input" type="tel" id="user-phone" name="user-phone" autocomplete="tel"
+                            placeholder="+380..." inputmode="tel" maxlength="16" required />
+                    </div>
+                </div>
+
+                <div class="brief-row">
+                    <div class="brief-field">
+                        <label class="brief-label" for="user-budget">Budget</label>
+                        <select class="brief-input brief-select" id="user-budget" name="budget">
+                            <option value="">Approximate amount</option>
+                            <option value="up to $300">up to $300</option>
+                            <option value="$300–600">$300–600</option>
+                            <option value="$600–1000">$600–1000</option>
+                            <option value="$1000+">$1000+</option>
+                            <option value="Not sure yet">Not sure yet</option>
+                        </select>
+                    </div>
+                    <div class="brief-field">
+                        <label class="brief-label" for="user-service">Website type</label>
+                        <select class="brief-input brief-select" id="user-service" name="service">
+                            <option value="">What do you need?</option>
+                            <option value="Landing page">Landing page</option>
+                            <option value="Business card website">Business card website</option>
+                            <option value="Corporate website">Corporate website</option>
+                            <option value="Online store">Online store</option>
+                            <option value="Redesign / other">Redesign / other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="brief-field">
+                    <label class="brief-label" for="user-message">About the project</label>
+                    <textarea class="brief-input brief-textarea" id="user-message" name="user-message" rows="5"
+                        maxlength="2000" placeholder="A few words about your business and the task..." required></textarea>
+                </div>
+
+                <div class="brief-field">
+                    <label class="brief-label" for="user-referral">How did you find me? <span class="brief-optional">(optional)</span></label>
+                    <select class="brief-input brief-select" id="user-referral" name="referral">
+                        <option value="">e.g. Instagram</option>
+                        <option value="Google">Google</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Telegram">Telegram</option>
+                        <option value="Recommendation">Recommendation</option>
+                        <option value="ChatGPT / AI">ChatGPT / AI</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <label class="brief-consent">
+                    <input type="checkbox" name="consent" required>
+                    <span class="brief-check" aria-hidden="true"></span>
+                    <span>I have read and agree to the <a href="/en/privacy/">privacy policy</a>.</span>
+                </label>
+
+                <p class="brief-note">Every request is read personally — expect a reply within one working day.</p>
+
+                <button type="submit" class="brief-button">
+                    Send the brief <span class="brief-button-arrow" aria-hidden="true">→</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</section>
+{% else %}
+<section class="section-brief" id="brief">
+    <canvas class="particle-field" aria-hidden="true"></canvas>
+
+    <div class="brief">
+        <div class="brief-intro">
+            <span class="brief-tag">Бриф</span>
+            <h2 class="brief-title">Розкажіть ідею, <em class="accent-serif">а я знайду їй форму.</em></h2>
+            <p class="brief-text">
+                Технічне завдання не потрібне. Опишіть, чим займається ваш бізнес і що сайт
+                має для нього змінити — більше заявок, більше продажів, сильніший імідж.
+                Я запропоную формат, терміни та вартість.
+            </p>
+
+            <ol class="brief-steps">
+                <li><span class="brief-step-num">01</span><span>Читаю бриф і відповідаю протягом робочого дня.</span></li>
+                <li><span class="brief-step-num">02</span><span>Короткий дзвінок або переписка, щоб уточнити деталі.</span></li>
+                <li><span class="brief-step-num">03</span><span>Ви отримуєте план із чіткою ціною та дедлайном.</span></li>
+            </ol>
+        </div>
+
+        <div class="brief-card">
+            <form class="brief-form" novalidate>
+                <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                <div class="brief-row">
+                    <div class="brief-field">
+                        <label class="brief-label" for="user-name">Ім'я</label>
+                        <input class="brief-input" type="text" id="user-name" name="user-name" autocomplete="name"
+                            placeholder="Ваше ім'я..." maxlength="50" required />
+                    </div>
+                    <div class="brief-field">
+                        <label class="brief-label" for="user-phone">Телефон</label>
+                        <input class="brief-input" type="tel" id="user-phone" name="user-phone" autocomplete="tel"
+                            placeholder="+380..." inputmode="tel" maxlength="16" required />
+                    </div>
+                </div>
+
+                <div class="brief-row">
+                    <div class="brief-field">
+                        <label class="brief-label" for="user-budget">Бюджет</label>
+                        <select class="brief-input brief-select" id="user-budget" name="budget">
+                            <option value="">Орієнтовна сума</option>
+                            <option value="до $300">до $300</option>
+                            <option value="$300–600">$300–600</option>
+                            <option value="$600–1000">$600–1000</option>
+                            <option value="$1000+">$1000+</option>
+                            <option value="Ще не знаю">Ще не знаю</option>
+                        </select>
+                    </div>
+                    <div class="brief-field">
+                        <label class="brief-label" for="user-service">Тип сайту</label>
+                        <select class="brief-input brief-select" id="user-service" name="service">
+                            <option value="">Що вам потрібно?</option>
+                            <option value="Лендінг">Лендінг</option>
+                            <option value="Сайт-візитка">Сайт-візитка</option>
+                            <option value="Корпоративний сайт">Корпоративний сайт</option>
+                            <option value="Інтернет-магазин">Інтернет-магазин</option>
+                            <option value="Редизайн / інше">Редизайн / інше</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="brief-field">
+                    <label class="brief-label" for="user-message">Про проєкт</label>
+                    <textarea class="brief-input brief-textarea" id="user-message" name="user-message" rows="5"
+                        maxlength="2000" placeholder="Кілька слів про ваш бізнес і задачу..." required></textarea>
+                </div>
+
+                <div class="brief-field">
+                    <label class="brief-label" for="user-referral">Як ви мене знайшли? <span class="brief-optional">(необов'язково)</span></label>
+                    <select class="brief-input brief-select" id="user-referral" name="referral">
+                        <option value="">Наприклад, Instagram</option>
+                        <option value="Google">Google</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Telegram">Telegram</option>
+                        <option value="Рекомендація">Рекомендація</option>
+                        <option value="ChatGPT / AI">ChatGPT / AI</option>
+                        <option value="Інше">Інше</option>
+                    </select>
+                </div>
+
+                <label class="brief-consent">
+                    <input type="checkbox" name="consent" required>
+                    <span class="brief-check" aria-hidden="true"></span>
+                    <span>Я ознайомився(-лась) і погоджуюсь із <a href="/privacy/">політикою конфіденційності</a>.</span>
+                </label>
+
+                <p class="brief-note">Кожну заявку читаю особисто — відповідь протягом одного робочого дня.</p>
+
+                <button type="submit" class="brief-button">
+                    Надіслати бриф <span class="brief-button-arrow" aria-hidden="true">→</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</section>
+{% endif %}

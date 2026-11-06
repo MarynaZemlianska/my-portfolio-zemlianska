@@ -9,7 +9,9 @@
 @use "layout/footer";
 @use "components/modal";
 @use "sections/hero";
-@use "sections/stats";
+@use "sections/hero-scene";
+@use "sections/hero-wave";
+@use "sections/tools";
 @use "sections/steps";
 @use "sections/why";
 @use "sections/faq";
@@ -22,5 +24,9 @@
 @use "sections/services";
 @use "pages/privacy";
 @use "pages/service-page";
+@use "pages/contacts-page";
+@use "pages/brief";
 @use "base/globals";
+@use "base/motion";
 @use "base/type-system";
+@use "layout/sections";

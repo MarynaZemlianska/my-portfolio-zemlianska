@@ -59,9 +59,11 @@ export default function (eleventyConfig) {
     // Compiled before every build (and on every watch rebuild).
     eleventyConfig.addWatchTarget("src/scss/");
     // The file name carries a content hash so it can be cached forever
-    // (see src/_headers); templates read the URL from the `cssUrl` global.
+    // (see src/_headers); templates read the URL via the `cssUrl` shortcode —
+    // a shortcode runs at render time, so watch rebuilds pick up the new hash
+    // (global data is cached by the dev server and kept the stale URL).
     let cssUrl = "";
-    eleventyConfig.addGlobalData("cssUrl", () => cssUrl);
+    eleventyConfig.addShortcode("cssUrl", () => cssUrl);
     eleventyConfig.on("eleventy.before", ({ directories }) => {
         const { css } = sass.compile(CSS_IN, { style: "compressed" });
         const hash = crypto.createHash("sha256").update(css).digest("hex").slice(0, 10);

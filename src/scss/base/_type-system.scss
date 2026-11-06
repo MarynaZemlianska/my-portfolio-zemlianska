@@ -32,9 +32,8 @@
 .about-title,
 .why-title,
 .faq-title,
-.contacts-title,
-.section-title-testi,
-.stat-number {
+.brief-title,
+.section-title-testi {
     line-height: var(--lh-display);
 }
 
@@ -82,8 +81,6 @@ p.animate-on-scroll {
     line-height: var(--lh-body);
 }
 
-.info-form,
-.info-design,
 .info-safety,
 .lp-note,
 .extra-item .desc,
@@ -122,8 +119,6 @@ p.animate-on-scroll {
     .package-card .desc,
     .lp-note,
     .lp-card span,
-    .info-form,
-    .info-design,
     .info-safety,
     .faq-subtitle,
     .review-date,

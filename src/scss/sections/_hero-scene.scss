@@ -1,0 +1,686 @@
+@use "../abstracts" as *;
+
+/* ================= HOME HERO: 3D SCENE =================
+   The hero illustration rebuilt from layers (partials/hero-scene.njk).
+   Each layer sits at its own depth (--z); js/modules/hero-scene.js sets
+     --p      scroll progress, 0 (top of the page) -> 1 (hero scrolled away)
+     --mx/my  pointer position over the hero, -1..1 (desktop mouse only)
+   on .hero-scene. As --p grows the stage turns and the layers spread apart
+   in depth. Every size is in cqw (1% of the scene width), so the scene
+   scales like the image it replaces. */
+
+$card-glow: 0 0 2.5cqw rgba(190, 70, 255, 0.35), 0 1.5cqw 3cqw rgba(5, 0, 15, 0.55);
+$brand-gradient: linear-gradient(90deg, #ff1fd1, #4a5cff);
+$text-gradient: linear-gradient(90deg, #ff4fd8, #9d6bff);
+
+.hero-scene {
+    --p: 0;
+    --mx: 0;
+    --my: 0;
+    container-type: inline-size;
+    position: relative;
+    aspect-ratio: 1380 / 810;
+    // .top-image is an <img> elsewhere; this is a box, so it needs a width
+    width: 100%;
+    user-select: none;
+}
+
+// a box, unlike the <img> before it, has no width of its own in the stacked
+// (phone) layout, where .top-center would shrink to nothing
+.hero-home .top-center {
+    width: 100%;
+}
+
+.hs-stage {
+    --rx: calc(7deg + var(--p) * 30deg - var(--my) * 7deg);
+    --ry: calc(-9deg + var(--p) * 42deg + var(--mx) * 10deg);
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transform: perspective(150cqw) translateY(calc(var(--p) * 6cqw)) scale(calc(1.12 - var(--p) * 0.1)) rotateX(var(--rx)) rotateY(var(--ry));
+}
+
+/* ----- layers ----- */
+.hs-layer {
+    --z: 0;
+    --dx: 0;
+    --dy: 0;
+    --r: 0deg;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform:
+        translate3d(calc(var(--dx) * var(--p) * 1.6cqw),
+            calc(var(--dy) * var(--p) * 1.6cqw),
+            calc(var(--z) * (1 + var(--p) * 2.5) * 1cqw))
+        rotate(calc(var(--r) * (1 - var(--p) * 0.5)));
+    // idle drift; `translate` composes with the depth transform above
+    animation: hs-float var(--float, 7s) ease-in-out infinite alternate;
+}
+
+@keyframes hs-float {
+    to {
+        translate: 0 -0.8cqw;
+    }
+}
+
+// position, depth, scroll drift (dx/dy in cqw at --p: 1) and tilt per layer
+.hs-browser { left: 34.2%; top: 15.8%; width: 49.7%; height: 59.3%; --dy: -2; --r: 1.5deg; --float: 9s; }
+.hs-code    { left: 7.1%;  top: 50.9%; width: 27%;   height: 35.3%; --z: 7;  --dx: -6; --dy: 3;  --r: -3deg; --float: 7s; }
+.hs-phone   { left: 75.4%; top: 32.3%; width: 14.1%; height: 45.4%; --z: 9;  --dx: 6;  --dy: 2;  --r: 4deg;  --float: 8s; }
+.hs-conv    { left: 13.2%; top: 19.8%; width: 16%;   height: 16.7%; --z: 12; --dx: -8; --dy: -5; --r: -4deg; --float: 6s; }
+.hs-speed   { left: 78.1%; top: 12.8%; width: 14.5%; height: 11.4%; --z: 11; --dx: 7;  --dy: -6; --r: 3deg;  --float: 6.5s; }
+.hs-chip-trend { left: 63.9%; top: 6.2%;  --z: 15; --dx: 1;  --dy: -8; --float: 5s; }
+.hs-chip-bolt  { left: 89.9%; top: 63.2%; --z: 14; --dx: 8;  --dy: 4;  --r: 6deg; --float: 5.5s; }
+.hs-web        { left: 26.2%; top: 41.2%; --z: 16; --dx: -4; --dy: -1; --r: -4deg; --float: 4.5s; }
+.hs-palette    { left: 65.4%; top: 80%;   --z: 13; --dx: 2;  --dy: 7;  --r: -3deg; --float: 6s; }
+
+/* ----- shared pieces ----- */
+.hs-card,
+.hs-chip,
+.hs-web,
+.hs-palette {
+    background: linear-gradient(160deg, #2b1a42, #1a0f2b);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: $card-glow;
+}
+
+.hs-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 1.4cqw;
+    overflow: hidden;
+    color: #fff;
+    font-family: var(--font-sans);
+}
+
+.hs-dot {
+    flex: none;
+    width: 0.8cqw;
+    height: 0.8cqw;
+    border-radius: 50%;
+    background: #ff5f8f;
+
+    & + & { background: #b45cff; }
+    & + & + & { background: #5b7cff; }
+}
+
+.hs-line {
+    display: block;
+    width: 100%;
+    height: 0.45cqw;
+    border-radius: 1cqw;
+    background: rgba(255, 255, 255, 0.13);
+}
+
+.hs-line-s { width: 82%; }
+.hs-line-m { width: 62%; }
+
+.hs-title {
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fff;
+
+    em {
+        font-family: var(--font-serif);
+        font-weight: 400;
+        background: $text-gradient;
+        background-clip: text;
+        color: transparent;
+    }
+}
+
+.hs-dots {
+    position: absolute;
+    width: 5.4cqw;
+    height: 1.8cqw;
+    background: radial-gradient(circle, #c05cff 0.32cqw, transparent 0.36cqw) 0 0 / 1.35cqw 0.9cqw;
+    transform: translateZ(-6cqw);
+}
+
+.hs-dots-a { left: 14.1%; top: 8.4%; }
+.hs-dots-b { left: 89%; top: 82.7%; }
+
+/* ----- browser window ----- */
+.hs-browser-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.hs-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.6cqw;
+    height: 4cqw;
+    padding: 0 1.2cqw;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hs-url {
+    display: flex;
+    align-items: center;
+    gap: 0.5cqw;
+    width: 18cqw;
+    height: 1.9cqw;
+    margin-left: 1cqw;
+    padding: 0 0.8cqw;
+    border-radius: 1cqw;
+    background: rgba(255, 255, 255, 0.06);
+    font-size: 0.8cqw;
+    color: rgba(255, 255, 255, 0.5);
+
+    i {
+        width: 0.5cqw;
+        height: 0.5cqw;
+        border-radius: 50%;
+        background: #3ef2a0;
+    }
+}
+
+.hs-site {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8cqw;
+    padding: 1.6cqw 1.8cqw;
+}
+
+.hs-nav {
+    display: flex;
+    align-items: center;
+}
+
+.hs-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6cqw;
+    font-size: 1cqw;
+    font-weight: 700;
+
+    i {
+        width: 1.3cqw;
+        height: 1.3cqw;
+        border-radius: 0.35cqw;
+        background: linear-gradient(135deg, #ff4fd8, #5b5cff);
+    }
+}
+
+.hs-nav-links {
+    display: flex;
+    gap: 0.8cqw;
+    margin-left: 12cqw;
+
+    i {
+        width: 3cqw;
+        height: 0.45cqw;
+        border-radius: 1cqw;
+        background: rgba(255, 255, 255, 0.18);
+    }
+}
+
+.hs-nav-btn {
+    width: 6.6cqw;
+    height: 1.9cqw;
+    margin-left: auto;
+    border: 1px solid rgba(255, 80, 220, 0.4);
+    border-radius: 2cqw;
+}
+
+.hs-main {
+    flex: 1;
+    display: flex;
+    gap: 2.4cqw;
+}
+
+.hs-copy {
+    flex: 0 0 44%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8cqw;
+
+    .hs-title {
+        margin: 0.6cqw 0 0.4cqw;
+        font-size: 2.5cqw;
+    }
+}
+
+.hs-accent-bar {
+    width: 7cqw;
+    height: 0.4cqw;
+    border-radius: 1cqw;
+    background: $brand-gradient;
+}
+
+.hs-ctas {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.6cqw;
+    margin-top: 1.2cqw;
+}
+
+.hs-cta {
+    padding: 0.85cqw 2.1cqw;
+    border-radius: 2cqw;
+    background: $brand-gradient;
+    font-size: 0.95cqw;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.hs-cta-ghost {
+    width: 7cqw;
+    height: 2.7cqw;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 2cqw;
+}
+
+// the "click" ring and arrow over the button
+.hs-cursor {
+    position: absolute;
+    left: 7.6cqw;
+    top: 50%;
+    width: 3.4cqw;
+    height: 3.4cqw;
+    margin-top: -1.7cqw;
+    border: 0.12cqw solid rgba(255, 140, 235, 0.85);
+    border-radius: 50%;
+    box-shadow: 0 0 1.2cqw rgba(255, 80, 220, 0.5);
+    animation: hs-click 2.4s ease-out infinite;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 58%;
+        top: 58%;
+        width: 1.3cqw;
+        height: 1.6cqw;
+        background: #ff8fe8;
+        clip-path: polygon(0 0, 100% 62%, 52% 64%, 34% 100%);
+    }
+}
+
+@keyframes hs-click {
+    0%, 60%, 100% { scale: 1; }
+    70% { scale: 0.82; }
+}
+
+.hs-visual {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    border-radius: 1cqw;
+    background: radial-gradient(circle at 50% 40%, #5d2a9a, #2a1450 65%, #1d0f38);
+
+    // perspective grid floor
+    &::after {
+        content: "";
+        position: absolute;
+        inset: auto -30% -10%;
+        height: 55%;
+        background:
+            linear-gradient(rgba(255, 0, 200, 0.35) 1px, transparent 1px) 0 0 / 1.8cqw 1.8cqw,
+            linear-gradient(90deg, rgba(255, 0, 200, 0.35) 1px, transparent 1px) 0 0 / 1.8cqw 1.8cqw;
+        transform: perspective(20cqw) rotateX(55deg);
+        transform-origin: 50% 100%;
+        mask-image: linear-gradient(transparent, #000);
+    }
+}
+
+.hs-features {
+    display: flex;
+    gap: 1cqw;
+
+    span {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 0.8cqw;
+        height: 5.4cqw;
+        padding: 0 1cqw;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 1cqw;
+        background: rgba(255, 255, 255, 0.03);
+    }
+
+    i {
+        flex: none;
+        width: 2.2cqw;
+        height: 2.2cqw;
+        border: 1px solid rgba(220, 120, 255, 0.4);
+        border-radius: 0.5cqw;
+        background: rgba(200, 80, 255, 0.2);
+    }
+
+    b {
+        flex: 1;
+        height: 0.45cqw;
+        border-radius: 1cqw;
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 0.9cqw 0 -0.05cqw rgba(255, 255, 255, 0.07);
+    }
+}
+
+/* ----- the planet: comes out of the browser screen towards the viewer ----- */
+.hs-planet {
+    --z: 5;
+    position: absolute;
+    left: 70.4%;
+    top: 48%;
+    transform-style: preserve-3d;
+    transform: translateZ(calc(var(--z) * (1 + var(--p) * 3) * 1cqw));
+}
+
+.hs-sphere {
+    position: absolute;
+    width: 11.6cqw;
+    height: 11.6cqw;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #ffc2f6 0%, #f04dff 22%, #a92dff 48%, #5a22d6 74%, #2b1180 100%);
+    box-shadow: 0 0 4cqw rgba(240, 77, 255, 0.45);
+    // always faces the viewer, whatever the stage rotation
+    transform: translate(-50%, -50%) rotateY(calc(-1 * var(--ry))) rotateX(calc(-1 * var(--rx)));
+}
+
+// a real ring in 3D: its back half passes behind the sphere
+.hs-ring {
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: rotateZ(calc(-14deg + var(--p) * 10deg)) rotateX(calc(74deg - var(--p) * 22deg));
+}
+
+.hs-orbit {
+    position: absolute;
+    width: 16cqw;
+    height: 16cqw;
+    margin: -8cqw 0 0 -8cqw;
+    border: 0.4cqw solid rgba(255, 225, 255, 0.85);
+    border-radius: 50%;
+    box-shadow: 0 0 1cqw rgba(255, 150, 240, 0.5);
+    animation: hs-orbit 12s linear infinite;
+
+    // a small moon on the ring
+    &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: -0.8cqw;
+        width: 1.4cqw;
+        height: 1.4cqw;
+        margin-left: -0.7cqw;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 0 1.2cqw #ff9ff0;
+    }
+}
+
+@keyframes hs-orbit {
+    to {
+        rotate: 360deg;
+    }
+}
+
+/* ----- code editor ----- */
+.hs-code .hs-card {
+    background: linear-gradient(160deg, #22152f, #150b20);
+}
+
+.hs-tabs {
+    display: flex;
+    align-items: center;
+    gap: 0.5cqw;
+    height: 3.2cqw;
+    padding: 0 1.2cqw;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 0.8cqw;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.hs-tab {
+    padding: 0.35cqw 0.8cqw;
+    border-radius: 0.4cqw;
+}
+
+.hs-tab-on {
+    margin-left: 1cqw;
+    background: rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.hs-src {
+    margin: 0;
+    padding: 1.1cqw 1.4cqw;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.92cqw;
+    line-height: 1.62;
+    color: #ece6f7;
+    white-space: pre;
+
+    .n { display: inline-block; width: 2cqw; color: rgba(255, 255, 255, 0.28); }
+    .p { color: #a99fbd; }
+    .k { color: #ff6ad5; }
+    .a { color: #c3a6ff; }
+    .s { color: #7ef0b0; }
+    .v { color: #ffd479; }
+}
+
+.hs-caret {
+    display: inline-block;
+    width: 0.14cqw;
+    height: 1.2cqw;
+    margin-left: 0.15cqw;
+    vertical-align: middle;
+    background: #ff4fd8;
+    animation: hs-blink 1s steps(1) infinite;
+}
+
+@keyframes hs-blink {
+    50% { opacity: 0; }
+}
+
+/* ----- phone ----- */
+.hs-phone-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6cqw;
+    padding: 1.2cqw;
+    border: 0.35cqw solid #3b2472;
+    border-radius: 2.2cqw;
+
+    .hs-title {
+        margin-top: 0.6cqw;
+        font-size: 1.45cqw;
+    }
+}
+
+.hs-notch {
+    position: absolute;
+    left: 50%;
+    top: 0.6cqw;
+    width: 4cqw;
+    height: 1cqw;
+    margin-left: -2cqw;
+    border-radius: 1cqw;
+    background: #0b0612;
+}
+
+.hs-phone-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.4cqw;
+}
+
+.hs-logo-sq {
+    width: 1cqw;
+    height: 1cqw;
+    border-radius: 0.3cqw;
+    background: linear-gradient(135deg, #ff4fd8, #5b5cff);
+}
+
+.hs-burger {
+    width: 1.6cqw;
+    height: 0.2cqw;
+    background: #b08cff;
+    box-shadow: 0.4cqw 0.45cqw 0 #ff6ad5;
+}
+
+.hs-phone-btn {
+    height: 1.9cqw;
+    margin-top: 0.4cqw;
+    border-radius: 1cqw;
+    background: $brand-gradient;
+}
+
+.hs-phone-visual {
+    flex: 1;
+    display: grid;
+    place-items: center;
+    border-radius: 0.8cqw;
+    background: radial-gradient(circle at 50% 45%, #6b2fb0, #2a1450 70%);
+}
+
+.hs-ball {
+    width: 4.4cqw;
+    height: 4.4cqw;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #ffc2f6, #f04dff 25%, #8a2dff 60%, #3b1599);
+    box-shadow: 0 0 2cqw rgba(240, 77, 255, 0.5);
+}
+
+.hs-tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4cqw;
+
+    i {
+        height: 2.4cqw;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 0.5cqw;
+        background: rgba(255, 255, 255, 0.04);
+    }
+}
+
+/* ----- floating cards ----- */
+.hs-conv .hs-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    padding: 1.3cqw 1.4cqw 1cqw;
+}
+
+.hs-label {
+    padding-top: 0.6cqw;
+    font-size: 0.72cqw;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.hs-big {
+    font-size: 1.6cqw;
+    font-weight: 700;
+    background: $text-gradient;
+    background-clip: text;
+    color: transparent;
+}
+
+.hs-chart {
+    grid-column: 1 / -1;
+    align-self: end;
+    width: 100%;
+    height: 5.6cqw;
+    overflow: visible;
+}
+
+.hs-speed .hs-card {
+    display: flex;
+    align-items: center;
+    gap: 1.2cqw;
+    padding: 0 1.4cqw;
+}
+
+.hs-score {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 4.6cqw;
+    height: 4.6cqw;
+    border: 0.35cqw solid #3ef2a0;
+    border-radius: 50%;
+    box-shadow: 0 0 1.2cqw rgba(62, 242, 160, 0.45);
+    font-size: 1.25cqw;
+    font-weight: 700;
+    color: #8affc8;
+}
+
+.hs-speed-text {
+    font-size: 1.05cqw;
+    font-weight: 700;
+
+    small {
+        display: block;
+        margin-bottom: 0.2cqw;
+        font-size: 0.65cqw;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+    }
+}
+
+.hs-chip {
+    display: grid;
+    place-items: center;
+    width: 4.4cqw;
+    height: 4.4cqw;
+    border-radius: 1cqw;
+
+    svg {
+        width: 2cqw;
+        height: 2cqw;
+        fill: none;
+        stroke: #fff;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+}
+
+.hs-web {
+    padding: 0.6cqw 1.1cqw;
+    border-radius: 0.7cqw;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.95cqw;
+    font-weight: 700;
+    color: #ff7ae0;
+}
+
+.hs-palette {
+    display: flex;
+    gap: 0.6cqw;
+    padding: 0.8cqw;
+    border-radius: 1cqw;
+
+    i {
+        width: 1.8cqw;
+        height: 1.8cqw;
+        border-radius: 0.4cqw;
+        background: #ff1fc8;
+
+        &:nth-child(2) { background: #b06bff; }
+        &:nth-child(3) { background: #5b7cff; }
+        &:nth-child(4) { background: #6dffb3; }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hs-layer,
+    .hs-cursor,
+    .hs-orbit,
+    .hs-caret {
+        animation: none;
+    }
+}

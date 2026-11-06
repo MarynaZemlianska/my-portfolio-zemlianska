@@ -31,7 +31,7 @@ description: "Website development services: landing pages, business card, corpor
                     </div>
 
                     <div class="top-center top-center-projects">
-                        <img src="/images/ellipse-photo.webp" fetchpriority="high" loading="eager"
+                        <img src="/images/services-hero.webp" fetchpriority="high" loading="eager"
                             alt="" class="top-image top-imageprojects">
                     </div>
 
@@ -70,6 +70,7 @@ description: "Website development services: landing pages, business card, corpor
 
                 </div>
             </div>
+        {% include "partials/hero-wave.njk" %}
         </section>
         <section class="section-services" id="services">
 
@@ -100,7 +101,7 @@ description: "Website development services: landing pages, business card, corpor
                             </p>
                         </div>
                     </div>
-                    <a href="/en/services/landing-page/" class="service-link" aria-label="Go to service"></a>
+                    <a href="/en/services/landing-page/" class="service-link" aria-label="Landing page — learn more"></a>
                 </div>
 
                 <div class="service-card">
@@ -124,7 +125,7 @@ description: "Website development services: landing pages, business card, corpor
 
                     </div>
 
-                    <a href="/en/services/business-website/" class="service-link" aria-label="Go to service"></a>
+                    <a href="/en/services/business-website/" class="service-link" aria-label="Business card website — learn more"></a>
 
                 </div>
 
@@ -149,7 +150,7 @@ description: "Website development services: landing pages, business card, corpor
 
                     </div>
 
-                    <a href="/en/services/corporate-website/" class="service-link" aria-label="Go to service"></a>
+                    <a href="/en/services/corporate-website/" class="service-link" aria-label="Corporate website — learn more"></a>
 
                 </div>
 
@@ -174,7 +175,7 @@ description: "Website development services: landing pages, business card, corpor
 
                     </div>
 
-                    <a href="/en/services/e-commerce/" class="service-link" aria-label="Go to service"></a>
+                    <a href="/en/services/e-commerce/" class="service-link" aria-label="E-commerce website — learn more"></a>
 
                 </div>
 
@@ -199,7 +200,7 @@ description: "Website development services: landing pages, business card, corpor
 
                     </div>
 
-                    <a href="/en/services/personal-website/" class="service-link" aria-label="Go to service"></a>
+                    <a href="/en/services/personal-website/" class="service-link" aria-label="Personal website — learn more"></a>
 
                 </div>
 
@@ -224,7 +225,7 @@ description: "Website development services: landing pages, business card, corpor
 
                     </div>
 
-                    <a href="/en/services/additional/" class="service-link" aria-label="Go to service"></a>
+                    <a href="/en/services/additional/" class="service-link" aria-label="Other services — learn more"></a>
 
                 </div>
 
@@ -258,70 +259,7 @@ description: "Website development services: landing pages, business card, corpor
 
             </div>
         </section>
-        <section class="section-contacts">
-    <div class="contacts-arcs">
-        <div class="arc-container"><span class="arc arc-top"></span></div>
-        <div class="arc-container"><span class="arc arc-bottom"></span></div>
-    </div>
-    <div class="container-top-contacts">
-        <h2 class="contacts-title">Contact <em class="accent-serif">Me</em></h2>
-    </div>
-
-    <form class="form" novalidate>
-                <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="container-form-items">
-            <label class="form-label" for="user-name">Name:</label>
-            <input class="input1" type="text" id="user-name" name="user-name" autocomplete="name" placeholder="Enter your name..."
-                maxlength="50" pattern="[A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+([\s'-][A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+)*" required />
-
-            <label class="form-label" for="user-phone">Phone:</label>
-            <input class="input2" type="tel" id="user-phone" name="user-phone"
-                placeholder="Enter your phone number..." pattern="^\+?[0-9]{10,15}$" minlength="10" maxlength="16"
-                inputmode="numeric" autocomplete="tel" required />
-
-            <label class="form-label" for="user-message">Message...</label>
-            <textarea class="input3" id="user-message" name="user-message"
-                placeholder="Enter your message..." rows="5" required></textarea>
-        </div>
-
-        <button type="submit" class="form-button">Get a Free Consultation</button>
-        <p class="info-form">
-            By clicking the button, <br>
-            <a href="/en/privacy/">I agree to the Privacy Policy.</a>
-        </p>
-    </form>
-
-    <div id="toast" class="toast" role="status" aria-live="polite">
-            Thank you! Your request has been successfully submitted.<br>
-            I will contact you as soon as possible.
-        </div>
-    <div class="container-dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-        </section>
+        {% include "partials/brief.njk" %}
         {% include "partials/testimonials.njk" %}
 
     </main>

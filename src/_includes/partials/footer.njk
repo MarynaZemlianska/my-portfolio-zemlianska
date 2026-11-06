@@ -2,14 +2,9 @@
     <div class="footer-container" id="contacts">
 
         <div class="footer-logo-item">
-            <a href="{{ routes.home[lang] }}" class="footer-logo">
-                <span class="footer-logo-icon">W</span>
-                <span class="footer-logo-text">
-                    <span class="footer-logo-title">eb {LAB}</span>
-                    <span class="footer-logo-subtitle">ZEMLIANSKA</span>
-                </span>
-            </a>
             <p class="subtitle-footer">{{ t.footer.subtitle }}</p>
+            <p class="footer-lead">{% for line in t.footer.lead %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+            <p class="footer-text">{{ t.footer.text }}</p>
         </div>
 
         <nav class="footer-nav" aria-label="{{ t.footer.menu }}">
@@ -18,6 +13,7 @@
                 <li class="footer-link"><a href="{{ routes.home[lang] }}">{{ t.footer.home }}</a></li>
                 <li class="footer-link"><a href="{{ routes.services[lang] }}">{{ t.footer.services }}</a></li>
                 <li class="footer-link"><a href="{{ routes.projects[lang] }}">{{ t.footer.projects }}</a></li>
+                <li class="footer-link"><a href="{{ routes.contacts[lang] }}">{{ t.footer.contactsPage }}</a></li>
             </ul>
         </nav>
 
@@ -27,15 +23,19 @@
             {% include "partials/contact-list.njk" %}
         </div>
 
-        <div class="footer-info">
-            <a class="info-item" href="{{ routes.privacy[lang] }}">{{ t.footer.privacy }}</a>
-
-            <a href="https://www.figma.com/community/file/1335196687351078757/my-personal-portfolio" target="_blank">
-                <p class="info-design">{{ t.footer.design }}</p>
-            </a>
-
-            <p class="info-safety">© {{ "now" | year }} Maryna Zemlianska. {{ t.footer.rights }}</p>
-        </div>
-
     </div>
+
+    <div class="footer-info">
+        <a class="info-item" href="{{ routes.privacy[lang] }}">{{ t.footer.privacy }}</a>
+
+        <p class="info-safety">© {{ "now" | year }} Maryna Zemlianska. {{ t.footer.rights }}</p>
+    </div>
+
+    <a href="{{ routes.home[lang] }}" class="footer-logo footer-wordmark">
+        <span class="footer-logo-icon">W</span>
+        <span class="footer-logo-text">
+            <span class="footer-logo-title">eb {LAB}</span>
+            <span class="footer-logo-subtitle">ZEMLIANSKA</span>
+        </span>
+    </a>
 </footer>

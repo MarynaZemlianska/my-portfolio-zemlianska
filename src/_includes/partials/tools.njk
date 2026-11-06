@@ -1,0 +1,28 @@
+{#- Tools strip (home page, right after the hero). Content: src/_data/tools.js -#}
+{%- set tl = tools.labels[lang] -%}
+<section class="section-tools" aria-labelledby="tools-title">
+    <div class="tools-head">
+        <p class="tools-eyebrow">{{ tl.eyebrow }}</p>
+        <h2 class="tools-title" id="tools-title">{{ tl.title | accentLast | safe }}</h2>
+    </div>
+
+    {#- Two rows drifting in opposite directions. Each row holds the list twice
+        for a seamless loop; the copies are hidden from screen readers. #}
+    <div class="tools-marquee" aria-label="{{ tl.region }}" role="group">
+        {%- for row in ["a", "b"] %}
+        <ul class="tools-row tools-row-{{ row }}">
+            {%- set list = tools.items if row == "a" else tools.items | reverse %}
+            {%- for copy in [false, true] %}
+            {%- for item in list %}
+            <li class="tool"{% if copy or row == "b" %} aria-hidden="true"{% endif %}>
+                <svg class="tool-logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="{{ item.path }}"/></svg>
+                <span class="tool-name">{{ item.name }}</span>
+            </li>
+            {%- endfor %}
+            {%- endfor %}
+        </ul>
+        {%- endfor %}
+    </div>
+
+    <p class="tools-text">{{ tl.text }}</p>
+</section>

@@ -3,7 +3,7 @@ import { SERVICES, mockTelegram } from "./helpers.js";
 
 test.beforeEach(async ({ page }) => { await mockTelegram(page); });
 
-const PAIRS = [["/", "/en/"], ["/projects/", "/en/projects/"], ["/privacy/", "/en/privacy/"],
+const PAIRS = [["/", "/en/"], ["/projects/", "/en/projects/"], ["/contacts/", "/en/contacts/"], ["/privacy/", "/en/privacy/"],
     ...SERVICES.map((s) => [`/services/${s}/`, `/en/services/${s}/`])];
 
 for (const [uk, en] of PAIRS) {

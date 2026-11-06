@@ -1,0 +1,84 @@
+@use "../abstracts" as *;
+
+// ===== SPACING BETWEEN SECTIONS =====
+// One gap between all page blocks, measured from the content of one block
+// to the content of the next: 72px on phones, growing to ~120px on desktop.
+// Every block gets it as margin-top (margins of neighbours collapse into one
+// gap); sections without their own background lose their vertical padding,
+// blocks with a visible background (cards, footer) keep their inner padding.
+// Loaded last (main.scss), after all section styles.
+
+:root {
+    --section-gap: clamp(72px, 4.2vw + 56px, 120px);
+}
+
+main > :not(.hero) {
+    margin-top: var(--section-gap);
+    margin-bottom: 0;
+}
+
+// sections without their own background: no vertical padding of their own
+main > section:not(.hero):not(.lp-packages):not(.lp-extra),
+main > .policy-container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+// directly under the full-screen hero: half a gap (the hero already ends
+// with empty space of its own)
+main > .hero + * {
+    margin-top: calc(var(--section-gap) / 2);
+}
+
+// home: the projects start clearly below the first screen
+main > .hero-home + .section-projects {
+    margin-top: clamp(60px, 10vw, 140px);
+}
+
+// the price note belongs to the price cards above it
+main > .lp-final-price-note {
+    margin-top: 24px;
+}
+
+// blocks that end with visible decoration below their last text
+main > .section-steps + * {
+    margin-top: calc(var(--section-gap) - 15px); // the tail of the snake line
+}
+
+// two-column project cards (and the projects page) end with card padding
+@media (min-width: 1024px) {
+    main > .section-projects + * {
+        margin-top: calc(var(--section-gap) - 28px);
+    }
+}
+
+@media (max-width: 1023px) {
+    main > .section-projects:has(.projects-page) + * {
+        margin-top: calc(var(--section-gap) - 22px);
+    }
+}
+
+// the service cards are drawn slightly enlarged (scale 1.08) and overhang
+main > .section-services + * {
+    margin-top: calc(var(--section-gap) + 10px);
+}
+
+// the footer's faint divider sits halfway, its text a full gap away
+.footer {
+    margin-top: calc(var(--section-gap) / 2);
+    padding-top: calc(var(--section-gap) / 2);
+}
+
+/* ===== extra space inside some blocks, removed ===== */
+
+.container-projects-title,
+.title-services {
+    margin-top: 0;
+}
+
+// privacy policy: the last list ends with its own padding and margins
+.policy-container > :last-child,
+.policy-container > :last-child > li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}

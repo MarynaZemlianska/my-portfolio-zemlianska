@@ -214,26 +214,20 @@
 }
 
 
+// The link covers the whole card, so a click anywhere on it opens the service.
+// The arrow (::before/::after) is drawn in the top right corner, where the
+// zero-size link used to sit (30px from the right edge).
 .service-link {
     position: absolute;
-
-    top: 0;
-    right: 30px;
-
-    background: transparent;
-
-    border: none;
-
-    backdrop-filter: blur(12px);
-
+    inset: 0;
     z-index: 10;
-
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        border-color 0.3s ease;
+    border-radius: inherit;
 }
 
+.service-link:focus-visible {
+    outline: 2px solid var(--color-brand-light);
+    outline-offset: 4px;
+}
 
 .service-link::before,
 .service-link::after {
@@ -248,23 +242,26 @@
 }
 
 
+// same spots as before: 23px and 17px right of the old link (30px from the edge)
 .service-link::before {
     top: 19px;
-    left: 23px;
+    left: calc(100% - 7px);
 }
 
 .service-link::after {
     top: 26px;
-    left: 17px;
+    left: calc(100% - 13px);
 }
 
 /* HOVER */
-.service-card:hover .service-link {
-    transform: translate(4px, -4px);
+.service-link::before,
+.service-link::after {
+    transition: translate 0.3s ease;
+}
 
-    background: rgba(35, 35, 50, 1);
-
-    border-color: #7c66ff;
+.service-card:hover .service-link::before,
+.service-card:hover .service-link::after {
+    translate: 4px -4px;
 }
 
 /* =========================

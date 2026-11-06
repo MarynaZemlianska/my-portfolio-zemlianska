@@ -70,6 +70,7 @@ description: "Online store development: a full-featured e-commerce platform for 
 
                 </div>
             </div>
+        {% include "partials/hero-wave.njk" %}
         </section>
 
         <div class="lp-for fade-up">
@@ -433,73 +434,7 @@ description: "Online store development: a full-featured e-commerce platform for 
             </div>
         </section>
 
-        <section class="section-contacts">
-            <div class="contacts-arcs">
-                <div class="arc-container"><span class="arc arc-top"></span></div>
-                <div class="arc-container"><span class="arc arc-bottom"></span></div>
-            </div>
-
-            <div class="container-top-contacts">
-                <h2 class="contacts-title">Contact <em class="accent-serif">me</em></h2>
-            </div>
-
-            <form class="form" novalidate>
-                <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-                <div class="container-form-items">
-                    <label class="form-label" for="user-name">Name:</label>
-                    <input class="input1" type="text" id="user-name" name="user-name" autocomplete="name" placeholder="Enter your name..."
-                        maxlength="50" pattern="[A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+([\s'-][A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+)*" required />
-
-                    <label class="form-label" for="user-phone">Phone:</label>
-                    <input class="input2" type="tel" id="user-phone" name="user-phone" placeholder="Enter your phone..."
-                        pattern="^\+?[0-9]{10,15}$" minlength="10" maxlength="16" inputmode="numeric" autocomplete="tel"
-                        required />
-
-                    <label class="form-label" for="user-message">Message...</label>
-                    <textarea class="input3" id="user-message" name="user-message" placeholder="Enter your message..."
-                        rows="5" required></textarea>
-                </div>
-
-                <button type="submit" class="form-button">Get a free consultation</button>
-
-                <p class="info-form">
-                    By clicking the button, <br>
-                    <a href="/en/privacy/">I agree to the privacy policy.</a>
-                </p>
-            </form>
-
-            <div id="toast" class="toast" role="status" aria-live="polite">
-                    Thank you! Your request has been successfully sent.<br>
-                    I will contact you shortly.
-                </div>
-
-            <div class="container-dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-        </section>
+        {% include "partials/brief.njk" %}
         <section class="section-faq">
             <h2 class="faq-title">
                 FAQs

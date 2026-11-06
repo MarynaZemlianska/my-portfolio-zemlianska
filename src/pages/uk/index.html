@@ -36,8 +36,7 @@ description: "Марина Землянська, веброзробниця: с�
                     </div>
 
                     <div class="top-center">
-                        <img src="/images/top-image.webp" fetchpriority="high" loading="eager"
-                            alt="Приклад дизайну сайту на ноутбуці та смартфоні" class="top-image">
+                        {% include "partials/hero-scene.njk" %}
                     </div>
 
                     <div class="top-actions">
@@ -75,7 +74,9 @@ description: "Марина Землянська, веброзробниця: с�
                 </div>
 
             </div>
+        {% include "partials/hero-wave.njk" %}
         </section>
+        {% include "partials/tools.njk" %}
 
         <section class="section-projects" id="projects">
             <div class="section-projects-gradient"></div>
@@ -93,15 +94,18 @@ description: "Марина Землянська, веброзробниця: с�
                 <div class="container-cards">
 
                     <div class="card">
-                        <a href="https://best-shopsuit.netlify.app/" target="_blank">
+                        <a href="https://best-shopsuit.netlify.app/" target="_blank" rel="noopener">
 
-                            <div class="card-mobile-title">
-                                <span class="card-hover-title-bottom">Best Shop</span>
-                            </div>
-
-                            <div class="card-image">
-                                <img src="/images/projects-1.png" sizes="(max-width: 768px) 100vw, calc(50vw - 46px)" loading="lazy"
-                                    decoding="async" alt="Best Shop — превʼю сайту">
+                            <div class="card-poster card-poster--best-shop">
+                                <div class="poster-meta"><span>WebLab</span><span>E-commerce</span></div>
+                                <h3 class="poster-title">Best <em>Shop</em></h3>
+                                <div class="poster-laptop">
+                                    <div class="poster-lid">
+                                        <img src="/images/shot-best-shop.webp" sizes="(max-width: 768px) 75vw, 480px" loading="lazy"
+                                            decoding="async" alt="Best Shop — головна сторінка сайту">
+                                    </div>
+                                    <div class="poster-base"></div>
+                                </div>
                             </div>
 
                             <div class="card-hover-content">
@@ -119,15 +123,18 @@ description: "Марина Землянська, веброзробниця: с�
                     </div>
 
                     <div class="card">
-                        <a href="https://seafoodone.netlify.app/" target="_blank">
+                        <a href="https://seafoodone.netlify.app/" target="_blank" rel="noopener">
 
-                            <div class="card-mobile-title">
-                                <span class="card-hover-title-bottom">Sea Food Norway</span>
-                            </div>
-
-                            <div class="card-image">
-                                <img src="/images/projects-2.jpg" sizes="(max-width: 768px) 100vw, calc(50vw - 46px)" loading="lazy"
-                                    decoding="async" alt="Sea Food Norway — превʼю сайту">
+                            <div class="card-poster card-poster--sea-food">
+                                <div class="poster-meta"><span>WebLab</span><span>Корпоративний сайт</span></div>
+                                <h3 class="poster-title">Sea Food <em>Norway</em></h3>
+                                <div class="poster-laptop">
+                                    <div class="poster-lid">
+                                        <img src="/images/shot-sea-food.webp" sizes="(max-width: 768px) 75vw, 480px" loading="lazy"
+                                            decoding="async" alt="Sea Food Norway — головна сторінка сайту">
+                                    </div>
+                                    <div class="poster-base"></div>
+                                </div>
                             </div>
 
                             <div class="card-hover-content">
@@ -145,15 +152,18 @@ description: "Марина Землянська, веброзробниця: с�
                     </div>
 
                     <div class="card">
-                        <a href="https://iphones14pro.netlify.app/" target="_blank">
+                        <a href="https://iphones14pro.netlify.app/" target="_blank" rel="noopener">
 
-                            <div class="card-mobile-title">
-                                <span class="card-hover-title-bottom">iPhone 14 Pro</span>
-                            </div>
-
-                            <div class="card-image">
-                                <img src="/images/projects-5.png" sizes="(max-width: 768px) 100vw, calc(50vw - 46px)" loading="lazy"
-                                    decoding="async" alt="iPhone 14 Pro — превʼю сайту">
+                            <div class="card-poster card-poster--iphone">
+                                <div class="poster-meta"><span>WebLab</span><span>Лендінг</span></div>
+                                <h3 class="poster-title">iPhone <em>14&nbsp;Pro</em></h3>
+                                <div class="poster-laptop">
+                                    <div class="poster-lid">
+                                        <img src="/images/shot-iphone.webp" sizes="(max-width: 768px) 75vw, 480px" loading="lazy"
+                                            decoding="async" alt="iPhone 14 Pro — головна сторінка сайту">
+                                    </div>
+                                    <div class="poster-base"></div>
+                                </div>
                             </div>
 
                             <div class="card-hover-content">
@@ -171,15 +181,18 @@ description: "Марина Землянська, веброзробниця: с�
                     </div>
 
                     <div class="card">
-                        <a href="https://lease-carss.netlify.app/" target="_blank">
+                        <a href="https://lease-carss.netlify.app/" target="_blank" rel="noopener">
 
-                            <div class="card-mobile-title">
-                                <span class="card-hover-title-bottom">Leasing From D&amp;M</span>
-                            </div>
-
-                            <div class="card-image">
-                                <img src="/images/projects-3.png" sizes="(max-width: 768px) 100vw, calc(50vw - 46px)" loading="lazy"
-                                    decoding="async" alt="Leasing From D&M — превʼю сайту">
+                            <div class="card-poster card-poster--leasing">
+                                <div class="poster-meta"><span>WebLab</span><span>Лендінг</span></div>
+                                <h3 class="poster-title">Leasing <em>D&amp;M</em></h3>
+                                <div class="poster-laptop">
+                                    <div class="poster-lid">
+                                        <img src="/images/shot-leasing.webp" sizes="(max-width: 768px) 75vw, 480px" loading="lazy"
+                                            decoding="async" alt="Leasing From D&amp;M — головна сторінка сайту">
+                                    </div>
+                                    <div class="poster-base"></div>
+                                </div>
                             </div>
 
                             <div class="card-hover-content">
@@ -197,15 +210,18 @@ description: "Марина Землянська, веброзробниця: с�
                     </div>
 
                     <div class="card">
-                        <a href="https://beauty-zones.netlify.app/" target="_blank">
+                        <a href="https://beauty-zones.netlify.app/" target="_blank" rel="noopener">
 
-                            <div class="card-mobile-title">
-                                <span class="card-hover-title-bottom">Beauty Zone</span>
-                            </div>
-
-                            <div class="card-image">
-                                <img src="/images/projects-4.png" sizes="(max-width: 768px) 100vw, calc(50vw - 46px)" loading="lazy"
-                                    decoding="async" alt="Beauty Zone — превʼю сайту">
+                            <div class="card-poster card-poster--beauty-zone">
+                                <div class="poster-meta"><span>WebLab</span><span>Корпоративний сайт</span></div>
+                                <h3 class="poster-title">Beauty <em>Zone</em></h3>
+                                <div class="poster-laptop">
+                                    <div class="poster-lid">
+                                        <img src="/images/shot-beauty-zone.webp" sizes="(max-width: 768px) 75vw, 480px" loading="lazy"
+                                            decoding="async" alt="Beauty Zone — головна сторінка сайту">
+                                    </div>
+                                    <div class="poster-base"></div>
+                                </div>
                             </div>
 
                             <div class="card-hover-content">
@@ -404,7 +420,7 @@ description: "Марина Землянська, веброзробниця: с�
                             <p class="services-card-text"> Односторінковий сайт для просування послуги або окремого
                                 продукту. </p>
                         </div>
-                    </div> <a href="/services/landing-page/" class="service-link" aria-label="Перейти до послуги">
+                    </div> <a href="/services/landing-page/" class="service-link" aria-label="Лендінг-сторінка — детальніше">
                     </a>
                 </div>
                 <div class="service-card">
@@ -428,7 +444,7 @@ description: "Марина Землянська, веброзробниця: с�
 
                     </div>
 
-                    <a href="/services/business-website/" class="service-link" aria-label="Перейти до послуги">
+                    <a href="/services/business-website/" class="service-link" aria-label="Сайт-візитка — детальніше">
                     </a>
 
                 </div>
@@ -454,7 +470,7 @@ description: "Марина Землянська, веброзробниця: с�
 
                     </div>
 
-                    <a href="/services/corporate-website/" class="service-link" aria-label="Перейти до послуги">
+                    <a href="/services/corporate-website/" class="service-link" aria-label="Корпоративний сайт — детальніше">
                     </a>
 
                 </div>
@@ -480,7 +496,7 @@ description: "Марина Землянська, веброзробниця: с�
 
                     </div>
 
-                    <a href="/services/e-commerce/" class="service-link" aria-label="Перейти до послуги">
+                    <a href="/services/e-commerce/" class="service-link" aria-label="Інтернет-магазин — детальніше">
                     </a>
 
                 </div>
@@ -506,7 +522,7 @@ description: "Марина Землянська, веброзробниця: с�
 
                     </div>
 
-                    <a href="/services/personal-website/" class="service-link" aria-label="Перейти до послуги">
+                    <a href="/services/personal-website/" class="service-link" aria-label="Персональний сайт — детальніше">
                     </a>
 
                 </div>
@@ -532,7 +548,7 @@ description: "Марина Землянська, веброзробниця: с�
 
                     </div>
 
-                    <a href="/services/additional/" class="service-link" aria-label="Перейти до послуги">
+                    <a href="/services/additional/" class="service-link" aria-label="Інші послуги — детальніше">
                     </a>
 
                 </div>
@@ -609,20 +625,17 @@ description: "Марина Землянська, веброзробниця: с�
 
         <section class="section-about">
             <div class="container-about">
-
-                <div class="about-photo-container">
-                    <img class="ellipse-photo" src="/images/my-photo-portfolio.webp"
-                        loading="lazy" decoding="async" alt="Марина Землянська">
-                </div>
-
-                <div class="about-title-wrap">
-
+                <div class="about-head">
                     <h2 class="about-title">
                         Про<br><em class="accent-serif">розробника</em>
                     </h2>
-
                     <div class="about-title-arrow"></div>
-
+                </div>
+                <div class="about-photo-container">
+                    <img class="ellipse-photo" src="/images/about-photo.webp"
+                        loading="lazy" decoding="async" alt="Марина Землянська">
+                </div>
+                <div class="about-title-wrap">
                     <div class="about-content">
 
                         <div class="about-text">
@@ -653,30 +666,6 @@ description: "Марина Землянська, веброзробниця: с�
 
             </div>
         </section>
-        <section class="section-stats">
-
-            <div class="stats-cards">
-
-                <div class="stat-card">
-                    <h2 class="stat-number" data-target="30" data-suffix="+">0</h2>
-                    <div class="stat-bar"><span></span></div>
-                    <p class="stat-text">Завершених сайтів</p>
-                </div>
-
-                <div class="stat-card">
-                    <h2 class="stat-number" data-target="5" data-suffix="+">0</h2>
-                    <div class="stat-bar"><span></span></div>
-                    <p class="stat-text">Років в IT</p>
-                </div>
-
-                <div class="stat-card">
-                    <h2 class="stat-number" data-target="100" data-suffix="%">0</h2>
-                    <div class="stat-bar"><span></span></div>
-                    <p class="stat-text">Задоволених клієнтів</p>
-                </div>
-            </div>
-        </section>
-
         <section class="why-section">
 
             <div class="why-gradient"></div>
@@ -779,7 +768,7 @@ description: "Марина Землянська, веброзробниця: с�
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item active">
                     <button type="button" class="faq-question">
                         Чи потрібна передоплата?
                         <span class="faq-arrow"></span>
@@ -848,71 +837,7 @@ description: "Марина Землянська, веброзробниця: с�
             </div>
 
         </section>
-        <section class="section-contacts">
-            <div class="contacts-arcs">
-                <div class="arc-container"><span class="arc arc-top"></span></div>
-                <div class="arc-container"><span class="arc arc-bottom"></span></div>
-            </div>
-            <div class="container-top-contacts">
-                <h2 class="contacts-title">Зв’яжіться зі <em class="accent-serif">мною</em></h2>
-            </div>
-
-            <form class="form" novalidate>
-                <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-                <div class="container-form-items">
-                    <label class="form-label" for="user-name">Ім’я:</label>
-                    <input class="input1" type="text" id="user-name" name="user-name" autocomplete="name" placeholder="Введіть ваше ім’я..."
-                        maxlength="50" pattern="[A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+([\s'-][A-Za-zА-Яа-яЁёЇїІіЄєҐґ]+)*" required />
-
-                    <label class="form-label" for="user-phone">Телефон:</label>
-                    <input class="input2" type="tel" id="user-phone" name="user-phone"
-                        placeholder="Введіть ваш телефон..." pattern="^\+?[0-9]{10,15}$" minlength="10" maxlength="16"
-                        inputmode="numeric" autocomplete="tel" required />
-
-                    <label class="form-label" for="user-message">Повідомлення...</label>
-                    <textarea class="input3" id="user-message" name="user-message"
-                        placeholder="Введіть ваше повідомлення..." rows="5" required></textarea>
-                </div>
-
-                <button type="submit" class="form-button">Отримати безкоштовну консультацію</button>
-                <p class="info-form">
-                    Натискаючи кнопку, <br>
-                    <a href="/privacy/">я погоджуюсь із політикою
-                        конфіденційності.</a>
-                </p>
-            </form>
-
-            <div id="toast" class="toast" role="status" aria-live="polite">
-                    Дякую! Ваша заявка успішно відправлена.<br>
-                    Я зв'яжуся з вами найближчим часом.
-                </div>
-            <div class="container-dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-        </section>
+        {% include "partials/brief.njk" %}
         {% include "partials/testimonials.njk" %}
 
     </main>

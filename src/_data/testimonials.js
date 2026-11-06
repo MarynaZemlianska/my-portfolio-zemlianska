@@ -64,24 +64,18 @@ const items = [
         },
     },
     {
-        rating: 5, // placeholder, not from the client — replace with the real rating
-        name: { uk: "Оксана Харитонова", en: "Oksana Kharytonova" },
-        text: {
-            uk: "Марина створила чудовий сайт для нашого бізнесу. Процес був швидким і комфортним.",
-            en: "Maryna created an excellent website for our business. The process was fast and comfortable.",
-        },
-    },
-    {
         rating: 4, // placeholder, not from the client — replace with the real rating
-        name: { uk: "Денис Чекмарьов", en: "Denys Chekmarov" },
+        name: { uk: "Даніїл Куреленко", en: "Daniil Kurelenko" },
+        date: { uk: "18.05.2025", en: "May 18, 2025" },
         text: {
-            uk: "Сайт перевершив наші очікування. Дуже рекомендуємо її послуги!",
-            en: "The website exceeded our expectations. We highly recommend her services!",
+            uk: "Креативні рішення, швидке виконання та чудова підтримка. Щиро рекомендую!",
+            en: "Creative solutions, fast delivery, and great support. Highly recommended!",
         },
     },
     {
         rating: 5, // placeholder, not from the client — replace with the real rating
         name: { uk: "Софія Лемачева", en: "Sofiia Lemacheva" },
+        date: { uk: "09.12.2024", en: "Dec 9, 2024" },
         text: {
             uk: "Неймовірний досвід! Марина реалізувала саме те, що ми хотіли, і навіть більше.",
             en: "An incredible experience! Maryna delivered exactly what we wanted and even more.",
@@ -89,10 +83,20 @@ const items = [
     },
     {
         rating: 4, // placeholder, not from the client — replace with the real rating
-        name: { uk: "Даніїл Куреленко", en: "Daniil Kurelenko" },
+        name: { uk: "Денис Чекмарьов", en: "Denys Chekmarov" },
+        date: { uk: "27.07.2024", en: "Jul 27, 2024" },
         text: {
-            uk: "Креативні рішення, швидке виконання та чудова підтримка. Щиро рекомендую!",
-            en: "Creative solutions, fast delivery, and great support. Highly recommended!",
+            uk: "Сайт перевершив наші очікування. Дуже рекомендуємо її послуги!",
+            en: "The website exceeded our expectations. We highly recommend her services!",
+        },
+    },
+    {
+        rating: 5, // placeholder, not from the client — replace with the real rating
+        name: { uk: "Оксана Харитонова", en: "Oksana Kharytonova" },
+        date: { uk: "14.03.2024", en: "Mar 14, 2024" },
+        text: {
+            uk: "Марина створила чудовий сайт для нашого бізнесу. Процес був швидким і комфортним.",
+            en: "Maryna created an excellent website for our business. The process was fast and comfortable.",
         },
     },
 ];

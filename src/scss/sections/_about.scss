@@ -12,11 +12,6 @@
     padding: 20px 10px 70px 10px;
 }
 
-// home page: room between the quote card above and the "About" title
-.quote-section + .section-about {
-    margin-top: clamp(50px, 8vw, 110px);
-}
-
 .section-about::before {
     content: '';
     position: absolute;
@@ -57,11 +52,9 @@
     position: relative;
 
     width: 400px;
-    height: 400px;
+    height: auto;
 
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: top center;
+    border-radius: 24px;
 
     opacity: 0;
     transform: translateY(50px);
@@ -208,7 +201,6 @@
 
     .ellipse-photo {
         width: 340px;
-        height: 340px;
     }
 
     .about-photo-container {
@@ -265,7 +257,6 @@
     .ellipse-photo {
         position: relative;
         width: 300px;
-        height: 300px;
         margin: 0 auto;
     }
 
@@ -335,8 +326,7 @@
     }
 
     .ellipse-photo {
-        width: 240px;
-        height: 240px;
+        width: 260px;
     }
 }
 
@@ -406,3 +396,78 @@
     }
 }
 
+
+/* ================= LAYOUT: TITLE ABOVE THE PHOTO =================
+   The title (with its arrow) sits on top, starting at the photo's left edge;
+   below it the photo and the text side by side. One column on narrow
+   screens: title -> photo -> text. */
+
+.container-about {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+        "head  head"
+        "photo text";
+    column-gap: 60px;
+    row-gap: 48px;
+    align-items: center;
+}
+
+.about-head {
+    grid-area: head;
+    display: flex;
+    align-items: flex-end;
+    gap: 32px;
+}
+
+.about-head .about-title {
+    text-align: left;
+}
+
+.about-head .about-title-arrow {
+    flex-shrink: 0;
+    margin: 0 0 0.45em; // level with the last line of the title
+}
+
+.about-photo-container {
+    grid-area: photo;
+}
+
+.about-title-wrap {
+    grid-area: text;
+    margin-top: 0;
+}
+
+.about-title-wrap .about-content {
+    margin-top: 0;
+}
+
+@include down(950px) {
+    .container-about {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "head"
+            "photo"
+            "text";
+        justify-items: center;
+        row-gap: 36px;
+    }
+
+    .about-head {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+
+    .about-head .about-title {
+        text-align: center;
+    }
+
+    .about-head .about-title-arrow {
+        margin: 18px auto 0;
+    }
+
+    .about-title-wrap {
+        margin-top: 0;
+    }
+}

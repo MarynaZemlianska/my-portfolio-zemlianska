@@ -1,0 +1,25 @@
+/* ===== DOT WAVE behind every hero's content (canvas drawn by js/modules/hero-wave.js) ===== */
+.hero-wave {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+    width: 100%;
+    // almost the whole first screen, but never taller than the hero itself
+    height: min(85vh, 100%);
+    pointer-events: none;
+    // fade the edges into the page background
+    mask-image: linear-gradient(to bottom, transparent, #000 25%, #000 70%, transparent);
+}
+
+.hero-wave-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+// hero content sits above the wave
+.hero > :not(.hero-wave) {
+    z-index: 1;
+}

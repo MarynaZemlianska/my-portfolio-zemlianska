@@ -5,7 +5,7 @@ export function initFaq() {
     document.querySelectorAll(".faq-question").forEach((btn) => {
         const item = btn.closest(".faq-item");
         if (!item) return;
-        btn.setAttribute("aria-expanded", "false");
+        btn.setAttribute("aria-expanded", String(item.classList.contains("active")));
         btn.addEventListener("click", () => {
             const open = item.classList.toggle("active");
             btn.setAttribute("aria-expanded", String(open));
@@ -50,7 +50,16 @@ export function initAboutParallax() {
     const text = document.querySelector(".about-title-wrap");
     if (!section || !photo || !text || prefersReducedMotion()) return;
 
+    // only while photo and text sit side by side: in the one-column layout
+    // (title -> photo -> text) the opposite shifts made the text run over the photo
+    const sideBySide = window.matchMedia("(min-width: 951px)");
+
     const update = rafThrottle(() => {
+        if (!sideBySide.matches) {
+            photo.style.transform = "";
+            text.style.transform = "";
+            return;
+        }
         const rect = section.getBoundingClientRect();
         const vh = window.innerHeight;
         const progress = Math.min(Math.max((vh - rect.top) / (vh + rect.height), 0), 1);
@@ -59,6 +68,7 @@ export function initAboutParallax() {
     });
 
     window.addEventListener("scroll", update, { passive: true });
+    sideBySide.addEventListener("change", update);
     update();
 }
 
