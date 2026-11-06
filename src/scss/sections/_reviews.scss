@@ -131,6 +131,9 @@
 
 .review-card {
     flex: 0 0 var(--card-w);
+    // explicit width too: Safari sizes the max-content list from the items'
+    // unwrapped text width, not their flex-basis (list ~3x too wide, row empty)
+    width: var(--card-w);
     // spacing as a margin (not gap) so both copies are exactly the same width
     margin-right: var(--card-gap);
 
