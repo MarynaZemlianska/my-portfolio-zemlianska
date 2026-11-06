@@ -92,15 +92,20 @@
     font-size: 90px;
 }
 
+// small tracked caps line above the heading ("eyebrow"), not a second heading
 .hero-subtitle {
     display: block;
     font-family: var(--font-sans);
-    font-size: 18px;
-    opacity: 0.46; // was 0.4 (3.75:1) -> 4.6:1
-    max-width: 350px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6); // 6.3:1 on the hero background
+    max-width: none;
     word-break: normal;
     overflow-wrap: normal;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 
@@ -526,7 +531,8 @@
     }
 
     .hero-subtitle {
-        font-size: 14px;
+        font-size: 11px;
+        letter-spacing: 0.18em;
     }
 }
 

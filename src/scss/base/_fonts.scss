@@ -42,3 +42,13 @@ $cyrillic: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
   font-display: swap;
   unicode-range: $cyrillic;
 }
+
+// Logo only: the "Web{LAB} ZEMLIANSKA" mark keeps its original Inter shapes.
+// Subset to the logo letters (5 KB), see src/fonts/Inter-logo.woff2.
+@font-face {
+  font-family: 'Inter Logo';
+  src: url('../fonts/Inter-logo.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}

@@ -24,14 +24,14 @@
 .footer-logo-item{
     display: flex;
     flex-direction: column;
-    font-family: var(--font-sans);
+    font-family: var(--font-logo);
 }
 
 .footer-logo{
     display: flex;
     align-items: center;
     text-decoration: none;
-    font-family: var(--font-sans);
+    font-family: var(--font-logo);
     transition: transform 0.3s ease;
 }
 
