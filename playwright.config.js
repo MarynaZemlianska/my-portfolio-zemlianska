@@ -1,6 +1,8 @@
 import { defineConfig, devices } from "@playwright/test";
 
-// `npm test` builds the site and serves _site/ with production-like headers.
+// `npm test` builds the site into its own folder (_site-test/, so a running
+// `npm run dev`, which rewrites _site/ in dev mode, can't swap files under the
+// tests) and serves it with production-like headers.
 // Telegram is always mocked in tests (see tests/helpers.js) — no real leads are sent.
 export default defineConfig({
     testDir: "tests",
@@ -19,10 +21,12 @@ export default defineConfig({
         toHaveScreenshot: { maxDiffPixelRatio: 0.01, animations: "disabled" },
     },
     webServer: {
-        command: "npm run build && node tests/serve.js _site 5650",
+        // not cleaned between runs: the generated images stay as a cache
+        // (a clean build regenerates every AVIF/WebP and can take minutes)
+        command: "npx eleventy --output=_site-test && node tests/serve.js _site-test 5650",
         url: "http://127.0.0.1:5650/",
         reuseExistingServer: !process.env.CI,
-        timeout: 120_000,
+        timeout: 300_000,
     },
     projects: [
         { name: "chromium", use: { ...devices["Desktop Chrome"] } },

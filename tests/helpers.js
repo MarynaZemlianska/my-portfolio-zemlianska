@@ -48,10 +48,21 @@ export async function scrollThrough(page) {
     await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
 }
 
+// WebKit engine bug: every <select> makes WebKit apply an internal inline
+// stylesheet and report it as a CSP violation, even on a blank page with just
+// `<select>` under `style-src 'self'`. Not from the site; ignored only for
+// WebKit and only this exact message (any other CSP error still fails).
+const WEBKIT_SELECT_CSP = "Refused to apply a stylesheet because its hash, its nonce, or 'unsafe-inline' does not appear in the style-src directive of the Content Security Policy.";
+
 /** Collect uncaught errors and console errors (incl. CSP violations). */
 export function trackErrors(page) {
     const errors = [];
+    const isWebKit = page.context().browser()?.browserType().name() === "webkit";
     page.on("pageerror", (e) => errors.push(e.message));
-    page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
+    page.on("console", (m) => {
+        if (m.type() !== "error") return;
+        if (isWebKit && m.text() === WEBKIT_SELECT_CSP) return;
+        errors.push(m.text());
+    });
     return errors;
 }

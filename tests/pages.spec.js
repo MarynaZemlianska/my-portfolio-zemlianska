@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { PAGES, mockTelegram, scrollThrough, trackErrors } from "./helpers.js";
+import testimonials from "../src/_data/testimonials.js";
 
 for (const path of PAGES) {
     test(`page ${path}: loads cleanly`, async ({ page }) => {
@@ -66,8 +67,10 @@ for (const path of ["/", "/en/"]) {
 for (const [path, label] of [["/", "Оцінка: "], ["/en/", "Rating: "]]) {
     test(`home ${path}: testimonials show rating, text and author`, async ({ page }) => {
         await page.goto(path);
-        const cards = page.locator(".review-card");
-        await expect(cards).toHaveCount(5);
+        // the list is rendered twice for the seamless loop; the copy is aria-hidden
+        const cards = page.locator(".review-card:not([aria-hidden])");
+        await expect(cards).toHaveCount(testimonials.items.length);
+        await expect(page.locator(".review-card[aria-hidden='true']")).toHaveCount(testimonials.items.length);
         for (const card of await cards.all()) {
             await expect(card.locator(".review-text p")).not.toBeEmpty();
             await expect(card.locator(".review-name")).not.toBeEmpty();
@@ -77,12 +80,16 @@ for (const [path, label] of [["/", "Оцінка: "], ["/en/", "Rating: "]]) {
             }
         }
 
-        // keyboard: ArrowRight moves the slider when it overflows
+        // keyboard: with focus on the row the drift pauses, ArrowRight glides
+        // it by about one card (reviews-marquee.js moves it with a transform)
         const slider = page.locator(".reviews-slider");
+        const list = page.locator(".reviews-list");
         await slider.scrollIntoViewIfNeeded();
         await slider.focus();
+        const x = () => list.evaluate((el) => new DOMMatrix(getComputedStyle(el).transform).m41);
+        await page.waitForTimeout(200);
+        const before = await x();
         await page.keyboard.press("ArrowRight");
-        await expect.poll(() => slider.evaluate((el) => el.scrollLeft)).toBeGreaterThan(0);
-        await expect(page.locator(".reviews-prev")).toHaveAttribute("aria-disabled", "false");
+        await expect.poll(async () => Math.abs((await x()) - before)).toBeGreaterThan(50);
     });
 }

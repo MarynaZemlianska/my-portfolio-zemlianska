@@ -9,6 +9,7 @@ src/js/config.js
 # Dependencies & build output
 node_modules/
 _site/
+_site-test/
 
 # OS / editor
 .DS_Store
