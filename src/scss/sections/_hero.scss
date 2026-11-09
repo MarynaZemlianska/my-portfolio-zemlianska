@@ -836,8 +836,10 @@ $hero-duration: 0.9s;
     }
 }
 
-// home hero: the "Free consultation" / "View projects" buttons only on phones
-@media (min-width: 768px) {
+// home hero: the "Free consultation" / "View projects" buttons only while the
+// header has no consultation button of its own (layout/_header.scss hides it
+// at <= 1034px) — otherwise tablets had no way to open the form up top
+@media (min-width: 1035px) {
     .hero-home .hero-actions {
         display: none;
     }
